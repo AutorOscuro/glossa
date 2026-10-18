@@ -1,0 +1,57 @@
+/* demo.css — SOLO para la galería (demo.html). No se usa en la app.
+   Igual que el resto: sin colores escritos a mano, solo variables de tema. */
+
+.demo-page {
+  padding-block: var(--space-4) var(--space-12);
+}
+
+.demo-pad {
+  padding: var(--space-4);
+}
+
+.demo-gap {
+  margin-top: var(--space-4);
+}
+
+.demo-end {
+  max-width: 60ch;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  gap: var(--space-3);
+}
+
+/* Cada panel aplica su propio data-theme: fondo con resplandor y texto del tema. */
+.theme-scope {
+  padding: var(--space-4);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--bg-image), var(--bg);
+  color: var(--text);
+}
+
+.theme-scope p {
+  margin-bottom: var(--space-3);
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.swatch {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+}
+
+.swatch--accent { background: var(--accent); }
+.swatch--accent2 { background: var(--accent-2); }
+.swatch--info { background: var(--info); }
+.swatch--success { background: var(--success); }
+.swatch--danger { background: var(--danger); }

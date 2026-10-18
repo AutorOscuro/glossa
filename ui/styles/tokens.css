@@ -1,0 +1,78 @@
+/* tokens.css — variables que NO cambian con el tema (subparte 0.3).
+   Los colores viven en themes.css. Aquí: espaciado, radios, tipografía, capas, tiempos y zona segura.
+   Regla: ningún archivo CSS usa números "sueltos" para estas cosas; usa var(--…). */
+
+:root {
+  /* Espaciado (base 4 px, en rem para respetar el tamaño de letra del sistema) */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Radios (heredados de Sophia: 30 / 24 / 18 px) */
+  --radius-xl: 30px;   /* hojas inferiores, héroes */
+  --radius-lg: 24px;   /* tarjetas */
+  --radius-md: 18px;   /* botones, campos, avisos */
+  --radius-sm: 12px;   /* elementos pequeños */
+  --radius-pill: 999px;
+
+  /* Tipografía: fuentes del sistema (sin fuentes remotas, funciona sin conexión) */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+
+  /* Objetivos táctiles: mínimo 44 px (roadmap 4.2, punto 12) */
+  --touch-min: 44px;
+
+  /* Capas (de menor a mayor) */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-nav: 100;
+  --z-backdrop: 190;
+  --z-sheet: 200;
+  --z-toast: 300;
+
+  /* Movimiento. Con "reducir movimiento" base.css los pone en 0 ms. */
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Vidrio */
+  --glass-blur: 18px;
+
+  /* Maquetación */
+  --gutter: var(--space-4);        /* margen lateral en móvil */
+  --content-max: 40rem;            /* columna central en pantallas anchas */
+  --nav-h: 4rem;                   /* alto de la navegación inferior (0.4) */
+
+  /* Zona segura (muescas, barras de gestos). Valen 0 donde no aplican. */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}

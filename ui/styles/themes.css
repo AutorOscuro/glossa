@@ -1,0 +1,186 @@
+/* themes.css — colores por tema (subparte 0.3).
+   Se elige con <html data-theme="aurora|neo|claro">. Sin atributo = Aurora (tema por defecto).
+   Los tres temas definen EXACTAMENTE los mismos nombres de variable (lo verifica tests/design.test.mjs).
+   prefers-color-scheme NO cambia el tema por sí solo: solo sugiere el valor inicial (ver docs/DESIGN.md).
+
+   Convenciones de nombre:
+     --X          relleno (botón, barra, insignia)
+     --on-X       texto o icono que va SOBRE el relleno --X
+     --X-text     el color X usado como TEXTO sobre fondo o tarjeta
+   Los valores con transparencia (--surface…, --track) se comprueban compuestos sobre el fondo
+   y sobre los resplandores (--bg-glow-*): tools/contrast.mjs. Todo texto cumple WCAG AA (4,5:1). */
+
+/* ---------- Aurora (por defecto; oscuro, ámbar y morado) ---------- */
+:root,
+[data-theme="aurora"] {
+  color-scheme: dark;
+
+  --bg: #070a1d;
+  --bg-glow-1: #1c1156;
+  --bg-glow-2: #0a2c52;
+  --bg-image:
+    radial-gradient(120% 70% at 0% 0%, var(--bg-glow-1) 0%, transparent 60%),
+    radial-gradient(110% 60% at 100% 100%, var(--bg-glow-2) 0%, transparent 65%);
+
+  --surface: rgba(255, 255, 255, 0.07);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --surface-solid: #12162e;
+  --track: rgba(255, 255, 255, 0.14);
+
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  --border-input: #7c84b0;
+
+  --text: #f3f5ff;
+  --text-muted: #a9b1d8;
+
+  --accent: #ffc107;
+  --on-accent: #1b1400;
+  --accent-text: #ffc107;
+
+  --accent-2: #8b5cf6;
+  --on-accent-2: #070a1d;
+  --accent-2-text: #c9b6ff;
+
+  --info: #38bdf8;
+  --on-info: #04121c;
+  --info-text: #38bdf8;
+
+  --success: #10b981;
+  --on-success: #03140d;
+  --success-text: #34d399;
+
+  --danger: #ff4d67;
+  --on-danger: #1c0409;
+  --danger-text: #ff98a8;
+
+  --callout-bg: #ffd866;
+  --callout-text: #241a00;
+  --callout-border: #e0b63a;
+
+  --disabled-bg: #2a2f4f;
+  --disabled-text: #8f97c0;
+
+  --focus: #7dd3fc;
+  --overlay: rgba(3, 5, 15, 0.62);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Neo (oscuro, cian y magenta) ---------- */
+[data-theme="neo"] {
+  color-scheme: dark;
+
+  --bg: #05050a;
+  --bg-glow-1: #1a0a33;
+  --bg-glow-2: #04262c;
+  --bg-image:
+    radial-gradient(120% 70% at 100% 0%, var(--bg-glow-1) 0%, transparent 60%),
+    radial-gradient(110% 60% at 0% 100%, var(--bg-glow-2) 0%, transparent 65%);
+
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.11);
+  --surface-solid: #0f0f1a;
+  --track: rgba(255, 255, 255, 0.14);
+
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.3);
+  --border-input: #7a7fa3;
+
+  --text: #f4f6ff;
+  --text-muted: #a8aed0;
+
+  --accent: #00e5ff;
+  --on-accent: #00141a;
+  --accent-text: #00e5ff;
+
+  --accent-2: #c740ff;
+  --on-accent-2: #05050a;
+  --accent-2-text: #db86ff;
+
+  --info: #5aa9ff;
+  --on-info: #040c18;
+  --info-text: #5aa9ff;
+
+  --success: #00ff9c;
+  --on-success: #00140c;
+  --success-text: #00ff9c;
+
+  --danger: #ff4d6d;
+  --on-danger: #1c0409;
+  --danger-text: #ff7a90;
+
+  --callout-bg: #ffe066;
+  --callout-text: #1f1a00;
+  --callout-border: #d9b92e;
+
+  --disabled-bg: #23233a;
+  --disabled-text: #8c91b8;
+
+  --focus: #7df9ff;
+  --overlay: rgba(2, 2, 8, 0.66);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Claro (fondo claro, índigo) ---------- */
+[data-theme="claro"] {
+  color-scheme: light;
+
+  --bg: #f4f5fa;
+  --bg-glow-1: #e4e1ff;
+  --bg-glow-2: #d9eafb;
+  --bg-image:
+    radial-gradient(120% 70% at 0% 0%, var(--bg-glow-1) 0%, transparent 60%),
+    radial-gradient(110% 60% at 100% 100%, var(--bg-glow-2) 0%, transparent 65%);
+
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: rgba(255, 255, 255, 0.9);
+  --surface-solid: #ffffff;
+  --track: rgba(20, 24, 51, 0.12);
+
+  --border: rgba(20, 24, 51, 0.12);
+  --border-strong: rgba(20, 24, 51, 0.24);
+  --border-input: #70769a;
+
+  --text: #141833;
+  --text-muted: #4a5073;
+
+  --accent: #4f46e5;
+  --on-accent: #ffffff;
+  --accent-text: #4338ca;
+
+  --accent-2: #7c3aed;
+  --on-accent-2: #ffffff;
+  --accent-2-text: #6d28d9;
+
+  --info: #0369a1;
+  --on-info: #ffffff;
+  --info-text: #075985;
+
+  --success: #047857;
+  --on-success: #ffffff;
+  --success-text: #065f46;
+
+  --danger: #be123c;
+  --on-danger: #ffffff;
+  --danger-text: #9f1239;
+
+  --callout-bg: #fff0b8;
+  --callout-text: #3b2f00;
+  --callout-border: #e6c24d;
+
+  --disabled-bg: #e3e5ef;
+  --disabled-text: #6b7194;
+
+  --focus: #1d4ed8;
+  --overlay: rgba(20, 24, 51, 0.45);
+
+  --shadow-sm: 0 1px 2px rgba(20, 24, 51, 0.12);
+  --shadow-md: 0 8px 24px rgba(20, 24, 51, 0.12);
+  --shadow-lg: 0 16px 40px rgba(20, 24, 51, 0.18);
+}

@@ -1,0 +1,203 @@
+/* base.css — reinicio, tipografía, foco y movimiento reducido (subparte 0.3).
+   Orden de carga: tokens.css → themes.css → base.css → components.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--bg);
+  color: var(--text);
+  /* 100 % = respeta el tamaño de letra que William elija en Android */
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Tamaño de texto elegido en Ajustes (0.8): es un porcentaje, así que se SUMA al tamaño de letra del sistema, no lo reemplaza.
+   "normal" no necesita regla (100 %). Todo el diseño está en rem, por lo que escala completo. */
+html[data-text-size="small"] {
+  font-size: 87.5%;
+}
+
+html[data-text-size="large"] {
+  font-size: 112.5%;
+}
+
+html[data-text-size="xlarge"] {
+  font-size: 125%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: var(--weight-regular);
+  color: var(--text);
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fondo con resplandores: va fijo y detrás de todo; no afecta al desplazamiento. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg-image);
+  pointer-events: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------- Escala tipográfica ---------- */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-3);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); font-weight: var(--weight-semibold); }
+
+p {
+  margin: 0 0 var(--space-3);
+  max-width: 70ch;
+}
+
+small,
+.text-sm { font-size: var(--text-sm); }
+.text-xs { font-size: var(--text-xs); }
+.text-lg { font-size: var(--text-lg); }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--accent-text); }
+.text-success { color: var(--success-text); }
+.text-danger { color: var(--danger-text); }
+.text-strong { font-weight: var(--weight-semibold); }
+
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+a {
+  color: var(--accent-text);
+  text-underline-offset: 0.2em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-6) 0;
+}
+
+/* ---------- Foco visible (solo con teclado, no al tocar) ---------- */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- Utilidades de maquetación ---------- */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* .stack = columna con separación uniforme. El espacio lo pone SOLO el gap: los márgenes de los hijos
+   se anulan para que no se sumen. El tamaño se cambia con modificadores (no con una variable, porque
+   las variables CSS se heredan y se filtrarían a los .stack anidados). */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stack > * { margin-block: 0; }
+.stack--sm { gap: var(--space-2); }
+.stack--lg { gap: var(--space-6); }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.row--sm { gap: var(--space-2); }
+
+.grow { flex: 1 1 auto; min-width: 0; }
+
+.safe-top { padding-top: var(--safe-top); }
+.safe-bottom { padding-bottom: var(--safe-bottom); }
+
+/* Se bloquea el desplazamiento del fondo mientras hay una hoja abierta. */
+.no-scroll { overflow: hidden; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Movimiento reducido ----------
+   Los componentes toman TODOS sus tiempos de estos tokens; ponerlos en 0 apaga transiciones y
+   animaciones sin necesidad de !important. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Único !important del proyecto (justificado, ver DESIGN.md): el atributo hidden debe ganar siempre,
+   incluso a clases que fijan display (.btn, .badge…); sin esto, un botón "oculto" seguiría visible. */
+[hidden] {
+  display: none !important; /* !important justificado: hidden siempre gana */
+}

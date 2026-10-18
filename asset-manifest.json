@@ -1,0 +1,417 @@
+{
+  "schema": 1,
+  "version": "0.9.0",
+  "cacheVersion": "sophia-shell-0.9.0-fddcb403",
+  "files": [
+    {
+      "path": "app/appearance.js",
+      "hash": "6d0402d36a67b95e",
+      "size": 3141
+    },
+    {
+      "path": "app/boot-check.js",
+      "hash": "f24d41f5cc5ec5bf",
+      "size": 874
+    },
+    {
+      "path": "app/config.js",
+      "hash": "40fc5e5f26502f29",
+      "size": 602
+    },
+    {
+      "path": "app/dataTools.js",
+      "hash": "6f91466e29bfce00",
+      "size": 1782
+    },
+    {
+      "path": "app/fileIO.js",
+      "hash": "729e650e5b5090cd",
+      "size": 2738
+    },
+    {
+      "path": "app/firstRun.js",
+      "hash": "bfe5d519f934ece5",
+      "size": 2233
+    },
+    {
+      "path": "app/main.js",
+      "hash": "d67c0334d06b7168",
+      "size": 2745
+    },
+    {
+      "path": "app/router.js",
+      "hash": "577756610cd33150",
+      "size": 5928
+    },
+    {
+      "path": "app/settingsBoot.js",
+      "hash": "aefc4fbe102538ef",
+      "size": 1397
+    },
+    {
+      "path": "app/shell.js",
+      "hash": "4cf58e8d69e0a59e",
+      "size": 6446
+    },
+    {
+      "path": "app/storage.js",
+      "hash": "9ac104c2c0957c79",
+      "size": 2926
+    },
+    {
+      "path": "app/swRegister.js",
+      "hash": "a3cbb35b2dd849f0",
+      "size": 8983
+    },
+    {
+      "path": "app/theme.js",
+      "hash": "bdc0b01112cd5b25",
+      "size": 1563
+    },
+    {
+      "path": "app/versionCompare.js",
+      "hash": "1c337e0a4b2d1496",
+      "size": 2793
+    },
+    {
+      "path": "core/clock.js",
+      "hash": "8f112719b3133bbd",
+      "size": 1970
+    },
+    {
+      "path": "core/db.idb.js",
+      "hash": "edbd2b46af347565",
+      "size": 15930
+    },
+    {
+      "path": "core/db.js",
+      "hash": "7f05135a56884e7d",
+      "size": 14502
+    },
+    {
+      "path": "core/db.memory.js",
+      "hash": "3b0d827af398b0cd",
+      "size": 10277
+    },
+    {
+      "path": "core/dbErrors.js",
+      "hash": "61b1736a4b8f2e4e",
+      "size": 4323
+    },
+    {
+      "path": "core/dbOpen.js",
+      "hash": "c3adedce388831de",
+      "size": 1687
+    },
+    {
+      "path": "core/eventSchema.js",
+      "hash": "227e32549471be19",
+      "size": 12166
+    },
+    {
+      "path": "core/events.js",
+      "hash": "52a49507c74b0eb6",
+      "size": 10712
+    },
+    {
+      "path": "core/migrations.js",
+      "hash": "c4dadd66dc2ce8aa",
+      "size": 3890
+    },
+    {
+      "path": "core/persist.js",
+      "hash": "ad9f3159b551b5a4",
+      "size": 1688
+    },
+    {
+      "path": "core/rng.js",
+      "hash": "9531500745972584",
+      "size": 1496
+    },
+    {
+      "path": "core/settings.js",
+      "hash": "73a03dd2de503c6d",
+      "size": 9870
+    },
+    {
+      "path": "core/store.js",
+      "hash": "3f480583c5cc8cc3",
+      "size": 3364
+    },
+    {
+      "path": "core/sync.js",
+      "hash": "667228db9bae9ff4",
+      "size": 2397
+    },
+    {
+      "path": "core/version.js",
+      "hash": "a7b5f67016bffff1",
+      "size": 32
+    },
+    {
+      "path": "icons/icon-192.png",
+      "hash": "4d2e7f86026a8e54",
+      "size": 8733
+    },
+    {
+      "path": "icons/icon-512.png",
+      "hash": "89119a0a039298c0",
+      "size": 121229
+    },
+    {
+      "path": "icons/icon-maskable-512.png",
+      "hash": "f110ac4fbd011b87",
+      "size": 113277
+    },
+    {
+      "path": "icons/icon-maskable.svg",
+      "hash": "bc901c8e929f55ec",
+      "size": 955
+    },
+    {
+      "path": "icons/icon.svg",
+      "hash": "7c029210e7fcfb9d",
+      "size": 962
+    },
+    {
+      "path": "index.html",
+      "hash": "4fb802e9297dc1e6",
+      "size": 1253
+    },
+    {
+      "path": "manifest.webmanifest",
+      "hash": "181ea04cb9802a4a",
+      "size": 721
+    },
+    {
+      "path": "ui/components/_overlay.js",
+      "hash": "26f90e54a6b221e5",
+      "size": 3842
+    },
+    {
+      "path": "ui/components/_shared.js",
+      "hash": "2f788955b541055d",
+      "size": 7740
+    },
+    {
+      "path": "ui/components/_text.js",
+      "hash": "6a615301b1d7c992",
+      "size": 1583
+    },
+    {
+      "path": "ui/components/badge.js",
+      "hash": "b6ea9e8271dc7a25",
+      "size": 2744
+    },
+    {
+      "path": "ui/components/bottomNav.js",
+      "hash": "6abc84406fbb8b8b",
+      "size": 2277
+    },
+    {
+      "path": "ui/components/button.js",
+      "hash": "4e76d222c37a8676",
+      "size": 4363
+    },
+    {
+      "path": "ui/components/card.js",
+      "hash": "b616cf5e959e25bd",
+      "size": 4775
+    },
+    {
+      "path": "ui/components/chip.js",
+      "hash": "faeea7cc68262a52",
+      "size": 2626
+    },
+    {
+      "path": "ui/components/confirmDanger.js",
+      "hash": "c0ed7ea684feda70",
+      "size": 2676
+    },
+    {
+      "path": "ui/components/emptyState.js",
+      "hash": "fe0dbb8495c8b952",
+      "size": 1792
+    },
+    {
+      "path": "ui/components/errorBoundary.js",
+      "hash": "60e18ece9bde7898",
+      "size": 3290
+    },
+    {
+      "path": "ui/components/index.js",
+      "hash": "0ebaa8f7fa43a76e",
+      "size": 1668
+    },
+    {
+      "path": "ui/components/keyField.js",
+      "hash": "66da93c750dc0f89",
+      "size": 6002
+    },
+    {
+      "path": "ui/components/mascot.js",
+      "hash": "8ffe2e96f503b4bb",
+      "size": 4071
+    },
+    {
+      "path": "ui/components/modal.js",
+      "hash": "3fb32f546295c134",
+      "size": 4373
+    },
+    {
+      "path": "ui/components/progressBar.js",
+      "hash": "55370afb177cde83",
+      "size": 5416
+    },
+    {
+      "path": "ui/components/segmented.js",
+      "hash": "bdf72bcb607d4117",
+      "size": 4397
+    },
+    {
+      "path": "ui/components/sheet.js",
+      "hash": "2d2ad756e9a6bd19",
+      "size": 4840
+    },
+    {
+      "path": "ui/components/skeleton.js",
+      "hash": "ba13d074ce00c12d",
+      "size": 1827
+    },
+    {
+      "path": "ui/components/slider.js",
+      "hash": "96aaa3bafb603241",
+      "size": 6598
+    },
+    {
+      "path": "ui/components/tabs.js",
+      "hash": "d0b5cfba7124e421",
+      "size": 3808
+    },
+    {
+      "path": "ui/components/textInput.js",
+      "hash": "2aadae7520a0d7b1",
+      "size": 6338
+    },
+    {
+      "path": "ui/components/toast.js",
+      "hash": "48d92a0444c43036",
+      "size": 2152
+    },
+    {
+      "path": "ui/components/toggle.js",
+      "hash": "284a9ea344e4ab36",
+      "size": 3303
+    },
+    {
+      "path": "ui/components/updateNotice.js",
+      "hash": "636a46dde8cfc20a",
+      "size": 2352
+    },
+    {
+      "path": "ui/components/wordChip.js",
+      "hash": "a5ac4a1b6c363a72",
+      "size": 3519
+    },
+    {
+      "path": "ui/components/wordDiff.js",
+      "hash": "24f5eefa4b107c5d",
+      "size": 3970
+    },
+    {
+      "path": "ui/dom.js",
+      "hash": "4acaaa6043203395",
+      "size": 5184
+    },
+    {
+      "path": "ui/styles/base.css",
+      "hash": "66527f62d782fef5",
+      "size": 4627
+    },
+    {
+      "path": "ui/styles/components.css",
+      "hash": "aeecec17ddae5645",
+      "size": 13384
+    },
+    {
+      "path": "ui/styles/themes.css",
+      "hash": "264c3db145a72ce7",
+      "size": 4853
+    },
+    {
+      "path": "ui/styles/tokens.css",
+      "hash": "b87dd9dd36a759de",
+      "size": 2491
+    },
+    {
+      "path": "ui/styles/widgets.css",
+      "hash": "cee7b10507678f09",
+      "size": 18729
+    },
+    {
+      "path": "ui/views/_placeholder.js",
+      "hash": "83e32ba37357113c",
+      "size": 771
+    },
+    {
+      "path": "ui/views/_viewBase.js",
+      "hash": "efcd9f8eea8c24d6",
+      "size": 4022
+    },
+    {
+      "path": "ui/views/errores.js",
+      "hash": "4f801a7e9815d1eb",
+      "size": 210
+    },
+    {
+      "path": "ui/views/hoy.js",
+      "hash": "f29e78444b89c890",
+      "size": 194
+    },
+    {
+      "path": "ui/views/mapa.js",
+      "hash": "2755728f4b78694d",
+      "size": 207
+    },
+    {
+      "path": "ui/views/mas.js",
+      "hash": "858363515f8c1351",
+      "size": 1509
+    },
+    {
+      "path": "ui/views/notFound.js",
+      "hash": "13c5639f4d3a2b8b",
+      "size": 693
+    },
+    {
+      "path": "ui/views/onboarding.js",
+      "hash": "9876fcbf2336f0ad",
+      "size": 7715
+    },
+    {
+      "path": "ui/views/practicar.js",
+      "hash": "9cad028b5c7316a6",
+      "size": 218
+    },
+    {
+      "path": "ui/views/sesion.js",
+      "hash": "c2da6fc8b555f45c",
+      "size": 563
+    },
+    {
+      "path": "ui/views/settings.js",
+      "hash": "b20ae331f849b12c",
+      "size": 8805
+    },
+    {
+      "path": "ui/views/settingsData.js",
+      "hash": "16925de2220d16bf",
+      "size": 6374
+    },
+    {
+      "path": "ui/views/tema.js",
+      "hash": "daf28c62e87b65c8",
+      "size": 561
+    }
+  ]
+}
