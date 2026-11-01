@@ -1,3 +1,4 @@
+// @purpose: Suite de contrato de almacenamiento que debe cumplir cada motor de base (memoria en Node, IndexedDB real en el navegador); ayudante, no es una prueba.
 // Suite de CONTRATO de almacenamiento (subparte 0.7). No es una prueba por sí sola (empieza con "_"): la ejecuta
 // tests/db.contract.test.mjs contra cada motor. Un motor nuevo cumple el contrato si pasa todo esto sin excepciones.
 //
@@ -534,6 +535,130 @@ export function runDbContract(harness) {
     await rejects(v1.importAll(JSON.parse(JSON.stringify(await db.exportAll()))), 'NEWER_VERSION');
   });
 
+  // ---------- clear(store) (1.12-T1) ----------
+  t('clear: vacía solo ese almacén, devuelve cuántos había y deja sus índices vacíos', async () => {
+    const { db } = await fresh();
+    await seedAll(db);
+    await db.put('events', makeEvent());
+    await db.put('events', makeEvent());
+    const eventsBefore = await db.count('events');
+    const cardsBefore = await db.count('cards');
+    assert.ok(eventsBefore >= 2 && cardsBefore >= 1);
+    assert.equal(await db.clear('events'), eventsBefore);
+    assert.equal(await db.count('events'), 0);
+    assert.deepEqual(await db.query('events', { index: 'ts' }), []);
+    assert.equal(await db.count('events', { index: 'topics', value: 'cualquiera' }), 0);
+    assert.equal(await db.count('cards'), cardsBefore);
+  });
+
+  t('clear: un almacén vacío da 0, se puede repetir y se puede volver a escribir', async () => {
+    const { db } = await fresh();
+    assert.equal(await db.clear('notes'), 0);
+    assert.equal(await db.clear('notes'), 0);
+    await db.put('notes', { id: 'a', v: 1 });
+    assert.equal(await db.clear('notes'), 1);
+    await db.put('notes', { id: 'a', v: 2 });
+    assert.equal((await db.get('notes', 'a')).v, 2);
+    assert.equal(await db.count('notes'), 1);
+  });
+
+  t('clear(meta): conserva meta.schemaVersion y solo cuenta lo demás', async () => {
+    const { db } = await fresh();
+    await db.put('meta', { key: 'uno', value: 1 });
+    await db.put('meta', { key: 'dos', value: 2 });
+    assert.equal(await db.clear('meta'), 2);
+    assert.equal(await db.get('meta', 'uno'), null);
+    assert.deepEqual(await db.get('meta', 'schemaVersion'), { key: 'schemaVersion', value: 1 });
+    assert.equal(await db.clear('meta'), 0);
+    assert.deepEqual(await db.get('meta', 'schemaVersion'), { key: 'schemaVersion', value: 1 });
+  });
+
+  t('clear: almacén desconocido → UNKNOWN_STORE; antes de open → NOT_OPEN; después de close → CLOSED', async () => {
+    const disk = newDisk();
+    const db = create(disk);
+    await rejects(db.clear('notes'), 'NOT_OPEN');
+    await db.open();
+    for (const bad of ['nada', undefined, null, 5, '__proto__']) await rejects(db.clear(bad), 'UNKNOWN_STORE');
+    await db.put('notes', { id: 'x' });
+    await rejects(db.clear('constructor'), 'UNKNOWN_STORE');
+    assert.equal(await db.count('notes'), 1);
+    await db.close();
+    await rejects(db.clear('notes'), 'CLOSED');
+  });
+
+  t('clear va en orden con el resto aunque no se espere: lo escrito después sobrevive', async () => {
+    const { db } = await fresh();
+    await db.put('notes', { id: 'viejo' });
+    const p1 = db.clear('notes');
+    const p2 = db.put('notes', { id: 'nuevo' });
+    const p3 = db.query('notes');
+    assert.equal(await p1, 1);
+    await p2;
+    assert.deepEqual((await p3).map((r) => r.id), ['nuevo']);
+  });
+
+  t('tx: clear dentro de la transacción — ve el almacén vacío, puede escribir después y confirma todo junto', async () => {
+    const { db } = await fresh();
+    await db.put('notes', { id: 'a' });
+    await db.put('notes', { id: 'b' });
+    const out = await db.tx(['notes', 'cards'], async (tx) => {
+      await tx.put('notes', { id: 'c' });
+      const removed = await tx.clear('notes');
+      const seen = [await tx.count('notes'), await tx.get('notes', 'a'), (await tx.query('notes')).length];
+      await tx.put('notes', { id: 'd', v: 4 });
+      await tx.put('cards', makeCard());
+      return { removed, seen };
+    });
+    assert.equal(out.removed, 3);
+    assert.deepEqual(out.seen, [0, null, 0]);
+    assert.deepEqual((await db.query('notes')).map((r) => r.id), ['d']);
+    assert.equal(await db.count('cards'), 1);
+  });
+
+  t('tx: si fn lanza después de clear, NO se borra nada y se propaga ese error', async () => {
+    const { db } = await fresh();
+    await seedAll(db);
+    const before = await state(db);
+    const boom = new Error('fallo mío');
+    await assert.rejects(db.tx(['notes', 'events'], async (tx) => { await tx.clear('events'); await tx.clear('notes'); throw boom; }), (e) => e === boom);
+    assert.deepEqual(await state(db), before);
+  });
+
+  t('tx: clear fuera de alcance o tras terminar → TX_SCOPE; con almacén desconocido → UNKNOWN_STORE', async () => {
+    const { db } = await fresh();
+    await db.put('cards', makeCard());
+    await rejects(db.tx(['notes'], (tx) => tx.clear('cards')), 'TX_SCOPE');
+    let kept;
+    await db.tx(['notes'], async (tx) => { kept = tx; });
+    await rejects(kept.clear('notes'), 'TX_SCOPE');
+    await rejects(db.tx(['notes'], (tx) => tx.clear('nada')), 'UNKNOWN_STORE');
+    assert.equal(await db.count('cards'), 1);
+  });
+
+  t('tx: dos clear seguidos del mismo almacén y un clear de todos los almacenes dejan solo lo reservado', async () => {
+    const { db } = await fresh();
+    await seedAll(db);
+    const names = Object.keys(STORES);
+    const removed = await db.tx(names, async (tx) => {
+      const out = [];
+      for (const n of names) out.push(await tx.clear(n));
+      for (const n of names) assert.equal(await tx.clear(n), 0);
+      return out;
+    });
+    assert.ok(removed.some((n) => n > 0));
+    for (const n of names) assert.equal(await db.count(n), n === 'meta' ? 1 : 0);
+    assert.deepEqual(await db.get('meta', 'schemaVersion'), { key: 'schemaVersion', value: 1 });
+  });
+
+  t('clear: 2.000 filas se vacían de una vez y la base sigue usable', async () => {
+    const { db } = await fresh();
+    await db.tx(['notes'], async (tx) => { for (let i = 0; i < 2000; i += 1) await tx.put('notes', { id: `n${i}` }); });
+    assert.equal(await db.clear('notes'), 2000);
+    assert.equal(await db.count('notes'), 0);
+    await db.put('notes', { id: 'otra' });
+    assert.equal(await db.count('notes'), 1);
+  });
+
   // ---------- Fallos de escritura simulados ----------
   if (hooks) {
     t('cuota llena: put → QUOTA amable, lo anterior intacto, y se recupera al liberar espacio', async () => {
@@ -559,6 +684,17 @@ export function runDbContract(harness) {
         await tx.put('events', makeEvent());
         await tx.put('notes', { id: 'n' });
       }), 'UNKNOWN');
+      db.setWriteHook(null);
+      assert.deepEqual(await state(db), before);
+    });
+
+    t('fallo al vaciar con clear: QUOTA amable y no se borra nada', async () => {
+      const { db } = await fresh();
+      await seedAll(db);
+      const before = await state(db);
+      db.setWriteHook(() => { throw quota(); });
+      await rejects(db.clear('events'), 'QUOTA');
+      await rejects(db.tx(['cards', 'notes'], async (tx) => { await tx.clear('cards'); await tx.clear('notes'); }), 'QUOTA');
       db.setWriteHook(null);
       assert.deepEqual(await state(db), before);
     });

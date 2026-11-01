@@ -1,3 +1,4 @@
+// @purpose: Pruebas de app/versionCompare.js: versiones, nombres de caché y tipo de actualización.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseVersion, compareVersions, isNewerVersion, cacheVersionName, parseCacheVersion, updateKind, CACHE_PREFIX } from '../app/versionCompare.js';

@@ -1,0 +1,2408 @@
+{
+  "schema": 1,
+  "pack_id": "pack_seed_v1",
+  "version": 2,
+  "title_es": "Paquete semilla S0 (A2–B1)",
+  "created": "2026-10-31",
+  "authors": "Claude",
+  "license_note": "Original",
+  "topics": [
+    "gram.present_perfect.for_since",
+    "verb.irregular.past_simple",
+    "gram.modals.no_to",
+    "prep.patterns.gerund_after_verbs",
+    "prep.dependent.adjective_prep"
+  ],
+  "items": [
+    {
+      "id": "seed.pp.0001",
+      "facet": null,
+      "prompt_en": "My brother ___ in Bogotá since 2019.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de un familiar",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "lives",
+          "has lived",
+          "lived",
+          "is living"
+        ],
+        "correct": 1
+      },
+      "distractors": [
+        {
+          "text": "lives",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "lived",
+          "code": "TNS.PP_PS"
+        },
+        {
+          "text": "is living",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Con «since 2019» la acción empezó antes y sigue: hace falta present perfect (has lived), no el presente.",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.pp.0002",
+      "facet": null,
+      "prompt_en": "We have known each other ___ three years.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una amistad",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "since",
+          "for",
+          "during",
+          "from"
+        ],
+        "correct": 1
+      },
+      "distractors": [
+        {
+          "text": "since",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "during",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "from",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "«Three years» es una duración (una cantidad de tiempo): va con for. Since pide un punto de partida (2022, Monday).",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0003",
+      "facet": null,
+      "prompt_en": "She has worked at the clinic ___ last March.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar del trabajo",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "for",
+          "since",
+          "during",
+          "in"
+        ],
+        "correct": 1
+      },
+      "distractors": [
+        {
+          "text": "for",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "during",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "in",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "«Last March» es un momento de inicio, no una duración: va con since.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0004",
+      "facet": null,
+      "prompt_en": "I am studying English since last year.",
+      "accept": [
+        "I've been studying English since last year.",
+        "I have been studying English since last year.",
+        "I've studied English since last year.",
+        "I have studied English since last year."
+      ],
+      "grammar_note_es": "En español dices «estudio inglés desde el año pasado»; en inglés el presente con since no sirve: usa have been studying o have studied.",
+      "nuance_es": null,
+      "situation": "Contar cuánto llevas estudiando",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "I am studying English since last year.",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Con since + momento de inicio y algo que sigue, usamos present perfect (have + participio), no el presente continuo.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0005",
+      "facet": null,
+      "prompt_en": "They live in this house since 2018.",
+      "accept": [
+        "They've lived in this house since 2018.",
+        "They have lived in this house since 2018.",
+        "They've been living in this house since 2018.",
+        "They have been living in this house since 2018."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de unos vecinos",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "They live in this house since 2018.",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Since 2018 marca el inicio de algo que continúa: present perfect (have lived), no el presente simple.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0006",
+      "facet": null,
+      "prompt_en": "He has live here for five years.",
+      "accept": [
+        "He has lived here for five years.",
+        "He's lived here for five years.",
+        "He has been living here for five years.",
+        "He's been living here for five years."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Presentar a un compañero",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "He has live here for five years.",
+          "code": "TNS.PERF_FORM"
+        }
+      ],
+      "explain_es": "El present perfect lleva participio: has lived (no «has live»). For five years es la duración correcta.",
+      "error_codes": [
+        "TNS.PERF_FORM"
+      ]
+    },
+    {
+      "id": "seed.pp.0007",
+      "facet": null,
+      "prompt_en": "Maria ___ (work) at the bakery for six months.",
+      "accept": [
+        "has worked",
+        "has been working"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una amiga",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "works",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "worked",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "For six months mide una duración que llega hasta hoy: has worked o has been working.",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.pp.0008",
+      "facet": null,
+      "prompt_en": "We ___ (not see) each other since June.",
+      "accept": [
+        "haven't seen",
+        "have not seen"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de un amigo que no ves",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "didn't see",
+          "code": "TNS.PP_PS"
+        },
+        {
+          "text": "don't see",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Since June marca el inicio de algo que sigue: la negación del present perfect es haven't + participio (seen).",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.pp.0009",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "I've lived here for two years.",
+        "I have lived here for two years.",
+        "I've been living here for two years.",
+        "I have been living here for two years."
+      ],
+      "grammar_note_es": "«Desde hace» + tiempo se dice for + duración, con present perfect.",
+      "nuance_es": null,
+      "situation": "Hablar con un nuevo vecino",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "phrase_cloze",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "—¿Hace cuánto vives aquí? —Vivo aquí desde hace dos años.",
+      "data": {
+        "text": "I ___ here for two years.",
+        "answers": [
+          [
+            "have lived",
+            "have been living"
+          ]
+        ],
+        "key_es": "vivo aquí desde hace",
+        "key_en": "have lived",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Hace cuánto vives aquí?",
+            "en": "How long have you lived here?"
+          },
+          {
+            "who": "B",
+            "es": "Vivo aquí desde hace dos años.",
+            "en": "I ___ here for two years."
+          }
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Para «vivo aquí desde hace dos años» usamos have lived + for two years.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0010",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "I've played soccer since 2021.",
+        "I have played soccer since 2021.",
+        "I've been playing soccer since 2021.",
+        "I have been playing soccer since 2021."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de un pasatiempo",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "phrase_cloze",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "—¿Desde cuándo juegas fútbol? —Juego fútbol desde 2021.",
+      "data": {
+        "text": "I ___ soccer since 2021.",
+        "answers": [
+          [
+            "have played",
+            "have been playing"
+          ]
+        ],
+        "key_es": "juego fútbol desde",
+        "key_en": "have played",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Desde cuándo juegas fútbol?",
+            "en": "How long have you played soccer?"
+          },
+          {
+            "who": "B",
+            "es": "Juego fútbol desde 2021.",
+            "en": "I ___ soccer since 2021."
+          }
+        ]
+      },
+      "distractors": [],
+      "explain_es": "«Desde 2021» es un punto de partida: since 2021 con have played.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0011",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de dos primos",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "My cousin has lived in Medellín ___ 2020, and I have lived here ___ five years.",
+        "answers": [
+          [
+            "since"
+          ],
+          [
+            "for"
+          ]
+        ],
+        "bank": [
+          "since",
+          "for",
+          "during"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Since 2020 (punto de partida) y for five years (duración).",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "seed.pp.0012",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "She has been waiting for an hour."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Esperar en una fila",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "She",
+          "has",
+          "been",
+          "waiting",
+          "for",
+          "an",
+          "hour"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "El orden es sujeto + has/have + been + -ing + for + duración.",
+      "error_codes": []
+    },
+    {
+      "id": "seed.irr.0001",
+      "facet": null,
+      "prompt_en": "Last night we ___ pizza at home.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Contar qué comiste",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "ate",
+          "eated",
+          "eaten"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "eated",
+          "code": "VRB.IRREG_REGULARIZE"
+        },
+        {
+          "text": "eaten",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Eat es irregular: el pasado simple es ate. No lleva -ed (eated) y eaten es el participio, que necesita have.",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0002",
+      "facet": null,
+      "prompt_en": "She ___ the office at six yesterday.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de la hora de salida",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "left",
+          "leaved",
+          "has left"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "leaved",
+          "code": "VRB.IRREG_REGULARIZE"
+        },
+        {
+          "text": "has left",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Leave es irregular: el pasado simple es left. Con yesterday (momento terminado) va el pasado simple, no el present perfect.",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0003",
+      "facet": null,
+      "prompt_en": "I ___ to the market on Saturday.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Contar qué hiciste el fin de semana",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "went",
+          "goed",
+          "gone"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "goed",
+          "code": "VRB.IRREG_REGULARIZE"
+        },
+        {
+          "text": "gone",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Go es irregular: el pasado simple es went. Gone es el participio y necesita have.",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0004",
+      "facet": null,
+      "prompt_en": "Yesterday I buyed a new phone.",
+      "accept": [
+        "Yesterday I bought a new phone."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Contar una compra",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "Yesterday I buyed a new phone.",
+          "code": "VRB.IRREG_REGULARIZE"
+        }
+      ],
+      "explain_es": "Buy es irregular: el pasado simple es bought, no «buyed».",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE"
+      ]
+    },
+    {
+      "id": "seed.irr.0005",
+      "facet": null,
+      "prompt_en": "She didn't went to school on Monday.",
+      "accept": [
+        "She didn't go to school on Monday.",
+        "She did not go to school on Monday."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una ausencia",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "She didn't went to school on Monday.",
+          "code": "VRB.DOUBLE_PAST"
+        }
+      ],
+      "explain_es": "Con didn't el pasado ya lo marca el auxiliar: el verbo vuelve a la forma base (go), no went.",
+      "error_codes": [
+        "VRB.DOUBLE_PAST"
+      ]
+    },
+    {
+      "id": "seed.irr.0006",
+      "facet": null,
+      "prompt_en": "We have seen that movie last weekend.",
+      "accept": [
+        "We saw that movie last weekend."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una película",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "We have seen that movie last weekend.",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Con last weekend (momento terminado) va el pasado simple: saw, no have seen.",
+      "error_codes": [
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0007",
+      "facet": null,
+      "prompt_en": "Last Sunday my father ___ (drive) me to the airport.",
+      "accept": [
+        "drove"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Contar un viaje",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "drived",
+          "code": "VRB.IRREG_REGULARIZE"
+        },
+        {
+          "text": "has driven",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Drive es irregular: el pasado simple es drove. Last Sunday marca un momento terminado.",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0008",
+      "facet": null,
+      "prompt_en": "They ___ (not come) to the party last night.",
+      "accept": [
+        "didn't come",
+        "did not come"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una fiesta",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "didn't came",
+          "code": "VRB.DOUBLE_PAST"
+        },
+        {
+          "text": "haven't come",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "La negación del pasado simple es didn't + verbo base: didn't come, no didn't came.",
+      "error_codes": [
+        "VRB.DOUBLE_PAST",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0009",
+      "facet": null,
+      "prompt_en": "When I was a child, I ___ (write) letters to my grandmother.",
+      "accept": [
+        "wrote"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Recordar la infancia",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "writed",
+          "code": "VRB.IRREG_REGULARIZE"
+        },
+        {
+          "text": "have written",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Write es irregular: el pasado simple es wrote, no «writed».",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0010",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "I went to the cinema with my friends."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Contar el fin de semana",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "phrase_cloze",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "—¿Qué hiciste el sábado? —Fui al cine con mis amigos.",
+      "data": {
+        "text": "I ___ to the cinema with my friends.",
+        "answers": [
+          [
+            "went"
+          ]
+        ],
+        "key_es": "fui al cine",
+        "key_en": "went",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Qué hiciste el sábado?",
+            "en": "What did you do on Saturday?"
+          },
+          {
+            "who": "B",
+            "es": "Fui al cine con mis amigos.",
+            "en": "I ___ to the cinema with my friends."
+          }
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Para «fui» en una acción terminada usamos went (pasado de go), no «goed».",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE"
+      ]
+    },
+    {
+      "id": "seed.irr.0011",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Encontrar a un amigo",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "Yesterday I ___ an old friend in the street, and we ___ for a coffee.",
+        "answers": [
+          [
+            "saw"
+          ],
+          [
+            "went"
+          ]
+        ],
+        "bank": [
+          "saw",
+          "went",
+          "seen"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "See y go son irregulares: saw y went. Seen es el participio y necesita have.",
+      "error_codes": [
+        "VRB.IRREG_REGULARIZE",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "seed.irr.0012",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "She took a taxi to the airport."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Ir al aeropuerto",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "verb.irregular.past_simple"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "She",
+          "took",
+          "a",
+          "taxi",
+          "to",
+          "the",
+          "airport"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Take es irregular: took. Orden: sujeto + verbo en pasado + objeto + lugar.",
+      "error_codes": []
+    },
+    {
+      "id": "seed.can.0001",
+      "facet": null,
+      "prompt_en": "I can ___ the guitar.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de lo que sabes hacer",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "play",
+          "to play",
+          "plays"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to play",
+          "code": "VRB.CAN_TO"
+        },
+        {
+          "text": "plays",
+          "code": "VRB.THIRD_S_EXTRA"
+        }
+      ],
+      "explain_es": "Después de can va el verbo en forma base: can play. Sin «to» y sin -s.",
+      "error_codes": [
+        "VRB.CAN_TO",
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0002",
+      "facet": null,
+      "prompt_en": "My sister can ___ very fast.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de un familiar",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "run",
+          "to run",
+          "runs"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to run",
+          "code": "VRB.CAN_TO"
+        },
+        {
+          "text": "runs",
+          "code": "VRB.THIRD_S_EXTRA"
+        }
+      ],
+      "explain_es": "Can + verbo base: can run. No se añade «to» ni -s, aunque el sujeto sea she.",
+      "error_codes": [
+        "VRB.CAN_TO",
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0003",
+      "facet": null,
+      "prompt_en": "Can you ___ me with this bag?",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Pedir ayuda",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "help",
+          "to help",
+          "helps"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to help",
+          "code": "VRB.CAN_TO"
+        },
+        {
+          "text": "helps",
+          "code": "VRB.THIRD_S_EXTRA"
+        }
+      ],
+      "explain_es": "En preguntas con can el verbo también va en base: Can you help…?",
+      "error_codes": [
+        "VRB.CAN_TO",
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0004",
+      "facet": null,
+      "prompt_en": "Could you ___ the window, please?",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Pedir un favor",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "open",
+          "to open",
+          "opens"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to open",
+          "code": "VRB.CAN_TO"
+        },
+        {
+          "text": "opens",
+          "code": "VRB.THIRD_S_EXTRA"
+        }
+      ],
+      "explain_es": "Could es otro modal: could + verbo base (open), sin «to».",
+      "error_codes": [
+        "VRB.CAN_TO",
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0005",
+      "facet": null,
+      "prompt_en": "I can to swim.",
+      "accept": [
+        "I can swim."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de natación",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "I can to swim.",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Los modales no llevan «to»: can swim, no «can to swim». En español sí diríamos «puedo + infinitivo», de ahí el error.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "seed.can.0006",
+      "facet": null,
+      "prompt_en": "She can swims very well.",
+      "accept": [
+        "She can swim very well."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Elogiar a una amiga",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "She can swims very well.",
+          "code": "VRB.THIRD_S_EXTRA"
+        }
+      ],
+      "explain_es": "Tras can el verbo va en base y la -s ya no se usa: can swim.",
+      "error_codes": [
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0007",
+      "facet": null,
+      "prompt_en": "We couldn't to open the door.",
+      "accept": [
+        "We couldn't open the door.",
+        "We could not open the door."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Contar un problema",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "We couldn't to open the door.",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Could/couldn't + verbo base: couldn't open, sin «to».",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "seed.can.0008",
+      "facet": null,
+      "prompt_en": "He can ___ (speak) three languages.",
+      "accept": [
+        "speak"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de idiomas",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "speaks",
+          "code": "VRB.THIRD_S_EXTRA"
+        },
+        {
+          "text": "to speak",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Can + verbo base: can speak.",
+      "error_codes": [
+        "VRB.CAN_TO",
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0009",
+      "facet": null,
+      "prompt_en": "They can't ___ (come) to the party tonight.",
+      "accept": [
+        "come"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Rechazar una invitación",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "comes",
+          "code": "VRB.THIRD_S_EXTRA"
+        },
+        {
+          "text": "to come",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Can't + verbo base: can't come.",
+      "error_codes": [
+        "VRB.CAN_TO",
+        "VRB.THIRD_S_EXTRA"
+      ]
+    },
+    {
+      "id": "seed.can.0010",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "Yes, I can help you now."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Pedir y ofrecer ayuda",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "phrase_cloze",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "—¿Puedes ayudarme con la tarea? —Sí, puedo ayudarte ahora.",
+      "data": {
+        "text": "Yes, I can ___ you now.",
+        "answers": [
+          [
+            "help"
+          ]
+        ],
+        "key_es": "puedo ayudarte",
+        "key_en": "help",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Puedes ayudarme con la tarea?",
+            "en": "Can you help me with my homework?"
+          },
+          {
+            "who": "B",
+            "es": "Sí, puedo ayudarte ahora.",
+            "en": "Yes, I can ___ you now."
+          }
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Para «puedo ayudarte» usamos can help: modal + verbo base.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "seed.can.0011",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de conducir",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "He can ___ a bus, but he can't ___ a plane.",
+        "answers": [
+          [
+            "drive"
+          ],
+          [
+            "fly"
+          ]
+        ],
+        "bank": [
+          "drive",
+          "fly",
+          "to drive"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Can drive y can't fly: modal + verbo base. «To drive» no va después de can.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "seed.can.0012",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "She can play the piano very well."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de música",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "She",
+          "can",
+          "play",
+          "the",
+          "piano",
+          "very",
+          "well"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Orden: sujeto + can + verbo base + objeto + modo.",
+      "error_codes": []
+    },
+    {
+      "id": "seed.ger.0001",
+      "facet": null,
+      "prompt_en": "She avoided ___ to him.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Evitar a alguien",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "speaking",
+          "to speak",
+          "speak"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to speak",
+          "code": "GER.AVOID_TO"
+        },
+        {
+          "text": "speak",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Avoid va seguido de gerundio: avoided speaking.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0002",
+      "facet": null,
+      "prompt_en": "I enjoy ___ to music in the evening.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de gustos",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "listening",
+          "to listen",
+          "listen"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to listen",
+          "code": "GER.AVOID_TO"
+        },
+        {
+          "text": "listen",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Enjoy va seguido de gerundio: enjoy listening.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0003",
+      "facet": null,
+      "prompt_en": "He suggested ___ a taxi.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Proponer un plan",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "taking",
+          "to take",
+          "take"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to take",
+          "code": "GER.AVOID_TO"
+        },
+        {
+          "text": "take",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Suggest va seguido de gerundio: suggested taking.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0004",
+      "facet": null,
+      "prompt_en": "He stopped ___ meat ten years ago.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Dejar un hábito",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "eating",
+          "to eat",
+          "eat"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "to eat",
+          "code": "GER.STOP_REMEMBER"
+        },
+        {
+          "text": "eat",
+          "code": "GER.STOP_REMEMBER"
+        }
+      ],
+      "explain_es": "Stop + gerundio = dejar de hacer algo: stopped eating. Stop to eat significaría pararse para comer.",
+      "error_codes": [
+        "GER.STOP_REMEMBER"
+      ]
+    },
+    {
+      "id": "seed.ger.0005",
+      "facet": null,
+      "prompt_en": "She avoided to speak to him.",
+      "accept": [
+        "She avoided speaking to him."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Evitar a alguien",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "She avoided to speak to him.",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Avoid pide gerundio: avoided speaking, no «avoided to speak».",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0006",
+      "facet": null,
+      "prompt_en": "We enjoy to cook together.",
+      "accept": [
+        "We enjoy cooking together."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Cocinar juntos",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "We enjoy to cook together.",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Enjoy pide gerundio: enjoy cooking.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0007",
+      "facet": null,
+      "prompt_en": "I finished to write the report.",
+      "accept": [
+        "I finished writing the report."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Terminar un trabajo",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "I finished to write the report.",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Finish pide gerundio: finished writing.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0008",
+      "facet": null,
+      "prompt_en": "Do you mind ___ (open) the window?",
+      "accept": [
+        "opening"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Pedir un favor",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "to open",
+          "code": "GER.AVOID_TO"
+        },
+        {
+          "text": "open",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Mind va seguido de gerundio: Do you mind opening…?",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0009",
+      "facet": null,
+      "prompt_en": "They keep ___ (talk) during the movie.",
+      "accept": [
+        "talking"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Quejarse del ruido",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "to talk",
+          "code": "GER.AVOID_TO"
+        },
+        {
+          "text": "talk",
+          "code": "GER.AVOID_TO"
+        }
+      ],
+      "explain_es": "Keep va seguido de gerundio: keep talking.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0010",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "Yes, I enjoy cooking on Sundays."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de cocinar",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "phrase_cloze",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "—¿Te gusta cocinar? —Sí, disfruto cocinando los domingos.",
+      "data": {
+        "text": "Yes, I enjoy ___ on Sundays.",
+        "answers": [
+          [
+            "cooking"
+          ]
+        ],
+        "key_es": "disfruto cocinando",
+        "key_en": "cooking",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Te gusta cocinar?",
+            "en": "Do you like cooking?"
+          },
+          {
+            "who": "B",
+            "es": "Sí, disfruto cocinando los domingos.",
+            "en": "Yes, I enjoy ___ on Sundays."
+          }
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Para «disfruto cocinando» usamos enjoy + gerundio: enjoy cooking.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0011",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de planes",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "She enjoys ___ to music, and he suggests ___ a walk.",
+        "answers": [
+          [
+            "listening"
+          ],
+          [
+            "taking"
+          ]
+        ],
+        "bank": [
+          "listening",
+          "taking",
+          "to take"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Enjoy y suggest van con gerundio: enjoys listening, suggests taking.",
+      "error_codes": [
+        "GER.AVOID_TO"
+      ]
+    },
+    {
+      "id": "seed.ger.0012",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "He avoided talking about the problem."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de un problema",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "level": "B1",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "He",
+          "avoided",
+          "talking",
+          "about",
+          "the",
+          "problem"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Orden: sujeto + avoided + gerundio + complemento.",
+      "error_codes": []
+    },
+    {
+      "id": "seed.prep.0001",
+      "facet": null,
+      "prompt_en": "I'm interested ___ history.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de intereses",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "in",
+          "about",
+          "on"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "about",
+          "code": "PREP.DEP"
+        },
+        {
+          "text": "on",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Interested va con in: interested in. Con about se dice «talk about», no «interested about».",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0002",
+      "facet": null,
+      "prompt_en": "She is afraid ___ dogs.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de miedos",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "of",
+          "from",
+          "for"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "from",
+          "code": "PREP.DEP"
+        },
+        {
+          "text": "for",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Afraid va con of: afraid of.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0003",
+      "facet": null,
+      "prompt_en": "We are good ___ math.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de habilidades",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "at",
+          "in",
+          "on"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "in",
+          "code": "PREP.DEP"
+        },
+        {
+          "text": "on",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Good va con at para una habilidad: good at.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0004",
+      "facet": null,
+      "prompt_en": "He is married ___ a doctor.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una boda",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "to",
+          "with",
+          "for"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "with",
+          "code": "PREP.DEP"
+        },
+        {
+          "text": "for",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Married va con to: married to. No «married with».",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0005",
+      "facet": null,
+      "prompt_en": "I'm interested about music.",
+      "accept": [
+        "I'm interested in music.",
+        "I am interested in music."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de música",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "I'm interested about music.",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Interested va con in: interested in music.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0006",
+      "facet": null,
+      "prompt_en": "She is married with a teacher.",
+      "accept": [
+        "She is married to a teacher."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una colega",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "She is married with a teacher.",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Married va con to: married to.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0007",
+      "facet": null,
+      "prompt_en": "They are afraid from spiders.",
+      "accept": [
+        "They are afraid of spiders."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de arañas",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "They are afraid from spiders.",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Afraid va con of: afraid of.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0008",
+      "facet": null,
+      "prompt_en": "He is good in tennis.",
+      "accept": [
+        "He is good at tennis."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de deporte",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "fix_error",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "He is good in tennis.",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "Para una habilidad, good va con at: good at tennis.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0009",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "Yes, I'm very interested in it.",
+        "Yes, I am very interested in it."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de ciencia",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 2,
+      "type": "phrase_cloze",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "—¿Te gusta la ciencia? —Sí, estoy muy interesado en ella.",
+      "data": {
+        "text": "Yes, I'm very interested ___ it.",
+        "answers": [
+          [
+            "in"
+          ]
+        ],
+        "key_es": "interesado en",
+        "key_en": "in",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Te gusta la ciencia?",
+            "en": "Do you like science?"
+          },
+          {
+            "who": "B",
+            "es": "Sí, estoy muy interesado en ella.",
+            "en": "Yes, I'm very interested ___ it."
+          }
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Para «interesado en» usamos interested in.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0010",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de miedos y talentos",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "I'm afraid ___ spiders, and my sister is good ___ drawing.",
+        "answers": [
+          [
+            "of"
+          ],
+          [
+            "at"
+          ]
+        ],
+        "bank": [
+          "of",
+          "at",
+          "from"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Afraid of y good at: cada adjetivo pide su preposición.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0011",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de una familia",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "She is married ___ a teacher, and she is interested ___ art.",
+        "answers": [
+          [
+            "to"
+          ],
+          [
+            "in"
+          ]
+        ],
+        "bank": [
+          "to",
+          "in",
+          "with"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Married to e interested in.",
+      "error_codes": [
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "seed.prep.0012",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "She is very interested in history."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de historia",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "prep.dependent.adjective_prep"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "She",
+          "is",
+          "very",
+          "interested",
+          "in",
+          "history"
+        ]
+      },
+      "distractors": [],
+      "explain_es": "Orden: sujeto + is + very + interested + in + tema.",
+      "error_codes": []
+    }
+  ]
+}

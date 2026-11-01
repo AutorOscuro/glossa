@@ -1,3 +1,4 @@
+// @purpose: Pruebas del ciclo de vida de las vistas (ui/views/_viewBase.js): sin fugas, idempotente y con errores.
 // Pruebas del ciclo de vida de vistas (ui/views/_viewBase.js, subparte 0.4): sin fugas, idempotente, errores, asíncrono.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

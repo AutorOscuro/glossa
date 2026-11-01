@@ -1,7 +1,9 @@
+// @purpose: Pruebas de tools/audit.mjs: por cada regla, un archivo malo que se detecta y uno bueno que no se marca.
 // Pruebas de tools/audit.mjs: por cada regla, un archivo malo (se detecta) y uno bueno (no se marca).
 // Los textos prohibidos se arman con w() para que este archivo no dispare la auditoría del propio repo.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -12,9 +14,16 @@ const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const w = (...p) => p.join('');
 const rulesOf = (r) => r.findings.map((f) => f.rule);
 
-function run(files) {
+function runAll(files) {
   const t = makeTempRepo(files);
   try { return audit(t.root); } finally { t.cleanup(); }
+}
+
+// Los archivos de ejemplo de las pruebas de las demás reglas no llevan @purpose: aquí se ignora PURPOSE_FALTA.
+// Esa regla tiene sus propias pruebas más abajo, que usan runAll().
+function run(files) {
+  const r = runAll(files);
+  return { ...r, findings: r.findings.filter((f) => f.rule !== 'PURPOSE_FALTA') };
 }
 
 test('repo real: 0 hallazgos', () => {
@@ -164,11 +173,94 @@ test('CLI: salida 0 en limpio y 1 en español con archivo:línea cuando hay hall
   const ok = spawnSync(process.execPath, [script], { encoding: 'utf8' });
   assert.equal(ok.status, 0);
   assert.match(ok.stdout, /0 hallazgos/);
-  const t = makeTempRepo({ 'x.js': w('console.l', 'og(1);\n') });
+  const t = makeTempRepo({ 'x.js': w('// @purpose: ejemplo\nconsole.l', 'og(1);\n') });
   try {
     const bad = spawnSync(process.execPath, [script, t.root], { encoding: 'utf8' });
     assert.equal(bad.status, 1);
     assert.match(bad.stderr, /Auditoría: 1 hallazgo/);
-    assert.match(bad.stderr, /x\.js:1 {2}\[CONSOLE_LOG\]/);
+    assert.match(bad.stderr, /x\.js:2 {2}\[CONSOLE_LOG\]/);
   } finally { t.cleanup(); }
+});
+
+// ---- Convención @purpose (0.9-T2) ----
+
+const PURPOSE_OK = {
+  'a.js': '// @purpose: módulo de ejemplo\nexport const a = 1;\n',
+  'b.mjs': '// @purpose: módulo de ejemplo\nexport const b = 1;\n',
+  'c.css': '/* @purpose: estilos de ejemplo */\n.c { color: red; }\n',
+  'd.html': '<!doctype html>\n<!-- @purpose: página de ejemplo -->\n<p>hola</p>\n',
+  'e.cjs': '// @purpose: script de ejemplo\nconst e = 1;\n',
+};
+
+test('PURPOSE_FALTA: cada tipo de archivo con su @purpose pasa; sin él se marca, con su ruta y línea 0', () => {
+  assert.deepEqual(runAll(PURPOSE_OK).findings, []);
+  for (const [file, text] of Object.entries(PURPOSE_OK)) {
+    const sin = text.split('\n').filter((l) => !l.includes('@purpose')).join('\n');
+    const r = runAll({ [file]: sin });
+    assert.deepEqual(r.findings.map((f) => `${f.file}:${f.line}:${f.rule}`), [`${file}:0:PURPOSE_FALTA`], file);
+    assert.match(r.findings[0].message, /@purpose/);
+  }
+  assert.deepEqual(rulesOf(runAll({ 'vacio.js': '' })), ['PURPOSE_FALTA']);
+});
+
+test('PURPOSE_FALTA: vale hasta la línea 12; vacío, sin dos puntos o después de la 12 cuenta como falta; CRLF y acentos pasan', () => {
+  const at = (n, line) => '// relleno\n'.repeat(n - 1) + line + '\nexport const x = 1;\n';
+  assert.deepEqual(runAll({ 'a.js': at(12, '// @purpose: ok') }).findings, []);
+  assert.deepEqual(rulesOf(runAll({ 'a.js': at(13, '// @purpose: ok') })), ['PURPOSE_FALTA']);
+  assert.deepEqual(rulesOf(runAll({ 'a.js': '// @purpose:    \nexport const x = 1;\n' })), ['PURPOSE_FALTA']);
+  assert.deepEqual(rulesOf(runAll({ 'a.js': '// @purpose sin dos puntos\nexport const x = 1;\n' })), ['PURPOSE_FALTA']);
+  assert.deepEqual(runAll({ 'a.js': '// @purpose: Año nuevo 🎉 ñandú\r\nexport const x = 1;\r\n' }).findings, []);
+});
+
+test('PURPOSE_FALTA: no se exige en vendor/, en lo que no es código ni en los generados de la configuración; docs/ sí (igual que el mapa)', () => {
+  const sin = 'export const x = 1;\n';
+  assert.deepEqual(runAll({ 'vendor/lib.js': sin, 'content/x.json': '[]', 'docs/nota.md': 'hola\n', 'tools/x.py': 'x = 1\n' }).findings, []);
+  assert.deepEqual(rulesOf(runAll({ 'docs/x.js': sin })), ['PURPOSE_FALTA']);
+  const gen = JSON.stringify({ generados: ['gen/out.js'] });
+  assert.deepEqual(runAll({ 'tools/repo-map.config.json': gen, 'gen/out.js': sin }).findings, []);
+  assert.deepEqual(rulesOf(runAll({ 'tools/repo-map.config.json': gen, 'gen/otro.js': sin })), ['PURPOSE_FALTA']);
+  for (const bad of ['{nope', '[]', '{"generados":"gen/out.js"}', '{"generados":[7,null]}']) {
+    assert.ok(rulesOf(runAll({ 'tools/repo-map.config.json': bad, 'gen/out.js': sin })).includes('PURPOSE_FALTA'), `config rara: ${bad}`);
+  }
+});
+
+test('PURPOSE_FALTA: marca los mismos archivos que el mapa marca con ⚠ (mismo criterio)', () => {
+  const pf = 'export const x = 1;\n';
+  const ok = '// @purpose: ejemplo\nexport const x = 1;\n';
+  const files = {
+    'core/a.js': pf, 'core/b.js': ok, 'ui/x.css': pf.replace('export const x = 1;', '.x { color: red; }'),
+    'index.html': '<!doctype html>\n<p>hola</p>\n', 'vendor/v.js': pf, 'docs/n.md': 'hola\n', 'tests/t.test.mjs': pf,
+  };
+  const t = makeTempRepo(files);
+  try {
+    const flagged = audit(t.root).findings.filter((f) => f.rule === 'PURPOSE_FALTA').map((f) => f.file).sort();
+    const out = path.join(t.root, '..', `mapa-${path.basename(t.root)}.md`);
+    const r = spawnSync(process.execPath, [path.join(REPO, 'tools', 'repo-map.mjs'), '--root', t.root, '--out', out], { encoding: 'utf8' });
+    assert.equal(r.status, 0, r.stderr);
+    const map = fs.readFileSync(out, 'utf8');
+    fs.rmSync(out, { force: true });
+    fs.rmSync(out.replace(/\.md$/, '.hashes'), { force: true });
+    const inMap = [...map.matchAll(/^- `([^`]+)` .*⚠ sin @purpose/gm)].map((m) => m[1]).sort();
+    assert.deepEqual(flagged, ['core/a.js', 'index.html', 'tests/t.test.mjs', 'ui/x.css']);
+    assert.deepEqual(inMap, flagged);
+  } finally { t.cleanup(); }
+});
+
+test('CA-3 (0.9): todo archivo de código del repo real (salvo vendor/) tiene @purpose, comprobado con un recorrido y una expresión independientes del auditor', () => {
+  const skipDirs = new Set(['.git', 'node_modules']);
+  const vendor = path.join(REPO, 'vendor');
+  const missing = [];
+  let seen = 0;
+  (function rec(dir) {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) { if (!skipDirs.has(e.name) && full !== vendor) rec(full); continue; }
+      if (!/\.(?:js|mjs|cjs|css|html)$/i.test(e.name)) continue;
+      seen += 1;
+      const head = fs.readFileSync(full, 'utf8').split('\n').slice(0, 12).join('\n');
+      if (!/(?:\/\/|\/\*|<!--)\s*@purpose:\s*\S/.test(head)) missing.push(path.relative(REPO, full).split(path.sep).join('/'));
+    }
+  })(REPO);
+  assert.ok(seen > 200, `solo se vieron ${seen} archivos de código`);
+  assert.deepEqual(missing, []);
 });

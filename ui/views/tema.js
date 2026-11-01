@@ -1,3 +1,4 @@
+// @purpose: Vista provisional del detalle de un tema (#/tema/:id; la sustituye la subparte 3.2).
 import { h } from '../dom.js';
 import { createView } from './_viewBase.js';
 

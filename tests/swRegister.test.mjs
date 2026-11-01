@@ -1,3 +1,4 @@
+// @purpose: Pruebas del registro del service worker (app/swRegister.js) y del aviso de actualización con un navegador falso.
 // Pruebas de app/swRegister.js y ui/components/updateNotice.js (subparte 0.6, mitad B) con navegador y service worker FALSOS.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

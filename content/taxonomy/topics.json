@@ -1,0 +1,4350 @@
+{
+  "schema": 1,
+  "topics": [
+    {
+      "id": "gram.be.present_forms",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "To be en presente (am, is, are)",
+      "title_en": "To be: present (am / is / are)",
+      "prereq": [],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.be.negatives_questions",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "To be: negación, preguntas y respuestas cortas",
+      "title_en": "To be: negatives, questions and short answers",
+      "prereq": [
+        "gram.be.present_forms"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.be.past",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "To be en pasado (was, were)",
+      "title_en": "To be: past (was / were)",
+      "prereq": [
+        "gram.be.present_forms"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.subject",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Pronombres sujeto (I, you, he, she…)",
+      "title_en": "Subject pronouns (I, you, he, she…)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.object",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Pronombres objeto (me, him, them…)",
+      "title_en": "Object pronouns (me, him, them…)",
+      "prereq": [
+        "gram.pronouns.subject"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.subject_object_compound",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "«I» o «me» en sujetos compuestos (My friend and I)",
+      "title_en": "I vs. me in compound subjects (My friend and I)",
+      "prereq": [
+        "gram.pronouns.subject",
+        "gram.pronouns.object"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.possessive_adjectives",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Adjetivos posesivos (my, your, his…)",
+      "title_en": "Possessive adjectives (my, your, his…)",
+      "prereq": [
+        "gram.pronouns.subject"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.possessive_pronouns",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pronombres posesivos (mine, yours…)",
+      "title_en": "Possessive pronouns (mine, yours…)",
+      "prereq": [
+        "gram.pronouns.possessive_adjectives"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.reflexive",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pronombres reflexivos (myself, by yourself)",
+      "title_en": "Reflexive pronouns (myself, by yourself)",
+      "prereq": [
+        "gram.pronouns.object"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.each_other",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Each other y one another",
+      "title_en": "Each other / one another",
+      "prereq": [
+        "gram.pronouns.reflexive"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.indefinite",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pronombres indefinidos (somebody, anything, nobody…)",
+      "title_en": "Indefinite pronouns (somebody, anything, nobody…)",
+      "prereq": [
+        "gram.determiners.some_any"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.pronouns.one_ones",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "One y ones para no repetir el sustantivo",
+      "title_en": "One / ones to avoid repetition",
+      "prereq": [
+        "gram.pronouns.indefinite"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.demonstratives.this_that",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "This, that, these y those",
+      "title_en": "This, that, these and those",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.there_be.basic",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "There is y there are",
+      "title_en": "There is / there are",
+      "prereq": [],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.there_be.past_future_perfect",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "There was, there will be y there has been",
+      "title_en": "There was / there will be / there has been",
+      "prereq": [
+        "gram.there_be.basic",
+        "gram.be.past"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.subject.dummy_it",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Sujeto obligatorio e it impersonal (It is very important)",
+      "title_en": "Required subject and impersonal it (It is very important)",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.subject.dummy_there",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Sujeto obligatorio con there (There is…, no solo «Is…»)",
+      "title_en": "Required subject with there (There is…, not just \"Is…\")",
+      "prereq": [
+        "gram.there_be.basic",
+        "gram.subject.dummy_it"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.imperatives.basic",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Imperativo (Sit down, Don't worry)",
+      "title_en": "Imperatives (Sit down, Don't worry)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.imperatives.lets_suggestions",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Let's y sugerencias (Let's go, Why don't we…?)",
+      "title_en": "Let's and suggestions (Let's go, Why don't we…?)",
+      "prereq": [
+        "gram.imperatives.basic"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.word_order.statements",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Orden de la oración afirmativa (sujeto + verbo + objeto)",
+      "title_en": "Word order in statements (subject + verb + object)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.have.have_got",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Have y have got (posesión)",
+      "title_en": "Have and have got (possession)",
+      "prereq": [
+        "gram.pronouns.subject"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.numbers.cardinal_ordinal",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Números cardinales y ordinales",
+      "title_en": "Cardinal and ordinal numbers",
+      "prereq": [],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.noun_clauses.that_clauses",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Oraciones con that (I think that…, I'm sure that…)",
+      "title_en": "That-clauses (I think that…, I'm sure that…)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.articles.a_an",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Artículos a y an",
+      "title_en": "Articles a / an",
+      "prereq": [],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.articles.definite_the",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Artículo definido the",
+      "title_en": "The definite article",
+      "prereq": [
+        "gram.articles.a_an"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.articles.first_second_mention",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "A o the: primera y segunda mención",
+      "title_en": "A vs. the: first and second mention",
+      "prereq": [
+        "gram.articles.a_an",
+        "gram.articles.definite_the"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.articles.zero_article",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Sin artículo: plurales y generalizaciones (I like music)",
+      "title_en": "No article: plurals and generalizations (I like music)",
+      "prereq": [
+        "gram.articles.a_an",
+        "gram.articles.definite_the"
+      ],
+      "priority": 2,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.articles.institutions_fixed",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Artículos en frases fijas (at school, in the hospital)",
+      "title_en": "Articles in fixed phrases (at school, in the hospital)",
+      "prereq": [
+        "gram.articles.zero_article"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.articles.geographic_names",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Artículos con nombres geográficos (the Alps, Colombia)",
+      "title_en": "Articles with geographic names (the Alps, Colombia)",
+      "prereq": [
+        "gram.articles.definite_the",
+        "gram.articles.zero_article"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.determiners.some_any",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Some y any",
+      "title_en": "Some and any",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.determiners.much_many",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Much, many y a lot of",
+      "title_en": "Much, many and a lot of",
+      "prereq": [
+        "gram.nouns.countable_uncountable"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.determiners.all_every_each",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "All, every y each",
+      "title_en": "All, every and each",
+      "prereq": [
+        "gram.determiners.some_any"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.determiners.both_either_neither",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Both, either y neither",
+      "title_en": "Both, either and neither",
+      "prereq": [
+        "gram.determiners.some_any"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.determiners.other_another",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Other, another y the other",
+      "title_en": "Other, another and the other",
+      "prereq": [
+        "gram.determiners.some_any"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.determiners.no_none",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "No, none y any",
+      "title_en": "No, none and any",
+      "prereq": [
+        "gram.determiners.some_any"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.degree.enough_too",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Too y enough",
+      "title_en": "Too and enough",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.degree.so_such",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "So y such (so good, such a good movie)",
+      "title_en": "So and such (so good, such a good movie)",
+      "prereq": [
+        "gram.articles.a_an",
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.plural_regular",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Plurales regulares (-s, -es, -ies)",
+      "title_en": "Regular plurals (-s, -es, -ies)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.plural_irregular",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Plurales irregulares (children, men, feet)",
+      "title_en": "Irregular plurals (children, men, feet)",
+      "prereq": [
+        "gram.nouns.plural_regular"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.countable_uncountable",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Contables e incontables (advice, luggage, news)",
+      "title_en": "Countable and uncountable nouns (advice, luggage, news)",
+      "prereq": [
+        "gram.nouns.plural_regular"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.partitives",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Medidas de incontables (a piece of advice, a slice of)",
+      "title_en": "Partitives for uncountables (a piece of advice, a slice of)",
+      "prereq": [
+        "gram.nouns.countable_uncountable"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.quantifiers",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Few, a few, little, a little, fewer y less",
+      "title_en": "Few, a few, little, a little, fewer and less",
+      "prereq": [
+        "gram.nouns.countable_uncountable",
+        "gram.determiners.much_many"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.plural_only",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Sustantivos solo plurales y falsos plurales (scissors, news)",
+      "title_en": "Plural-only nouns and false plurals (scissors, news)",
+      "prereq": [
+        "gram.nouns.plural_regular"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.possessive_s",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Posesivo con 's (Maria's book)",
+      "title_en": "Possessive 's (Maria's book)",
+      "prereq": [
+        "gram.nouns.plural_regular"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.of_vs_s",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "'s o of para la posesión",
+      "title_en": "'s vs. of for possession",
+      "prereq": [
+        "gram.nouns.possessive_s"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.compound_nouns",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Sustantivos compuestos (bus stop, toothpaste)",
+      "title_en": "Compound nouns (bus stop, toothpaste)",
+      "prereq": [
+        "gram.nouns.plural_regular"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.nouns.collective_nouns",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Sustantivos colectivos (the police are, the team is)",
+      "title_en": "Collective nouns (the police are, the team is)",
+      "prereq": [
+        "gram.nouns.countable_uncountable"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_simple.form",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Presente simple: forma y uso",
+      "title_en": "Present simple: form and use",
+      "prereq": [
+        "gram.be.present_forms",
+        "gram.pronouns.subject"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_simple.third_person_s",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Presente simple: la -s de la tercera persona",
+      "title_en": "Present simple: third-person -s",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_simple.do_does_negatives",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Presente simple: negación con do y does",
+      "title_en": "Present simple: negatives with do / does",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_simple.frequency_adverbs",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Adverbios de frecuencia (always, usually, never)",
+      "title_en": "Adverbs of frequency (always, usually, never)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_simple.vs_continuous",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Presente simple o continuo",
+      "title_en": "Present simple vs. present continuous",
+      "prereq": [
+        "gram.present_simple.form",
+        "gram.present_continuous.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_continuous.form",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Presente continuo: forma y uso",
+      "title_en": "Present continuous: form and use",
+      "prereq": [
+        "gram.be.present_forms"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.stative_verbs.basic",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Verbos de estado sin -ing (know, want, like)",
+      "title_en": "Stative verbs without -ing (know, want, like)",
+      "prereq": [
+        "gram.present_continuous.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_simple.regular_ed",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Pasado simple con verbos regulares (-ed)",
+      "title_en": "Past simple with regular verbs (-ed)",
+      "prereq": [
+        "verb.regular.ed_spelling"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_simple.did_support",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pasado simple: negativas y preguntas con did",
+      "title_en": "Past simple: negatives and questions with did",
+      "prereq": [
+        "verb.irregular.past_simple"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_simple.time_expressions",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pasado simple con expresiones de tiempo (ago, yesterday, in 2020)",
+      "title_en": "Past simple with time expressions (ago, yesterday, in 2020)",
+      "prereq": [
+        "gram.past_simple.regular_ed"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_continuous.form",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pasado continuo: forma y uso",
+      "title_en": "Past continuous: form and use",
+      "prereq": [
+        "gram.be.past"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_continuous.vs_past_simple",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Pasado continuo o pasado simple (while, when)",
+      "title_en": "Past continuous vs. past simple (while, when)",
+      "prereq": [
+        "gram.past_continuous.form",
+        "gram.past_simple.regular_ed"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.used_to.form",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Used to para hábitos del pasado",
+      "title_en": "Used to for past habits",
+      "prereq": [
+        "gram.past_simple.did_support"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.used_to.get_used_to",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Be used to y get used to + -ing",
+      "title_en": "Be used to / get used to + -ing",
+      "prereq": [
+        "gram.used_to.form",
+        "prep.patterns.gerund_after_prepositions"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.would_habits.past",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Would para hábitos del pasado",
+      "title_en": "Would for past habits",
+      "prereq": [
+        "gram.used_to.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.form",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect: forma (have/has + participio)",
+      "title_en": "Present perfect: form (have/has + past participle)",
+      "prereq": [
+        "verb.irregular.past_participle"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c3",
+        "impact_high"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.for_since",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect con for y since",
+      "title_en": "Present perfect with for / since",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.vs_past_simple",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect o pasado simple",
+      "title_en": "Present perfect or past simple",
+      "prereq": [
+        "gram.present_perfect.form",
+        "verb.irregular.past_simple"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.been_gone",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect: been y gone",
+      "title_en": "Present perfect: been vs. gone",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.ever_never",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect con ever y never (experiencias)",
+      "title_en": "Present perfect with ever / never (experiences)",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.just_already_yet",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect con just, already y yet",
+      "title_en": "Present perfect with just, already and yet",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.time_expressions",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Present perfect con so far, lately, recently y this week",
+      "title_en": "Present perfect with so far, lately, recently and this week",
+      "prereq": [
+        "gram.present_perfect.vs_past_simple"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.first_time",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "It's the first time I've… (primera vez)",
+      "title_en": "It's the first time I've… (first time)",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect_continuous.form",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Present perfect continuous: forma y uso",
+      "title_en": "Present perfect continuous: form and use",
+      "prereq": [
+        "gram.present_perfect.form",
+        "gram.present_continuous.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect_continuous.vs_simple",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Present perfect continuous o present perfect simple",
+      "title_en": "Present perfect continuous vs. present perfect simple",
+      "prereq": [
+        "gram.present_perfect_continuous.form",
+        "gram.present_perfect.for_since"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_perfect.form",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Past perfect: forma (had + participio)",
+      "title_en": "Past perfect: form (had + past participle)",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_perfect.use_vs_past_simple",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Past perfect o pasado simple (lo que pasó antes)",
+      "title_en": "Past perfect vs. past simple (what happened first)",
+      "prereq": [
+        "gram.past_perfect.form",
+        "gram.present_perfect.vs_past_simple"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.past_perfect_continuous.form",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Past perfect continuous: forma y uso (had been studying)",
+      "title_en": "Past perfect continuous: form and use (had been studying)",
+      "prereq": [
+        "gram.past_perfect.form",
+        "gram.present_perfect_continuous.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.perfect.tense_choice",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Elegir entre pasado simple, present perfect y past perfect",
+      "title_en": "Choosing between past simple, present perfect and past perfect",
+      "prereq": [
+        "gram.present_perfect.vs_past_simple",
+        "gram.past_perfect.use_vs_past_simple"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.form",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Futuro con will: forma y uso",
+      "title_en": "Future with will: form and use",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.will_vs_going_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Will o going to (decisiones y planes)",
+      "title_en": "Will vs. going to (decisions and plans)",
+      "prereq": [
+        "gram.future.form"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.present_continuous_arrangements",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Presente continuo para planes acordados",
+      "title_en": "Present continuous for arrangements",
+      "prereq": [
+        "gram.present_continuous.form",
+        "gram.future.form"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.present_simple_timetable",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Presente simple para horarios (The train leaves at 8)",
+      "title_en": "Present simple for timetables (The train leaves at 8)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.time_clauses",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Futuro en cláusulas de tiempo (when I get there…)",
+      "title_en": "Future in time clauses (when I get there…)",
+      "prereq": [
+        "gram.future.form",
+        "gram.connectors.time_connectors"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.might_may_probably",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Probabilidad en el futuro (might, may, probably)",
+      "title_en": "Future possibility (might, may, probably)",
+      "prereq": [
+        "gram.future.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.in_the_past",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Futuro desde el pasado (was going to, would)",
+      "title_en": "Future in the past (was going to, would)",
+      "prereq": [
+        "gram.future.will_vs_going_to",
+        "gram.past_simple.did_support"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.continuous",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Future continuous (will be doing)",
+      "title_en": "Future continuous (will be doing)",
+      "prereq": [
+        "gram.future.form",
+        "gram.present_continuous.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.perfect",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Future perfect (will have done)",
+      "title_en": "Future perfect (will have done)",
+      "prereq": [
+        "gram.future.form",
+        "gram.present_perfect.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.future.perfect_continuous",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Future perfect continuous (will have been doing)",
+      "title_en": "Future perfect continuous (will have been doing)",
+      "prereq": [
+        "gram.future.perfect",
+        "gram.present_perfect_continuous.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.no_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "can / could + verbo base, sin to",
+      "title_en": "can / could + base verb, without to",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.can_ability",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Can para habilidad",
+      "title_en": "Can for ability",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.be_able_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Be able to (will be able to, haven't been able to)",
+      "title_en": "Be able to (will be able to, haven't been able to)",
+      "prereq": [
+        "gram.modals.can_ability",
+        "gram.modals.no_to"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.could_past_ability",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Could y was able to en el pasado",
+      "title_en": "Could vs. was able to in the past",
+      "prereq": [
+        "gram.modals.can_ability",
+        "gram.modals.be_able_to"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.permission_requests",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Permisos y peticiones (can, could, may)",
+      "title_en": "Permission and requests (can, could, may)",
+      "prereq": [
+        "gram.modals.can_ability"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.offers_suggestions",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Ofrecimientos y sugerencias (shall I, would you like)",
+      "title_en": "Offers and suggestions (shall I, would you like)",
+      "prereq": [
+        "gram.modals.can_ability"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.should_ought",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Should y ought to (consejos)",
+      "title_en": "Should and ought to (advice)",
+      "prereq": [
+        "gram.modals.no_to"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.must_have_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Must y have to (obligación)",
+      "title_en": "Must and have to (obligation)",
+      "prereq": [
+        "gram.modals.no_to"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.mustnt_dont_have_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Mustn't y don't have to",
+      "title_en": "Mustn't vs. don't have to",
+      "prereq": [
+        "gram.modals.must_have_to"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.need_neednt",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Need to y needn't",
+      "title_en": "Need to and needn't",
+      "prereq": [
+        "gram.modals.must_have_to"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.might_may_possibility",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Posibilidad con might y may",
+      "title_en": "Possibility with might and may",
+      "prereq": [
+        "gram.modals.no_to"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.would_polite",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Would para cortesía (Would you mind…? I'd like…)",
+      "title_en": "Would for politeness (Would you mind…? I'd like…)",
+      "prereq": [
+        "gram.modals.permission_requests"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.had_better",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Had better (más vale que)",
+      "title_en": "Had better",
+      "prereq": [
+        "gram.modals.should_ought"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.deduction_present",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Deducción en presente (must be, can't be)",
+      "title_en": "Present deduction (must be, can't be)",
+      "prereq": [
+        "gram.modals.might_may_possibility"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.deduction_perfect",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Deducción en el pasado (must have, can't have)",
+      "title_en": "Past deduction (must have, can't have)",
+      "prereq": [
+        "gram.modals.deduction_present",
+        "gram.present_perfect.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.perfect_regret",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Should have y shouldn't have (reproches y arrepentimiento)",
+      "title_en": "Should have / shouldn't have (criticism and regret)",
+      "prereq": [
+        "gram.modals.should_ought",
+        "gram.present_perfect.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.past_possibility",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Could have, might have y would have (lo que pudo pasar)",
+      "title_en": "Could have, might have and would have (what could have happened)",
+      "prereq": [
+        "gram.modals.deduction_perfect"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.modals.semi_modals",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Be supposed to, be allowed to y be bound to",
+      "title_en": "Be supposed to, be allowed to and be bound to",
+      "prereq": [
+        "gram.modals.must_have_to"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.word_order",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Preguntas: orden de las palabras",
+      "title_en": "Questions: word order",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.subject_object",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Preguntas sobre el sujeto y sobre el objeto (Who broke / Who did you see)",
+      "title_en": "Subject and object questions (Who broke / Who did you see)",
+      "prereq": [
+        "gram.questions.word_order"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.how_long_perfect",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Preguntas con how long y tiempos perfectos",
+      "title_en": "Questions with how long and perfect tenses",
+      "prereq": [
+        "gram.questions.word_order",
+        "gram.present_perfect.for_since"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.indirect",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Preguntas indirectas",
+      "title_en": "Indirect questions",
+      "prereq": [
+        "gram.questions.word_order"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.aux_do",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Preguntas con do, does y did (no olvidar el auxiliar)",
+      "title_en": "Questions with do, does and did (don't omit the auxiliary)",
+      "prereq": [
+        "gram.questions.word_order",
+        "gram.present_simple.do_does_negatives"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.yes_no_short_answers",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Preguntas de sí o no y respuestas cortas",
+      "title_en": "Yes/no questions and short answers",
+      "prereq": [
+        "gram.be.negatives_questions"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.wh_words",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Palabras interrogativas (what, where, when, why, who, how)",
+      "title_en": "Question words (what, where, when, why, who, how)",
+      "prereq": [
+        "gram.be.negatives_questions"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.how_much_many_often",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "How much, how many, how often y how long",
+      "title_en": "How much, how many, how often and how long",
+      "prereq": [
+        "gram.questions.wh_words"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.what_which",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "What, which y whose",
+      "title_en": "What, which and whose",
+      "prereq": [
+        "gram.questions.wh_words"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.what_like",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "What is it like? (preguntar cómo es algo)",
+      "title_en": "What is it like?",
+      "prereq": [
+        "gram.questions.wh_words"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.preposition_end",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Preposición al final (Who are you talking to?)",
+      "title_en": "Preposition at the end (Who are you talking to?)",
+      "prereq": [
+        "gram.questions.wh_words"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.tag_questions",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Tag questions (isn't it? don't you?)",
+      "title_en": "Tag questions (isn't it? don't you?)",
+      "prereq": [
+        "gram.questions.aux_do"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.questions.embedded_infinitive",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Palabra interrogativa + infinitivo (what to do)",
+      "title_en": "Question word + infinitive (what to do)",
+      "prereq": [
+        "gram.questions.wh_words"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.responses.so_neither",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "So do I y neither do I (coincidir)",
+      "title_en": "So do I / neither do I (agreeing)",
+      "prereq": [
+        "gram.questions.yes_no_short_answers"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.negation.double_negative",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Doble negación (I don't know anything)",
+      "title_en": "Double negatives (I don't know anything)",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.negation.not_no_any",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Not any, no y none",
+      "title_en": "Not any, no and none",
+      "prereq": [
+        "gram.determiners.some_any"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.position_basic",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Adjetivo antes del sustantivo",
+      "title_en": "Adjective before the noun",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.no_plural",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "Los adjetivos no tienen plural (awesome, no awesomes)",
+      "title_en": "Adjectives have no plural (awesome, not awesomes)",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.ed_ing",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Adjetivos -ed e -ing (bored / boring)",
+      "title_en": "-ed and -ing adjectives (bored / boring)",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.order",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Orden de los adjetivos (a nice big old house)",
+      "title_en": "Order of adjectives (a nice big old house)",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.comparatives_superlatives",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Comparativos y superlativos (taller, the tallest, more interesting)",
+      "title_en": "Comparatives and superlatives (taller, the tallest, more interesting)",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.as_as",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Comparaciones con as… as",
+      "title_en": "Comparisons with as… as",
+      "prereq": [
+        "gram.adjectives.comparatives_superlatives"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.double_comparative",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "The more… the better y no «more better»",
+      "title_en": "The more… the better, and no \"more better\"",
+      "prereq": [
+        "gram.adjectives.comparatives_superlatives"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.comparison_modifiers",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Matizar comparaciones (much bigger, slightly, by far)",
+      "title_en": "Modifying comparisons (much bigger, slightly, by far)",
+      "prereq": [
+        "gram.adjectives.comparatives_superlatives"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.gradable_extreme",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Adjetivos graduables y extremos (very good / absolutely amazing)",
+      "title_en": "Gradable and extreme adjectives (very good / absolutely amazing)",
+      "prereq": [
+        "gram.adverbs.intensifiers"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adjectives.adjective_vs_adverb",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Adjetivo o adverbio (good / well, beautiful / beautifully)",
+      "title_en": "Adjective vs. adverb (good / well, beautiful / beautifully)",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adverbs.formation_ly",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Adverbios en -ly y adverbios irregulares",
+      "title_en": "Adverbs in -ly and irregular adverbs",
+      "prereq": [
+        "gram.adjectives.adjective_vs_adverb"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adverbs.position",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Posición de los adverbios en la oración",
+      "title_en": "Position of adverbs in the sentence",
+      "prereq": [
+        "gram.adverbs.formation_ly"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adverbs.intensifiers",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Intensificadores (very, really, quite, too)",
+      "title_en": "Intensifiers (very, really, quite, too)",
+      "prereq": [
+        "gram.adjectives.position_basic"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adverbs.still_yet_already_anymore",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Still, yet, already y anymore",
+      "title_en": "Still, yet, already and anymore",
+      "prereq": [
+        "gram.adverbs.position"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.adverbs.hard_hardly",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Hard y hardly, late y lately",
+      "title_en": "Hard / hardly, late / lately",
+      "prereq": [
+        "gram.adverbs.formation_ly"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.stop_remember",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Remember, forget y stop (+ gerundio o infinitivo)",
+      "title_en": "Remember, forget and stop (+ gerund or infinitive)",
+      "prereq": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.purpose_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Finalidad con to + verbo (I went there to study)",
+      "title_en": "Purpose with to + verb (I went there to study)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.gerund_subject",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Gerundio como sujeto (Swimming is fun)",
+      "title_en": "Gerund as subject (Swimming is fun)",
+      "prereq": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.adjective_to_inf",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Adjetivo + infinitivo (easy to learn, glad to see)",
+      "title_en": "Adjective + infinitive (easy to learn, glad to see)",
+      "prereq": [
+        "gram.gerund_infinitive.purpose_to"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.like_love_prefer",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Like, love, hate y prefer (+ gerundio o infinitivo)",
+      "title_en": "Like, love, hate and prefer (+ gerund or infinitive)",
+      "prereq": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.try_regret_go_on",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Try, regret y go on (cambian de significado)",
+      "title_en": "Try, regret and go on (change of meaning)",
+      "prereq": [
+        "gram.gerund_infinitive.stop_remember"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.gerund_infinitive.participle_clauses",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Oraciones con participio (Walking down the street, I…)",
+      "title_en": "Participle clauses (Walking down the street, I…)",
+      "prereq": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.zero",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Condicional 0 (If you heat ice, it melts)",
+      "title_en": "Zero conditional (If you heat ice, it melts)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.first",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Condicional 1 (If it rains, I will stay)",
+      "title_en": "First conditional (If it rains, I will stay)",
+      "prereq": [
+        "gram.conditionals.zero",
+        "gram.future.form"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.second",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Condicional 2 (If I had money, I would travel)",
+      "title_en": "Second conditional (If I had money, I would travel)",
+      "prereq": [
+        "gram.conditionals.first",
+        "gram.past_simple.did_support"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.third_and_mixed",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Condicional 3 y condicionales mixtos",
+      "title_en": "Third and mixed conditionals",
+      "prereq": [
+        "gram.conditionals.second",
+        "gram.past_perfect.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.unless",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Unless (a menos que)",
+      "title_en": "Unless",
+      "prereq": [
+        "gram.conditionals.first"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.as_long_as",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "As long as, provided that y supposing",
+      "title_en": "As long as, provided that and supposing",
+      "prereq": [
+        "gram.conditionals.first"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.conditionals.alternatives",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "In case, otherwise y or else",
+      "title_en": "In case, otherwise and or else",
+      "prereq": [
+        "gram.conditionals.first"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.wish.wish_would_rather",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Wish y would rather con el tiempo correcto",
+      "title_en": "Wish and would rather with the right tense",
+      "prereq": [
+        "gram.conditionals.second"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.wish.wish_past_perfect",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Wish + past perfect (I wish I had studied)",
+      "title_en": "Wish + past perfect (I wish I had studied)",
+      "prereq": [
+        "gram.wish.wish_would_rather",
+        "gram.past_perfect.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.wish.wish_would",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Wish + would (quejas y cambios que queremos)",
+      "title_en": "Wish + would (complaints and wanted changes)",
+      "prereq": [
+        "gram.wish.wish_would_rather"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.wish.if_only",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "If only (ojalá)",
+      "title_en": "If only",
+      "prereq": [
+        "gram.wish.wish_would_rather"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.form",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Voz pasiva: forma (be + participio)",
+      "title_en": "Passive voice: form (be + past participle)",
+      "prereq": [
+        "verb.irregular.past_participle",
+        "gram.be.past"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.present_past",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Pasiva en presente y pasado (is made, was built)",
+      "title_en": "Passive in present and past (is made, was built)",
+      "prereq": [
+        "gram.passive.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.by_agent",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Agente con by (written by…)",
+      "title_en": "Agent with by (written by…)",
+      "prereq": [
+        "gram.passive.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.perfect_future",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Pasiva con perfecto y futuro (has been done, will be done)",
+      "title_en": "Passive with perfect and future (has been done, will be done)",
+      "prereq": [
+        "gram.passive.present_past",
+        "gram.present_perfect.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.modals",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Pasiva con modales (must be done, can be seen)",
+      "title_en": "Passive with modals (must be done, can be seen)",
+      "prereq": [
+        "gram.passive.present_past",
+        "gram.modals.no_to"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.reporting",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Pasiva para informar (It is said that…, He is thought to…)",
+      "title_en": "Reporting passives (It is said that…, He is thought to…)",
+      "prereq": [
+        "gram.passive.present_past"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.passive.active_vs_passive",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Cuándo usar activa y cuándo pasiva",
+      "title_en": "Active or passive: when to use each",
+      "prereq": [
+        "gram.passive.present_past"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.causative.make_let_have",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Make, let y have + persona + verbo (makes me work)",
+      "title_en": "Make, let and have + person + verb (makes me work)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.causative.have_something_done",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Have something done (I had my hair cut)",
+      "title_en": "Have something done (I had my hair cut)",
+      "prereq": [
+        "gram.passive.form"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.causative.get_something_done",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Get something done y get someone to do",
+      "title_en": "Get something done / get someone to do",
+      "prereq": [
+        "gram.causative.have_something_done"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.relative_clauses.defining_who_which_that",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Relativos who, which y that (oraciones especificativas)",
+      "title_en": "Relative pronouns who, which and that (defining clauses)",
+      "prereq": [
+        "gram.pronouns.indefinite"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.relative_clauses.who_whom_whose",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Who, whom y whose",
+      "title_en": "Who, whom and whose",
+      "prereq": [
+        "gram.relative_clauses.defining_who_which_that"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.relative_clauses.omitting_pronoun",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Omitir el relativo (the book I read)",
+      "title_en": "Omitting the relative pronoun (the book I read)",
+      "prereq": [
+        "gram.relative_clauses.defining_who_which_that"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.relative_clauses.where_when_why",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Where, when y why en oraciones de relativo",
+      "title_en": "Where, when and why in relative clauses",
+      "prereq": [
+        "gram.relative_clauses.defining_who_which_that"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.relative_clauses.non_defining",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Relativas explicativas (con comas)",
+      "title_en": "Non-defining relative clauses (with commas)",
+      "prereq": [
+        "gram.relative_clauses.defining_who_which_that"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.relative_clauses.preposition_relative",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Preposición + relativo (the person to whom I spoke)",
+      "title_en": "Preposition + relative (the person to whom I spoke)",
+      "prereq": [
+        "gram.relative_clauses.who_whom_whose"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.reported_speech.say_tell_ask",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Say, tell y ask (She told me, no «said me»)",
+      "title_en": "Say, tell and ask (She told me, not \"said me\")",
+      "prereq": [
+        "gram.pronouns.object"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.reported_speech.statements_and_orders",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Estilo indirecto: afirmaciones y órdenes",
+      "title_en": "Reported speech: statements and orders",
+      "prereq": [
+        "gram.reported_speech.say_tell_ask"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.reported_speech.backshift",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Estilo indirecto: cambio de tiempos verbales",
+      "title_en": "Reported speech: tense backshift",
+      "prereq": [
+        "gram.reported_speech.say_tell_ask",
+        "gram.past_simple.did_support"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.reported_speech.questions",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Estilo indirecto: preguntas",
+      "title_en": "Reported speech: questions",
+      "prereq": [
+        "gram.reported_speech.backshift",
+        "gram.questions.indirect"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.reported_speech.time_place_changes",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Estilo indirecto: cambios de lugar y tiempo (here → there)",
+      "title_en": "Reported speech: place and time changes (here → there)",
+      "prereq": [
+        "gram.reported_speech.backshift"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.reported_speech.reporting_verbs",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Verbos para informar (suggest, promise, admit)",
+      "title_en": "Reporting verbs (suggest, promise, admit)",
+      "prereq": [
+        "gram.reported_speech.statements_and_orders"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.and_but_or",
+      "area": "gram",
+      "level": "A1",
+      "title_es": "And, but y or",
+      "title_en": "And, but and or",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.because_so",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Because y so (causa y consecuencia)",
+      "title_en": "Because and so (cause and result)",
+      "prereq": [
+        "gram.connectors.and_but_or"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.sequencers",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Secuenciadores (first, then, after that, finally)",
+      "title_en": "Sequencers (first, then, after that, finally)",
+      "prereq": [
+        "gram.connectors.and_but_or"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.contrast",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Conectores de contraste (however, although, but)",
+      "title_en": "Contrast connectors (however, although, but)",
+      "prereq": [
+        "gram.connectors.because_so"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.despite_in_spite_of",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Despite e in spite of (sin «of» tras despite)",
+      "title_en": "Despite and in spite of (no \"of\" after despite)",
+      "prereq": [
+        "gram.connectors.contrast"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_mid",
+        "c4"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.reason_result",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Causa y resultado (because of, since, as, therefore)",
+      "title_en": "Reason and result (because of, since, as, therefore)",
+      "prereq": [
+        "gram.connectors.because_so"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.purpose_so_that",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Finalidad con so that e in order to",
+      "title_en": "Purpose with so that and in order to",
+      "prereq": [
+        "gram.connectors.because_so"
+      ],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.time_connectors",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Conectores de tiempo (when, while, as soon as, until)",
+      "title_en": "Time connectors (when, while, as soon as, until)",
+      "prereq": [
+        "gram.connectors.sequencers"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.addition",
+      "area": "gram",
+      "level": "B1",
+      "title_es": "Añadir ideas (also, as well as, besides, in addition)",
+      "title_en": "Adding ideas (also, as well as, besides, in addition)",
+      "prereq": [
+        "gram.connectors.and_but_or"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.connectors.formal_linkers",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Conectores formales (nevertheless, moreover, whereas)",
+      "title_en": "Formal linkers (nevertheless, moreover, whereas)",
+      "prereq": [
+        "gram.connectors.contrast"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.as_if.tenses",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "As if y as though con el tiempo correcto",
+      "title_en": "As if and as though with the right tense",
+      "prereq": [
+        "gram.conditionals.second"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.inversion.negative_adverbs",
+      "area": "gram",
+      "level": "C1",
+      "title_es": "Inversión tras adverbios negativos (hardly, not until)",
+      "title_en": "Inversion after negative adverbs (hardly, not until)",
+      "prereq": [
+        "gram.questions.aux_do"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.inversion.conditional",
+      "area": "gram",
+      "level": "C1",
+      "title_es": "Inversión condicional (were it not for, had I known)",
+      "title_en": "Conditional inversion (were it not for, had I known)",
+      "prereq": [
+        "gram.conditionals.third_and_mixed",
+        "gram.inversion.negative_adverbs"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.emphasis.cleft_it",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Oraciones de relieve con it (It was Ana who…)",
+      "title_en": "It-cleft sentences (It was Ana who…)",
+      "prereq": [
+        "gram.relative_clauses.defining_who_which_that"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "gram.subjunctive.suggest_demand",
+      "area": "gram",
+      "level": "B2",
+      "title_es": "Subjuntivo tras suggest, demand y insist (I suggest he be)",
+      "title_en": "Subjunctive after suggest, demand and insist (I suggest he be)",
+      "prereq": [
+        "gram.reported_speech.reporting_verbs"
+      ],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "confirmed_gap",
+        "c5"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.regular.ed_spelling",
+      "area": "verb",
+      "level": "A1",
+      "title_es": "Ortografía del pasado regular (stopped, carried, liked)",
+      "title_en": "Spelling of regular past forms (stopped, carried, liked)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.irregular.past_simple",
+      "area": "verb",
+      "level": "A2",
+      "title_es": "Pasado simple de los verbos irregulares",
+      "title_en": "Past simple of irregular verbs",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3",
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.irregular.past_participle",
+      "area": "verb",
+      "level": "A2",
+      "title_es": "Participio de los verbos irregulares",
+      "title_en": "Past participle of irregular verbs",
+      "prereq": [
+        "verb.irregular.past_simple"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c3",
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.irregular.groups_by_pattern",
+      "area": "verb",
+      "level": "A2",
+      "title_es": "Irregulares agrupados por patrón (sing-sang-sung, ring-rang-rung)",
+      "title_en": "Irregular verbs grouped by pattern (sing-sang-sung, ring-rang-rung)",
+      "prereq": [
+        "verb.irregular.past_simple",
+        "verb.irregular.past_participle"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_high",
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.patterns.verb_to_infinitive",
+      "area": "verb",
+      "level": "A2",
+      "title_es": "Verbos seguidos de to + infinitivo (want to, decide to)",
+      "title_en": "Verbs followed by to + infinitive (want to, decide to)",
+      "prereq": [
+        "gram.modals.no_to"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.patterns.verb_object_infinitive",
+      "area": "verb",
+      "level": "B1",
+      "title_es": "Verbo + persona + to + infinitivo (want you to, ask him to)",
+      "title_en": "Verb + object + to + infinitive (want you to, ask him to)",
+      "prereq": [
+        "verb.patterns.verb_to_infinitive"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.patterns.two_objects",
+      "area": "verb",
+      "level": "B1",
+      "title_es": "Verbos con dos complementos (give me it / give it to me)",
+      "title_en": "Verbs with two objects (give me it / give it to me)",
+      "prereq": [
+        "gram.pronouns.object"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "verb.get.main_meanings",
+      "area": "verb",
+      "level": "B1",
+      "title_es": "Los usos de get (conseguir, llegar, volverse)",
+      "title_en": "The main uses of get (obtain, arrive, become)",
+      "prereq": [
+        "gram.present_simple.form"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c9"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.patterns.gerund_after_verbs",
+      "area": "prep",
+      "level": "B1",
+      "title_es": "Verbo + gerundio (avoid, enjoy, suggest)",
+      "title_en": "Verb + gerund (avoid, enjoy, suggest)",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.patterns.gerund_after_prepositions",
+      "area": "prep",
+      "level": "B1",
+      "title_es": "Preposición + gerundio (for visiting)",
+      "title_en": "Preposition + gerund (for visiting)",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.dependent.adjective_prep",
+      "area": "prep",
+      "level": "A2",
+      "title_es": "Adjetivo + preposición (interested in, good at, afraid of)",
+      "title_en": "Adjective + preposition (interested in, good at, afraid of)",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.dependent.verb_prep",
+      "area": "prep",
+      "level": "A2",
+      "title_es": "Verbo + preposición (arrive in, look for, listen to)",
+      "title_en": "Verb + preposition (arrive in, look for, listen to)",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.dependent.arrive_get_to",
+      "area": "prep",
+      "level": "A2",
+      "title_es": "Arrive in/at y get to (no «arrived to»)",
+      "title_en": "Arrive in / at and get to (not \"arrived to\")",
+      "prereq": [
+        "prep.dependent.verb_prep"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.dependent.noun_prep",
+      "area": "prep",
+      "level": "B1",
+      "title_es": "Sustantivo + preposición (reason for, problem with)",
+      "title_en": "Noun + preposition (reason for, problem with)",
+      "prereq": [
+        "prep.dependent.verb_prep"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_high",
+        "c3"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.dependent.like_as",
+      "area": "prep",
+      "level": "B1",
+      "title_es": "Like y as (comparar o función)",
+      "title_en": "Like vs. as (comparison or role)",
+      "prereq": [
+        "prep.dependent.adjective_prep"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.time.in_on_at",
+      "area": "prep",
+      "level": "A1",
+      "title_es": "In, on y at con tiempo y fechas",
+      "title_en": "In, on and at with time and dates",
+      "prereq": [],
+      "priority": 5,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "strength",
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.place.in_on_at",
+      "area": "prep",
+      "level": "A1",
+      "title_es": "In, on y at con lugares",
+      "title_en": "In, on and at with places",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "foundation",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.movement.to_into_through",
+      "area": "prep",
+      "level": "A2",
+      "title_es": "Movimiento (to, into, through, across)",
+      "title_en": "Movement (to, into, through, across)",
+      "prereq": [
+        "prep.place.in_on_at"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.time.for_during_while",
+      "area": "prep",
+      "level": "A2",
+      "title_es": "For, during y while",
+      "title_en": "For, during and while",
+      "prereq": [
+        "prep.time.in_on_at"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.time.by_until",
+      "area": "prep",
+      "level": "B1",
+      "title_es": "By y until",
+      "title_en": "By and until",
+      "prereq": [
+        "prep.time.in_on_at"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "prep.phrases.fixed",
+      "area": "prep",
+      "level": "A2",
+      "title_es": "Frases fijas con preposición (by car, on foot, in a hurry)",
+      "title_en": "Fixed phrases with prepositions (by car, on foot, in a hurry)",
+      "prereq": [
+        "prep.place.in_on_at"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.basics.what_is_phrasal",
+      "area": "phr",
+      "level": "A2",
+      "title_es": "Qué es un phrasal verb: significado literal y figurado",
+      "title_en": "What a phrasal verb is: literal and figurative meaning",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.types.separable_inseparable",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs separables e inseparables",
+      "title_en": "Separable and inseparable phrasal verbs",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.separable.pronoun_position",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Pronombre en phrasal verbs separables (pick it up)",
+      "title_en": "Pronoun position in separable phrasal verbs (pick it up)",
+      "prereq": [
+        "phr.types.separable_inseparable"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.look",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con look (look after, look up, look for)",
+      "title_en": "Phrasal verbs with look (look after, look up, look for)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.get",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con get (get up, get on, get over)",
+      "title_en": "Phrasal verbs with get (get up, get on, get over)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.take",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con take (take off, take care of)",
+      "title_en": "Phrasal verbs with take (take off, take care of)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.put",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con put (put on, put off, put up with)",
+      "title_en": "Phrasal verbs with put (put on, put off, put up with)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.turn",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con turn (turn on, turn down, turn out)",
+      "title_en": "Phrasal verbs with turn (turn on, turn down, turn out)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.run",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con run (run out of, run into)",
+      "title_en": "Phrasal verbs with run (run out of, run into)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.pick",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con pick (pick up, pick out)",
+      "title_en": "Phrasal verbs with pick (pick up, pick out)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "phr.groups.go",
+      "area": "phr",
+      "level": "B1",
+      "title_es": "Phrasal verbs con go (go on, go out, go through)",
+      "title_en": "Phrasal verbs with go (go on, go out, go through)",
+      "prereq": [
+        "phr.basics.what_is_phrasal"
+      ],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.false_friends",
+      "area": "vocab",
+      "level": "A2",
+      "title_es": "Falsos amigos (actually, sensible, approve)",
+      "title_en": "False friends (actually, sensible, approve)",
+      "prereq": [],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.calques",
+      "area": "vocab",
+      "level": "A2",
+      "title_es": "Calcos del español (I get fun → I have fun)",
+      "title_en": "Calques from Spanish (I get fun → I have fun)",
+      "prereq": [],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_mid",
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.collocations.do_make_say_tell",
+      "area": "vocab",
+      "level": "A2",
+      "title_es": "Colocaciones con do, make, say y tell",
+      "title_en": "Collocations with do, make, say and tell",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.collocations.verb_noun",
+      "area": "vocab",
+      "level": "B1",
+      "title_es": "Colocaciones verbo + sustantivo (take a break, give advice)",
+      "title_en": "Verb + noun collocations (take a break, give advice)",
+      "prereq": [
+        "vocab.collocations.do_make_say_tell"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.word_formation.suffixes",
+      "area": "vocab",
+      "level": "B1",
+      "title_es": "Formación de palabras: sufijos (success → successful)",
+      "title_en": "Word formation: suffixes (success → successful)",
+      "prereq": [],
+      "priority": 2,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.word_formation.prefixes",
+      "area": "vocab",
+      "level": "B1",
+      "title_es": "Formación de palabras: prefijos (un-, dis-, re-)",
+      "title_en": "Word formation: prefixes (un-, dis-, re-)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "vocab.register.formal_informal",
+      "area": "vocab",
+      "level": "B2",
+      "title_es": "Registro formal e informal",
+      "title_en": "Formal and informal register",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c7"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.ed_endings",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Terminaciones -ed: /t/, /d/ e /ɪd/",
+      "title_en": "-ed endings: /t/, /d/ and /ɪd/",
+      "prereq": [
+        "verb.regular.ed_spelling"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.s_endings",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Terminaciones -s: /s/, /z/ e /ɪz/",
+      "title_en": "-s endings: /s/, /z/ and /ɪz/",
+      "prereq": [
+        "gram.present_simple.third_person_s"
+      ],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.consonant_clusters",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Grupos de consonantes finales (asked, helped)",
+      "title_en": "Final consonant clusters (asked, helped)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.s_cluster",
+      "area": "pron",
+      "level": "A1",
+      "title_es": "/s/ + consonante al inicio (school, not «eschool»)",
+      "title_en": "Initial /s/ + consonant (school, not \"eschool\")",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.vowels_short_long",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Vocales cortas y largas (ship / sheep)",
+      "title_en": "Short and long vowels (ship / sheep)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.v_b",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Sonidos /v/ y /b/ (very / berry)",
+      "title_en": "The sounds /v/ and /b/ (very / berry)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.th_sounds",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Sonidos /θ/ y /ð/ (think, this)",
+      "title_en": "The sounds /θ/ and /ð/ (think, this)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.final_voicing",
+      "area": "pron",
+      "level": "B1",
+      "title_es": "Sonoridad final (bed, not «bet»)",
+      "title_en": "Final voicing (bed, not \"bet\")",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.american_r",
+      "area": "pron",
+      "level": "B1",
+      "title_es": "La /r/ americana",
+      "title_en": "The American /r/",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.word_stress",
+      "area": "pron",
+      "level": "A2",
+      "title_es": "Acento de palabra (PHOtograph, phoTOgrapher)",
+      "title_en": "Word stress (PHOtograph, phoTOgrapher)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "pron.schwa",
+      "area": "pron",
+      "level": "B1",
+      "title_es": "La vocal débil /ə/ (schwa)",
+      "title_en": "The weak vowel /ə/ (schwa)",
+      "prereq": [
+        "pron.word_stress"
+      ],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c12"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.capitalization",
+      "area": "spell",
+      "level": "A1",
+      "title_es": "Mayúsculas: la I y los nombres propios",
+      "title_en": "Capitalization: the pronoun I and proper nouns",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.everyday_every_day",
+      "area": "spell",
+      "level": "A2",
+      "title_es": "Everyday y every day",
+      "title_en": "Everyday vs. every day",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.common_misspellings",
+      "area": "spell",
+      "level": "A2",
+      "title_es": "Errores de ortografía frecuentes (career, whether, first)",
+      "title_en": "Common misspellings (career, whether, first)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.homophones",
+      "area": "spell",
+      "level": "A2",
+      "title_es": "Homófonos (brake / break, their / there / they're)",
+      "title_en": "Homophones (brake / break, their / there / they're)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "impact_low",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.spanish_interference",
+      "area": "spell",
+      "level": "A2",
+      "title_es": "Interferencia del español (semestre → semester)",
+      "title_en": "Interference from Spanish (semestre → semester)",
+      "prereq": [],
+      "priority": 3,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "tags": [
+        "transfer_es",
+        "impact_low",
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.plural_endings",
+      "area": "spell",
+      "level": "A1",
+      "title_es": "Plural y tercera persona: -s, -es, -ies (opportunities)",
+      "title_en": "Plural and third-person endings: -s, -es, -ies (opportunities)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.apostrophes",
+      "area": "spell",
+      "level": "B1",
+      "title_es": "Apóstrofos: contracciones y posesivo (it's / its)",
+      "title_en": "Apostrophes: contractions and possessives (it's / its)",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "spell.punctuation_commas",
+      "area": "spell",
+      "level": "B1",
+      "title_es": "Puntuación básica: comas y punto",
+      "title_en": "Basic punctuation: commas and full stops",
+      "prereq": [],
+      "priority": 4,
+      "diagnosed_gap": false,
+      "min_items": 12,
+      "tags": [
+        "c14"
+      ],
+      "status": "draft"
+    }
+  ]
+}

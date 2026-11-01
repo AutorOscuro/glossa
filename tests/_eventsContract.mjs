@@ -1,3 +1,4 @@
+// @purpose: Contrato de events.log() sobre un motor de base, compartido por la prueba en memoria y la de IndexedDB real; ayudante, no es una prueba.
 // Contrato de events.log() sobre un motor de base (subparte 1.1, cuarto 2 mitad B). No es una prueba por sí mismo:
 // lo corren tests/events.contract.test.mjs (motor en memoria, en Node) y tests/browser/events-idb.entry.js (IndexedDB real, en Chromium).
 //   runEventsContract({ label, newDisk(), create(disk) → db sin abrir, volume, queryVolume, perfBudgetMs })
@@ -551,7 +552,7 @@ export function runEventsContract({ label, newDisk, create, volume = 2000, query
   t('los eventos son inmutables: la API pública no tiene update/put/delete/remove y está congelada', async () => {
     const { db, events } = await open(newDisk());
     try {
-      assert.deepEqual(Object.keys(events).sort(), ['byCard', 'byItem', 'byTopic', 'clearAll', 'countByDay', 'log', 'recentErrorsByCode', 'since']);
+      assert.deepEqual(Object.keys(events).sort(), ['byCard', 'byItem', 'byTopic', 'clearAll', 'countByDay', 'insertIn', 'log', 'prepare', 'recentErrorsByCode', 'since']);
       for (const name of ['update', 'put', 'set', 'delete', 'remove', 'edit', 'patch', 'clear', 'purge', 'deleteAll']) assert.equal(events[name], undefined, name);
       assert.equal(Object.isFrozen(events), true);
       // Un módulo ES es estricto: tocar un objeto congelado lanza TypeError (se comprueba a mano porque el arnés del navegador no trae assert.throws).

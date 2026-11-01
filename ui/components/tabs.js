@@ -1,3 +1,4 @@
+// @purpose: Pestañas ARIA para cambiar de panel dentro de una pantalla.
 // Pestañas (subparte 0.5): cambian de panel dentro de una pantalla. Patrón ARIA tablist/tab/tabpanel.
 // (La navegación inferior de la app es otra cosa: ui/components/bottomNav.js, 0.4.)
 //

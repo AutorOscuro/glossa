@@ -1,6 +1,6 @@
 # ROADMAP MAESTRO — APP "SOPHIA INGLÉS" (nombre de trabajo)
 
-> **Versión del roadmap:** 1.3 · **Fecha:** 15 oct 2026 · *(1.1: la guía y el comando "agregar paquete" pasan de 9.8 a 1.3 · 1.2: William publica y prueba por hitos, no por subparte: ver 5.H · 1.3: todo chat termina con el bloque "QUÉ HACES TÚ AHORA", ver 5.2)* · **Autor:** Claude (chat Administrador Central)
+> **Versión del roadmap:** 1.11 · **Fecha:** 25 oct 2026 · *(1.11: decisiones del Administrador sobre las 20 preguntas acumuladas, colocadas en los tramos donde se aplican; nueva subparte 2.10 (rediseño de temas); 4.R.9 pruebas de rendimiento · 1.10: registro y uso obligatorio de TRAMPAS: cada chat lee las trampas de los anteriores, las cita antes de construir, las registra apenas las encuentra y las reporta en su bitácora, ver 4.T · 1.1: la guía y el comando "agregar paquete" pasan de 9.8 a 1.3 · 1.2: William publica y prueba por hitos, no por subparte: ver 5.H · 1.3: todo chat termina con el bloque "QUÉ HACES TÚ AHORA", ver 5.2 · 1.4: cadena autónoma: SECUENCIA MAESTRA con contenido incluido (sección 10), chats de contenido (Pista C y 14.B), reglas de versión del roadmap (sección 0) y sección 16 con el historial · 1.5: los chats de contenido pueden actualizar las pruebas que verifican directamente los archivos que reemplazan; lote C14 · 1.6: roturas intencionales con presupuesto (4.R), entregas parciales completas, preguntas que no bloquean y archivos externos, ver 3.A y 5.1 · 1.7: plan de tramos para cada subparte pendiente, sección 17 · 1.8: mapa del repositorio, lectura dirigida y arranque rápido sin explorar: subparte 0.9 · 1.9: estado real de 1.7-T1 y 1.7-T2 y guía verificada para 1.7-T3 y 1.7-T4 tomadas de los informes de traspaso (8.7, 8.15, 7.12, 4.R.6, 10 y 17), y la entrada 1.8, que estaba al final del archivo fuera de la sección 16, colocada en su sitio)* · **Autor:** Claude (chat Administrador Central)
 > **Propietario del proyecto:** William (18 años, Bucaramanga, Colombia).
 > **Este archivo es la fuente de verdad.** Si algo en tu chat contradice este archivo, gana este archivo. Si este archivo es ambiguo o parece equivocado, NO improvises: ve a la sección 3.4 (protocolo de consulta al Administrador).
 
@@ -12,16 +12,17 @@ Eres uno de varios chats de Claude que construirán, UNA SUBPARTE A LA VEZ, una 
 
 **Tu rutina, en orden:**
 
-1. Lee este archivo COMPLETO, de arriba abajo, antes de escribir una sola línea de código. Léelo aunque sea largo.
-2. Abre `PROJECT_STATE.md` dentro del repositorio que William te adjunta (zip). Ahí dice qué subpartes están terminadas, cuál es la siguiente y qué problemas quedaron abiertos. Si William NO adjuntó el zip y la subparte no es la 0.1, **detente y pídeselo**.
-3. Identifica TU subparte: es la primera con estado `PENDIENTE` cuyas dependencias estén todas `HECHA`. William puede indicarte otra explícitamente; si te indica una cuyas dependencias no están hechas, avísale y no la construyas.
+1. **Lectura dirigida del roadmap (no leas todo; ahorra recursos).** Lee: la **cabecera** (versión), las secciones **0, 3, 4, 5, 12, 13 y 14**, la **sección 17: los "Puntos de acople" y solo tu tramo**, y el **texto completo de TU subparte** junto con las secciones 7 y 8 que ella cite. **No leas las demás Partes** (ni la Pista C, salvo que seas chat de contenido). Si algo de tu subparte menciona una sección que no conoces, búscala con `grep -n` y léela solo entonces. **Versión del roadmap (regla anti-confusión):** compara la cabecera con la línea `Versión del roadmap` de `PROJECT_STATE.md`. Si la de este archivo es **MAYOR**, es una actualización legítima del Administrador: lee **solo la última entrada de la sección 16** (qué cambió), anótalo en `DECISIONS.md`, copia ESTE archivo sobre `docs/ROADMAP.md` del repo, actualiza esa línea de `PROJECT_STATE.md` (versión y `sha256`) y sigue sin alarmas. Si es **IGUAL**, todo en orden. Si es **MENOR**, William te adjuntó un roadmap viejo: avísale y espera. **El hash es solo un registro, nunca un motivo de error si la versión es mayor.** Si el repo tiene una comprobación del hash del roadmap (p. ej. en `tools/check-structure.mjs`), actualízala al hash de este archivo. El archivo adjunto en este chat siempre manda sobre el `docs/ROADMAP.md` del zip.
+2. **Arranque rápido: confía en el mapa y no explores.** El chat anterior ya investigó el repositorio y lo dejó descrito, de forma exhaustiva y comprobable, en `docs/REPO_MAP.md` (mapa de archivos con sus exportaciones, cómo encaja todo, convenciones y trampas, y el "Delta" del último tramo) y en `PROJECT_STATE.md` (estado vigente). Haz exactamente esto: (a) lee `PROJECT_STATE.md`; (b) lee `docs/REPO_MAP.md`: **su parte manual completa y solo las áreas que vas a tocar** (usa `grep -n "^## Área"` para encontrarlas); (c) ejecuta **`npm run map -- --check`**: si responde OK, **confía ciegamente** en lo que leíste; si lista diferencias, mira solo esos archivos y corrige el mapa; (d) **no uses `ls -R`, `find`, `tree` ni abras archivos de código por curiosidad**: abre solo los que vas a modificar y, de los demás, usa las firmas del mapa (abre uno solo si la firma no basta); (e) consulta `DECISIONS.md` y `docs/CONTRACTS.md` **buscando por el tema**, no leyéndolos completos; (f) **lee completa la sección manual «Convenciones y trampas» del mapa (es corta y es obligatoria, no es opcional) y aplica 4.T**: antes de construir, escribe qué trampas (por ID) afectan a tu tramo y cómo las vas a evitar. Si William NO adjuntó el zip y tu paso no es el primero, **detente y pídeselo**. Si `docs/REPO_MAP.md` aún no existe, tu paso es la **0.9** (el único chat que explora el repositorio completo). **Nota (v1.9):** el zip de 1.7-T2 aún no trae el mapa; por eso el siguiente chat hace primero la 0.9 y luego retoma 1.7-T3.
+3. Identifica TU paso en la **SECUENCIA MAESTRA (sección 10)**: es el primero no `HECHO` cuyas dependencias estén `HECHAS`. William puede indicarte otro explícitamente; si te indica uno cuyas dependencias no están hechas, avísale y no lo construyas. Si tu paso es una subparte (0.x a 9.x) eres **Chat Constructor**; si es un lote `C` eres **Chat de Contenido**: sigue "Cómo trabaja un chat de contenido" (Pista C) y el prompt 14.B. **El nombre de la app es Glossa**: donde este documento diga "Sophia Inglés", léelo como "Glossa" (los nombres de archivo `sophia-ingles_…` se mantienen).
 4. Construye SOLO esa subparte. No adelantes la siguiente aunque "te sobre tiempo". Si terminas con margen, usa ese margen para **auditar más** (sección 4), no para construir más.
 5. Audita con el protocolo de la sección 4 (obligatorio, con evidencia ejecutada).
-6. Entrega según la sección 5 (zip completo + reporte). Entrega apenas termines la subparte; no acumules.
-7. Cierra con la **bitácora de relevo** (plantilla en 12.1) lista para pegar en el siguiente chat.
+6. Antes de entregar ejecuta, en este orden, `npm run build` → **`npm run map`** (actualiza `docs/REPO_MAP.md` y escribe su sección "Delta") → `npm run check`. Entrega según la sección 5 (zip completo + reporte) apenas termines tu tramo; no acumules.
+7. Cierra con la **bitácora de relevo** (plantilla en 12.1): **corta**, porque el conocimiento detallado vive en el mapa del repositorio.
 
 **Qué NO hacer jamás:**
 
+- **No ignorar una trampa registrada.** Si el mapa dice «no uses X, usa Y», usas Y. Solo puedes apartarte si demuestras con una prueba ejecutada que la trampa ya no aplica; en ese caso la corriges en el mapa y lo anotas en `DECISIONS.md`. Caer en una trampa ya escrita cuesta tiempo a William y se reporta (4.T).
 - No rediseñar la arquitectura, los contratos de datos (sección 8) ni las decisiones de la sección 7 por tu cuenta.
 - No "mejorar" cosas fuera de tu subparte. Si ves algo roto en una subparte anterior, lo reportas (sección 3.5); solo lo arreglas si es un bug bloqueante para tu propia subparte y lo documentas.
 - No decir "terminado" ni "debería funcionar". Solo "terminado y verificado con estas pruebas ejecutadas: …".
@@ -77,7 +78,7 @@ William tiene varias cuentas de Claude con límites de uso. Cada chat se corta c
 Toda decisión de implementación no trivial que tomes se anota en `DECISIONS.md` (formato: fecha · subparte · decisión · razón · alternativa descartada).
 
 ### 3.3 Subpartes demasiado grandes
-Si al empezar ves que tu subparte no cabe en tu chat, **no la entregues a medias en silencio**. Divide: entrega lo que esté 100% terminado y verificado, marca la parte restante como nueva subparte `X.Ya` en `PROJECT_STATE.md` y avisa a William. Mejor entregar poco y sólido que mucho y roto.
+Las subpartes ya vienen divididas en tramos (sección 17). Si al empezar ves que tu tramo no cabe en tu chat, **no la entregues a medias en silencio**. Divide: entrega lo que esté 100% terminado y verificado, marca la parte restante como nueva subparte `X.Ya` en `PROJECT_STATE.md` y avisa a William. Mejor entregar poco y sólido que mucho y roto. **Cada entrega parcial (cuarto, mitad o tanda) cumple 5.1 completa**: zip, reporte, bitácora de relevo y bloque "QUÉ HACES TÚ AHORA".
 
 ### 3.4 Protocolo de consulta al Administrador (IMPORTANTE)
 Si tienes una duda que no puedes resolver con este archivo, o detectas una contradicción, un hueco, un riesgo, o crees que un contrato debe cambiar:
@@ -105,6 +106,9 @@ Si descubres un bug en algo ya entregado: no lo ocultes. Anótalo en `PROJECT_ST
 
 ---
 
+### 3.A Autonomía: la cadena debe avanzar sola
+William solo consulta al Administrador cuando un chat se lo pide con un PROMPT PARA ADMIN (3.4). Por eso: (1) **decide tú** todo lo que quepa en 3.1 y en los valores por defecto de 7.12, y regístralo en `DECISIONS.md`; (2) **un hito no espera al Administrador**: el chat siguiente corrige lo que William reporte y aplica estas reglas; (3) solo pide PROMPT PARA ADMIN si hay que cambiar un contrato de la sección 8, una decisión de la sección 7, o si estás bloqueado sin alternativa razonable; (4) si William te dice que cambió de opinión sobre algo, avísale de que eso requiere al Administrador (15.2) en vez de improvisar; (5) cada chat deja a William su siguiente paso exacto (ver 5.2 y la sección 10), así que William nunca debe adivinar qué chat abrir; (6) **no le preguntes a William lo que ya está en este documento** (escalas, enumerados, nombres, valores por defecto: búscalos antes en las secciones 7 y 8 y en 7.12); a William solo le pides archivos, pruebas en su teléfono y preferencias suyas; (7) **preguntas que no bloquean:** decide con un valor por defecto razonable, regístralo como PROVISIONAL en `DECISIONS.md` y sigue; no las acumules como "preguntas abiertas" salvo que cambien un contrato de la sección 8 o algo que William vea en pantalla; (8) **archivos externos** (carpeta `vendor/`, p. ej. `ts-fsrs`): pídeselos a William en tu **primer mensaje**, con URL exacta, nombre exacto y pasos para quien no sabe de tecnología, y mientras llegan adelanta otros cuartos de tu subparte en lugar de detener la entrega.
+
 ## 4. PROTOCOLO DE CALIDAD "CERO BUGS" (obligatorio en CADA subparte)
 
 Una IA que programa deja bugs sutiles. Este protocolo existe para cazarlos antes de entregar. **No se puede saltar ningún paso.** Si un paso no se puede ejecutar en tu entorno, lo declaras explícitamente en el reporte (sección 5.2) y lo trasladas a la lista de pruebas manuales para William.
@@ -112,6 +116,7 @@ Una IA que programa deja bugs sutiles. Este protocolo existe para cazarlos antes
 ### 4.1 Antes de escribir código
 - Relee los criterios de aceptación de tu subparte y conviértelos en una lista numerada de comprobaciones (`CA-1`, `CA-2`, …).
 - Relee los contratos de la sección 8 que toca tu subparte.
+- Aplica 4.T: cita las trampas del mapa que afectan a tu tramo antes de escribir código.
 - Escribe (en tu razonamiento o en comentarios de prueba) los **casos límite** que se te ocurran: vacíos, nulos, textos con acentos/ñ/emoji, apóstrofos rectos y curvos (`'` vs `’`), mayúsculas, espacios dobles, números, listas de 0/1/muchos elementos, datos viejos de otra versión, almacenamiento lleno, sin conexión, doble toque rápido, botón "atrás" del navegador, rotación de pantalla.
 
 ### 4.2 Mientras construyes
@@ -141,6 +146,7 @@ Reglas de código que evitan los bugs más comunes:
 **Pasada 2 — Pruebas unitarias.**
 - Toda lógica de `core/` tiene pruebas en `tests/` con `node --test`. Mínimo: caso feliz, 3 casos límite, 1 caso de entrada inválida por función pública.
 - Ejecuta **toda** la suite (no solo las tuyas). Debe pasar 100%. Pega la salida resumida en el reporte.
+- Si tu código es lógica de decisión de `core/`, aplica además **4.R** (roturas intencionales, con presupuesto).
 
 **Pasada 3 — Recorrido de escenarios.**
 - Si hay navegador headless disponible en tu entorno (Playwright/Chromium/jsdom), ejecuta los flujos de la subparte con capturas. Si no lo hay, haz un **recorrido simulado**: ejecuta con Node los módulos con un DOM falso o con datos de ejemplo y reproduce el flujo completo de punta a punta.
@@ -162,10 +168,38 @@ Reglas de código que evitan los bugs más comunes:
 - Confirma que `CHANGELOG.md`, `PROJECT_STATE.md`, `docs/CONTRACTS.md` (si aplica) y la versión del service worker están actualizados.
 
 ### 4.4 Regla de oro de la depuración
-Cuando encuentres un bug: (1) reprodúcelo con una prueba que falle, (2) corrígelo en la causa raíz (no con parches que lo escondan), (3) verifica que la prueba ahora pasa, (4) busca si el mismo patrón existe en otros lugares (`grep`), (5) registra en `CHANGELOG.md`. Nunca "arregles" desactivando una prueba.
+Cuando encuentres un bug: (1) reprodúcelo con una prueba que falle, (2) corrígelo en la causa raíz (no con parches que lo escondan), (3) verifica que la prueba ahora pasa, (4) busca si el mismo patrón existe en otros lugares (`grep`), (5) registra en `CHANGELOG.md`; (6) si la causa fue algo no obvio del entorno o de una herramienta (no un error de lógica tuyo), regístralo como trampa (4.T) en ese momento. Nunca "arregles" desactivando una prueba.
 
 ### 4.5 Honestidad sobre lo no probado
 Hay cosas que ningún chat puede probar (el micrófono real, el audio real en el Android de William, notificaciones reales, rendimiento en su teléfono). Esas NO se declaran "funcionan": se listan como **"Pendiente de verificación por William"** con pasos claros de 3–6 líneas, y pasan a la **cola de pruebas manuales** (5.H), que William ejecuta en el próximo hito.
+
+### 4.T Trampas: leerlas antes, registrarlas al instante, reportarlas al cerrar (obligatorio)
+Una **trampa** es algo que parece correcto pero falla o hace perder tiempo en este proyecto (un carácter que rompe un comando, una herramienta que se comporta distinto de lo esperado, una orden que mata tu propia shell, una API con un caso raro). Las trampas son la memoria del proyecto: cada una que se descubre ahorra el mismo error a todos los chats siguientes.
+
+1. **Antes de construir (lectura y cita).** Lee toda la sección manual «Convenciones y trampas» de `docs/REPO_MAP.md`. En tu confirmación inicial (paso 3 del prompt 14) escribe una línea: `Trampas que afectan a mi tramo: TRAMPA-nn (qué haré distinto), …` o `ninguna aplica` con una frase de por qué. No basta con haberlas leído: tienes que citarlas.
+2. **Antes de cada acción de riesgo, búscalas.** Antes de ejecutar un comando de procesos (`pkill`, `kill`), de escribir con comillas, tildes, acentos, `\`, `$` o heredocs, de usar una herramienta del repo por primera vez en tu chat, de tocar el service worker, el build, el zip o el mapa, haz `grep -n -i "<palabra clave>" docs/REPO_MAP.md` sobre la sección de trampas. Si hay una trampa que cubre tu caso, aplica su alternativa **a la primera**.
+3. **Apenas descubras una trampa nueva, regístrala en ese momento** (no al final, para no olvidarla ni perderla si el chat se corta): añade una entrada en la sección manual «Convenciones y trampas» con este formato, en una sola línea:
+   `TRAMPA-<nn> · <síntoma: qué viste fallar> · <causa, si la sabes> · USA EN SU LUGAR: <alternativa probada> · <tramo que la descubrió>`
+   Numeración correlativa, sin reutilizar números. Si las trampas existentes no tienen ID, el primer chat que lea esta regla las numera `TRAMPA-01…` en el sitio, sin reescribirlas (solo antepone el ID). Una trampa que se descubrió pero no se probó se marca `(sin confirmar)`. Si una trampa deja de aplicar, no se borra: se marca `(OBSOLETA desde <tramo>: <razón>)`.
+4. **Si caes en una trampa que ya estaba escrita**, no la disimules: anótalo en la bitácora (línea «Trampas previas», ver 12.1) con una frase de por qué no la viste, y si la redacción de la trampa era ambigua, **mejórala en el mapa** para que el siguiente chat no caiga por lo mismo.
+5. **Cierre.** El «Delta» del mapa lista las trampas nuevas (ID y una línea); la bitácora de relevo las repite (12.1); `PROJECT_STATE.md` no las duplica. Antes de entregar, haz `grep -c "^TRAMPA-" docs/REPO_MAP.md` y comprueba que el número coincide con las trampas que dices haber registrado.
+6. Los chats de contenido aplican 4.T completo (con sus herramientas: `validate-content`, `add-pack`, etc.).
+
+### 4.R Roturas intencionales (pruebas de mutación), con presupuesto
+**Para qué:** comprobar que las pruebas detectan fallos reales, rompiendo el código a propósito y viendo que alguna prueba falla. **Es un medio, no un fin.**
+
+**Cuándo se exige:** solo a lógica de decisión de `core/` (comparación, SRS, dominio, validadores, detectores, parsers, cálculo de fechas). **No se exige** a UI, código de conexión, documentos, contenido ni código trivial.
+
+**Presupuesto obligatorio**
+1. **Tope por entrega:** ≈ 40 roturas por función pública nueva o cambiada, ≈ 150 en total, y **≤ 10 minutos** de ejecución acumulados. Si necesitas más, el módulo es demasiado grande: divídelo (3.3).
+2. **Con intención, no al azar:** cambia `>` por `>=` y al revés, suma o resta 1, niega una condición, quita una guarda, invierte un orden, devuelve un valor fijo, altera una constante. No mutes carácter por carácter.
+3. **Cada rotura corre solo los archivos de prueba del módulo**, con **timeout de 30 s**; la suite completa se corre una vez al final.
+4. **Una sola ronda y una sola corrección:** corre las roturas → clasifica las que sobreviven → (a) **hueco real**: añade la prueba que la mata; (b) **equivalente o defensiva**: justifícala en una línea, **agrupada** (no una por una) → repite **solo las que sobrevivieron**. No vuelvas a barrer todo el archivo.
+5. **Meta:** ≥ 85 % de las roturas detectadas en las funciones objetivo, y lo que quede vivo explicado en `DECISIONS.md` en ≤ 10 líneas. **No persigas el 100 %.**
+6. **Herramienta compartida:** `tools/mutate.mjs` (lista de `[nombre, texto original, texto nuevo]`; ejecuta solo las pruebas indicadas; **restaura SIEMPRE el archivo** en `finally`; imprime una tabla). Si no existe, el primer chat que lo necesite crea la versión mínima (≤ 150 líneas, con su prueba) y lo anota en `PROJECT_STATE.md`; los demás la reutilizan. Nunca mutes archivos del repo sin respaldo. **Estado a 23 oct 2026: `tools/mutate.mjs` NO existe todavía**; 1.7-T1 y 1.7-T2 usaron scripts privados fuera del repo (`/home/claude/mut.mjs`), que no viajan en el zip. **Lo crea 1.7-T3** (ver sección 17).
+7. **Procesos:** antes de lanzar una corrida comprueba que no haya otra viva; **una a la vez**; **no dejes procesos en segundo plano al entregar**; si un comando pasa de ~2 minutos, redúcelo o pártelo.
+8. **Se informa en una línea** en el reporte: "Roturas: N probadas, M detectadas, K explicadas."
+9. **Pruebas de rendimiento:** se miden como **mediana de 5 corridas**, aisladas (sin otras pruebas en paralelo) y con margen razonable sobre el presupuesto; una sola corrida lenta no debe hacer fallar la suite. Declara en el reporte la mediana medida.
 
 ---
 
@@ -173,19 +207,24 @@ Hay cosas que ningún chat puede probar (el micrófono real, el audio real en el
 
 ### 5.1 Qué se entrega
 1. **Un único archivo `.zip` con el repositorio completo** (no solo los archivos cambiados), nombrado `sophia-ingles_<id-subparte>_v<MAJOR.MINOR.PATCH>.zip`. Ej.: `sophia-ingles_P1.4_v0.9.4.zip`. Se entrega con `present_files`.
-2. Dentro del zip: código, `PROJECT_STATE.md` actualizado, `CHANGELOG.md`, `DECISIONS.md`, `docs/CONTRACTS.md` si cambió, y este `docs/ROADMAP.md` **sin modificar** (copia exacta).
+2. Dentro del zip: código, `PROJECT_STATE.md` actualizado, `CHANGELOG.md`, `DECISIONS.md`, `docs/CONTRACTS.md` si cambió, y `docs/ROADMAP.md` como **copia exacta del roadmap que recibiste adjunto en este chat** (nunca lo edites; ver regla de versión en la sección 0).
 3. Un **reporte de entrega** en el chat (plantilla 5.2), breve.
+4. La **bitácora de relevo completa** (12.1), en un bloque de código, y el bloque "QUÉ HACES TÚ AHORA" como último elemento.
+
+**Una entrega está INCOMPLETA si falta cualquiera de las cuatro cosas** (zip, reporte, bitácora, bloque final). Vale también para entregas parciales y cuando el chat sigue en la misma conversación: **la bitácora se regenera completa y actualizada en cada entrega**; nunca se reutiliza una anterior ni se promete "para después".
 
 ### 5.2 Reporte de entrega (plantilla; en español, ≤ 1 pantalla de teléfono por sección)
 ```
 ENTREGA <id> — <nombre> — v<x.y.z>
 ✅ Criterios de aceptación: CA-1 ✔, CA-2 ✔, … (todos)
-🧪 Pruebas: <N> unitarias pasadas / <N> total · audit.mjs: 0 hallazgos · escenarios: <n> recorridos
+🧪 Pruebas: <N> unitarias pasadas / <N> total · audit.mjs: 0 hallazgos · escenarios: <n> recorridos · Roturas: N probadas, M detectadas, K explicadas (4.R; si no aplica, "no aplica")
 🔍 Bugs encontrados y corregidos en la auditoría: <lista corta>
 ⚠️ No probado en este entorno (para William): <pasos de prueba manual>
 📌 Decisiones tomadas: <ver DECISIONS.md, resumen>
 🐞 Bugs conocidos que quedan: <ninguno / lista>
 ➡️ Siguiente subparte: <id y nombre>
+
+📋 BITÁCORA DE RELEVO (12.1) completa, en un bloque de código (ver 5.1)
 
 👉 QUÉ HACES TÚ AHORA  (SIEMPRE es lo último del mensaje; usa exactamente UNA de las dos variantes)
 
@@ -193,8 +232,8 @@ ENTREGA <id> — <nombre> — v<x.y.z>
 👉 QUÉ HACES TÚ AHORA: no hay nada que probar ni publicar. Solo pasa al siguiente.
 1. Descarga `<nombre-exacto-del-zip>.zip`.
 2. Abre un chat nuevo de Claude.
-3. Pega ahí: el roadmap (`ROADMAP_SOPHIA_INGLES.md`), el zip, la bitácora de relevo y el prompt de abajo.
-<prompt de arranque (sección 14) ya rellenado con la subparte siguiente, en bloque de código listo para copiar>
+3. Pega ahí: el roadmap (el archivo más reciente que tengas), el zip, la bitácora de relevo y el prompt de abajo.
+<prompt de arranque ya rellenado con el SIGUIENTE PASO de la SECUENCIA MAESTRA (sección 14 si es una subparte; 14.B si es un lote de contenido), en bloque de código listo para copiar; di en una frase si el siguiente chat es "de construcción" o "de contenido">
 
 **Variante B — esta entrega cierra un hito (M0, M1, M2…)**
 👉 QUÉ HACES TÚ AHORA (≈ 20–30 min): toca publicar y probar.
@@ -203,7 +242,7 @@ ENTREGA <id> — <nombre> — v<x.y.z>
 3. Abre la app en Chrome del Android (si ya la tenías instalada, toca "Actualizar").
 4. Haz el guion `tests/scenarios/HITO_<Mx>.md` (≤ 15 min).
 5. Vuelve a este chat con el resultado ("todo bien" o reportes BUG 12.4) — o, si prefieres seguir ya, pásalo al siguiente chat junto con los demás archivos.
-<mismo prompt de arranque ya rellenado>
+<mismo prompt de arranque ya rellenado (14 o 14.B)>
 ```
 **Reglas del bloque:** (1) español simple, pasos numerados, **máximo 6 líneas** sin contar el prompt; (2) nombres de archivo y IDs **exactos**, nunca "el zip" ni "la siguiente"; (3) si no hay nada que hacer, dilo con esas palabras ("no hay nada que probar ni publicar"); (4) si algo quedó bloqueado o hay una duda para el Administrador, el bloque lo dice primero y entrega el PROMPT PARA ADMIN (3.4) en lugar de la variante A/B; (5) no mezcles instrucciones de William en medio del reporte: todo lo que él debe hacer vive en este bloque.
 
@@ -217,7 +256,7 @@ Cada subparte con UI incluye en `tests/scenarios/<id>.md` una **lista de 5–10 
 
 **Cola de pruebas manuales:** `PROJECT_STATE.md` tiene la sección "Cola de pruebas manuales" (tabla `subparte | guion | estado`). Cada chat constructor, al entregar: (1) añade su guion a la cola; (2) **no** le pide a William que lo pruebe ahora; (3) en su reporte de entrega escribe "Prueba manual: en cola para el hito Mx".
 
-**El chat que cierra un hito** (la última subparte antes de la marca HITO) además entrega `tests/scenarios/HITO_<Mx>.md`: un **guion único consolidado** con los pasos de todas las subpartes en cola, ordenados por pantalla (no por subparte), **máximo 15 minutos**, más los pasos de instalar/actualizar (`docs/DEPLOY.md`). Si la cola es demasiado larga, prioriza lo que más riesgo tiene (flujos de datos, offline, audio) y deja el resto marcado "opcional".
+**El chat que cierra un hito** (la última subparte antes de la marca HITO) además entrega `tests/scenarios/HITO_<Mx>.md`: un **guion único consolidado** con los pasos de todas las subpartes en cola, ordenados por pantalla (no por subparte), **máximo 15 minutos**, más los pasos de instalar/actualizar (`docs/DEPLOY.md`). Si la cola es demasiado larga, prioriza lo que más riesgo tiene (flujos de datos, offline, audio) y deja el resto marcado "opcional". Incluye siempre un apartado **"Contenido nuevo"**: abrir 5 ítems al azar de cada lote de contenido incorporado desde el último hito y confirmar que se leen bien (inglés natural, explicación clara, sin respuestas raras).
 
 **Lo que hace William en un hito (≈ 20–30 min):** descomprimir el zip, subir los archivos a GitHub, esperar a Pages, abrir en Chrome/Android (actualizar si ya estaba instalada), hacer el guion `HITO_<Mx>.md` y devolver el resultado (todo bien / reportes BUG 12.4). El siguiente chat constructor **corrige primero lo reportado** antes de empezar su subparte; si algo es de diseño, va al Administrador.
 
@@ -274,12 +313,13 @@ Sin bundler, sin `npm install` obligatorio para correr la app: **JavaScript vain
 │  └─ packs/                  # paquetes de contenido (pista C)
 ├─ audio/                     # MP3 pre-generados (fase 7) + manifest
 ├─ vendor/                    # librerías de terceros vendorizadas (FSRS) con su LICENSE
-├─ tools/                     # scripts Node: audit.mjs, build-manifest.mjs, validate-content.mjs, add-pack.mjs, …
+├─ tools/                     # scripts Node: audit.mjs, build-manifest.mjs, validate-content.mjs, add-pack.mjs, repo-map.mjs, …
 ├─ tests/                     # node --test; tests/scenarios/*.md
 └─ docs/
    ├─ ROADMAP.md              # ESTE archivo (copia exacta; solo el Administrador lo cambia)
    ├─ CONTRACTS.md            # contratos congelados (esquemas, APIs)
    ├─ DESIGN.md               # sistema de diseño (tokens, componentes)
+   ├─ REPO_MAP.md             # mapa del repositorio (auto + manual): lo primero que lee cada chat (desde 0.9)
    ├─ ADD_PACK.md             # guía corta: cómo agregar un paquete de contenido (desde 1.3)
    └─ PROJECT_STATE.md  →  (en la raíz, ver abajo)
 PROJECT_STATE.md              # estado vivo: tablero de subpartes, bugs, pendientes
@@ -415,6 +455,8 @@ Curso comercial de pago; promesa de "fluidez en ~3 meses" **no verificada con ev
 | Notificaciones | PWA: **no confiables** → el Administrador/chat crea alarmas con las herramientas del teléfono; la app solo ofrece "recordatorio suave" al abrir | Ver 9.1. |
 | Nivel de automatización contenido vs. revisión de William | Todo contenido de paquetes pasa por **validador + revisión cruzada de IA**; el contenido generado en vivo por IA se marca "no verificado" con botón "reportar" | |
 | Fonética teórica (módulo 8 del diagnóstico) | Sin decidir | Se pregunta a William en su momento (Administrador). |
+| Qué cuenta como «producción» en la señal P del dominio | Cuentan las familias `text_input`, `transform`, `speak`, `writing`, `mediation`, `open_ai` y el tipo `phrase_cloze`. **No** cuentan `ordering`, `matching`, `cloze_bank`, `audio` (dictado y `spell_from_audio` incluidos), `reading` ni `build_from_keywords` | Decidido en 1.7-T1 (8.7 dice «escribir/hablar»). Queda abierta al Administrador si dictado, `spell_from_audio` y `build_from_keywords` deben contar; **no bloquea**. Cambiarlo = editar `SIGNAL_P` en `core/mastery.config.js`. |
+| Firma pública del dominio | `createMastery({ db, events, errors, srs, clock?, config?, u? }).compute(topicId, now?)` | **Resuelta** en 1.7-T2: 8.7 y 8.15 se contradecían; ya están alineados (ver 8.7 y 8.15). |
 
 ### 7.13 Verificaciones técnicas (estado)
 | Verificación | Estado | Quién la cierra |
@@ -564,6 +606,18 @@ Curso comercial de pago; promesa de "fluidez en ~3 meses" **no verificada con ev
 - **Descensos:** 2 fallos seguidos en repaso del mismo ítem, o el mismo error 3 veces en 14 días → el tema no puede mostrar más que el tope de la banda inferior hasta que haya evidencia nueva (la regla aplica un **tope**, no un restar arbitrario).
 - Pesos, cortes y topes viven en `core/mastery.config.js` (editables).
 
+**Implementación congelada (1.7-T1 y 1.7-T2, verificada el 2026-10-23; el detalle vive en `docs/CONTRACTS.md`, fichas 1.7-T1 y 1.7-T2, y las razones en `DECISIONS.md`).** Donde esta lista y el texto de arriba difieran, manda esta lista: concreta lo que el texto dejó abierto.
+- **Firma:** `createMastery({ db, events, errors, srs, clock?, config?, u? })` devuelve un objeto congelado `{ compute, bandOf, confidenceOf, combine }`; se usa `compute(topicId, now?)`. Las dependencias inyectadas son el `ctx` de 8.15. `u(topicId, now) → 0..1 | null` es opcional: lo conectará 5.10; sin él, U es `null`. Exporta también `bandOf`, `bandIndex`, `combine`, `confidenceOf` y `masteryToSophiaVal`.
+- **Qué devuelve `compute`:** `{ topicId, pct, rawPct, band, label, symbol, confidence, signals: {R,P,U,E}, evidence, caps, detail }`. `band` es el **id** (`unseen | initial | progress | solid | mastered`); `label` y `symbol` salen de `BANDS`. `signals` son números 0–1 o `null` (R, P y U; **E nunca es `null`**: sin reincidencia vale 0). `evidence` = número de eventos `answer` del tema. `caps` = lista de topes activos. `detail` = `{ R: {cards}, P: {attempts}, E: {codes} }` (la evidencia de cada señal; T4 la usa para el desglose).
+- **Señal R:** media de la retrievabilidad de las tarjetas del tema con ≥ 1 repaso (suspendidas incluidas), calculada con `srs.retrievability` del **motor activo** (`fsrs` o `simple`). Sin tarjetas con repaso → `null`.
+- **Señal P:** acierto en ejercicios de producción de los últimos 30 días; cada evento pesa `0,5^(edad en días / 10)`; `correct` y `almost` valen 1, `wrong` y `dont_know` valen 0, `skipped` no es un intento. «Producción» = ver 7.12. Sin intentos → `null`.
+- **Señal E:** por cada código recurrente (≥ 3 veces en 14 días, regla de la 1.6, vía `errors.recurrent({ by: 'code', topic, now })`) aporta `min(1, (veces − 2) / 4)`; los aportes se unen como probabilidades: `E = 1 − Π(1 − aporte)`. No pondera por impacto (esas filas no traen `impact`).
+- **`pct`:** `Math.round` de la combinación; la **banda se calcula sobre el entero** (29,5 → 30). `pct = 0` **solo** si el tema no tiene eventos `answer`; con respuestas el mínimo es 1; con R, P y U `null` vale 1. Un evento con varios `topics` cuenta en cada uno de ellos. Cuando falta cualquier señal (R, P o U), sus pesos se reparten en proporción entre las que están.
+- **Confianza (`low | mid | high`):** sesiones por `sessionId`; los eventos `answer` sin `sessionId` (no es obligatorio en ese tipo, ver 8.6) se agrupan **por día local** como una sesión. Si U es `null` baja un escalón, así que **«Alta» es inalcanzable hasta que 5.10 conecte U** (la confianza máxima será «Media»). La interfaz (3.1) debe mostrar siempre el % junto a la confianza: con una sola respuesta correcta y la tarjeta recién repasada, un tema puede llegar a «Dominado» con confianza «Baja».
+- **Topes:** `caps` con `kind: 'consecutive_fails'` (`key` = tarjeta o ítem) o `kind: 'recurrent_error'` (con `code` e `inWindow`). «2 fallos seguidos» = los dos últimos intentos calificados de la misma tarjeta (`skipped` no cuenta, `almost` no es fallo). «Evidencia nueva» que levanta el tope = un acierto posterior (fallos seguidos), o un acierto del tema posterior a la última aparición del error / pasar los 14 días (error recurrente). Con tope activo, `pct = min(rawPct, máximo de la banda inferior)`; desde «Inicial» o «Sin ver» el % no cambia, pero los topes se listan igual.
+- **`masteryToSophiaVal(pct)`** = `round(pct / 25)` recortado a 0–4.
+- **Trampa conocida (no es un bug):** la retrievabilidad de FSRS justo después de repasar con «Otra vez» es ≈ 1, por lo que R **no refleja un fallo reciente** (medido: a los 20 días con dos «Otra vez», `stability` 0,10 y R 0,44). Un estudiante que acaba de fallar puede mostrar un % alto; P y los topes lo compensan. Las pruebas de T2 lo tienen en cuenta y las de T4 («estudiante que falla») también deben hacerlo. Con FSRS, al pasar exactamente `stability` días tras un repaso la retrievabilidad es ≈ 0,9 (caso conocido para pruebas).
+
 ### 8.8 Error registrado (`ErrorRecord`) (store `errors`)
 ```json
 {
@@ -680,7 +734,7 @@ events.log(ev), events.byCard(id), events.since(ts), events.countByDay(range)
 srs.newCard(itemId,facet,now) , srs.review(card,rating,now) → card', srs.retrievability(card,now), srs.levelOf(card), srs.dueLabel(card,now)
 grading.rate({result,ms,hint,dontKnow},baselineMs) → 1|2|3|4
 normalize.compare(userText, accept, opts)
-mastery.compute(topicId, ctx, now)
+createMastery({db,events,errors,srs,clock?,config?,u?}).compute(topicId, now?) → { pct, band, confidence, signals, evidence, … }   // ver 8.7: aquí el `ctx` son las dependencias inyectadas
 session.build({now, minutes, energy, newCap, reviewCap, areas?, topicFocus?, rng}) → SessionPlan
 errors.record(rec), errors.top(n, range), errors.byTopic(id)
 content.loadIndex(), content.loadPack(id), content.validatePack(pack), content.importPacksToDb()
@@ -716,7 +770,7 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 | **P7** | Audio: pipeline Kokoro, reproductor, dictado, escucha, shadowing | **M6** |
 | **P8** | Voz: STT con colores, Azure, pronunciación, conversación por voz | **M7** |
 | **P9** | Cierre: recordatorios, respaldo, rendimiento, accesibilidad, seguridad, regresión total | **M8**: 1.0 |
-| **C** | Pista de contenido (paralela; usa el validador de 1.3) | — |
+| **C** | Pista de contenido (en cadena con las demás, sección 10; usa el validador de 1.3) | — |
 
 **Regla de orden:** P0 → P1 → P2 → P3 se hacen en ese orden. P4–P8 pueden alternarse con la pista C según prioridad (el Administrador decide), siempre respetando dependencias. P9 al final.
 
@@ -729,7 +783,7 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 - **Objetivo:** crear el esqueleto de carpetas (sección 6), los documentos vivos y copiar los contratos.
 - **Archivos:** estructura completa vacía con `.gitkeep`; `PROJECT_STATE.md`, `DECISIONS.md`, `CHANGELOG.md`, `docs/ROADMAP.md` (copia exacta de este archivo), `docs/CONTRACTS.md` (copia de la sección 8 en formato de referencia + espacio para ampliaciones), `docs/DESIGN.md` (stub), `README.md` (cómo correr localmente: `python3 -m http.server 8080` o `npx serve`, y cómo correr pruebas), `.gitignore`, `core/version.js` (`export const VERSION = '0.1.0'`), `app/config.js` (nombre de app, constantes; sin claves).
 - **`PROJECT_STATE.md` debe contener:** (1) tabla de TODAS las subpartes de este roadmap con columnas `ID | Nombre | Estado (PENDIENTE/EN CURSO/HECHA/BLOQUEADA) | Versión | Fecha | Notas`; (2) "Siguiente subparte"; (3) "Bugs conocidos"; (4) "Pendiente de verificación por William"; (5) "Preguntas abiertas para el Administrador"; (6) "Contratos modificados"; (7) "Cola de pruebas manuales" (5.H).
-- **CA:** 1) estructura exacta de la sección 6; 2) `docs/ROADMAP.md` idéntico byte a byte al original (verifica con `diff`/hash); 3) tabla de estado completa con todas las subpartes (0.1 … 9.8, C1…); 4) README claro; 5) ningún archivo con claves.
+- **CA:** 1) estructura exacta de la sección 6; 2) `docs/ROADMAP.md` idéntico al roadmap recibido en ese chat (verifica con `diff`) y `PROJECT_STATE.md` con la línea `Versión del roadmap: x.y (sha256 …)` y una sección "Contenido" (tabla `lote | tanda | temas hechos | ítems | estado`); 3) tabla de estado completa con todas las subpartes (0.1 … 9.8, C1…); 4) README claro; 5) ningún archivo con claves.
 - **Pruebas:** script de verificación simple `tools/check-structure.mjs` que falla si falta alguna carpeta/archivo obligatorio.
 
 ### 0.2 Arnés de pruebas y auditoría automática
@@ -790,7 +844,26 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 - **CA:** 1) valores por defecto razonables y validados (rangos); 2) cambios se aplican en vivo y persisten; 3) la clave nunca aparece en logs ni en `localStorage`; 4) borrar todo exige confirmación fuerte; 5) onboarding se puede saltar y se puede repetir desde Ajustes.
 - **Pruebas:** validación de rangos, persistencia, que `audit` no encuentre claves, que `console` no registre la clave.
 
-> **HITO M0 (tras 0.8) — primera publicación:** William crea el repo, activa GitHub Pages siguiendo `docs/DEPLOY.md`, instala la PWA, ve las 5 pestañas, cambia tema, guarda ajustes, ve la app funcionar sin conexión. El Administrador revisa el reporte y actualiza el roadmap si hay ajustes.
+> **HITO M0 (tras 0.8) — primera publicación:** William crea el repo, activa GitHub Pages siguiendo `docs/DEPLOY.md`, instala la PWA, ve las 5 pestañas, cambia tema, guarda ajustes, ve la app funcionar sin conexión. El chat siguiente corrige primero lo que William reporte (3.A).
+
+---
+
+### 0.9 Mapa del repositorio y arranque rápido (se construye una sola vez; después cada tramo solo lo actualiza)
+- **Dependencias:** 0.1–0.8 y todo lo que exista del repositorio en ese momento. **Este es el ÚNICO chat que explora el repositorio completo**: lo que descubra queda escrito en el mapa para que ningún chat posterior vuelva a investigar.
+- **Objetivo:** que cada chat arranque confiando en `docs/REPO_MAP.md` y empiece a construir sin gastar recursos explorando, con una comprobación mecánica (no por lectura) de que la confianza está justificada.
+- **Archivos:** `tools/repo-map.mjs` (script `npm run map`), `docs/REPO_MAP.md`, `tools/repo-map.config.json` (propósito de los archivos de datos), la convención `@purpose` en todo el código, regla en `audit.mjs`, integración en `tools/check-structure.mjs`.
+- **Convención `@purpose`:** todo archivo `.js`, `.mjs`, `.css` y `.html` (salvo `vendor/` y los generados) lleva en sus primeras líneas un comentario `@purpose: <una línea que diga para qué sirve>`. `audit.mjs` exige que la tengan los archivos nuevos o modificados.
+- **`tools/repo-map.mjs`:**
+  - `npm run map` regenera **solo las secciones automáticas** de `docs/REPO_MAP.md` y respeta las manuales (entre marcadores `<!-- MANUAL:inicio:<nombre> -->` … `<!-- MANUAL:fin:<nombre> -->`). Salida determinista (dos corridas seguidas dan el mismo archivo).
+  - `npm run map -- --check` calcula el **tree-hash** (sha256 de la lista ordenada `ruta sha1`, sin `.git`, `node_modules`, zips ni el propio mapa) y lo compara con el guardado en la cabecera del mapa. Imprime `OK <hash>` o la lista de archivos **creados / modificados / eliminados** y sale con código 1. Tarda menos de 2 s y cuesta cero análisis.
+  - **Secciones automáticas** (todas comprobables contra el código): índice de áreas (`## Área: <carpeta>`) con número de archivos; por cada archivo `ruta · líneas · @purpose · exports con firma · importa de`; datos JSON (`ruta · bytes · claves de primer nivel · propósito según config`); pruebas (`archivo · nº de pruebas`); totales.
+  - **Secciones manuales** (las mantienen los chats con **cambios pequeños en el sitio**, nunca reescribiéndolas): *Cómo encaja todo* (≤ 60 líneas: capas, flujo de datos, quién llama a quién), *Servicios cableados y pendientes de cablear*, *Convenciones y trampas* (acumulativa; cada trampa en una línea con ID `TRAMPA-nn`, formato y reglas en 4.T; es lectura obligatoria al arrancar), *Comandos y verificaciones*, y **Delta del último tramo** (esta sí se reemplaza en cada entrega: ≤ 25 líneas, una por archivo creado/modificado/eliminado con el porqué; contratos tocados; trampas nuevas).
+- **`PROJECT_STATE.md` se compacta:** guarda solo el estado vigente (tablero, siguiente paso, preguntas abiertas, cola de pruebas manuales, tablas de contenido y de tramos; ≤ 250 líneas). Lo histórico vive en `CHANGELOG.md` y `DECISIONS.md`, que **no se leen enteros al arrancar**.
+- **Integración con la entrega:** `check-structure` exige que `docs/REPO_MAP.md` exista y que `repo-map --check` pase. Una entrega con el mapa desactualizado **hace fallar la suite**, así que el mapa siempre está al día y el siguiente chat puede confiar en él.
+- **Si el mapa se equivoca** (una función que no existe, una firma distinta): el chat que lo nota corrige esa línea, lo anota en el Delta como "Mapa corregido" y sigue. No es un fallo de nadie.
+- **CA:** 1) `npm run map` genera el mapa y es idempotente; 2) `--check` detecta y lista un archivo modificado, uno nuevo y uno eliminado; 3) todo archivo de código (salvo `vendor/` y generados) tiene `@purpose` y `audit` lo exige; 4) el mapa incluye el 100 % de los archivos del repo (prueba cruzada contra el sistema de archivos); 5) las firmas de exports coinciden con el código (prueba sobre ≥ 10 archivos conocidos, incluidas `export function`, `async`, `const` flecha, `class`, `export { a, b }`, `export default` y reexportaciones); 6) el chat redacta 10 preguntas de control sobre el repo (dónde está X, qué exporta Y, qué servicio cablea Z) y comprueba que cada una se responde **solo con el mapa**; 7) `PROJECT_STATE.md` ≤ 250 líneas con todo lo vigente.
+- **Versión:** la 0.9 es solo herramientas y comentarios: **no sube la versión de la app**.
+- **Pruebas:** parser de exports (todas las formas), determinismo, detección de deriva, rutas con espacios o acentos, archivos sin `@purpose`, mapa que se desvía a propósito (se corrige solo con `npm run map`).
 
 ---
 
@@ -822,7 +895,7 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
   - **Versiones:** paquete nuevo → se agrega; mismo `pack_id` con `version` **mayor** → reemplaza y lo informa (ítems retirados quedarán `deprecated` al importar, según el cargador); misma versión con contenido idéntico → no hace nada (idempotente); misma versión con contenido distinto o versión menor → **error** con explicación (no se pisa por accidente). La opción `--force` solo existe para el Administrador y exige `--reason "…"`, que se anota en `DECISIONS.md` a mano.
   - **Opciones:** `--dry-run` (valida y muestra qué haría, sin escribir), `--quiet`. Salida con `process.stdout/stderr.write` (nunca `console.log`, para no violar `audit.mjs`). Código de salida ≠ 0 ante cualquier error. Mensajes de error con ruta exacta (`gram_x_v1.json › items[12].accept[0]`).
   - **Seguridad:** nunca escribe fuera de `content/`; rechaza rutas con `..`; `pack_id` solo `[a-z0-9_]`; no sigue enlaces simbólicos; no ejecuta nada del contenido.
-  - **`docs/ADD_PACK.md`** (≤ 1 página, para William, en español, sin jerga): 1) descomprime el zip en una carpeta; 2) corre `npm run add-pack -- ruta/de/la/carpeta`; 3) qué significa cada mensaje (ejemplos reales de éxito, advertencia y error); 4) subir versión + `npm run build`; 5) abrir la app y ver el paquete importado; 6) cómo revertir (restaurar el commit anterior o borrar el paquete con `git`); 7) solución de los 5 errores más comunes.
+  - **`docs/ADD_PACK.md`** (≤ 1 página, en español, sin jerga; la siguen los chats de contenido, que ejecutan `add-pack` ellos mismos, y William solo si algún día quiere agregar un paquete por su cuenta y tiene Node instalado): 1) descomprime el zip en una carpeta; 2) corre `npm run add-pack -- ruta/de/la/carpeta`; 3) qué significa cada mensaje (ejemplos reales de éxito, advertencia y error); 4) subir versión + `npm run build`; 5) abrir la app y ver el paquete importado; 6) cómo revertir (restaurar el commit anterior o borrar el paquete con `git`); 7) solución de los 5 errores más comunes.
 - **Esquemas por tipo:** `docs/CONTRACTS.md` recibe el contrato `data` de **cada tipo del catálogo 8.9** (aunque el componente se construya después). *Esta es la subparte donde los contratos de ejercicios se congelan.* Para ahorrar espacio los tipos se agrupan en familias (`choice`, `text_input`, `ordering`, `matching`, `cloze`, `transform`, `open_ai`, `audio`, `reading`, …).
 - **CA:** 1) un paquete válido de muestra pasa; 2) 25 paquetes inválidos (uno por regla) son rechazados con mensaje claro; 3) importación idempotente; 4) validador CLI devuelve código de salida ≠ 0 si hay errores; 5) rendimiento: validar un paquete de 2.000 ítems < 1 s; 6) **`add-pack`:** agregar el paquete de muestra a un repo temporal lo copia y deja `index.json` correcto; repetir el comando no cambia nada (hash idéntico); un lote con 1 paquete inválido entre 3 no escribe **ningún** archivo; versión mayor reemplaza, menor o igual-distinta falla; `--dry-run` no toca el disco; IDs duplicados contra un paquete ya instalado se detectan; rutas con `..` rechazadas; 7) `docs/ADD_PACK.md` existe y sus comandos funcionan tal cual están escritos.
 - **Pruebas:** una por regla de validación, idempotencia, migración de paquete v1→v2 simulada; `tests/add-pack.test.mjs` (repo temporal en `os.tmpdir()`, cubre los casos del CA 6).
@@ -855,6 +928,7 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 - **Alcance:** señales R, P, U, E; `pct`, `band`, `confidence`; topes por descenso; `masteryToSophiaVal`; agregación por nivel y por área (media ponderada por cantidad de ítems); `atRisk(topics)` (tema con retrievabilidad baja o errores recientes); `toStudy(topics)`; **explicabilidad**: devuelve un desglose textual en español ("Tu dominio es 54 %: retención 70 %, producción 40 %, …") para mostrar al tocar el porcentaje; caché invalidada por eventos.
 - **CA:** 1) sin eventos → 0 % "Sin ver"; 2) monotonía razonable (más aciertos no bajan el %); 3) topes de descenso; 4) U `null` reparte pesos y baja confianza; 5) bordes de bandas (0, 1, 29, 30, 59, 60, 84, 85, 100); 6) 100 temas × 5.000 eventos < 300 ms.
 - **Pruebas:** escenarios construidos (estudiante nuevo, estudiante que falla, vuelve tras 3 semanas), bordes, rendimiento.
+- **Estado (verificado el 2026-10-23 sobre `sophia-ingles_1.7-T2_v0.14.0.zip`):** T1 y T2 **HECHOS**, sin subir versión (el repo sigue en 0.14.0). Existen `core/mastery.config.js`, `core/masterySignals.js`, `core/mastery.js`, `tests/masterySignals.test.mjs` (23 pruebas) y `tests/mastery.test.mjs` (30). Cubiertos los CA 1–5. Faltan: agregación, `atRisk`, `toStudy`, caché (T3), explicabilidad y CA 6 (T4). El contrato real de lo ya construido está en 8.7 («Implementación congelada»).
 
 ### 1.8 Armador de sesiones
 - **Dep.:** 1.3, 1.4, 1.7.
@@ -892,7 +966,7 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 - **CA:** 1) ida y vuelta de respaldo sin pérdida (comparación profunda); 2) reimportar el mismo bloque no duplica; 3) JSON malformado o malicioso (`__proto__`, tamaños enormes) rechazado con mensaje claro; 4) el respaldo no contiene claves por defecto.
 - **Pruebas:** round-trip, idempotencia, entradas hostiles, tolerancia de formato.
 
-> **HITO M0.5 (tras 1.12):** toda la lógica existe y pasa la suite completa. El Administrador revisa `docs/CONTRACTS.md` y congela la versión 1 de los contratos.
+> **HITO M0.5 (tras 1.12):** toda la lógica existe y pasa la suite completa. El chat que cierra la 1.12 compara `docs/CONTRACTS.md` con la sección 8, escribe las diferencias en `DECISIONS.md` y marca el documento como "contratos v1 congelados"; solo si alguna diferencia exige cambiar la sección 8, emite un PROMPT PARA ADMIN.
 
 ---
 
@@ -958,7 +1032,16 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 - **CA:** 1) William completa una sesión real sin errores; 2) los errores que él cometa (`can to`, `leaved`, `since two years`…) se registran con código correcto; 3) a los 2 días simulados (cambiar reloj de prueba) aparecen repasos vencidos; 4) todo funciona sin conexión.
 - **Pruebas:** simulación de 5 días de uso con respuestas generadas (script) verificando invariantes (no hay tarjetas duplicadas, `due` coherente, eventos = respuestas, dominio no baja sin causa).
 
-> **HITO M1:** primera sesión jugable. William prueba en su teléfono y reporta. El Administrador decide ajustes de UX antes de seguir.
+> **HITO M1:** primera sesión jugable. William prueba en su teléfono y reporta. El chat siguiente corrige lo reportado antes de seguir; un cambio de UX que altere un contrato va por PROMPT PARA ADMIN (3.A).
+
+---
+
+### 2.10 Rediseño de los temas Neo y Claro (2 tramos)
+- **Dependencias:** 0.3 (tokens y temas), 2.9 (la app ya se usa).
+- **Objetivo:** que Neo y Claro tengan la misma calidad visual que Aurora y que el proyecto de referencia de William (solo como inspiración).
+- **Primer mensaje del chat:** pide a William, con pasos para quien no sabe de tecnología, el `index.html` del proyecto de referencia y 2–3 capturas de cada tema en su teléfono.
+- **Alcance:** solo valores de `ui/styles/themes.css` y tokens (colores, fondos, sombras, bordes, tipografía) **sin cambiar nombres de variables ni estructura de componentes**; contraste AA en todo texto; Aurora no se toca.
+- **CA:** 1) los 3 temas pasan las pruebas de contraste AA; 2) la galería (`demo.html`) y las 5 pestañas se ven bien en los tres; 3) ninguna prueba existente se rompe; 4) William confirma con capturas en el siguiente hito.
 
 ---
 
@@ -1318,9 +1401,19 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 
 ---
 
-# PISTA C — PRODUCCIÓN DE CONTENIDO (paralela; chats de contenido)
+# PISTA C — PRODUCCIÓN DE CONTENIDO (chats de contenido, dentro de la SECUENCIA MAESTRA)
 
-> Cada entrega de contenido **debe pasar `tools/validate-content.mjs`** (1.3 completado) y se entrega como zip con los JSON + informe. Se instala en el repo con `npm run add-pack` (ver `docs/ADD_PACK.md`). **Mientras 1.3 no esté hecha, no se produce contenido final** (solo borradores de taxonomía).
+> Cada entrega de contenido **debe pasar `tools/validate-content.mjs`** (1.3 completado). **Mientras 1.3 no esté hecha, no se produce contenido final.** Los lotes C van **dentro de la SECUENCIA MAESTRA (sección 10)**, en cadena con el resto de chats: nunca en paralelo, así no hay choques de archivos. **El chat de contenido instala el contenido él mismo** con `npm run add-pack`, así que William no necesita Node ni tocar JSON: recibe el zip completo del repositorio, como en cualquier otra entrega.
+
+### Cómo trabaja un chat de contenido (autónomo)
+1. **Recibe** (lo pega William): este roadmap, el último zip del repositorio y el prompt 14.B con el lote asignado.
+2. **Lee primero:** las reglas de calidad de abajo, 7.10 (perfil de William), contratos 8.2, 8.3, 8.9, 8.10 (y 8.11/8.12 si el lote es de vocabulario o historias), `content/taxonomy/topics.json`, `content/index.json`, el catálogo de errores y la sección **"Contenido"** de `PROJECT_STATE.md` (qué tanda toca).
+3. **Tamaño de tanda:** máximo ≈ 8 temas y ≈ 120 ítems por chat (calidad antes que cantidad). Un lote puede necesitar varias tandas (C3, C4, C5, C6, C7, C8, C11… casi seguro). La sección "Contenido" de `PROJECT_STATE.md` es una tabla `lote | tanda | temas hechos | ítems | estado`; un lote pasa a `COMPLETO` solo cuando cubre todo su alcance de la tabla de lotes y cada tema cumple las reglas. Mientras no esté `COMPLETO`, el siguiente paso sigue siendo el mismo lote ("tanda k+1").
+4. **Flujo obligatorio:** borrador → **segunda pasada de revisión cruzada** (regla 2) → `node tools/validate-content.mjs` → `npm run add-pack` (lo ejecuta el chat) → `npm run build` y suite completa → subir **PATCH** en `core/version.js` y `package.json` (así la PWA avisa de la actualización).
+5. **Si el entorno no puede ejecutar `node`:** no entregues el contenido como definitivo. Entrégalo como borrador marcado **NO VALIDADO**, díselo a William en lenguaje simple y no marques la tanda como hecha.
+6. **Solo toca:** `content/`, `PROJECT_STATE.md`, `DECISIONS.md`, `CHANGELOG.md`, la versión y lo que genera `npm run build`. **No toca código de la app.** Excepción: si una prueba existente verifica directamente el contenido que tu lote reemplaza o amplía (p. ej. "topics.json es la semilla de 18 temas"), **actualízala tú** para que verifique el contenido nuevo con la misma intención (sin debilitarla), y regístralo en `DECISIONS.md`; nunca toques pruebas de código ni de otros lotes. Si el contrato de contenido no alcanza para algo, emite un PROMPT PARA ADMIN (3.4).
+7. **Convenciones:** `pack_id` en minúsculas con guion bajo, `<lote>_<tema>_v1` (ej. `c3_present_perfect_v1`); IDs de ítem estables; zip `sophia-ingles_<lote>-t<k>_v<x.y.z>.zip`.
+8. **Entrega:** zip completo del repositorio + **informe de calidad** (≤ 1 pantalla: temas, ítems por tipo, errores cubiertos con su `code`, resultado del validador, dudas de naturalidad que quedaron) + bitácora de relevo (12.1) + bloque "QUÉ HACES TÚ AHORA" (casi siempre variante A: el contenido nuevo se verá en el próximo hito).
 
 ### Reglas de calidad de contenido (obligatorias)
 1. **Original:** nada copiado de películas, series, canciones, libros, apps, cursos de pago ni sitios con derechos. Sin excepciones, sin "casi copiado". Diálogos y situaciones inventados.
@@ -1340,7 +1433,7 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 | C3 | **Gramática prioridad 1** (huecos de alto impacto) | Tiempos perfectos (forma, present perfect vs past simple, for/since, been/gone); irregulares y pasado (incl. didn't + base); **`can/could/be able to` + base (error `can to`)**; gerundio vs infinitivo; preposiciones dependientes; preguntas directas e indirectas; doble negación; sujeto obligatorio (it/there). |
 | C4 | Gramática prioridad 2 | Conectores de contraste; futuros (will/going to/present continuous); adjetivos/adverbios y orden; contables/incontables; causativas (`make me work`); tercera persona -s; artículos. |
 | C5 | Gramática de huecos confirmados | Voz pasiva; who/whom/whose; tag questions; unless; so/such; wish/would rather; condicionales 0-3 y mixtos; modales de deducción y perfectos; estilo indirecto; `have something done`; inversión; subjuntivo; as if; remember/forget/stop; future continuous/perfect. |
-| C6 | Vocabulario esencial 1K | Familias cotidianas (cuerpo, casa, comida, ropa, ciudad, clima, familia, números/días, profesiones, universidad, tecnología) **empezando desde lo más básico** (hay fallos reales en 1K). Verificar licencia antes de usar Wiktionary. |
+| C6 | Vocabulario esencial 1K | Familias cotidianas (cuerpo, casa, comida, ropa, ciudad, clima, familia, números/días, profesiones, universidad, tecnología) **empezando desde lo más básico** (hay fallos reales en 1K). Verificar licencia antes de usar Wiktionary. **Añade a `topics.json` sus familias `vocab.<familia>`** (y actualiza la prueba de taxonomía que lo verifique). |
 | C7 | Vocabulario 2K–3K + profundidad | Colocaciones, phrasal verbs (por frecuencia), formación de palabras, falsos amigos, registro. |
 | C8 | Frases y diálogos | Diálogos originales A/B para `phrase_cloze` (situaciones: pareja, trabajo, viaje, universidad…), con nota de gramática/matiz. **No usar Tatoeba hasta verificar su licencia y atribución.** |
 | C9 | Verbos | Lista de irregulares por frecuencia y por patrón; verbos con patrón gerundio/infinitivo; modales; reglas de -ed. |
@@ -1348,14 +1441,44 @@ sync.exportBackup(), sync.importBackup(json), sync.makeChatBlock(kind, payload),
 | C11 | Historias | Lotes de historias originales por nivel (30 A1–A2 + 20 B1 primer lote), con segmentos, traducción, vocabulario/gramática objetivo, preguntas y pares de audio. |
 | C12 | Escucha y pronunciación | Dictados, cloze auditivo, pares mínimos, frases de habla conectada, listas de sonidos prioritarios (7.11) con pistas en español. |
 | C13 | Escritura/mediación/roleplay | Consignas por nivel, rúbricas, escenarios de roleplay, guiones de respaldo sin IA, temas semanales. |
+| C14 | Gramática restante (temas con `lote: sin_lote` en `topics.json`) | Los temas de la taxonomía que no caen en C3–C5: básicos A1–B1 y varios B1–B2. Orden: primero B1–B2 y los temas que otros temas tienen como prerrequisito; los A1–A2 al final (el test de nivelación de 3.8 suele marcarlos como dominados). Tandas de ≈ 8 temas. |
 
 ---
 
-# 10. REGLAS DE DEPENDENCIA Y ORDEN RECOMENDADO
+# 10. SECUENCIA MAESTRA (orden fijo; avanza sola, sin intervención del Administrador)
 
-Orden estricto inicial: **0.1 → 0.2 → 0.3 → 0.4 → 0.5 → 0.6 → 0.7 → 0.8 → 1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 1.6 → 1.7 → 1.8 → 1.9 → 1.10 → 1.11 → 1.12 → 2.1 → 2.2 → 2.3 → 2.4 → 2.5 → 2.6 → 2.7 → 2.8 → 2.9 (M1) → 3.1 … 3.8 (M2)**.
-Después, el Administrador reordena P4–P8 y C según el progreso de William (sugerencia por defecto: C3 y C9 en paralelo a P3; luego P4 → P5 → P6; P7 antes de P8; P9 al final).
-**Paralelización posible** (si William usa varias cuentas a la vez): 0.2‖0.3 después de 0.1; 1.2‖1.4 después de 0.7; contenido (C) en paralelo a cualquier subparte tras 1.3. **Nunca** dos chats sobre la misma subparte ni sobre los mismos archivos.
+Esta es la **única lista de qué va después de qué**. Al cerrar, cada chat lee aquí su siguiente paso y lo escribe en la bitácora (12.1) y en el bloque "QUÉ HACES TÚ AHORA" (5.2). **S** = subparte (chat constructor, prompt 14). **C** = lote de contenido (chat de contenido, prompt 14.B). Un lote C no termina hasta que `PROJECT_STATE.md` lo marque `COMPLETO` (puede llevar varias tandas).
+
+| Orden | Pasos | Marca al terminar |
+|---|---|---|
+| 0* | S 0.9 (mapa del repositorio, 3 tramos) — **se intercala en cuanto este roadmap esté adjunto, antes de continuar la subparte en curso**. *Estado a 23 oct 2026: **0.9 pendiente y es el siguiente paso**. El zip 1.7-T2 se construyó con el roadmap 1.7 y no tiene `docs/REPO_MAP.md`, `tools/repo-map.mjs`, `npm run map` ni comentarios `@purpose` (comprobado). Los chats hacen la 0.9 como desvío (3 tramos: 0.9-T1 → T2 → T3; un chat puede hacer dos tramos contiguos, así que son 2 chats) y al cerrar 0.9-T3 retoman **1.7-T3**.* | — |
+| 1 | S 0.1 → 0.8 | **HITO M0** (publicar: primera vez, `DEPLOY.md`) |
+| 2 | S 1.1 → 1.2 → 1.3 | — |
+| 3 | C1 → C2 → C10 | — |
+| 4 | S 1.4 → 1.5 → … → 1.12 | HITO M0.5 (no se publica) |
+| 5 | S 2.1 → 2.2 → … → 2.9 | **HITO M1** (publicar y probar) |
+| 5b | S 2.10 (rediseño de los temas Neo y Claro, 2 tramos; William aporta el proyecto de referencia al empezar) | se prueba en el siguiente hito |
+| 6 | C3 → C9 → C8 | — |
+| 7 | S 3.1 → … → 3.8 | **HITO M2** |
+| 8 | C6 → C4 | — |
+| 9 | S 4.1 → … → 4.7 | **HITO M3** |
+| 10 | C5 → C7 → C13 | — |
+| 11 | S 5.1 → … → 5.10 | **HITO M4** |
+| 12 | C11 | — |
+| 13 | S 6.1 → … → 6.6 | **HITO M5** |
+| 14 | C12 | — |
+| 15 | S 7.1 → … → 7.6 | **HITO M6** |
+| 16 | S 8.1 → … → 8.6 | **HITO M7** |
+| 17 | S 9.1 → … → 9.8 | **HITO M8 = versión 1.0** |
+| 18 | C14 (tandas hasta cubrir todos los temas `sin_lote`; no es requisito de la v1.0) | se publica en el siguiente hito o al terminar cada tanda grande, a petición de William |
+
+**Reglas de la secuencia**
+1. **Cadena lineal:** un solo chat a la vez, cada uno recibe el último zip completo y entrega otro. No hay paralelismo salvo que William lo pida expresamente (entonces lo ordena el Administrador y actualiza esta sección).
+2. **Las dependencias mandan:** si un paso tiene una dependencia que no está `HECHA`, el chat avisa y hace primero la dependencia.
+3. **Publicar solo en los HITOS marcados** (5.H). Los lotes C se verán en la app en el siguiente hito.
+4. **Después del M8**, el contenido sigue creciendo con las tandas de C14 y con nuevas tandas de cualquier lote C cuando William lo pida (14.B).
+5. **Cada subparte S se construye por tramos (sección 17)**: el paso siguiente se escribe `<subparte>-T<n>`; los lotes C siguen en tandas (Pista C).
+6. Esta tabla solo la cambia el Administrador, con versión nueva del roadmap y anotación en la sección 16.
 
 ---
 
@@ -1379,15 +1502,25 @@ Si algo no coincide: describe qué viste y pega esto al chat: <qué copiar, p. e
 BITÁCORA DE RELEVO — <fecha>
 Subparte completada: <id nombre> v<x.y.z> (zip: <nombre>)
 Subpartes HECHAS hasta ahora: <lista>
-Siguiente subparte: <id nombre>
+Versión del roadmap usada: <x.y>
+Siguiente paso (SECUENCIA MAESTRA, sección 10): <subparte>-T<n> (sección 17) o lote C con su tanda — tipo: constructor | contenido
+Mapa del repo: tree-hash <12 primeros caracteres> — al día (verificado con `npm run map -- --check`)
+Delta del tramo (copia de la sección "Delta" de docs/REPO_MAP.md; ≤ 25 líneas, una por archivo: creado/modificado/eliminado y por qué):
+Convenciones o trampas nuevas (también añadidas al mapa; una línea por trampa con su ID, síntoma y alternativa, formato de 4.T; si ninguna: "ninguna"):
+Trampas previas: <IDs que apliqué y me evitaron un error> · <IDs en las que caí aun estando escritas y por qué, o "ninguna"> · <IDs que corregí o marqué obsoletas>
 Qué se hizo (resumen técnico en 5-10 líneas):
 Decisiones tomadas (ver DECISIONS.md): 
 Contratos modificados (si hubo, con aprobación del Administrador): 
 Bugs conocidos que quedan: 
 Pendiente de verificación por William: 
 Preguntas abiertas para el Administrador: 
-Instrucción para el próximo chat: "Lee docs/ROADMAP.md completo, luego PROJECT_STATE.md, y ejecuta <siguiente subparte>."
+Instrucción para el próximo chat: "Aplica la lectura dirigida y el arranque rápido de la sección 0: confía en docs/REPO_MAP.md y PROJECT_STATE.md sin explorar el repositorio, comprueba con npm run map -- --check y ejecuta <siguiente paso>."
 ```
+**Regla de traspaso (v1.9):** el «Delta» y el mapa dicen, por archivo, qué se **cambió** y qué se **dejó sin cambios a propósito**; el chat siguiente lee solo el mapa y `PROJECT_STATE.md`, no recorre carpetas.
+
+**Las trampas nunca se recortan para ahorrar espacio:** la bitácora puede pasarse de líneas por ellas. Si el resto no cabe, se acorta lo demás.
+
+**La bitácora es corta (≤ 60 líneas) y no repite lo que ya está en el mapa, `PROJECT_STATE.md`, `DECISIONS.md` o `docs/CONTRACTS.md`: remite a ellos.** El conocimiento detallado del repositorio viaja en el zip (`docs/REPO_MAP.md`), no en el chat.
 
 ### 12.2 Registro de decisión (`DECISIONS.md`)
 `AAAA-MM-DD · <subparte> · DECISIÓN: … · RAZÓN: … · ALTERNATIVA DESCARTADA: … · ¿Afecta contratos? sí/no`
@@ -1418,15 +1551,19 @@ Detalle copiado de la app: <pega aquí>
 [ ] tools/audit.mjs → 0 hallazgos
 [ ] Suite completa node --test → 100 % verde (pegar resumen)
 [ ] Pasada 3 (escenarios) y Pasada 4 (adversarial) ejecutadas y documentadas
+[ ] Leí completa la sección «Convenciones y trampas» del mapa y cité al inicio las que afectaban a mi tramo (4.T)
+[ ] Toda trampa nueva está en el mapa con ID TRAMPA-nn, en el Delta y en la bitácora; `grep -c "^TRAMPA-" docs/REPO_MAP.md` coincide
 [ ] Revisión línea por línea de mis archivos
 [ ] Sin claves, sin console.log, sin innerHTML con datos variables, sin TODO sin ID
-[ ] Versión subida (core/version.js) y caché del SW regenerada
+[ ] Versión subida (core/version.js) y caché del SW regenerada (solo al CERRAR la subparte; los cuartos/mitades no suben versión, salvo los lotes de contenido: PATCH)
 [ ] CHANGELOG, DECISIONS, PROJECT_STATE, CONTRACTS actualizados
-[ ] docs/ROADMAP.md intacto (diff vacío)
-[ ] tests/scenarios/<id>.md con guion para William, añadido a la "Cola de pruebas manuales" (si cierro un hito: también tests/scenarios/HITO_<Mx>.md)
+[ ] docs/ROADMAP.md idéntico al roadmap recibido en este chat (diff vacío)
+[ ] docs/REPO_MAP.md actualizado con `npm run map` (sección "Delta" escrita, secciones manuales al día) y `npm run map -- --check` en OK
+[ ] Si la subparte tiene pantallas: tests/scenarios/<id>.md con guion para William, añadido a la "Cola de pruebas manuales" (si cierro un hito: también tests/scenarios/HITO_<Mx>.md). Sin pantallas: no hay guion.
 [ ] ZIP completo entregado con present_files
 [ ] Bloque "QUÉ HACES TÚ AHORA" (variante A o B) como ÚLTIMO elemento del mensaje, con nombres exactos y el prompt de arranque ya rellenado
-[ ] Reporte de entrega y Bitácora de relevo escritos
+[ ] Reporte de entrega y Bitácora de relevo COMPLETA escritos en esta entrega (5.1)
+[ ] Roturas intencionales dentro del presupuesto de 4.R y sin procesos en segundo plano
 ```
 
 ---
@@ -1434,14 +1571,31 @@ Detalle copiado de la app: <pega aquí>
 # 14. PROMPT DE ARRANQUE (William lo pega en cada chat nuevo junto con este archivo y el zip)
 
 ```
-Eres un Chat Constructor del proyecto "Sophia Inglés". Te adjunto docs/ROADMAP.md (o el archivo ROADMAP_SOPHIA_INGLES.md) y el último zip del repositorio.
-1) Lee el ROADMAP completo antes de hacer nada.
-2) Lee PROJECT_STATE.md del zip y confirma en 3 líneas qué subparte te toca.
-3) Construye SOLO esa subparte y audítala con el protocolo de la sección 4 (cero bugs, con evidencia ejecutada).
-4) Entrega el zip completo, el reporte (5.2) y la bitácora de relevo (12.1), y termina SIEMPRE con el bloque "QUÉ HACES TÚ AHORA" de 5.2.
-5) Si tienes cualquier duda de arquitectura o contratos, dame un "PROMPT PARA ADMIN" (3.4) y espera.
+Eres un Chat Constructor del proyecto "Glossa" (app de inglés). Te adjunto el roadmap (ROADMAP_SOPHIA_INGLES.md, versión más reciente) y el último zip del repositorio.
+REGLA DE ORO: no gastes recursos investigando. El chat anterior ya investigó y lo dejó en docs/REPO_MAP.md y PROJECT_STATE.md: confía en ellos y empieza a construir.
+1) Lectura dirigida del roadmap (sección 0): cabecera (versión), secciones 0, 3, 4, 5, 12, 13 y 14, la sección 17 de tu tramo y el texto completo de tu subparte con las secciones 7 y 8 que cite. No leas el resto.
+2) Arranque rápido (sección 0): lee PROJECT_STATE.md y docs/REPO_MAP.md (su parte manual y solo las áreas que tocas) y ejecuta npm run map -- --check. Si dice OK, confía sin explorar; si lista diferencias, mira solo esos archivos. No uses ls -R, find ni leas código por curiosidad. DECISIONS.md y CONTRACTS.md solo con búsqueda por el tema.
+3) Confirma en 3 líneas qué tramo te toca y añade una línea «Trampas que afectan a mi tramo: TRAMPA-nn (qué haré distinto)» tras leer completa la sección «Convenciones y trampas» del mapa (4.T). Antes de comandos de procesos, comillas/tildes/heredocs o herramientas del repo, busca con grep si hay una trampa que lo cubra y aplica su alternativa a la primera.
+4) Construye SOLO ese tramo y audítalo con el protocolo de la sección 4 (cero bugs, con evidencia ejecutada).
+5) Antes de entregar: npm run build, luego npm run map (actualiza el mapa y escribe su sección "Delta"), luego npm run check.
+6) Cada trampa nueva que descubras la registras en el mapa en ese momento (TRAMPA-nn · síntoma · USA EN SU LUGAR, formato de 4.T), y la repites en el Delta y en la bitácora. Entrega el zip completo, el reporte (5.2) y la bitácora corta de relevo (12.1), y termina SIEMPRE con el bloque "QUÉ HACES TÚ AHORA" de 5.2.
+7) Si tienes cualquier duda de arquitectura o contratos, dame un "PROMPT PARA ADMIN" (3.4) y espera.
+Responde siempre en español. Una sola pregunta por mensaje. Empieza confirmando qué leíste.
+Tramo asignado: <subparte>-T<n> (por ejemplo 1.7-T1). Lee su alcance en la sección 17 y el texto completo de la subparte.
+```
+
+### 14.B Prompt de arranque para un CHAT DE CONTENIDO (cuando el siguiente paso es un lote C)
+```
+Eres un Chat de Contenido del proyecto "Glossa" (app de inglés). Te adjunto el roadmap (ROADMAP_SOPHIA_INGLES.md, versión más reciente) y el último zip del repositorio.
+REGLA DE ORO: no gastes recursos investigando el repositorio; confía en docs/REPO_MAP.md y PROJECT_STATE.md.
+1) Lectura dirigida del roadmap (sección 0): cabecera (versión), secciones 0, 3, 4, 5, 12, 13 y 14, la Pista C completa ("Cómo trabaja un chat de contenido" y las reglas de calidad) y los contratos de 8 que cite. No leas las Partes 1 a 9.
+2) Lee PROJECT_STATE.md (sección "Contenido") y docs/REPO_MAP.md (parte manual y las áreas content/ y tools/), ejecuta npm run map -- --check y lee completa la sección «Convenciones y trampas» y confirma en 3 líneas qué lote y qué tanda te toca, con una línea «Trampas que afectan a mi tanda: TRAMPA-nn» (4.T).
+3) Produce SOLO esa tanda (máximo ≈ 8 temas y ≈ 120 ítems), todo original, con revisión cruzada, y valídala con tools/validate-content.mjs. Instálala tú mismo con npm run add-pack, ejecuta npm run build, luego npm run map y luego la suite completa, y sube la versión PATCH.
+4) Si no puedes ejecutar node, no la presentes como definitiva: márcala NO VALIDADA y díselo a William.
+5) Registra en el mapa, al descubrirla, cada trampa nueva (formato de 4.T) y repítela en el Delta y en la bitácora. Entrega el zip completo, el informe de calidad (≤ 1 pantalla), la bitácora de relevo (12.1) y termina SIEMPRE con el bloque "QUÉ HACES TÚ AHORA" de 5.2.
+6) Si tienes una duda de contratos o de alcance, dame un "PROMPT PARA ADMIN" (3.4) y espera.
 Responde siempre en español. Una sola pregunta por mensaje. Empieza confirmando que leíste el roadmap.
-Subparte asignada: <ID>.
+Lote asignado: <C#, tanda k de n>.
 ```
 
 ---
@@ -1453,5 +1607,505 @@ Subparte asignada: <ID>.
 3. **Cosas que este roadmap asume y conviene confirmar temprano (las cierra el Administrador con William):** que el entorno de los chats constructores permite ejecutar `node` (si no, la pasada 2 se reemplaza por ejecución mental documentada + pruebas en el navegador de William); si hay navegador headless (si no, más pruebas manuales); y que William puede subir y descargar `.zip`.
 4. **Riesgos principales y su mitigación:** (a) bugs sutiles → protocolo de 5 pasadas + contratos + pruebas puras; (b) caché vieja del service worker → versión sincronizada y aviso de actualización; (c) pérdida de datos de IndexedDB → respaldos + `persist()`; (d) contenido con errores de inglés → segunda pasada de revisión + marca "no verificado" para lo generado en vivo + botón "Reportar"; (e) dependencia de servicios gratuitos que cambian → módulos con interfaz de proveedor y modo mecánico de respaldo; (f) derechos de autor → todo original; (g) fatiga de William → plan flexible sin rachas.
 5. **Éxito = William estudiando cada día con gusto, sin culpa, viendo cómo suben sus porcentajes de forma honesta.**
+
+6. **Autonomía:** la cadena está pensada para avanzar sin el Administrador: cada chat sabe su siguiente paso por la sección 10 y le deja a William un bloque "QUÉ HACES TÚ AHORA". El Administrador solo interviene ante un PROMPT PARA ADMIN o un cambio de opinión de William.
+
+---
+
+# 16. HISTORIAL DEL ROADMAP (qué cambió en cada versión)
+
+- **1.0** — Versión inicial.
+- **1.1** — La guía y el comando de agregar paquetes (`tools/add-pack.mjs`, `docs/ADD_PACK.md`) pasan de 9.8 a la subparte 1.3.
+- **1.2** — William publica y prueba por hitos, no por subparte (5.H): cola de pruebas manuales y guion único por hito.
+- **1.3** — Todo chat termina con el bloque "QUÉ HACES TÚ AHORA" (5.2), variante A o B.
+- **1.4** — Cadena autónoma: SECUENCIA MAESTRA con los lotes de contenido intercalados (sección 10); chats de contenido ("Cómo trabaja un chat de contenido" en la Pista C y prompt 14.B); autonomía (3.A) y hitos sin revisión del Administrador; regla de versión del roadmap (el hash es solo un registro); nombre de la app: Glossa; contenido nuevo en el guion de cada hito.
+- **1.5** — Los chats de contenido actualizan las pruebas que verifican directamente los archivos que su lote reemplaza (Pista C, paso 6); nuevo lote **C14** (gramática restante: temas `sin_lote`) y paso 18 de la secuencia, posterior a la v1.0.
+
+- **1.6** — Roturas intencionales con presupuesto y reglas claras (nueva 4.R, `tools/mutate.mjs` compartido, tope de 150 roturas y 10 minutos por entrega, una sola ronda); entregas parciales completas (5.1) con bitácora obligatoria y regenerada; los chats no preguntan a William lo que ya está en el roadmap, deciden las preguntas que no bloquean con valor provisional (3.A), y piden los archivos externos en su primer mensaje; checklist ajustado (versión solo al cerrar subpartes, guion solo si hay pantallas).
+
+- **1.7** — Sección 17 (PLAN DE TRAMOS): cada subparte pendiente (1.7 en adelante) viene dividida en 2 a 5 tramos de tamaño variable, con puntos de acople entre subpartes; un chat = un tramo; el siguiente paso se escribe `<subparte>-T<n>`.
+
+- **1.8** — Arranque sin gastar recursos investigando: nueva subparte **0.9** (mapa del repositorio `docs/REPO_MAP.md` con `tools/repo-map.mjs`, convención `@purpose`, comprobación mecánica `npm run map -- --check`, secciones manuales con "Delta" por tramo, `PROJECT_STATE.md` compacto); lectura dirigida del roadmap (no se lee entero); bitácora corta que remite al mapa; prompts 14 y 14.B con "regla de oro: confía en el mapa"; la entrega ejecuta `build → map → check`.
+
+- **1.9** — Se incorpora al roadmap el contenido de los informes de traspaso de 1.7-T1 y 1.7-T2 (verificado sobre el zip el 2026-10-23): 8.7 gana el bloque «Implementación congelada» (firma, fórmulas, redondeo, confianza, topes, trampa de R); 8.15 alinea la firma `compute`; 7.12 registra la definición de «producción» y la firma resuelta; 4.R.6 deja constancia de que `tools/mutate.mjs` no existe y se asigna a 1.7-T3; la secuencia (10) anota que la 0.9 sigue pendiente (el zip no la tiene) y se hace como desvío antes de 1.7-T3; la entrada 1.8 se mueve de la cola del archivo a esta sección (la regla de la sección 0 manda leer la última entrada de la 16); la sección 17 marca T1 y T2 como HECHOS y deja T3 y T4 con datos ya comprobados (estructura de `topics.json`, ausencia de suscripción en `events`, rendimiento pendiente), decisiones propuestas por defecto y trampas.
+
+- **1.10** — Trampas como memoria obligatoria del proyecto (nueva 4.T): lectura completa y cita al arrancar, búsqueda con `grep` antes de acciones de riesgo, registro inmediato con ID `TRAMPA-nn` y formato fijo, reporte en el Delta y en la bitácora (12.1: líneas «trampas nuevas» y «Trampas previas»), reconocimiento de las trampas en las que se cae aun estando escritas, y dos puntos nuevos en el checklist 13; prompts 14 y 14.B actualizados; 0.9 y 4.4 enlazan con 4.T.
+
+# 17. PLAN DE TRAMOS (cómo se divide cada subparte para que cada chat trabaje sin buscar por dónde empezar)
+
+**Qué es un tramo:** la unidad de trabajo de **un chat**. Cada subparte pendiente (1.7 en adelante) viene ya dividida abajo en 2 a 5 tramos de tamaño parecido, ordenados por dependencia. En las bitácoras antiguas de 1.1–1.6, "cuarto" significa lo mismo que "tramo".
+
+**Reglas de los tramos**
+1. **El siguiente paso se escribe como `<subparte>-T<n>`** (ej. `1.7-T2`) en la bitácora, en el prompt (14) y en el zip (`sophia-ingles_<subparte>-T<n>_v<x.y.z>.zip`). La SECUENCIA MAESTRA (sección 10) sigue mandando el orden entre subpartes; esta sección manda el orden dentro de cada una.
+2. **Un chat = un tramo.** Si el tramo salió pequeño y el chat tiene margen, puede hacer **el siguiente tramo contiguo de la misma subparte**, entregando cada uno completo (5.1) y nunca más de dos por chat.
+3. **Cada tramo se entrega terminado:** código utilizable, pruebas y su ficha breve en `docs/CONTRACTS.md`; nada "a medias". La suite completa debe quedar en verde en cada tramo.
+4. **Tramos intermedios:** pasadas 1, 2, 4 y 5 de 4.3 sobre sus archivos, roturas (4.R) si hay lógica de decisión, **sin subir versión**. **Último tramo de la subparte:** verifica **todos los CA de la subparte con evidencia**, ejecuta las 5 pasadas sobre el conjunto, escribe el guion `tests/scenarios/<id>.md` si hay pantallas, **sube la versión MINOR**, `npm run build`, y si cierra un hito, el guion del hito.
+5. **Frontera ajustable:** si un tramo resulta demasiado grande o pequeño, el chat puede mover la frontera con el vecino, anotándolo en `DECISIONS.md` y en la tabla de tramos de `PROJECT_STATE.md` (columnas `subparte | tramo | estado`), sin pedir permiso. El alcance obligatorio sigue siendo el de la subparte y sus CA.
+6. **Los tramos son guía de alcance, no reemplazan** el texto de la subparte (secciones de las Partes 1 a 9): léelo siempre completo antes de empezar.
+
+**Puntos de acople entre subpartes (revísalos al empezar un tramo que los toque)**
+- **Cableado de servicios** (`events`, `srs`, `errors`, `mastery`, `session`) en `app/services.js`: lo hace **2.1-T1**; `services.db` puede ser `null`.
+- **Contenido en la app:** `importPacksToDb` al arrancar y **precache de `content/index.json` y de los paquetes en `sw.js`** (ampliando `tools/build-manifest.mjs`): **2.9-T3**.
+- **Señal E del dominio:** usa `errors.recurrent({ by: 'code', topic })` (decisión del Administrador, 1.6).
+- **Señal U del dominio:** 5.10 la conecta pasando `u(topicId, now) → 0..1 | null` a `createMastery`; hasta entonces U es `null` y la confianza «Alta» no existe (8.7).
+- **`tools/mutate.mjs`:** lo crea 1.7-T3; desde entonces todos los chats lo reutilizan (4.R.6).
+- **Tarjetas de ortografía y de traducir palabra:** pasan `almostAtWordEnd: true` a `compare` (2.5, 4.7). Las respuestas con `'s`/`'d` listan en `accept` las dos formas (regla del contenido).
+- **`content/taxonomy/lemmas.json`** ya existe (C10): 1.11 usa el real, no una semilla.
+- **`content/taxonomy/weekly_themes.json`** no está en ningún lote C: lo crea **3.5-T1** (≥ 12 temas, formato validado).
+- **Extensión del armador de sesiones** para la progresión reconocimiento → producción (4.2-T3): **autorizada**; se anota en `CONTRACTS.md`, no requiere consultar al Administrador.
+- **Lo que depende de audio** (6.3, 4.7 `spell_from_audio`, 7.x): mientras no haya archivos, usa TTS del navegador; el reproductor real llega en 7.2.
+- **Cada función con IA** (Parte 5) tiene modo mecánico de respaldo y se muestra escapada y marcada "no verificado".
+- **Ajustes** de 0.8: cada opción se conecta a su función real en la subparte que la crea; 9.2 verifica que no quede ninguna sin conectar.
+- **Decisiones del Administrador (1.11), válidas para todos los chats:**
+  - **Agregación de dominio (1.7):** la confianza **no pondera** el promedio por nivel o área; se muestra aparte (símbolo "poca evidencia"). Se revisa en M2 con datos reales.
+  - **Foto diaria de dominio:** una por día local, guardada en `meta` con la clave `mastery_snap:<AAAA-MM-DD>` (solo temas con evidencia, 400 días como máximo, idempotente). La crea **2.1-T2** (`core/masterySnapshot.js`) y la leen `masteryTrend`, 2.8 y 3.6.
+  - **Ítems `practice` y `error` no vencidos** son **repasos adelantados**: pasan por `srs.review` normal (FSRS los soporta); un acierto adelantado no alarga más de lo normal y un fallo reinicia.
+  - **Ventanas:** toda consulta de actividad o errores de la interfaz usa una **ventana de 14 a 30 días**; no se añaden índices ni resúmenes por día (los costes con 50.000 eventos se miden en 9.4).
+  - **Valores provisionales** (`grading.config.js`, umbral de pausa del cronómetro, XP y rangos, topes diarios de nuevas): se quedan como están hasta M1 y M2; nadie los toca salvo el tramo que lo diga.
+  - **Enumerados confirmados:** `Topic.status` ∈ `draft | active | deprecated`; `LexEntry.pos` (12 valores), `band` ∈ `1K…20K | OFF`, el `id` de una palabra empieza por su `family`, las preguntas de una historia son solo de lectura o escucha, los tipos que se escriben exigen `accept`; distractores con `code` **obligatorio** en gramática, preposiciones y ortografía y **opcional** en vocabulario.
+  - **Bandas de `lemmas.json`:** son **aproximadas** (no hay corpus con licencia); no se verifican contra uno. Se anotan como tales y se corrigen por uso real.
+  - **`retentionReport`:** una tarjeta reaprendida tras un fallo cuenta como repaso; los eventos **no** guardan el estado de la tarjeta (8.6 no cambia). Se muestra como "estimada".
+  - **Audio (`dictation` y afines):** escribir = `dictation`, `cloze_audio`, `spell_from_audio`, `what_did_they_say`; elegir = `minimal_pair_listen`, `connected_speech`, `listen_comprehension`, `follow_instruction`; `extensive_listening` no pide respuesta. Por defecto `speed: 1.0` (lento 0.8), `max_plays: 3`, `show_transcript: false` hasta responder.
+
+---
+
+## Parte 0 (intercalada)
+
+### 0.9 Mapa del repositorio y arranque rápido (3 tramos)
+- **0.9-T1 · Herramienta:** `tools/repo-map.mjs` con `npm run map` y `--check` (tree-hash, deriva), parser de exports (todas las formas), secciones automáticas y marcadores manuales, `tools/repo-map.config.json`; pruebas (determinismo, deriva, rutas raras).
+- **0.9-T2 · Convención `@purpose`:** añadir el comentario `@purpose` a todos los archivos de código existentes (cambio solo de comentarios; la suite no debe cambiar), regla en `audit.mjs`, verificación de que ningún comportamiento cambió (suite igual antes y después).
+- **0.9-T3 · Primer mapa completo y cierre:** la **única investigación completa del repositorio**: generar el mapa, escribir las secciones manuales (*Cómo encaja todo*, *Servicios cableados y pendientes*, *Convenciones y trampas* recogidas de `PROJECT_STATE.md`, `DECISIONS.md` y las bitácoras, *Comandos*, *Delta*), compactar `PROJECT_STATE.md` (≤ 250 líneas), integrar `--check` en `check-structure`, 10 preguntas de control respondidas solo con el mapa, CA 1–7; retoma después la subparte en curso. **Traspaso de 1.7 (v1.9):** al escribir el mapa, vuelca en sus secciones manuales y en `PROJECT_STATE.md` el estado de la 1.7 que hoy vive en 8.7 («Implementación congelada») y en el bloque 1.7 de esta sección 17 (archivos y exports de `core/mastery*.js`, contratos de señales, los 7 datos ya verificados de T3), para que el chat de 1.7-T3 arranque solo con el mapa.
+
+## Parte 1 (restante)
+
+### 1.7 Motor de dominio por tema (4 tramos)
+**Estado a 2026-10-23 (verificado en el zip `sophia-ingles_1.7-T2_v0.14.0.zip`, descomprimido en limpio):** T1 y T2 HECHOS sin subir versión (0.14.0); suite completa 1661 pruebas (1660 pasan, 0 fallan, 1 omitida a propósito); `mastery.test.mjs` y `masterySignals.test.mjs` 53/53 también con `TZ=Pacific/Auckland`. Según los informes: `audit` 0 hallazgos (257 archivos), `check-structure` OK, build `sophia-shell-0.14.0-2526f602`. **Siguiente: la 0.9 como desvío (sección 10, fila 0*) y, al cerrarla, 1.7-T3.** Los informes de T1 y T2 se escribieron con el roadmap 1.7: su «Instrucción para el próximo chat» queda sustituida por la regla de la sección 0 y por la nota anterior; su bitácora no trae «Mapa del repo» ni «Delta» porque entonces no existían.
+
+- **1.7-T1 · Núcleo de señales — HECHO (2026-10-23).** `core/mastery.config.js` (exporta `WEIGHTS`, `BANDS`, `CONFIDENCE`, `DROPS`, `SIGNAL_R`, `SIGNAL_P`, `SIGNAL_E`, `MS_PER_DAY`, `MASTERY_CONFIG`; todo congelado) y `core/masterySignals.js` (`signalR`, `signalP`, `signalE`, `isProduction`; puras). Sin U. 23 pruebas. Roturas: 51 probadas, 50 detectadas, 1 equivalente (la guarda `typeof exerciseType !== 'string'` de `isProduction`, porque `typeInfo` ya devuelve `null`).
+  - Contratos: `signalR(cards, now, { retrievability, config? })` → `{ value, cards, ignored }`; `signalP(events, topicId, now, { config? })` → `{ value, attempts, ignored }`; `signalE(rows, { config? })` → `{ value, codes: [{ code, inWindow, contribution }] }`; `isProduction(exerciseType, config?)` → booleano. `null` = «sin evidencia» en R y P; E vale 0 sin reincidencia. Las entradas incorrectas lanzan `Error` en español; los elementos ilegibles dentro de las listas se ignoran y se cuentan en `ignored` (T4 puede usarlo para decir cuánta evidencia se descartó).
+- **1.7-T2 · Combinación y bandas — HECHO (2026-10-23).** `core/mastery.js` (`createMastery`, `bandOf`, `bandIndex`, `combine`, `confidenceOf`, `masteryToSophiaVal`) y `tests/mastery.test.mjs` (30 pruebas). CA 1–5. Roturas: 69 probadas, 63 detectadas (91 %), 6 equivalentes (explicadas en `DECISIONS.md`). Reglas y forma del resultado: ver 8.7 («Implementación congelada»). `U` entra por el parámetro opcional `u`; mientras no se pase, es `null`.
+- **1.7-T3 · Agregación y consultas — SIGUIENTE (después del desvío 0.9).** Por nivel y por área (media ponderada por ítems), `atRisk`, `toStudy`, caché invalidada por eventos, y **crea `tools/mutate.mjs`** (≤ 150 líneas, con su prueba; regla 4.R.6; anótalo en `PROJECT_STATE.md`).
+  - **Datos ya verificados (no los vuelvas a investigar):**
+    1. Nivel y área son **campos del propio tema** en `content/taxonomy/topics.json` (`{ schema, topics: [...] }`, 248 temas): `area` ∈ `gram` 190, `prep` 13, `phr` 11, `pron` 11, `verb` 8, `spell` 8, `vocab` 7; `level` ∈ `A1` 36, `A2` 83, `B1` 94, `B2` 33, `C1` 2. Otros campos: `id`, `title_es`, `title_en`, `prereq`, `priority`, `diagnosed_gap`, `min_items`, `tags`, `status`. **Hoy los 248 están en `status: 'draft'`**: no filtres solo por `active` o el resultado quedará vacío.
+    2. `core/contentTaxonomy.js` exporta `validateTopics`, `topicInfo` (solo devuelve `{ status, min_items }`, **no** `area` ni `level`) y `topicIdSet`; `core/contentTopic.js` exporta `validateTopic`, `checkTopic`, `TOPIC_ID_RE` y `TOPIC_STATUSES` (`active | draft | deprecated`). Por tanto las funciones de T3 deben recibir la lista de temas como dato (puras, sin leer archivos), y quien las llame la carga de `topics.json`.
+    3. `content/packs/` está **vacía**: no hay ítems instalados, así que «cantidad de ítems» no se puede contar de la base; inyéctala como dato por tema.
+    4. `core/events.js` **no tiene suscripción ni notificación** (revisado: ni `subscribe`, ni `listener`, ni `emit`, ni `notify`). La invalidación de la caché la tiene que diseñar T3.
+    5. `events.byTopic(topicId, opts)` sin `limit` devuelve **todos** los eventos del tema (el contrato lo dice: «por defecto sin tope»); ya vienen ordenados por `ts` y luego `id`. No hace falta reordenar.
+    6. `srs.simple.retrievability` = `0,9^(días/stability)` (0,9 justo al cumplirse el intervalo; tarjeta nueva → 0), es decir, el mismo caso conocido que FSRS.
+    7. Lectura de datos del tema: tarjetas con `db.query('cards', { index: 'topics', value: topicId })`; `STORES.cards` y `STORES.events` tienen índice multi `topics`. Un evento con varios `topics` cuenta en cada uno.
+  - **Decisiones que tomas tú (con valor por defecto para no quedarte parado; anótalas en `DECISIONS.md` y en la ficha 1.7-T3 de `CONTRACTS.md`):**
+    1. *Peso de la media:* `itemCount` inyectado por tema; si no viene, `min_items` del tema. Un tema con peso 0 no pesa.
+    2. *Temas «Sin ver»:* entran con 0 % en la media del nivel o del área (la media mide cuánto del nivel se domina). Devuelve además cuántos temas hay y cuántos se han visto, para que 3.1 muestre ambos números. Es la decisión que más cambia lo que William ve en el mapa.
+    3. *`atRisk(topics)`:* tema con respuestas y (retención `signals.R` bajo un umbral, o errores recurrentes `signals.E > 0`, o algún tope activo en `caps`). Umbral nuevo en `mastery.config.js` (propuesta: `AT_RISK = { retention: 0.7 }`; **cifra de diseño, no de una fuente**).
+    4. *`toStudy(topics)`:* el roadmap no define el criterio. Defecto: temas «Sin ver» o en banda baja, ordenados por `priority` del tema y luego por dominio ascendente; 3.1 ofrece el filtro «A estudiar».
+    5. *Caché:* la clave debe incluir lo que cambia el resultado. Ojo: **R depende de `now`** (decae con el tiempo) y las tarjetas cambian al repasar o suspender; no basta con mirar los eventos. Opciones: firma por tema (número de eventos `answer`, último `ts`, número de tarjetas y último `due`) más el día local de `now`; o `invalidate(topicId)` explícito que llama quien registra el evento. Elige una y pruébala con un evento nuevo que cambie el resultado. La caché también servirá para el CA 6 de T4.
+  - **Pruebas:** agregaciones con pesos conocidos; caché (acierto, y fallo tras un evento nuevo); `atRisk` y `toStudy` con casos construidos; vacíos (nivel sin temas → estructura vacía, sin `NaN`). Roturas (4.R) sobre las funciones públicas nuevas (≈ 40 por función, ≈ 150 en total, ≤ 10 min).
+  - **Cierre del tramo:** registrar los archivos nuevos en `tools/check-structure.mjs` (lista larga, junto a `'core/mastery.js'`), ficha 1.7-T3 en `docs/CONTRACTS.md`, `CHANGELOG.md`, `DECISIONS.md`, tabla de tramos de `PROJECT_STATE.md`, suite completa, `audit`, `check-structure`, `npm run build`, `npm run map` (ya existirá tras la 0.9). **Sin subir versión.**
+- **1.7-T4 · Explicabilidad y cierre — PENDIENTE.** Desglose textual en español (para mostrar al tocar el porcentaje) construido sobre `signals`, `detail`, `caps` y `evidence` del resultado de `compute`; escenarios (estudiante nuevo, estudiante que falla, vuelve tras 3 semanas); rendimiento (100 temas × 5.000 eventos < 300 ms, CA 6); cierre de la subparte.
+  - **Trampas ya conocidas:** (a) el desglose debe poder decir por qué un tema sin U nunca llega a confianza «Alta» (U aún no existe: llega con 5.10); (b) en «estudiante que falla», R seguirá alta justo después de repasar (ver 8.7, trampa conocida): asegura que P y los topes reflejan el fallo, y que el texto no diga «retención 95 %» como si fuera buena señal; (c) **rendimiento sin medir**: `compute` hace tres lecturas por tema (tarjetas por índice, `events.byTopic` completo, `errors.recurrent`) y de la 1.1 consta que, con 50.000 eventos, recorrer todo el historial en memoria ya tardó 237–616 ms en otra consulta (cuarto 3 de la 1.1, pregunta abierta de costes): **mide pronto** y, si no cumple, usa la caché de T3 y evita releer los mismos datos varias veces; (d) los eventos con `ignored` (ilegibles) pueden mencionarse en el desglose.
+  - **Cierre de subparte (regla 17.4):** verifica **todos los CA (1–6)** con evidencia, 5 pasadas sobre el conjunto, **sube la versión MINOR a 0.15.0** (siguiente a 0.14.0), `npm run build`. Sin pantallas: sin guion manual (mismo criterio que la 1.6).
+- **Quién consume el dominio después:** 1.8 (progresión reconocimiento → producción según dominio), 1.9 (estadísticas), 1.11 (lista blanca), 3.1 (mapa: % siempre junto a la confianza), 5.10 (conecta la señal U por el parámetro `u` de `createMastery`).
+
+### 1.8 Armador de sesiones (5 tramos)
+- **1.8-T1 · Candidatos y orden base:** `SessionPlan`, vencidos primero con modo rescate, exclusión de suspendidas/sanguijuelas/deprecated, plan vacío con razón. RNG semillado.
+- **1.8-T2 · Nuevas, cupos y energía:** tarjetas nuevas con tope diario, máx. 2–3 temas nuevos activos por área, `energy` (sesión más corta y ligera), 20 ítems por defecto configurable.
+- **1.8-T3 · Intercalado y variedad:** nunca > 2 seguidos del mismo tema o tipo, variedad de formato por tema; pruebas de propiedades.
+- **1.8-T4 · Progresión y enfoques:** reconocimiento → producción según dominio, `topicFocus`, `errorFocus`, determinismo.
+- **1.8-T5 · Escenarios y cierre:** los 12 escenarios (nuevo, atrasado, un solo tema, energía baja, sin contenido…), CA 1–6 y cierre.
+
+### 1.9 Consultas de estadísticas (3 tramos)
+- **1.9-T1 · Actividad y precisión:** minutos e ítems por día, precisión por tipo/tema/área, tiempo medio por tipo; vacíos devuelven estructuras vacías.
+- **1.9-T2 · Tarjetas y pronósticos:** tarjetas por nivel 1–5, pronóstico de repasos a 14 días, retención real vs. objetivo, mapa de calor área × nivel, serie de tendencias de dominio.
+- **1.9-T3 · Informativos y cierre:** horas planeadas vs. hechas, XP/rango opcional (`stats.config.js`, sin penalizaciones), rendimiento (< 200 ms con 50.000 eventos), cierre.
+
+### 1.10 Cliente de IA (4 tramos)
+- **1.10-T1 · Base y proveedores:** estructura `core/ai/`, fachada `complete`, proveedores `none` y `groq` (endpoint y modelo editables), `schema.js` (validación del JSON devuelto); pruebas con `fetch` simulado.
+- **1.10-T2 · Cola y manejo de errores:** `queue.js` (concurrencia, reintentos con espera exponencial ante 429/5xx), timeout configurable (20 s), manejo de 401/429/red/vacío/no-JSON (reintento único).
+- **1.10-T3 · Caché, disponibilidad y registro:** `cache.js` (hash tarea+entrada, guarda en `generated`), `ai.available()`, evento `ai_call` sin clave ni prompt, `prompts/system.base.js` (prompt base del tutor), todo texto de IA escapado.
+- **1.10-T4 · Verificación y cierre:** verificar en documentación actual el modelo por defecto y los límites gratuitos de Groq (si el entorno no tiene red, queda como pendiente para William con pasos), CA 1–5 y cierre.
+
+### 1.11 Validador de lista blanca (3 tramos)
+- **1.11-T1 · Tokenizador:** contracciones, guiones, números, siglas (`don't`, `well-known`, `U.S.`, `3rd`), emoji y vacío.
+- **1.11-T2 · Lematizador y conocidos:** cargador de `lemmas.json` (el real de C10), lematización, `knownLemmas(db)` (estado `known`/`learning` + temas con dominio ≥ umbral + lista base A1). **Formas ambiguas** (las ~55 como `left` o `found`): una forma cuenta como conocida si **cualquiera** de sus lemas lo es.
+- **1.11-T3 · Chequeo y cierre:** `check(text, known) → {unknown[], pctKnown}`, `isWithinTarget`, utilidad para marcar palabras nuevas, 10 textos de control, cierre.
+
+### 1.12 Núcleo de sincronización (4 tramos)
+- **1.12-T1 · Respaldo:** `exportBackup`/`importBackup` con validación de versión, modos fusionar/reemplazar con vista previa del impacto, claves excluidas por defecto, round-trip sin pérdida. **Además:** añade `clear(store)` al motor de base de datos y úsalo en el modo reemplazar y en "Borrar todo" de Ajustes (hoy `clearAll()` tarda 6–8 s con 10.000 eventos en IndexedDB real); mide antes y después.
+- **1.12-T2 · Bloques del chat:** `makeChatBlock` (`llevar_al_chat`, `errores`, `estado`, `bitacora`) y `parseChatBlock` tolerante (texto alrededor, comillas curvas, vallas markdown), mensajes en español.
+- **1.12-T3 · Errores del chat y bitácora:** importación idempotente de errores del chat y generador de bitácora en texto plano.
+- **1.12-T4 · Entradas hostiles y cierre del M0.5:** `__proto__`, tamaños enormes, JSON malformado; CA 1–4; comparar `docs/CONTRACTS.md` con la sección 8 y marcar "contratos v1 congelados"; **corrige `docs/DEPLOY.md`**: la dirección real es `autoroscuro.github.io/glossa/` (no `sophia-ingles`).
+
+---
+
+## Parte 2 — Sesión jugable
+
+### 2.1 Ejecutor de sesión (4 tramos)
+- **2.1-T1 · Cableado de servicios y máquina de estados:** `app/services.js` conecta `events`, `srs`, `errors`, `mastery` y el armador (con `db` posiblemente `null`); `core/sessionRunner.js` puro con la tabla de transiciones (`idle → presenting → answering → feedback → next → summary`).
+- **2.1-T2 · Persistencia atómica:** tras cada respuesta, 1 evento + 1 actualización de tarjeta + registro de errores en una transacción; doble toque idempotente; restauración al cerrar y reabrir a mitad. **Además:** (a) los ítems `practice` y `error` no vencidos se tratan como **repasos adelantados** vía `srs.review`; (b) crea `core/masterySnapshot.js` (**foto diaria de dominio** en `meta`, clave `mastery_snap:<AAAA-MM-DD>`, una por día local, solo temas con evidencia, 400 días, idempotente) y la llama al cerrar sesión y en el primer arranque del día.
+- **2.1-T3 · Vista de sesión:** `ui/views/session.js`: cabecera, barra X/20 con la mascota, salir a mitad con confirmación, cronómetro por ítem (pausa con pestaña oculta).
+- **2.1-T4 · Registro de ejercicios y cierre:** `ui/exercises/index.js` (selección por `type`, pantalla amable de "tipo no soportado todavía"), integración con ítems de prueba, CA 1–6 y cierre.
+
+### 2.2 Tarjeta `phrase_cloze` (4 tramos)
+- **2.2-T1 · Render base:** frase/mini-diálogo ES con turnos A/B, palabra clave en verde en ES y EN, versión EN con hueco, cajas de gramática y de matiz (opcionales), etiqueta de situación.
+- **2.2-T2 · Respuesta:** entrada por teclado (micrófono deshabilitado con aviso "disponible pronto"), Ver pista progresiva (primera letra, luego estructura), "No sé", corrección con `wordDiff`, `grade`.
+- **2.2-T3 · Insignias y efectos:** `Nivel N (?)` con hoja explicativa, `New`, corazón (favorita → `fav`), `Repaso en …`; `almost` → aviso ortográfico y tarjeta `spell`.
+- **2.2-T4 · Accesibilidad y cierre:** 360 px sin cortes, textos largos, lector de pantalla ("hueco"), escenarios, CA 1–6.
+
+### 2.3 Familia de elección (3 tramos)
+- **2.3-T1 · Componente base `choice`:** opciones barajadas con `rng` (la correcta no siempre en la misma posición), "No sé" siempre visible, selección múltiple opcional, objetivos táctiles ≥ 44 px.
+- **2.3-T2 · Feedback y errores:** feedback que explica el distractor con `code` usando `pista_corta_es`, registro del error por distractor, evento `dont_know`.
+- **2.3-T3 · Los 9 tipos y cierre:** envoltorios `choose_correct`, `ab_natural`, `mcq_en_es`, `mcq_es_en`, `pick_fits`, `odd_one_out`, `choose_tense`, `prep_pick`, `particle_pick`; prueba estadística de barajado; cierre.
+
+### 2.4 Familia ordenar/emparejar/completar (4 tramos)
+- **2.4-T1 · Ordenar:** `order_blocks` (varios órdenes válidos en `accept`), `order_dialogue`, interacción por toques, deshacer y reiniciar.
+- **2.4-T2 · Emparejar y banco:** `match_pairs` (5–6 pares, feedback inmediato por par) y `cloze_bank`.
+- **2.4-T3 · Construcción:** `unscramble_letters` y `build_from_keywords`, sin estados imposibles (doble toque en el mismo bloque).
+- **2.4-T4 · Fuzz y cierre:** secuencias de toques aleatorias sin excepciones, 2 y 12 bloques, arrastre opcional solo si es sólido, CA 1–5.
+
+### 2.5 Familia de producción corta (5 tramos)
+- **2.5-T1 · Base de entrada de texto:** componente común con `compare`, variantes y contracciones, respuesta vacía no se envía, teclado móvil sin autocorrección ni mayúscula forzada, `almostAtWordEnd: true` donde aplique.
+- **2.5-T2 · Palabra y colocación:** `fill_verb`, `translate_word`, `first_letter`, `collocation_fill`, `def_to_word`, `derive_form`.
+- **2.5-T3 · Formas y traducción:** `three_forms` (tres campos, grading por faceta), `trap_translate`, `translate_bank`.
+- **2.5-T4 · Transformación:** `fix_error`, `transform`, `keyword_transform`, `join_sentences`, `pronoun_placement`.
+- **2.5-T5 · Detector y cierre:** pista específica con el detector mecánico (1.6), mapeo automático a `ErrorRecord`, tabla de ≥ 80 respuestas con las del diagnóstico, CA 1–6.
+
+### 2.6 Retroalimentación, pistas y "No sé" (3 tramos)
+- **2.6-T1 · Panel de feedback:** estados correcto/casi/incorrecto/no sé, respuesta correcta siempre visible, `explain_es`, `grammar_note_es`, `nuance_es`.
+- **2.6-T2 · Pistas y notas:** "No sé" sin lenguaje de fallo, campo "¿por qué creías eso?" (evento `note`), "Marcar como difícil" / "No me convence esta frase" (reporte local).
+- **2.6-T3 · Tono y cierre:** sonidos y vibración opcionales, reacción de la mascota, auditoría de cadenas sin culpa, el mismo panel en todos los tipos, cierre.
+
+### 2.7 Barra de 4 acciones (4 tramos)
+- **2.7-T1 · Barra y Otros ejemplos:** barra fija inferior, hojas que no pierden el ejercicio, "Otros ejemplos" mecánico (≥ 3 del paquete).
+- **2.7-T2 · Correcciones:** hoja con los errores propios del ítem/tema, contador en la insignia.
+- **2.7-T3 · Preguntas IA y Llevar al chat:** botón visible, sin IA muestra "Conecta tu clave en Ajustes" y ofrece "Llevar al chat" (bloque de 8.14, con alternativa si falla el portapapeles).
+- **2.7-T4 · Diccionario y cierre:** búsqueda local tolerante a mayúsculas y acentos, "añadir" si no existe, CA 1–4.
+
+### 2.8 Resumen de sesión (3 tramos)
+- **2.8-T1 · Cálculo del resumen:** función pura desde eventos (ítems, aciertos, tiempo, mejoras de dominio con confianza, errores nuevos y recurrentes, próximos repasos), prueba cruzada con eventos, 0 respuestas sin NaN.
+- **2.8-T2 · Pantalla:** resumen completo, abandono a mitad = resumen parcial, mensaje final cálido y honesto.
+- **2.8-T3 · Acciones y cierre:** "Repetir los que fallé" (mini-sesión), "Llevar al chat", CA 1–4.
+
+### 2.9 Paquete semilla S0 y recorrido completo (5 tramos)
+- **2.9-T1 · Semilla, parte 1:** `pack_seed_v1`: temas 1–2 de prioridad 1 (≥ 24 ítems originales, ≥ 3 tipos por tema, reglas de calidad de 8.10), validados.
+- **2.9-T2 · Semilla, parte 2:** temas 3–5 (≥ 36 ítems más, total ≥ 60), instalada con `npm run add-pack`.
+- **2.9-T3 · Arranque con contenido:** `importPacksToDb` al primer arranque, precache de `content/index.json` y paquetes en `sw.js`, botón "Estudiar ahora" en Hoy que arma la sesión 1.8.
+- **2.9-T4 · Simulación:** 5 días de uso con respuestas generadas verificando invariantes (sin tarjetas duplicadas, `due` coherente, eventos = respuestas, dominio sin bajar sin causa); errores del diagnóstico registrados con su código.
+- **2.9-T5 · Guion y cierre del M1:** guion de 10 pasos para William, `tests/scenarios/HITO_M1.md`, CA 1–4, versión MINOR y build. **Además:** con los datos de la simulación (2.9-T4) fija la **política real de topes diarios** (nuevas y repasos; por defecto 10 y 100) y anótala en `DECISIONS.md`.
+
+### 2.10 Rediseño de los temas Neo y Claro (2 tramos)
+- **2.10-T1 · Referencia y Neo:** pide a William el proyecto de referencia y las capturas; extrae paleta, fondos, sombras y tipografía; rediseña **Neo** en `themes.css` sin cambiar nombres de variables; pruebas de contraste AA.
+- **2.10-T2 · Claro y cierre:** rediseña **Claro**, repasa la galería y las 5 pestañas en los tres temas, CA 1–4, guion corto de comparación para el siguiente hito; versión PATCH.
+
+---
+
+## Parte 3 — Mapa, plan, estadísticas y errores
+
+### 3.1 Vista de mapa (4 tramos)
+- **3.1-T1 · Lista jerárquica:** áreas → niveles → temas con % de dominio, confianza y símbolo de banda (usa `mastery`).
+- **3.1-T2 · Filtros y búsqueda:** "A estudiar" / "En riesgo" / "Diagnosticado como hueco", búsqueda; prerrequisitos solo sugeridos.
+- **3.1-T3 · Mapa de calor y desglose:** mapa de calor y desglose explicado al tocar el porcentaje.
+- **3.1-T4 · Rendimiento y cierre:** 250 temas fluidos (virtualizar o paginar), vacíos, CA 1–4.
+
+### 3.2 Detalle de tema (3 tramos)
+- **3.2-T1 · Ficha:** regla, forma, uso, ejemplos, errores típicos, contraste con el español; campos ausentes tolerados; estado y desglose.
+- **3.2-T2 · Acciones:** "Llevar al chat" (ficha + errores propios), "Practicar este tema" (`topicFocus`), historial del tema.
+- **3.2-T3 · Estados y cierre:** tema sin ítems con estado vacío útil, CA 1–4.
+
+### 3.3 Exámenes de entrada y de salida (4 tramos)
+- **3.3-T1 · Armador de exámenes:** selección sin repetir ítems de la práctica reciente, mínimo configurable (8), degradación con < 12 ítems.
+- **3.3-T2 · Examen de entrada:** producción + pregunta de teoría, eventos `exam_entry`, paso a mantenimiento o "a estudiar con el chat".
+- **3.3-T3 · Examen de salida:** ítems nuevos, eventos `exam_exit`, actualización de dominio y vuelta al repaso normal, sin bloqueo.
+- **3.3-T4 · Formato limpio y cierre:** formato limpio para vocabulario (sin pistas, con "No sé"), vistas, CA 1–5.
+
+### 3.4 Pantalla "Hoy" y plan (5 tramos)
+- **3.4-T1 · `core/plan.js` base:** bloques según tiempo y energía (repasos primero, tema nuevo, lectura o escritura alternando, conversación, bloque externo, descansos).
+- **3.4-T2 · Reglas y regreso:** máx. 2–3 temas nuevos activos por área, el plan se encoge solo, lógica de regreso tras pausa con modo rescate.
+- **3.4-T3 · Vista Hoy:** sliders de tiempo y energía, bloques con tiempo estimado, botón "Empezar" siempre visible.
+- **3.4-T4 · Reordenar y bienvenida:** reordenar y saltar sin culpa (se recuerda), bienvenida cálida al regresar, nunca "perdiste tu racha".
+- **3.4-T5 · Informativos y cierre:** horas planeadas vs. hechas, tabla de planes por tiempo/energía/atraso, CA 1–4.
+
+### 3.5 Vistas de semana y mes (3 tramos)
+- **3.5-T1 · Temas semanales:** crea `content/taxonomy/weekly_themes.json` (≥ 12 temas, formato validado) y su cargador; tema sugerido y cambiable.
+- **3.5-T2 · Semana:** mini-diagnóstico semanal y lista "Llevar al chat" de la semana.
+- **3.5-T3 · Mes y cierre:** metas por área, hitos, sondas de techo sugeridas cada 4–6 semanas, reprogramación sin deuda visible, CA 1–4.
+
+### 3.6 Estadísticas y progreso (4 tramos)
+- **3.6-T1 · Gráficas propias:** componentes SVG/Canvas sin librerías (barras, líneas, mapa de calor) legibles a 360 px.
+- **3.6-T2 · Actividad y precisión:** actividad por día, precisión por tipo/tema, tarjetas por nivel 1–5.
+- **3.6-T3 · Pronóstico y tendencias:** pronóstico de repasos, retención real vs. objetivo (marcada "estimada"), tendencia de dominio por área **leyendo las fotos diarias** (`mastery_snap:*`; con pocos días muestra "aún no hay suficiente historia"), tiempos medios; consultas con ventana de 14–30 días.
+- **3.6-T4 · Gamificación y cierre:** XP/rangos opcionales y desactivables (ocultos por completo), **apagados por defecto** (`enabled: false`; cambia la constante y su prueba) con interruptor en Ajustes; los valores y nombres provisionales de 1.9-T3 se quedan salvo que el uso real indique otra cosa; textos honestos ("poca evidencia todavía"), vacíos, CA 1–4.
+
+### 3.7 Pantalla de errores (4 tramos)
+- **3.7-T1 · Ranking y filtros:** errores top (frecuencia × impacto), filtros por código/tema/origen/período.
+- **3.7-T2 · Ficha y práctica:** ficha de cada código con ejemplos propios y microexplicación, "Practicar este error" (`errorFocus`), "Llevar al chat".
+- **3.7-T3 · Importar del chat:** importar bloque de errores del chat con vista previa, sin duplicar (`source:"chat"`).
+- **3.7-T4 · Sanguijuelas y cierre:** lista de sanguijuelas con acción clara ("Explícamelo en el chat"), CA 1–4.
+
+### 3.8 Test de nivelación y calibración (3 tramos)
+- **3.8-T1 · Estado inicial:** importación idempotente del resultado del diagnóstico de William (7.10): huecos confirmados, dominio inicial con confianza baja.
+- **3.8-T2 · Test corto adaptativo:** calibración por área; lo que dijo "no sé" no se repregunta.
+- **3.8-T3 · Reinicio y cierre del M2:** todo editable y reiniciable, huecos fuera de los exámenes de entrada, CA 1–4, guion y `tests/scenarios/HITO_M2.md`.
+
+---
+
+## Parte 4 — Vocabulario, verbos, phrasal verbs, preposiciones y ortografía
+
+### 4.1 Léxico, familias y ficha de palabra (4 tramos)
+- **4.1-T1 · Almacén:** almacén `words`, carga de `LexEntry` desde paquetes, estados `desconocida / aprendiendo / conocida`.
+- **4.1-T2 · Familias:** familias temáticas y lingüísticas con nivel y prioridad (esenciales primero).
+- **4.1-T3 · Ficha de palabra:** lema, categoría, significado, ejemplos, audio (si existe), colocaciones, falso amigo, banda; cambiar estado crea o actualiza la tarjeta.
+- **4.1-T4 · Búsqueda y cierre:** búsqueda con acentos y mayúsculas, vista de familias con dominio, 5.000 palabras fluidas, CA 1–4.
+
+### 4.2 Ejercicios de vocabulario (3 tramos)
+- **4.2-T1 · Categorizar y derivar:** `categorize`, `derive_form`.
+- **4.2-T2 · Relámpago:** `lightning` (2 min, sin penalización), `own_sentence_word` (versión mecánica).
+- **4.2-T3 · Progresión y cierre:** progresión reconocimiento → producción en el armador (extensión autorizada, documentada), ≥ 3 tipos por palabra, CA 1–3.
+
+### 4.3 Examen de entrada "limpio" (3 tramos)
+- **4.3-T1 · Formato de ítem:** oración neutra sin pistas + opciones en español + "No sé", y la comprobación de pistas en el validador.
+- **4.3-T2 · Selección:** por banda de frecuencia (las bandas de `lemmas.json` son aproximadas; ver "Puntos de acople"), sin repetir palabras ya conocidas.
+- **4.3-T3 · Resultado y cierre:** resultado por banda (1K/2K/3K), fallidas a estudio, "No sé" como dato válido, CA 1–4.
+
+### 4.4 Verbos irregulares y regulares (4 tramos)
+- **4.4-T1 · Facetas:** tres tarjetas por verbo (presente, pasado, participio) con vencimientos independientes.
+- **4.4-T2 · Ejercicios:** `three_forms` y `group_irregulars` agrupados por patrón.
+- **4.4-T3 · Lote y pronunciación:** lote diario configurable (5 por defecto, 3–10) por frecuencia, reglas de -ed (/t/, /d/, /ɪd/).
+- **4.4-T4 · Errores y cierre:** clasificación `VRB.IRREG_REGULARIZE` y `VRB.DOUBLE_PAST`, fallo en una forma no penaliza las otras, CA 1–4.
+
+### 4.5 Phrasal verbs (3 tramos)
+- **4.5-T1 · Modelo:** separables/no separables, literal/figurado, significados múltiples como tarjetas distintas.
+- **4.5-T2 · Ejercicios:** `pronoun_placement`, `particle_pick`, `phrasal_meaning`, `formal_synonym`.
+- **4.5-T3 · Lote y cierre:** lote diario (3 por defecto, 1–6), CA 1–3.
+
+### 4.6 Preposiciones dependientes y patrones verbales (3 tramos)
+- **4.6-T1 · Familias y reglas:** familias `prep` y patrones fijos con validación (≥ 12 ítems de ≥ 3 tipos por patrón).
+- **4.6-T2 · Fichas y distractores:** contraste con el español visible, distractores con `code` tomados de los errores reales de William (7.10), `explain_rule`.
+- **4.6-T3 · Paquete de muestra y cierre:** paquete de muestra validado y CA 1–3.
+
+### 4.7 Ortografía (4 tramos)
+- **4.7-T1 · Tarjetas `spell` automáticas:** desde errores de ortografía y palabras recurrentes, sin duplicados, `almostAtWordEnd: true`.
+- **4.7-T2 · Ejercicios de letras:** letras desordenadas, completar letras faltantes, letras mudas, `-y→-ies`.
+- **4.7-T3 · Homófonos y audio:** homófonos con contexto, duplicación de consonantes, `spell_from_audio` con TTS del navegador.
+- **4.7-T4 · Diccionario y cierre del M3:** vista Diccionario del usuario con filtros por estado, CA 1–3, guion y `tests/scenarios/HITO_M3.md`.
+
+---
+
+## Parte 5 — Inteligencia artificial
+
+### 5.1 Configuración y estado de IA (3 tramos)
+- **5.1-T1 · Pantalla IA:** proveedor, modelo editable, clave, indicador global "IA activa / modo mecánico", contador de llamadas del día.
+- **5.1-T2 · Probar conexión:** diagnóstico claro (401, 429, red, éxito) con simulaciones.
+- **5.1-T3 · Verificación y cierre:** verificar modelo y límites vigentes (o dejar pendiente con pasos), sin clave todo sigue mecánico, CA 1–3.
+
+### 5.2 "Otros ejemplos" con IA (3 tramos)
+- **5.2-T1 · Capas 1 y 2:** ejemplos del paquete y de fuentes abiertas con licencia verificada.
+- **5.2-T2 · Capa 3:** prompt versionado, 3–5 frases dentro de lo dominado, esquema JSON, validación con `whitelist`.
+- **5.2-T3 · Caché y cierre:** `generated`, reintento único, "no verificado" + "Reportar", caída al paquete sin IA, CA 1–4.
+
+### 5.3 "Preguntas IA" contextuales (3 tramos)
+- **5.3-T1 · Contexto:** construcción del contexto (ítem, respuesta, tema, errores recientes) sin datos innecesarios ni claves.
+- **5.3-T2 · Mini-chat:** hoja inferior, respuestas cortas escapadas, límite de turnos, historial por ítem.
+- **5.3-T3 · Respaldo y cierre:** "Esto no me quedó claro → Llevar al chat", mensajes amables ante fallos de red, CA 1–4.
+
+### 5.4 Calificación de respuestas abiertas (4 tramos)
+- **5.4-T1 · Rúbrica y esquema:** prompts y JSON `{verdict, score, errors[], praise_es}` con rúbrica fija.
+- **5.4-T2 · Fusión:** unión con el comparador mecánico (exacto = sin IA, ambiguos por IA), sin IA → `needs_review`.
+- **5.4-T3 · Mapeo de errores:** errores a códigos existentes, desconocidos a `unknown` con reporte.
+- **5.4-T4 · Componentes y cierre:** `translate_free`, `own_sentence_*`, `explain_rule`, `summarize_one_line`, registro de lo que la IA "aprueba" frente a un rechazo mecánico, CA 1–4.
+
+### 5.5 Clasificación de errores con IA (3 tramos)
+- **5.5-T1 · Clasificador:** implementa el contrato de `core/errorHook.js` (kind, origin, impact, tema causante).
+- **5.5-T2 · Reconciliación y lotes:** el mecánico explícito gana; lotes por llamada con tope.
+- **5.5-T3 · Sin IA y cierre:** cae al detector mecánico sin regresión, CA 1–3.
+
+### 5.6 Ciclo de feedback de escritura (5 tramos)
+- **5.6-T1 · Consigna:** consignas con estructuras ocultas de la semana usando solo lo dominado.
+- **5.6-T2 · Escritura:** pantalla de escritura y parser de `[corchetes]` (circunlocución fomentada; esas palabras pasan a estudio).
+- **5.6-T3 · Feedback:** ≤ 5 errores priorizados por impacto y tema, 3 aciertos, versión corregida con explicación.
+- **5.6-T4 · Reescritura:** reescritura y comparación 1ª vs. 2ª, métricas (palabras, cumplimiento de tarea).
+- **5.6-T5 · Sin IA y cierre:** guarda el texto y genera "Llevar al chat" con instrucciones, errores al registro, CA 1–5.
+
+### 5.7 Generador de frases con vocabulario dominado (3 tramos)
+- **5.7-T1 · Generación:** solo lemas dominados (+ 5–10 % nuevo marcado).
+- **5.7-T2 · Validación:** `whitelist.check`, reintento o descarte.
+- **5.7-T3 · Frases propias y cierre:** guardar frases propias para repaso, CA 1–3.
+
+### 5.8 Conversación y juegos de rol por texto (5 tramos)
+- **5.8-T1 · Escenarios:** carga de situaciones (usa el contenido de C13) y objetivo oculto semanal.
+- **5.8-T2 · Motor de turnos:** límites de turnos y duración, lenguaje dentro de la lista blanca, sin corregir a mitad.
+- **5.8-T3 · Pantalla de chat:** interfaz de conversación y transcripción guardada.
+- **5.8-T4 · Cierre de la conversación:** feedback final (errores por impacto + 3 frases para repetir), objetivo oculto evaluado.
+- **5.8-T5 · Respaldo y cierre:** guiones fijos sin IA, evidencia `U` de dominio, CA 1–4.
+
+### 5.9 Mediación y pragmática (3 tramos)
+- **5.9-T1 · Rúbricas:** una por acto de habla y por tipo (`med_summarize`, `med_explain_layperson`, `med_register`, `med_speech_act`, `med_cross_language`).
+- **5.9-T2 · Componentes:** los cinco tipos con feedback sobre registro.
+- **5.9-T3 · Sin IA y cierre:** pendiente para el chat sin IA, CA 1–3.
+
+### 5.10 Señal "U" y entrenador semanal (3 tramos)
+- **5.10-T1 · Señal U:** conectar la evidencia de uso real a `mastery`.
+- **5.10-T2 · Resumen semanal:** con IA y versión mecánica, validado contra los datos (no inventa).
+- **5.10-T3 · Tono y cierre del M4:** tono honesto sin culpa, CA 1–3, guion y `tests/scenarios/HITO_M4.md`.
+
+---
+
+## Parte 6 — Lectura e historias
+
+### 6.1 Lector con "tocar palabra" (5 tramos)
+- **6.1-T1 · Tokenización táctil:** contracciones, guiones, puntuación; rendimiento base.
+- **6.1-T2 · Vista del lector:** texto, tamaño ajustable, significado ES + lema + categoría al tocar.
+- **6.1-T3 · Estados:** desconocida / aprendiendo / conocida con colores persistentes en todo el texto; al marcar se crea la tarjeta.
+- **6.1-T4 · Frases y modos:** selección de varias palabras, modo intensivo (con ayudas) y extensivo (tiempo registrado).
+- **6.1-T5 · Palabras sin entrada y cierre:** "añadir significado" (o IA), textos de 3.000 palabras fluidos, CA 1–4.
+
+### 6.2 Comprensión lectora (4 tramos)
+- **6.2-T1 · Preguntas básicas:** `read_local_q`, `read_global_q`, `read_tfng` (verdadero/falso/no lo dice).
+- **6.2-T2 · Estructura del texto:** `read_reference`, `order_paragraphs`, `match_headings`, `gap_sentences`.
+- **6.2-T3 · Inferencia y resumen:** `read_inference`, `summarize_one_line` (IA).
+- **6.2-T4 · Autoevaluación y cierre:** lista de desconocidas autodeclarada y contraste con resultados sin juzgar, CA 1–3.
+
+### 6.3 Biblioteca de historias y flujo RAIO (4 tramos)
+- **6.3-T1 · Biblioteca:** historias por nivel CEFR, progreso por historia, objetivos visibles.
+- **6.3-T2 · Pasos 1 y 2:** escuchar sin texto (TTS del navegador si no hay audio) y luego ver el texto.
+- **6.3-T3 · Pasos 3 y 4:** repetir en voz alta (shadowing) y ejercicios analíticos.
+- **6.3-T4 · Integración y cierre:** palabras nuevas a estudio, contador de repeticiones, continuidad entre segmentos, con y sin audio, CA 1–4.
+
+### 6.4 Comprobador de comprensibilidad 90–95 % (3 tramos)
+- **6.4-T1 · Cálculo y panel:** `pctKnown` por texto y marcado del 5–10 % nuevo.
+- **6.4-T2 · Selector:** prioriza textos en rango configurable, advertencia amable fuera de rango.
+- **6.4-T3 · CLI y cierre:** `tools/check-story-levels.mjs`, CA 1–3.
+
+### 6.5 Sondas de techo (3 tramos)
+- **6.5-T1 · Selección de la sonda:** texto o tarea por encima del nivel, fuera del plan diario.
+- **6.5-T2 · Medición:** comprensión y palabras nuevas, actualización del techo estimado con confianza.
+- **6.5-T3 · Mensaje y cierre:** resultado honesto sin culpa, CA 1–3.
+
+### 6.6 Lectura extensiva (2 tramos)
+- **6.6-T1 · Modo libre:** tiempo (excluye pestaña oculta) y palabras leídas.
+- **6.6-T2 · Objetivos y cierre del M5:** objetivos blandos opcionales, estadísticas, CA 1–3, guion y `tests/scenarios/HITO_M5.md`.
+
+---
+
+## Parte 7 — Audio
+
+### 7.1 Tubería de audio en el PC de William (4 tramos)
+- **7.1-T1 · Extracción y manifiesto:** lectura de paquetes, textos con su `audio`, `audio/manifest.json` (id → archivo, duración, hash, voz); parte Node probada con textos de muestra.
+- **7.1-T2 · Generación:** script de Kokoro (verificar instrucciones vigentes; si no hay red, declarar lo no verificado), MP3 mono por texto, voz por personaje A/B, `<id>.slow.mp3`, volumen normalizado.
+- **7.1-T3 · Incremental y tamaños:** solo regenera lo cambiado, el manifest valida con el validador, tamaño total estimado reportado.
+- **7.1-T4 · Guía y cierre:** `docs/AUDIO_GUIDE.md` paso a paso para William, CA 1–4.
+
+### 7.2 Reproductor de audio (4 tramos)
+- **7.2-T1 · Núcleo:** `core/speech/player.js`: reproducir por `id` con manifest, velocidad 0.7×–1.2×, repetir, siguiente.
+- **7.2-T2 · Respaldos:** caída a `speechSynthesis`, política de autoplay de Android, sin superposición de audios.
+- **7.2-T3 · Caché:** límite en el service worker, precarga del siguiente, reproducción sin conexión.
+- **7.2-T4 · Controles y cierre:** controles Normal/Lento · Otra vez · Siguiente, CA 1–4, prueba manual de William.
+
+### 7.3 Dictado y cloze auditivo (3 tramos)
+- **7.3-T1 · `dictation`:** tolerancia ortográfica y marcado, velocidad y repeticiones; aplica la lista fija tipo → modo y los valores por defecto de los "Puntos de acople" (escribir/elegir, `speed`, `max_plays`, `show_transcript`).
+- **7.3-T2 · `cloze_audio` y `spell_from_audio`.**
+- **7.3-T3 · Progresión y cierre:** con transcripción y lento → sin transcripción y a velocidad real, el contador de repeticiones como pista, CA 1–3.
+
+### 7.4 Habla conectada y pares mínimos (3 tramos)
+- **7.4-T1 · `connected_speech`:** enlaces, elisiones, formas débiles.
+- **7.4-T2 · `minimal_pair_listen`:** pares con audio de ambas palabras, distractores por fonema problemático.
+- **7.4-T3 · `what_did_they_say` y cierre:** errores registrados con `PRON.*`, CA 1–3.
+
+### 7.5 Comprensión auditiva y escucha extensiva (3 tramos)
+- **7.5-T1 · `listen_comprehension`:** transcripción oculta hasta el final.
+- **7.5-T2 · `follow_instruction` y `extensive_listening`:** tiempo de escucha registrado.
+- **7.5-T3 · Fuentes y cierre:** verificación documentada de licencias (VOA, LibriVox; solo enlaces si no es claro), CA 1–3.
+
+### 7.6 Shadowing diario (2 tramos)
+- **7.6-T1 · Módulo:** escuchar → repetir → auto-evaluación (3 caritas) → siguiente, ≈ 5 min configurable, evento al evaluar.
+- **7.6-T2 · Plan y cierre del M6:** integración al plan (3.4), CA 1–3, guion y `tests/scenarios/HITO_M6.md`.
+
+---
+
+## Parte 8 — Voz y pronunciación
+
+### 8.1 Reconocimiento de voz (4 tramos)
+- **8.1-T1 · `stt.js`:** `SpeechRecognition` en-US, permisos, estados (escuchando/procesando/error), fallbacks si no hay API.
+- **8.1-T2 · Transcripción coloreada:** burbuja "esto entendí" con cada palabra verde/roja.
+- **8.1-T3 · En `phrase_cloze`:** activar el micrófono con "Modo teclado" siempre disponible, sin guardar grabaciones.
+- **8.1-T4 · Aviso y cierre:** información clara sobre el servicio externo de Android/Chrome, permiso denegado sin romper nada, CA 1–4, prueba manual.
+
+### 8.2 Azure Pronunciation Assessment (5 tramos)
+- **8.2-T1 · Guía y ajustes:** `docs/AZURE_GUIDE.md` (recurso F0 vía Azure for Students; verificar disponibilidad) y campos de clave/región.
+- **8.2-T2 · Cliente:** `core/speech/azure.js` (SDK o REST, lo más ligero y vigente; sin dependencias nuevas sin permiso) con audio de ≈ 10 s.
+- **8.2-T3 · Resultados:** parser de precisión, fluidez, completitud y prosodia a nivel palabra y fonema.
+- **8.2-T4 · Errores y degradación:** 401/403/429, contador de uso, sin red, cero claves en logs, función oculta con explicación si no hay clave.
+- **8.2-T5 · Cierre:** CA 1–5 y guion de prueba manual (crear el recurso y probar 5 frases).
+
+### 8.3 Ejercicios de pronunciación (5 tramos)
+- **8.3-T1 · Base:** mapeo fonema → pista en español, umbrales de color configurables.
+- **8.3-T2 · Lectura y eco:** `read_aloud_score`, `echo_repeat`.
+- **8.3-T3 · Pares y sonidos:** `minimal_pair_speak`, `sound_drill` (orden de 7.11).
+- **8.3-T4 · Ritmo y acento:** `stress_mark`, `rhythm_sentence`, `describe_image_speak`.
+- **8.3-T5 · Tarjetas y cierre:** cada sonido fallado crea 1 tarjeta `PRON.*` sin duplicados, clasificación fina construida por nosotros, degradación a STT, CA 1–4.
+
+### 8.4 Conversación por voz (4 tramos)
+- **8.4-T1 · Máquina de estados:** hablar → STT → IA → leer en voz alta, con simulaciones.
+- **8.4-T2 · Modo manos libres:** ciclo completo sin tocar la pantalla, elección de tema y rol.
+- **8.4-T3 · Robustez:** transcripción guardada ante cortes de red, límites de turnos/duración/cupo, guiones de respaldo.
+- **8.4-T4 · Informe y cierre:** informe final con 3 frases para repetir, respeta la lista blanca, CA 1–4.
+
+### 8.5 Alternativas locales (opcional, 2 tramos)
+- **8.5-T1 · Plan de evaluación:** solo si Azure no es viable; qué medir (tamaño, tiempo, calidad) y cómo.
+- **8.5-T2 · Mediciones e informe:** pruebas en el teléfono real de William con pasos claros; el chat recomienda y William decide.
+
+### 8.6 Exportar grabaciones (2 tramos)
+- **8.6-T1 · Guardado local:** opción desactivada por defecto "guardar las últimas N grabaciones" y borrar todas.
+- **8.6-T2 · Exportar y cierre del M7:** exportación en Android, recordatorio suave cada 4–6 semanas, CA 1–3, guion y `tests/scenarios/HITO_M7.md`.
+
+---
+
+## Parte 9 — Cierre y endurecimiento
+
+### 9.1 Recordatorios (2 tramos)
+- **9.1-T1 · Viabilidad:** informe de qué es confiable en una PWA en Android (Notification Triggers, Periodic Background Sync, Web Push), basado en documentación vigente o declarado como no verificado.
+- **9.1-T2 · Implementación mínima y cierre:** solo lo confiable (recordatorio suave al abrir, opción de crear alarma desde el chat), sin culpa ni insistencia.
+
+### 9.2 Ajustes completos y pulido de UX (5 tramos)
+- **9.2-T1 · Inventario:** lista de verificación por pantalla (estados vacío, carga y error).
+- **9.2-T2 · Ajustes conectados:** toda opción de 0.8 conectada a su función real; ninguna queda decorativa.
+- **9.2-T3 · Estados:** implementar los estados vacío/carga/error que falten, incluido el aviso "Borrando…" en operaciones largas de datos.
+- **9.2-T4 · Textos y microinteracciones:** revisión de cadenas (cálidas, sin culpa), microinteracciones, háptica opcional.
+- **9.2-T5 · Recorrido y cierre:** recorrido completo de cada pantalla con la lista, auditoría de cadenas.
+
+### 9.3 Respaldo y restauración robustos (3 tramos)
+- **9.3-T1 · Respaldo automático:** local rotativo (últimos 3) y recordatorio suave.
+- **9.3-T2 · Restauración:** con vista previa, migración de versiones antiguas, manejo del borrado de datos por Chrome.
+- **9.3-T3 · Pruebas y cierre:** round-trip con 10.000 eventos (igualdad profunda), prueba de restauración en dispositivo limpio.
+
+### 9.4 Rendimiento y contenido masivo (4 tramos)
+- **9.4-T1 · Banco de pruebas:** datos sintéticos (20.000 ítems, 200.000 eventos) y benchmarks.
+- **9.4-T2 · Carga perezosa:** paquetes e índices.
+- **9.4-T3 · Virtualización:** listas largas y arranque en frío.
+- **9.4-T4 · Presupuesto y cierre:** presupuesto de rendimiento, tamaño de caché y de audio, medición de costes pendientes de 1.1 (`countByDay`/`recentErrorsByCode` con 50.000 eventos, `clear(store)`), CA 1–2.
+
+### 9.5 Accesibilidad y cadenas de UI (4 tramos)
+- **9.5-T1 · Módulo de cadenas:** `app/strings.es.js` y regla de `audit` contra cadenas sueltas.
+- **9.5-T2 · Migración:** mover las cadenas de las pantallas de estudio y de ajustes.
+- **9.5-T3 · Accesibilidad:** lector de pantalla, contraste, objetivos táctiles.
+- **9.5-T4 · Movimiento y cierre:** reducción de movimiento, tamaño de fuente del sistema, lista de verificación, CA 1–2.
+
+### 9.6 Auditoría de seguridad y privacidad (3 tramos)
+- **9.6-T1 · Revisión estática:** CSP, todo `innerHTML`, manejo de claves, dependencias vendorizadas con licencia, ausencia de telemetría.
+- **9.6-T2 · Casos hostiles:** contenido de IA no confiable, importación hostil, permisos de micrófono; pruebas automatizadas.
+- **9.6-T3 · Informe y correcciones:** hallazgos y correcciones, cero críticos/altos abiertos.
+
+### 9.7 Regresión total y recorrido completo (3 tramos)
+- **9.7-T1 · Simulación:** 60 días de uso con datos sintéticos verificando invariantes.
+- **9.7-T2 · Guion manual completo** para William (todas las pantallas).
+- **9.7-T3 · Revisión de documentos y cierre:** suite completa y `docs/*` al día.
+
+### 9.8 Documentación final y empaquetado (3 tramos)
+- **9.8-T1 · Documentos principales:** `README`, `DEPLOY`, guías de audio y Azure, manual de usuario corto.
+- **9.8-T2 · Mantenimiento:** guía de mantenimiento (regenerar audio, actualizar versión, respaldo; enlaza `docs/ADD_PACK.md` y comprueba que sigue vigente).
+- **9.8-T3 · Empaquetado y cierre:** evaluación opcional de APK con Capacitor (solo si algo lo exige), CA, versión 1.0, `tests/scenarios/HITO_M8.md`.
+
+
+---
+- **1.11** — Decisiones del Administrador sobre las 20 preguntas acumuladas, colocadas **dentro de los tramos donde se aplican** y en los "Puntos de acople" (que ahora todo chat lee): agregación de dominio sin ponderar por confianza; foto diaria de dominio en `meta` (`mastery_snap:<día>`, creada en 2.1-T2); ítems `practice`/`error` como repasos adelantados; ventanas de 14–30 días; `clear(store)` en 1.12-T1 y aviso "Borrando…" en 9.2-T3; XP apagado por defecto (3.6-T4); lista fija audio tipo → modo (7.3-T1); política de topes en 2.9-T5; formas ambiguas de lemas (1.11-T2); C6 añade sus familias `vocab.*`; bandas de `lemmas.json` aproximadas; 0.9 no sube versión; corrección de `DEPLOY.md` en 1.12-T4; **nueva subparte 2.10** (rediseño de Neo y Claro con el proyecto de referencia); regla 4.R.9 para pruebas de rendimiento (mediana de 5 corridas).
 
 *Fin del roadmap maestro.*

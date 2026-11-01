@@ -1,0 +1,6 @@
+ts-fsrs 5.4.1 (algoritmo FSRS-6.0) — licencia MIT (ver LICENSE en esta carpeta)
+Origen: build ESM de jsDelivr, https://cdn.jsdelivr.net/npm/ts-fsrs@5.4.1/ (index.mjs, subido por William el 2026-10-20)
+Archivo sin modificar. sha256 de index.mjs: 837fea3f2553cb0878f53a82ac6238a4ab0adf367e1d571163504d452ff058b2
+sha256 de LICENSE: 8b83a73dd2894ff553d6de6113064b3ad9dfad3f839837b61f3b183881131d01
+Se usa SOLO desde core/srs.js. Para actualizar: sustituir index.mjs, cambiar este archivo y repasar tests/srs.fsrs.test.mjs.
+Nota: la última línea de index.mjs referencia index.mjs.map, que no se incluye (solo afecta a las herramientas de desarrollo del navegador).

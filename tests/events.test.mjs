@@ -1,3 +1,4 @@
+// @purpose: Pruebas de core/events.js: registro atómico, unicidad contra la base e inmutabilidad.
 // Pruebas de core/events.js (subparte 1.1, cuarto 2 mitad A): log atómico, unicidad contra la base e inmutabilidad.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

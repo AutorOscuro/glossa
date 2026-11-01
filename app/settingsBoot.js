@@ -1,3 +1,4 @@
+// @purpose: Arranque de los ajustes: crea settings sobre la base, los carga y aplica la apariencia (nunca rechaza).
 // Arranque de los ajustes (subparte 0.8, cuarto 2): crea `settings` sobre la base, los carga y aplica la apariencia.
 //
 //   startSettings({ storageReady, doc, win, log? }) → Promesa de { settings, appearance }   (NUNCA rechaza)

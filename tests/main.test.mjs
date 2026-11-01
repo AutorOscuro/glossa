@@ -1,3 +1,4 @@
+// @purpose: Prueba de extremo a extremo de app/main.js con window y document falsos y sin IndexedDB.
 // Prueba de extremo a extremo de app/main.js (subparte 0.8, cuarto 4B): se importa de verdad con window y document falsos
 // (sin indexedDB: la base cae a memoria con su aviso). Comprueba el cableado del primer arranque que ninguna otra prueba toca.
 import { test, afterEach } from 'node:test';

@@ -1,3 +1,4 @@
+/* @purpose: Estilos de la biblioteca de componentes JS (se carga después de components.css). */
 /* widgets.css — estilos de la biblioteca de componentes JS (subparte 0.5). Se carga DESPUÉS de components.css.
    Mismas reglas que components.css: solo var(--…) de color, objetivos táctiles ≥ var(--touch-min), :hover dentro de
    @media (hover: hover), tiempos desde --dur-* y nada de style="" (valores dinámicos con setProperty).
@@ -145,10 +146,13 @@
 
 .sheet__grab {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-height: var(--space-6);
-  margin: calc(var(--space-3) * -1) 0 var(--space-1);
+  /* Zona de agarre de 44 px (--touch-min) para un dedo; antes eran 24 px y en el teléfono era fácil fallar y que no pasara nada.
+     La barrita queda donde estaba; el título baja unos 16 px (la zona de agarre no se solapa con el encabezado: así la X sigue tocándose bien). */
+  min-height: var(--touch-min);
+  padding-top: 0.6rem;
+  margin: calc(var(--space-3) * -1) 0 0;
   cursor: grab;
   touch-action: none;
 }
@@ -337,6 +341,7 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
 
 .segmented {
   display: flex;
+  flex-wrap: wrap; /* BUG 1: si una etiqueta no cabe, el botón baja de línea; la palabra nunca se parte */
   gap: var(--space-1);
   padding: var(--space-1);
   border: 1px solid var(--border-input);
@@ -345,8 +350,8 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
 }
 
 .segmented__item {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 1 1 max-content;
+  min-width: min-content;
   min-height: var(--touch-min);
   padding: var(--space-1) var(--space-3);
   border: 0;
@@ -356,7 +361,9 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
   font: inherit;
   font-weight: var(--weight-medium);
   line-height: var(--leading-tight);
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -366,9 +373,10 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
 .segmented__item:active { transform: scale(0.98); }
 
 .segmented__item[aria-checked="true"] {
-  background: var(--accent);
-  color: var(--on-accent);
-  font-weight: var(--weight-bold);
+  background: var(--brand-gradient);
+  box-shadow: 0 2px 0 var(--brand-edge);
+  color: var(--on-brand);
+  font-weight: var(--weight-heavy);
 }
 
 .segmented__item:disabled { color: var(--disabled-text); cursor: not-allowed; }
@@ -502,7 +510,7 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
   background: var(--surface);
   color: var(--text);
   font: inherit;
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-bold);
   line-height: var(--leading-tight);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -513,9 +521,9 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
 .word-chip:active { transform: translateY(2px); border-bottom-width: 1px; }
 .word-chip__word { min-width: 0; overflow-wrap: anywhere; }
 .word-chip__mark:empty, .word-chip__kind:empty { display: none; }
-.word-chip--selected { border-color: transparent; background: var(--accent); color: var(--on-accent); }
-.word-chip--correct { border-color: transparent; background: var(--success); color: var(--on-success); }
-.word-chip--wrong { border-color: transparent; background: var(--danger); color: var(--on-danger); }
+.word-chip--selected { border-color: transparent; border-bottom-color: var(--brand-edge); background: var(--brand-gradient); color: var(--on-brand); }
+.word-chip--correct { border-color: transparent; border-bottom-color: var(--success-edge); background: var(--success); color: var(--on-success); }
+.word-chip--wrong { border-color: transparent; border-bottom-color: var(--danger-edge); background: var(--danger); color: var(--on-danger); }
 
 .word-chip--used,
 .word-chip:disabled {
@@ -551,6 +559,12 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
   text-decoration: underline wavy;
 }
 
+.word-diff__word--extra {
+  background: var(--danger);
+  color: var(--on-danger);
+  text-decoration: line-through;
+}
+
 .word-diff__word--missing {
   border: 1px dashed var(--text-muted);
   background: transparent;
@@ -569,10 +583,66 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
   list-style: none;
 }
 
+/* ---------- Botones de calificación manual (1.5): Otra vez · Difícil · Bien · Fácil ---------- */
+/* Como .segmented (BUG 1): si una etiqueta no cabe, baja el botón entero de línea; la palabra nunca se parte.
+   Ninguno es rojo (el rojo es de errores de interfaz): los distingue el texto y el color del borde inferior. */
+.rating-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.rating-buttons__btn {
+  flex: 1 1 max-content;
+  min-width: min-content;
+  min-height: var(--touch-min);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-input);
+  border-bottom-width: 4px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  text-align: center;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.rating-buttons__btn--again { border-bottom-color: var(--accent-2-text); }
+.rating-buttons__btn--hard { border-bottom-color: var(--info-text); }
+.rating-buttons__btn--good { border-bottom-color: var(--success-text); }
+.rating-buttons__btn--easy { border-bottom-color: var(--accent-text); }
+
+.rating-buttons__btn:active:not(.is-off) { transform: scale(0.98); }
+.rating-buttons__btn.is-chosen { background: var(--surface-strong); border-color: var(--text); }
+.rating-buttons__btn:disabled { color: var(--disabled-text); border-color: var(--disabled-bg); cursor: not-allowed; }
+.rating-buttons__btn.is-off:not(.is-chosen):not(:disabled) { cursor: default; }
+
+.rating-buttons__when {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--text-muted);
+}
+
+.rating-buttons__when.is-empty { display: none; }
+
 /* ---------- Foco visible en controles con aspecto propio ---------- */
 .card--interactive:focus-visible,
 .word-chip:focus-visible,
 .segmented__item:focus-visible,
+.rating-buttons__btn:focus-visible,
 .tabs__tab:focus-visible,
 .toggle:focus-visible { outline-offset: 2px; }
 
@@ -580,5 +650,151 @@ textarea.input { min-height: 6rem; resize: vertical; line-height: var(--leading-
   .card--interactive:hover { transform: translateY(-1px); }
   .word-chip--default:hover:not(:disabled) { background: var(--surface-strong); }
   .segmented__item:hover:not(:disabled):not([aria-checked="true"]) { background: var(--surface-strong); }
+  .rating-buttons__btn:hover:not(:disabled):not(.is-off) { background: var(--surface-strong); }
   .tabs__tab:hover { color: var(--text); }
 }
+
+/* ---------- Tarjeta phrase_cloze (2.2-T1) ---------- */
+.pc { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; overflow-wrap: anywhere; }
+.pc__situation { margin: 0; font-size: var(--text-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+.pc__es, .pc__en { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.pc__turns { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.pc__turn { display: flex; align-items: flex-start; gap: var(--space-3); min-width: 0; }
+.pc__who { flex: none; inline-size: 1.75rem; block-size: 1.75rem; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-pill); background: var(--surface-strong); border: 1px solid var(--border); font-weight: var(--weight-heavy); font-size: var(--text-sm); }
+.pc__line { margin: 0; flex: 1 1 auto; min-width: 0; font-size: var(--text-lg); line-height: var(--leading-snug); }
+.pc__en .pc__line { color: var(--text); }
+.pc__key { color: var(--success-text); font-weight: var(--weight-heavy); }
+.pc__gap { display: inline-block; min-inline-size: 4.5rem; border-block-end: 3px solid var(--accent-text); vertical-align: baseline; margin-inline: 0.1em; }
+.pc__grammar { font-size: var(--text-base); }
+.pc__box-label { margin: 0 0 var(--space-1); font-size: var(--text-xs); font-weight: var(--weight-heavy); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+.pc__box-text { margin: 0; }
+.pc__nuance { font-size: var(--text-sm); color: var(--text-muted); }
+.pc__nuance .pc__box-label { color: var(--text-muted); }
+
+/* ---------- phrase_cloze: respuesta y corrección (2.2-T2) ---------- */
+.pc__answer { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+.pc__actions { display: flex; flex-direction: column; gap: var(--space-2); }
+.pc__row { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: space-between; }
+.pc__row .btn { flex: 1 1 8rem; min-height: var(--touch-min); }
+.pc__mic-note, .pc__msg:empty, .pc__hint:empty { margin: 0; }
+.pc__mic-note { font-size: var(--text-sm); color: var(--text-muted); }
+.pc__msg { margin: 0; color: var(--danger-text); font-size: var(--text-sm); }
+.pc__hint { margin: 0; font-family: var(--font-mono); font-size: var(--text-lg); letter-spacing: 0.08em; color: var(--accent-text); white-space: pre-wrap; overflow-wrap: anywhere; }
+.pc__feedback { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.pc__feedback:empty { display: none; }
+.pc__correct { margin: 0; overflow-wrap: anywhere; }
+
+/* ---- phrase_cloze: insignias, corazón y aviso ortográfico (2.2-T3) ---- */
+.pc__bar { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.pc__bar[hidden] { display: none; }
+.pc__badges { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
+.pc__badges--loading { min-block-size: var(--touch-min); }
+.pc__badges-note { margin: 0; font-size: var(--text-sm); color: var(--danger-text); }
+.pc__badges-note:empty { display: none; }
+.pc__fav { margin-inline-start: auto; inline-size: var(--touch-min); block-size: var(--touch-min); display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: var(--text-muted); font-size: var(--text-2xl); line-height: 1; border-radius: var(--radius-pill); cursor: pointer; }
+.pc__fav--on { color: var(--accent-text); }
+.pc__fav:disabled { opacity: 0.6; }
+.pc__levels { margin: var(--space-3) 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+.pc__level { overflow-wrap: anywhere; }
+.pc__level--now { color: var(--accent-text); font-weight: var(--weight-heavy); }
+.pc__spell { margin: 0; overflow-wrap: anywhere; color: var(--accent-text); }
+
+/* ---- Construir con piezas (unscramble_letters y build_from_keywords, 2.4-T3 punto 4a) ----
+   Va aquí y no en components.css porque ese archivo está en 799 de 800 líneas (ARCHIVO_LARGO). Mismas reglas que .ob y .cb: solo tokens.
+   Piezas y botones de 44 px o más; el borde de reposo usa --border-input (3:1 en los 3 temas; --border-strong no llega); el texto largo se ajusta, nunca se recorta.
+   Las marcas ✓ y ✗ NO dependen del color: van en el nombre accesible de la pieza y en las líneas «Fuera de lugar» / «Sobra». */
+.bp { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+.bp__situation { margin: 0; font-size: var(--text-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+.bp__prompt { margin: 0; font-size: var(--text-lg); font-weight: var(--weight-bold); line-height: var(--leading-snug); overflow-wrap: anywhere; }
+.bp__instruction { margin: 0; font-size: var(--text-sm); color: var(--text-muted); }
+/* Zona de respuesta: reserva el alto de una pieza aunque esté vacía, para que nada se mueva al colocar la primera. */
+.bp__line { position: relative; display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-2); min-block-size: calc(var(--touch-min) + var(--space-4) + 4px); padding: var(--space-2); box-sizing: border-box; border: 2px dashed var(--border-input); border-radius: var(--radius-md); min-width: 0; }
+.bp__line--letters { gap: var(--space-1); }
+.bp__empty { position: absolute; inset-inline: var(--space-3); inset-block-start: 50%; transform: translateY(-50%); margin: 0; color: var(--text-muted); font-size: var(--text-sm); pointer-events: none; }
+.bp__spacer { display: block; box-sizing: border-box; inline-size: 0; min-block-size: var(--touch-min); padding-block: var(--space-2); border-block: 2px solid transparent; font-size: var(--text-base); line-height: var(--leading-snug); }
+.bp__tools { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.bp__tools .btn { flex: 1 1 max-content; min-width: min-content; overflow-wrap: normal; word-break: normal; hyphens: none; }
+.bp__tray { display: flex; flex-wrap: wrap; gap: var(--space-2); min-width: 0; }
+.bp[data-type="unscramble_letters"] .bp__tray { gap: var(--space-1); }
+/* Pieza: ficha de 44 px o más en las dos direcciones; con letras es compacta y centrada, con frases puede ocupar varias líneas. */
+.bp__piece { box-sizing: border-box; max-inline-size: 100%; min-block-size: var(--touch-min); min-inline-size: var(--touch-min); padding: var(--space-2) var(--space-4); border: 2px solid var(--border-input); border-radius: var(--radius-md); background: var(--surface); color: var(--text); font: inherit; font-size: var(--text-base); line-height: var(--leading-snug); text-align: center; overflow-wrap: anywhere; cursor: pointer; transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.bp[data-type="unscramble_letters"] .bp__piece { padding-inline: var(--space-2); }
+.bp__piece:focus-visible { outline-offset: 2px; }
+.bp__piece--placed { border-color: var(--accent); background: var(--surface-strong); }
+.bp__piece.is-used { border-style: dashed; color: var(--text-muted); background: transparent; cursor: default; }
+.bp__piece.bp__piece--off { border-color: var(--danger); }
+.bp__piece.bp__piece--ok { border-color: var(--success); }
+.bp.is-locked .bp__piece { cursor: default; }
+.bp__actions { position: sticky; bottom: calc(var(--nav-h) + var(--nav-gap) + var(--safe-bottom) + var(--space-3)); z-index: var(--z-raised); display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-2); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-solid); }
+.bp__actions[hidden] { display: none; }
+.bp__buttons { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.bp__buttons .btn { flex: 1 1 max-content; min-width: min-content; overflow-wrap: normal; word-break: normal; hyphens: none; }
+.bp__msg { margin: 0; color: var(--danger-text); font-size: var(--text-sm); }
+.bp__msg:empty { display: none; }
+.bp__feedback { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.bp__feedback:empty { display: none; }
+.bp__correct { margin: 0; overflow-wrap: anywhere; }
+.bp__misplaced { margin: 0; font-size: var(--text-sm); color: var(--danger-text); font-weight: var(--weight-heavy); }
+
+@media (hover: hover) {
+  .bp__piece:hover:not(.is-used):not(.bp__piece--placed):not(.bp__piece--off):not(.bp__piece--ok):not([aria-disabled="true"]) { background: var(--surface-strong); }
+}
+
+/* Entrada de texto (2.5-T1): enunciado, máscara, campo y corrección */
+.ta { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; overflow-wrap: anywhere; }
+.ta__situation { margin: 0; font-size: var(--text-sm); color: var(--text-muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+.ta__prompt { margin: 0; font-size: var(--text-lg); line-height: var(--leading-snug); }
+.ta__instruction { margin: 0; font-size: var(--text-sm); color: var(--text-muted); }
+.ta__aside { margin: 0; font-size: var(--text-sm); color: var(--text-muted); }
+.ta__gap { display: inline-block; min-width: 3ch; margin: 0 0.15em; border-bottom: 2px solid var(--accent-text); color: transparent; user-select: none; }
+.ta__mask { margin: 0; font-family: var(--font-mono); font-size: var(--text-lg); letter-spacing: 0.08em; color: var(--accent-text); white-space: pre-wrap; }
+.ta__answer, .ta__feedback { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+.ta__feedback { gap: var(--space-2); }
+.ta__feedback:empty, .ta__msg:empty, .ta__hint:empty { display: none; }
+.ta__actions { display: flex; flex-direction: column; gap: var(--space-2); }
+.ta__row { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: space-between; }
+.ta__row .btn { flex: 1 1 8rem; min-height: var(--touch-min); }
+.ta__msg { margin: 0; color: var(--danger-text); font-size: var(--text-sm); }
+.ta__hint { margin: 0; color: var(--accent-text); }
+.ta__spell, .ta__trap, .ta__unchanged, .ta__detect, .ta__kwmissing, .ta__keyword { margin: 0; }
+/* Traducir (2.5-T3): banco de palabras tocables y aviso de la trampa conocida */
+.ta__bank { display: flex; flex-wrap: wrap; gap: var(--space-2); min-width: 0; }
+.ta__bank .btn { min-height: var(--touch-min); }
+.ta__trap { padding-inline-start: var(--space-3); border-inline-start: 4px solid var(--danger-text); font-size: var(--text-sm); }
+/* Corregir el error (2.5-T4, punto 2): la oración con error se lee como cita; «sin cambios» y la pista del detector son TEXTO con marca al borde */
+.ta__prompt--error { padding-inline-start: var(--space-3); border-inline-start: 4px solid var(--danger-text); overflow-wrap: anywhere; }
+.ta__unchanged, .ta__detect { padding-inline-start: var(--space-3); font-size: var(--text-sm); }
+.ta__unchanged { border-inline-start: 4px solid var(--danger-text); }
+.ta__detect { border-inline-start: 4px solid var(--accent-text); }
+/* Transformar (2.5-T4, punto 4): oración base como cita, palabra clave como etiqueta de TEXTO y aviso de clave ausente */
+.ta__prompt--source { padding-inline-start: var(--space-3); border-inline-start: 4px solid var(--accent-text); overflow-wrap: anywhere; }
+.ta__keyword { align-self: flex-start; padding: var(--space-1) var(--space-3); border: 2px solid var(--accent-text); border-radius: var(--radius-md); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.ta__kwmissing { padding-inline-start: var(--space-3); border-inline-start: 4px solid var(--danger-text); font-size: var(--text-sm); }
+/* Formas (2.5-T3, punto 5): una fila por forma con su veredicto en TEXTO («Bien», «Casi», «Todavía no»); el color solo refuerza */
+.tf__form { margin: 0; padding: var(--space-2) var(--space-3); border-inline-start: 4px solid var(--border); overflow-wrap: anywhere; }
+.tf__form--correct { border-inline-start-color: var(--success-text); }
+.tf__form--almost { border-inline-start-color: var(--accent-text); }
+.tf__form--wrong { border-inline-start-color: var(--danger-text); }
+
+/* Panel de feedback común (2.6-T1): mismas reglas que el panel de texto de 2.5, para todos los tipos. */
+.fb__verdict { margin: 0; font-weight: var(--weight-heavy); font-size: var(--text-lg); }
+.fb__verdict--correct { color: var(--success-text); }
+.fb__verdict--almost { color: var(--accent-text); }
+.fb__correct, .fb__explain, .fb__box-text { margin: 0; }
+.fb__explain, .fb__nuance { font-size: var(--text-sm); color: var(--text-muted); }
+.fb__box-label { margin: 0 0 var(--space-1); font-size: var(--text-xs); font-weight: var(--weight-heavy); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+
+/* Menú «⋯» del panel de feedback (2.6-T2): botón de 44 px y dos opciones a todo el ancho; el estado se dice con texto y aria-pressed, no solo con color. */
+.fb__report { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.fb__report-toggle { min-width: var(--touch-min); min-height: var(--touch-min); }
+.fb__report-list { display: flex; flex-direction: column; gap: var(--space-2); align-self: stretch; }
+.fb__report-option { min-height: var(--touch-min); width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.fb__report-option[aria-pressed="true"] { border-color: var(--success-text); }
+.fb__report-option[aria-disabled="true"], .fb__why-save[aria-disabled="true"] { opacity: 0.6; cursor: default; }
+.fb__report-status, .fb__why-status, .fb__why-label { margin: 0; font-size: var(--text-sm); color: var(--text-muted); }
+.fb__why { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.fb__why-toggle { min-height: var(--touch-min); white-space: normal; text-align: left; }
+.fb__why-body { display: flex; flex-direction: column; gap: var(--space-2); align-self: stretch; }
+.fb__why-field { width: 100%; box-sizing: border-box; resize: vertical; }
+.fb__why-save { min-height: var(--touch-min); align-self: flex-start; }
+

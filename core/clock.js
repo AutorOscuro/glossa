@@ -1,3 +1,4 @@
+// @purpose: Reloj inyectable: fija el tipo de now (Date), las conversiones a ISO UTC y el día local de estudio.
 // Reloj inyectable (subparte 0.7). Fija el TIPO de `now` para todo core/:
 //   `now` es un objeto Date. Los datos guardados (due, ts, created…) son cadenas ISO UTC ("…Z").
 //   El "día" de estudio (`day`, "AAAA-MM-DD") es el día LOCAL del dispositivo.

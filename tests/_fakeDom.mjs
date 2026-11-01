@@ -1,3 +1,4 @@
+// @purpose: DOM y window falsos para probar con Node la capa de interfaz; ayudante, no es una prueba.
 // DOM y window FALSOS para probar con Node la capa de interfaz (subparte 0.4). No es una prueba: el nombre empieza con "_".
 //
 //   const env = makeEnv({ light?, clipboard?, hash?, search? })  →  { doc, win, stats, flush }

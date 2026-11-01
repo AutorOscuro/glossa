@@ -1,3 +1,4 @@
+// @purpose: Modal de confirmación construido sobre el motor de superposiciones.
 // Modal de confirmación (subparte 0.5). Reutiliza el motor de superposiciones (foco atrapado, Esc, scroll bloqueado).
 //
 //   createModal({ title, message?, children?, confirmLabel = 'Aceptar', cancelLabel = 'Cancelar', danger = false,

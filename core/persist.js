@@ -1,3 +1,4 @@
+// @purpose: Pide almacenamiento persistente al navegador una sola vez, tras la primera sesión real.
 // Almacenamiento persistente (subparte 0.7, B2a): pide navigator.storage.persist() UNA vez, tras la primera sesión real.
 // Puro: `storage` (navigator.storage) y `db` se inyectan. El resultado se guarda en meta.persistRequest para no insistir.
 //   requestPersistence({ db, storage, now, sessionDone }) → { status, granted }

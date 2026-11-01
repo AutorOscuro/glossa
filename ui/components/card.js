@@ -1,3 +1,4 @@
+// @purpose: Componente tarjeta con título, metadatos y contenido.
 // Tarjeta (subparte 0.5). Usa .card de components.css (vidrio) y .card--flat.
 //
 //   createCard({ title?, meta?, children?, variant = 'glass', headingLevel = 3,

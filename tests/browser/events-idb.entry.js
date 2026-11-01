@@ -1,3 +1,4 @@
+// @purpose: Corre el contrato de events.log() contra IndexedDB real en un navegador (lo abre tools/idb-check.py); deja los resultados en window.__sophia.
 // Corre el contrato de events.log() (tests/_eventsContract.mjs) contra core/db.idb.js en un navegador real (subparte 1.1, cuarto 2 mitad B).
 // Lo abre tools/idb-check.py events; deja los resultados en window.__sophia. No forma parte de `npm run check`.
 globalThis.process = { stdout: { write: (s) => { (globalThis.__sophia.log ??= []).push(String(s).trim()); } } };

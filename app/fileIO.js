@@ -1,3 +1,4 @@
+// @purpose: Descarga y lectura de archivos del navegador para el respaldo, con todo inyectable para probar con Node.
 // Archivos del navegador para el respaldo (subparte 0.8, cuarto 3B). Todo inyectable (`doc`, `win`) para probar con Node.
 //
 //   createFileIO({ doc?, win? }) → {

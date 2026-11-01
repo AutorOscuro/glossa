@@ -1,3 +1,4 @@
+// @purpose: Registro del service worker: decide si corre según el entorno y muestra el aviso de actualización.
 // Registro del service worker y aviso de actualización (subparte 0.6, mitad B).
 //
 //   swPolicy({ hostname, search }) → { enabled, cleanup, reason }       (pura)

@@ -1,3 +1,4 @@
+// @purpose: Ayudantes seguros de DOM: crear elementos (h, hs), escapar texto y enlazar eventos; todo texto entra como nodo de texto.
 // Ayudantes seguros de DOM (subparte 0.4). Regla del proyecto: nada de innerHTML con texto variable.
 // Todo texto (de la persona, de paquetes, de la IA) entra como NODO DE TEXTO, nunca como HTML.
 //

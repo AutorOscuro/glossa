@@ -1,3 +1,4 @@
+// @purpose: Ficha de palabra tocable para bancos de palabras y estados de conocimiento.
 // Chip de palabra (subparte 0.5): ficha tocable tipo tecla, para bancos de palabras (cloze_bank, order_blocks,
 // unscramble_letters…) y para marcar el estado de una palabra. Es un <button> de ≥ 44 px.
 //

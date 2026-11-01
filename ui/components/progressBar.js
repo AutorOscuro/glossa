@@ -1,3 +1,4 @@
+// @purpose: Barra de progreso con ranura para la mascota.
 // Barra de progreso con ranura para la mascota (subparte 0.5). Usa .progress / .progress__bar de components.css.
 //
 //   createProgressBar({ label, value = 0, max = 100, current?, total?, variant = 'accent', thin = false,

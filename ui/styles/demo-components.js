@@ -1,3 +1,4 @@
+// @purpose: Galería de la biblioteca de componentes JS para inspección visual (no forma parte de la app).
 // Galería de la biblioteca de componentes (subparte 0.5). Solo inspección visual; no es parte de la app.
 // Módulo ES (la CSP permite scripts del mismo origen); monta componentes REALES en #lib.
 import { h } from '../dom.js';
@@ -51,7 +52,11 @@ group('Campos de texto',
   ui.createTextInput({ label: 'Nota', multiline: true, optional: true }).el);
 
 group('Corrección palabra por palabra',
-  ui.createWordDiff({ showLegend: true, words: ['I', { text: 'leaved', status: 'wrong' }, { text: 'home', status: 'almost' }, 'at', { text: 'eight', status: 'missing' }] }).el);
+  ui.createWordDiff({ showLegend: true, words: ['I', { text: 'leaved', status: 'wrong' }, { text: 'home', status: 'almost' }, 'at', { text: 'eight', status: 'missing' }, { text: 'very', status: 'extra' }] }).el);
+
+const rating = ui.createRatingButtons({ previews: { again: 'Repaso en 1 d', hard: 'Repaso en 3 d', good: 'Repaso en 1 sem', easy: 'Repaso en 3 sems' },
+  onRate: (r) => { toast('success', `Calificación ${r} registrada`); setTimeout(() => rating.reset(), 1200); } });
+group('Calificación manual (recuerdo libre)', rating.el, ui.createRatingButtons({ label: 'Sin fechas, con letra larga', labels: { good: 'Bien, lo supe' } }).el);
 
 const sheet = ui.createSheet({ title: 'Hoja con arrastre', children: [h('p', {}, 'Arrastra el asa hacia abajo, toca fuera o pulsa Esc.'), ui.createButton({ label: 'Entendido', variant: 'primary', block: true, onClick: () => sheet.close() }).el] });
 const confirm = ui.createModal({ title: '¿Salir de la sesión?', message: 'Lo respondido ya está guardado.', confirmLabel: 'Salir' });
@@ -60,3 +65,35 @@ const ask = (m, label) => async () => toast('info', `${label}: ${(await m.open()
 group('Hoja y modales',
   h('div', { class: 'row row--sm' }, ui.createButton({ label: 'Abrir hoja', onClick: () => sheet.open() }).el,
     ui.createButton({ label: 'Confirmar', onClick: ask(confirm, 'Salir') }).el, ui.createButton({ label: 'Peligro', variant: 'danger', onClick: ask(danger, 'Borrar') }).el));
+
+// La hoja de la sección "Hojas inferiores y avisos" es HTML fijo de la 0.3 (demo.js solo abre y cierra). Aquí se le da el MISMO arrastre
+// que a la hoja real (misma decisión `dragDecision`), para que el paso 13 del guion del hito funcione con cualquiera de los dos botones
+// "Abrir hoja". El cierre se hace pulsando su propia X, así conserva el foco y el bloqueo de scroll que ya maneja demo.js.
+{
+  const sheetEl = document.getElementById('sheet');
+  const grab = sheetEl?.querySelector('.sheet__grab');
+  if (grab) {
+    let drag = null;
+    grab.addEventListener('pointerdown', (e) => {
+      if (!sheetEl.classList.contains('is-open') || drag) return;
+      drag = { id: e.pointerId, y0: e.clientY, t0: performance.now(), dy: 0 };
+      sheetEl.classList.add('is-dragging');
+      try { grab.setPointerCapture(e.pointerId); } catch { /* sin captura el arrastre sigue funcionando mientras el dedo esté sobre el asa */ }
+    });
+    grab.addEventListener('pointermove', (e) => {
+      if (!drag || e.pointerId !== drag.id) return;
+      drag.dy = Math.max(0, e.clientY - drag.y0);
+      sheetEl.style.setProperty('--drag-y', `${Math.round(drag.dy)}px`);
+    });
+    const end = (e) => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const result = { dy: drag.dy, ms: performance.now() - drag.t0, height: sheetEl.offsetHeight };
+      drag = null;
+      sheetEl.classList.remove('is-dragging');
+      sheetEl.style.setProperty('--drag-y', '0px');
+      if (e.type === 'pointerup' && ui.dragDecision(result)) document.getElementById('close-sheet').click();
+    };
+    grab.addEventListener('pointerup', end);
+    grab.addEventListener('pointercancel', end);
+  }
+}

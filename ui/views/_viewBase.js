@@ -1,3 +1,4 @@
+// @purpose: Ciclo de vida de las vistas: createView devuelve una fábrica con mount, destroy y limpieza de eventos.
 // Ciclo de vida de vistas (subparte 0.4). Cada vista expone mount(root, params) y destroy().
 // createView(setup) devuelve una FÁBRICA: cada llamada crea una instancia nueva y limpia.
 //

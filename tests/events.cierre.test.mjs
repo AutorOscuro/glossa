@@ -1,3 +1,4 @@
+// @purpose: Criterios de aceptación de la 1.1, de punta a punta con createEvents y datos reales.
 // Cierre de la 1.1: los 4 criterios de aceptación del roadmap, comprobados de punta a punta con la API pública (createEvents) y datos reales.
 // Cada criterio tiene además pruebas más finas en eventSchema.test.mjs, events.test.mjs y _eventsContract.mjs (memoria e IndexedDB real).
 import { test } from 'node:test';

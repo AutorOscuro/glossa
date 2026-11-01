@@ -1,3 +1,4 @@
+// @purpose: Migraciones hacia adelante de los datos, para abrir bases viejas e importar respaldos antiguos.
 // Migraciones hacia adelante (subparte 0.7). PURAS: no tocan ninguna base; trabajan sobre
 // `data = { nombreAlmacén: registro[] }` y devuelven una COPIA. Sirven igual para abrir una base vieja y para importar un respaldo viejo.
 //

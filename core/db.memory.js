@@ -1,3 +1,4 @@
+// @purpose: Motor de almacenamiento en memoria: sirve para pruebas y como modo «solo memoria» si IndexedDB no está disponible.
 // Motor de almacenamiento EN MEMORIA (subparte 0.7). Cumple el MISMO contrato y lanza los MISMOS errores que core/db.idb.js
 // (la suite tests/db.contract.test.mjs corre idéntica contra ambos). Sirve para pruebas y como modo "solo memoria" de emergencia
 // (si el navegador no ofrece IndexedDB: la app funciona pero nada se conserva; `open()` devuelve persistent:false).
@@ -133,6 +134,18 @@ export function createMemoryDb({ schema = STORES, schemaVersion, migrations = MI
         if (existed) layer(ov, name).set(key, TOMB);
         return existed;
       },
+      async clear(name) {
+        const def = check(name);
+        const o = layer(ov, name);
+        let removed = 0;
+        for (const rec of listAll(ov, name)) {
+          const key = rec[def.keyPath];
+          if (isReserved(name, key)) continue;
+          o.set(key, TOMB);
+          removed += 1;
+        }
+        return removed;
+      },
       async query(name, opts) {
         const def = check(name);
         return runQuery(def, compileQuery(name, def, opts), listAll(ov, name)).map((r) => structuredClone(r));
@@ -173,6 +186,7 @@ export function createMemoryDb({ schema = STORES, schemaVersion, migrations = MI
     get: (name, key) => guard(() => makeOps(new Map(), null).get(name, key)),
     put: (name, rec) => direct((o) => o.put(name, rec)),
     delete: (name, key) => direct((o) => o.delete(name, key)),
+    clear: (name) => direct((o) => o.clear(name)),
     query: (name, opts) => guard(() => makeOps(new Map(), null).query(name, opts)),
     count: (name, opts) => guard(() => makeOps(new Map(), null).count(name, opts)),
 
@@ -211,10 +225,8 @@ export function createMemoryDb({ schema = STORES, schemaVersion, migrations = MI
         const prepared = prepareImport(data, { schema, schemaVersion: version, migrations });
         const plan = planImport(prepared, { mode, keepSecrets, currentSettings: [...disk.stores.settings.values()] });
         const ov = new Map();
-        for (const name of plan.clear) {
-          const o = layer(ov, name);
-          for (const k of disk.stores[name].keys()) if (!isReserved(name, k)) o.set(k, TOMB);
-        }
+        const ops = makeOps(ov, null);
+        for (const name of plan.clear) await ops.clear(name);
         for (const [name, rec] of plan.records) layer(ov, name).set(rec[schema[name].keyPath], structuredClone(rec));
         commit(ov, 'import');
         return { stores: prepared.counts, migratedFrom: prepared.migratedFrom };

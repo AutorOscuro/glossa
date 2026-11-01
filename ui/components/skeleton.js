@@ -1,3 +1,4 @@
+// @purpose: Esqueleto de carga accesible que marca el sitio del contenido.
 // Esqueleto de carga (subparte 0.5). Marca el sitio del contenido mientras llega; la animación se apaga con
 // "reducir movimiento". Lleva role="status" y aria-busy, con un texto solo para lector de pantalla.
 //

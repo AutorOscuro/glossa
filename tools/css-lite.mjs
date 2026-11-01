@@ -1,3 +1,4 @@
+// @purpose: Lector mínimo de CSS para pruebas y herramientas del sistema de diseño (reglas, bloques anidados y @font-face).
 // Lector mínimo de CSS para las pruebas y herramientas del sistema de diseño (subparte 0.3).
 // No es un parser completo: cubre el CSS de este repo (reglas, @media/@supports/@keyframes anidados,
 // @font-face, @import). Sin dependencias.

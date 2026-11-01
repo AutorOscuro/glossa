@@ -1,3 +1,4 @@
+// @purpose: Esquema de eventos de estudio: validación estricta, día local e ids.
 // Esquema de eventos (subparte 1.1, cuarto 1): validación estricta, día local e IDs. Roadmap 8.6. Puro: sin DOM ni base de datos.
 // `core/events.js` (cuarto 2) lo usa para registrar; la 1.12 lo usará para validar respaldos.
 //
@@ -31,6 +32,10 @@ export const REQUIRED_BY_TYPE = Object.freeze({
   import: Object.freeze([]),
   note: Object.freeze(['responseRaw']),
 });
+
+// Campo OPCIONAL fuera de EVENT_FIELDS (2.1-T2, repasos adelantados): `early: true` marca una respuesta a una tarjeta que aún no vencía.
+// Solo se guarda cuando es verdadero; un evento normal no lo trae y conserva exactamente su forma de siempre (respaldos y pruebas intactos).
+export const OPTIONAL_FLAGS = Object.freeze(['early']);
 
 export const LIMITS = Object.freeze({ responseRaw: 2000, topics: 20, errorCodes: 20, msMax: 86400000, problems: 20 });
 
@@ -76,7 +81,7 @@ export function validateEvent(input, { stored = false } = {}) {
   }
 
   for (const k of Object.keys(src)) {
-    if (!EVENT_FIELDS.includes(k)) add(k, 'campo desconocido');
+    if (!EVENT_FIELDS.includes(k) && !OPTIONAL_FLAGS.includes(k)) add(k, 'campo desconocido');
     else if (!stored && (k === 'id' || k === 'day')) add(k, 'lo asigna log(); no se envía');
   }
   const get = (k) => (has(src, k) ? src[k] : undefined);
@@ -160,12 +165,15 @@ export function validateEvent(input, { stored = false } = {}) {
   if (raw == null) { out.responseRaw = null; missing('responseRaw'); } else if (typeof raw !== 'string') { add('responseRaw', 'debe ser texto'); out.responseRaw = null; } else if (raw.length > LIMITS.responseRaw) { add('responseRaw', `máximo ${LIMITS.responseRaw} caracteres`); out.responseRaw = null; } else if (CONTROL_RE.test(raw)) { add('responseRaw', 'contiene caracteres de control'); out.responseRaw = null; } else out.responseRaw = raw;
 
   out.errorCodes = list('errorCodes', CODE_RE, LIMITS.errorCodes, 'código de error');
+  const early = flag('early');
+  if (early && type !== 'answer') add('early', 'solo vale en eventos "answer"');
   out.mode = choice('mode', MODES);
   out.channel = choice('channel', CHANNELS);
 
   if (problems.length > 0) return { ok: false, problems };
   const value = {};
   for (const k of EVENT_FIELDS) if (stored || (k !== 'id' && k !== 'day')) value[k] = out[k];
+  if (early) value.early = true;
   return { ok: true, value };
 }
 
@@ -212,5 +220,6 @@ export function buildEvent(input, { now, idGen } = {}) {
   const full = { ...v.value, id: idGen.next(ts), ts, day };
   const ordered = {};
   for (const k of EVENT_FIELDS) ordered[k] = full[k];
+  if (full.early === true) ordered.early = true;
   return ordered;
 }

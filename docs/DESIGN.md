@@ -1,4 +1,4 @@
-# DESIGN — Sistema de diseño de Sophia Inglés
+# DESIGN — Sistema de diseño de Glossa
 
 > Subparte **0.3** (v0.3.0). La biblioteca de componentes en JavaScript la amplía la **0.5**; la navegación inferior, la **0.4**.
 > Para verlo: abre `ui/styles/demo.html` (galería). Para comprobarlo: `npm run check` y `npm run contrast`.
@@ -37,7 +37,15 @@ Cambiar en vivo (lo hará Ajustes, 0.8): `document.documentElement.setAttribute(
 | **Neo** | Oscuro casi negro, neón | `#05050a` | cian `#00E5FF` | magenta `#C740FF` |
 | **Claro** | Claro, lavanda muy suave | `#F4F5FA` | índigo `#4F46E5` | violeta `#7C3AED` |
 
-**`prefers-color-scheme` solo sugiere el tema inicial.** El CSS **no** cambia de tema por sí solo. La primera vez (sin elección guardada) el JS puede sugerir `claro` si el sistema está en modo claro y `aurora` si no; en cuanto la persona elige, manda su elección (0.8 la guardará en IndexedDB, no en `localStorage`). `demo.js` trae el ejemplo (`suggestedTheme()`) y además acepta `demo.html?tema=neo`.
+**No hay tema "automático" (cambio de la 0.9.3).** Solo existen Aurora, Neo y Claro, y la app no sigue al sistema: la primera vez (sin elección guardada) se ve Aurora, y en cuanto la persona elige, manda su elección (IndexedDB, no `localStorage`). Un "Automático" guardado por la 0.9.2 pasa a Aurora. Para pruebas y capturas se acepta `?tema=neo` (también en `demo.html`).
+
+### Lenguaje visual (0.9.3)
+
+Pensado para estudiar inglés a diario, con tres ideas tomadas de las apps de idiomas (Duolingo, Epop) y de la referencia de William, siempre con diseño propio:
+
+- **Marca = un degradado de tres paradas** (`--brand-1/2/3`): Aurora ámbar → coral → violeta, Neo cian → violeta → rojo, Claro índigo → violeta → rosa. Rellena el botón principal, la pestaña activa, la selección (chips, segmentado, ficha de palabra) y las barras de progreso. El texto encima (`--on-brand`) se comprueba contra las tres paradas (AA).
+- **Botones y fichas "tecla":** borde inferior grueso (`--*-edge`) que se hunde al pulsar, para que cada toque se sienta; tarjetas de esquinas de 30 px con degradado suave, borde teñido y resplandor (`--card-bg`, `--card-border`, `--shadow-card`).
+- **Barra inferior flotante** en forma de píldora; la pestaña activa lleva el degradado y un resplandor (`--shadow-glow`). Títulos en peso 800 con tracking apretado; etiquetas pequeñas en mayúsculas espaciadas (`.eyebrow`); cifras grandes (`.stat`). Sin fuentes externas: se usa la fuente del sistema.
 
 ### Variables de color (idénticas en los tres temas)
 
@@ -124,24 +132,25 @@ Calculado con `tools/contrast.mjs` leyendo `themes.css` (`npm run contrast`; est
 
 | Comprobación | Exigido | Aurora (peor caso) | Neo (peor caso) | Claro (peor caso) |
 |---|---|---|---|---|
-| Texto --text | ≥ 4,50:1 | 9,02:1 | 10,65:1 | 13,67:1 |
-| Texto --text-muted | ≥ 4,50:1 | 4,65:1 | 5,27:1 | 6,15:1 |
-| Texto --accent-text | ≥ 4,50:1 | 6,01:1 | 7,47:1 | 6,21:1 |
-| Texto --accent-2-text | ≥ 4,50:1 | 5,42:1 | 4,85:1 | 5,59:1 |
-| Texto --info-text | ≥ 4,50:1 | 4,58:1 | 4,68:1 | 5,95:1 |
-| Texto --success-text | ≥ 4,50:1 | 5,10:1 | 8,63:1 | 6,04:1 |
-| Texto --danger-text | ≥ 4,50:1 | 4,81:1 | 4,62:1 | 6,30:1 |
+| Texto --text | ≥ 4,50:1 | 9,02:1 | 10,33:1 | 14,99:1 |
+| Texto --text-muted | ≥ 4,50:1 | 4,65:1 | 5,30:1 | 6,51:1 |
+| Texto --accent-text | ≥ 4,50:1 | 6,01:1 | 7,24:1 | 6,48:1 |
+| Texto --accent-2-text | ≥ 4,50:1 | 5,42:1 | 4,70:1 | 5,83:1 |
+| Texto --info-text | ≥ 4,50:1 | 4,58:1 | 4,54:1 | 6,20:1 |
+| Texto --success-text | ≥ 4,50:1 | 5,10:1 | 8,37:1 | 6,30:1 |
+| Texto --danger-text | ≥ 4,50:1 | 4,81:1 | 4,81:1 | 6,58:1 |
 | Texto --on-accent sobre relleno | ≥ 4,50:1 | 11,24:1 | 12,24:1 | 6,29:1 |
 | Texto --on-accent-2 sobre relleno | ≥ 4,50:1 | 4,63:1 | 5,43:1 | 5,70:1 |
 | Texto --on-info sobre relleno | ≥ 4,50:1 | 8,84:1 | 7,99:1 | 5,93:1 |
 | Texto --on-success sobre relleno | ≥ 4,50:1 | 7,46:1 | 14,28:1 | 5,48:1 |
 | Texto --on-danger sobre relleno | ≥ 4,50:1 | 6,08:1 | 6,10:1 | 6,29:1 |
 | Texto --callout-text sobre relleno | ≥ 4,50:1 | 12,48:1 | 13,35:1 | 11,56:1 |
-| Texto deshabilitado (legible, no exigido por AA) | ≥ 3,00:1 | 4,55:1 | 4,99:1 | 3,79:1 |
-| Borde de campo (no texto) | ≥ 3,00:1 | 3,87:1 | 4,09:1 | 3,48:1 |
-| Anillo de foco (no texto) | ≥ 3,00:1 | 8,42:1 | 12,79:1 | 5,27:1 |
-| Barra de progreso (no texto) | ≥ 3,00:1 | 5,50:1 | 5,20:1 | 5,12:1 |
-| Interruptor encendido (no texto) | ≥ 3,00:1 | 8,62:1 | 10,35:1 | 4,94:1 |
+| Texto --on-brand sobre relleno | ≥ 4,50:1 | 6,73:1 | 5,43:1 | 5,00:1 |
+| Texto deshabilitado (legible, no exigido por AA) | ≥ 3,00:1 | 4,55:1 | 5,32:1 | 4,15:1 |
+| Borde de campo (no texto) | ≥ 3,00:1 | 3,87:1 | 3,83:1 | 3,63:1 |
+| Anillo de foco (no texto) | ≥ 3,00:1 | 8,42:1 | 11,47:1 | 5,50:1 |
+| Barra de progreso (no texto) | ≥ 3,00:1 | 5,50:1 | 5,68:1 | 5,24:1 |
+| Interruptor encendido (no texto) | ≥ 3,00:1 | 8,62:1 | 9,29:1 | 5,16:1 |
 
 El texto normal exige 4,5:1; lo que no es texto (bordes de campo, anillo de foco, barras), 3:1. El texto deshabilitado no está obligado por AA; aun así se exige 3:1. `tests/design.test.mjs` falla si algún valor baja del mínimo.
 
@@ -194,7 +203,7 @@ Todo se importa de `ui/components/index.js`. Contrato común: `createX({ …opci
 | `createEmptyState` | `createEmptyState({ title, message, actionLabel, onAction })` | invitación a actuar, sin tono de error |
 | `createSkeleton` | `createSkeleton({ variant: 'card', lines: 3 })` | `role=status`; se apaga con movimiento reducido |
 | `createWordChip` | `createWordChip({ word: 'since', state: 'selected', onPress })` | ficha ≥ 44 px; estados default·selected·used·correct·wrong; `knowledge` unknown·learning·known |
-| `createWordDiff` | `createWordDiff({ words: ['I', { text: 'leaved', status: 'wrong' }] })` | verde/ámbar/rojo/falta + subrayado distinto + texto para lector |
+| `createWordDiff` | `createWordDiff({ words: ['I', { text: 'leaved', status: 'wrong' }] })` | verde/ámbar/rojo/falta/sobra + subrayado, borde o tachado distinto + texto para lector |
 
 ### Matriz de estados
 Se cumple donde tiene sentido; lo que no aplica se dice aquí (no se inventa).

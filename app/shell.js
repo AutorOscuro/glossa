@@ -1,3 +1,4 @@
+// @purpose: Shell de la app: arma la pantalla y conecta router, vistas, navegación inferior, avisos y errores (se prueba con un DOM falso).
 // Shell de la app (subparte 0.4): arma la pantalla, conecta router → vistas, navegación, avisos y errores.
 // main.js solo llama a startApp(); todo lo demás vive aquí para poder probarlo con un DOM falso.
 //

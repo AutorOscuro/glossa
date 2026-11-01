@@ -1,3 +1,4 @@
+// @purpose: Hoja inferior arrastrable (bottom sheet) con cierre por gesto.
 // Hoja inferior (subparte 0.5). Usa las clases .sheet-backdrop / .sheet de components.css (0.3).
 //
 //   createSheet({ title, children?, dismissible = true, closeLabel?, container = document.body,

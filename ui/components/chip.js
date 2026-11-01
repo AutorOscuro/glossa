@@ -1,3 +1,4 @@
+// @purpose: Componente chip elegible (botón con aria-pressed).
 // Chip elegible (subparte 0.5). Usa .chip de components.css. Es un <button>; si es elegible lleva aria-pressed.
 //
 //   createChip({ label, selected = false, selectable = true, disabled = false, truncate = false, icon?,

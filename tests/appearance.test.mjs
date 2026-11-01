@@ -1,3 +1,4 @@
+// @purpose: Pruebas de la apariencia en vivo (app/appearance.js) y del arranque de los ajustes (app/settingsBoot.js).
 // Pruebas de app/appearance.js y app/settingsBoot.js (subparte 0.8, cuarto 2): tema y tamaño de texto en vivo.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -11,24 +12,24 @@ const theme = (env) => env.doc.documentElement.getAttribute('data-theme');
 const size = (env) => env.doc.documentElement.getAttribute('data-text-size');
 async function memDb(disk = createMemoryDisk()) { const db = createMemoryDb({ disk }); await db.open(); return db; }
 
-// matchMedia con eventos, para simular que el sistema cambia de claro a oscuro.
+// matchMedia con eventos: el sistema puede pasar de claro a oscuro. Desde 0.9.3 la app NO lo sigue.
 function systemWin(env, light) {
-  const state = { light, handlers: new Set() };
+  const state = { light };
   env.win.matchMedia = (q) => ({
     get matches() { return state.light && q.includes('light'); },
-    addEventListener: (t, f) => { if (t === 'change') state.handlers.add(f); },
-    removeEventListener: (t, f) => { if (t === 'change') state.handlers.delete(f); },
+    addEventListener: () => { state.listened = true; },
+    removeEventListener: () => {},
   });
-  state.flip = (next) => { state.light = next; for (const f of [...state.handlers]) f({ type: 'change' }); };
+  state.flip = (next) => { state.light = next; };
   return state;
 }
 
-test('resolveTheme: auto sigue al sistema; un tema concreto manda; basura cae a auto', () => {
+test('resolveTheme: un tema válido manda; lo demás (incluido el viejo \'auto\') cae a Aurora, sin mirar al sistema', () => {
   const dark = makeEnv(); const light = makeEnv({ light: true });
-  assert.equal(resolveTheme('auto', dark.win), 'aurora');
-  assert.equal(resolveTheme('auto', light.win), 'claro');
   assert.equal(resolveTheme('neo', light.win), 'neo');
-  assert.equal(resolveTheme('rosa', light.win), 'claro');
+  assert.equal(resolveTheme('claro', dark.win), 'claro');
+  assert.equal(resolveTheme('auto', light.win), 'aurora', 'el sistema claro ya no cambia nada');
+  assert.equal(resolveTheme('rosa', light.win), 'aurora');
   assert.equal(resolveTheme(undefined, dark.win), 'aurora');
 });
 
@@ -48,35 +49,35 @@ test('apariencia: aplica al iniciar y cambia EN VIVO con settings.set', async ()
   assert.equal(theme(env), 'aurora'); assert.equal(size(env), 'normal');
   await s.set('theme', 'neo'); assert.equal(theme(env), 'neo');
   await s.set('textSize', 'xlarge'); assert.equal(size(env), 'xlarge');
-  await s.set('theme', 'auto'); assert.equal(theme(env), 'aurora');
+  await s.set('theme', 'aurora'); assert.equal(theme(env), 'aurora');
   await s.set('textSize', 'small'); assert.equal(size(env), 'small');
   await assert.rejects(s.set('textSize', 'enorme'));
   assert.equal(size(env), 'small', 'un valor rechazado no se aplica');
   ap.destroy();
 });
 
-test('apariencia: con "auto" sigue al sistema en vivo; con un tema fijo, no', async () => {
+test('apariencia: el sistema claro u oscuro NO cambia el tema, y un \'auto\' guardado antes pasa a Aurora', async () => {
   const env = makeEnv(); const sys = systemWin(env, false);
-  const s = createSettings(); await s.load();
+  const disk = createMemoryDisk();
+  const db = await memDb(disk);
+  await db.put('settings', { key: 'theme', value: 'auto' }); // lo que guardó la 0.9.2
+  const s = createSettings({ db }); await s.load();
+  assert.equal(s.get('theme'), 'aurora', 'un valor que ya no existe toma el valor por defecto');
   const ap = createAppearance({ doc: env.doc, win: env.win, settings: s });
   ap.apply();
   assert.equal(theme(env), 'aurora');
-  sys.flip(true); assert.equal(theme(env), 'claro');
-  sys.flip(false); assert.equal(theme(env), 'aurora');
-  await s.set('theme', 'neo');
-  sys.flip(true); assert.equal(theme(env), 'neo', 'tema fijo: el sistema no lo cambia');
-  await s.set('theme', 'auto'); assert.equal(theme(env), 'claro');
+  sys.flip(true); assert.equal(theme(env), 'aurora', 'el sistema no se sigue');
+  assert.equal(sys.listened, undefined, 'ni siquiera se escucha al sistema');
+  await s.set('theme', 'neo'); assert.equal(theme(env), 'neo');
   ap.destroy();
 });
 
-test('apariencia: destroy quita suscripciones y el oyente del sistema; apply después de destroy no hace nada', async () => {
-  const env = makeEnv(); const sys = systemWin(env, false);
+test('apariencia: destroy quita las suscripciones; apply después de destroy no hace nada', async () => {
+  const env = makeEnv();
   const s = createSettings(); await s.load();
   const ap = createAppearance({ doc: env.doc, win: env.win, settings: s });
   ap.apply();
-  assert.equal(sys.handlers.size, 1);
   ap.destroy(); ap.destroy();
-  assert.equal(sys.handlers.size, 0);
   await s.set('theme', 'claro'); await s.set('textSize', 'large');
   assert.equal(theme(env), 'aurora'); assert.equal(size(env), 'normal');
   ap.apply();
@@ -134,12 +135,12 @@ test('arranque con base que falla al leer: usa valores por defecto en memoria y 
   r.appearance.destroy();
 });
 
-test('un ajuste inválido guardado en disco no rompe el arranque (tema desconocido → auto)', async () => {
+test('un ajuste inválido guardado en disco no rompe el arranque (tema desconocido → Aurora)', async () => {
   const disk = createMemoryDisk(); const db = await memDb(disk);
   await db.put('settings', { key: 'theme', value: 'rosa' });
   await db.put('settings', { key: 'textSize', value: 'enorme' });
   const env = makeEnv({ light: true });
   const r = await startSettings({ storageReady: Promise.resolve({ db }), doc: env.doc, win: env.win });
-  assert.equal(theme(env), 'claro'); assert.equal(size(env), 'normal');
+  assert.equal(theme(env), 'aurora', 'aunque el sistema sea claro'); assert.equal(size(env), 'normal');
   r.appearance.destroy();
 });

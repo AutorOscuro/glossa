@@ -1,3 +1,4 @@
+// @purpose: Pruebas de integración del shell (app/shell.js) con DOM y window falsos: navegación, 404 y errores.
 // Pruebas de integración del shell (app/shell.js, subparte 0.4) con DOM y window falsos:
 // navegación, atrás/adelante, 404, errores de vistas y errores globales, carreras asíncronas, desplazamiento y fugas.
 import { test, afterEach } from 'node:test';
@@ -28,7 +29,7 @@ test('arranque: hash vacío → Hoy; título, pestaña activa, marca de arranque
   assert.equal(t.win.location.hash, '#/hoy');
   assert.equal(t.h1(), 'Hoy');
   assert.equal(t.activeTab(), 'hoy');
-  assert.equal(t.doc.title, 'Hoy · Sophia Inglés');
+  assert.equal(t.doc.title, 'Hoy · Glossa');
   assert.equal(t.doc.documentElement.dataset.booted, '1');
   assert.equal(t.doc.getElementById('boot'), null);
   assert.equal(t.doc.querySelectorAll('.bottom-nav a').length, 5);
@@ -42,9 +43,9 @@ test('arranque: el shell expone el contenedor de avisos (lo usa el aviso de actu
   assert.equal(t.app.toastStack.parentNode, t.doc.getElementById('app'));
 });
 
-test('arranque: tema inicial = sugerencia del sistema (claro/aurora) o ?tema= válido; inválido se ignora', () => {
+test('arranque: tema inicial = Aurora (aunque el sistema sea claro) o ?tema= válido; inválido se ignora', () => {
   assert.equal(boot().doc.documentElement.getAttribute('data-theme'), 'aurora');
-  assert.equal(boot({ light: true }).doc.documentElement.getAttribute('data-theme'), 'claro');
+  assert.equal(boot({ light: true }).doc.documentElement.getAttribute('data-theme'), 'aurora', 'ya no se sigue al sistema');
   assert.equal(boot({ search: '?tema=neo' }).doc.documentElement.getAttribute('data-theme'), 'neo');
   assert.equal(boot({ search: '?tema=<script>' }).doc.documentElement.getAttribute('data-theme'), 'aurora');
   assert.equal(boot().doc.querySelector('meta[name="theme-color"]').getAttribute('content'), '#070a1d');
@@ -63,7 +64,7 @@ test('navegar por las 5 pestañas cambia la vista y la pestaña activa', () => {
     t.win.location.hash = `#/${tab}`;
     assert.equal(t.h1(), title);
     assert.equal(t.activeTab(), tab);
-    assert.equal(t.doc.title, `${title} · Sophia Inglés`);
+    assert.equal(t.doc.title, `${title} · Glossa`);
   }
 });
 
@@ -147,7 +148,9 @@ test('carrera: navegar mientras una vista asíncrona aún carga descarta la viej
     if (ctx.alive()) ctx.root.appendChild(globalThis.document.createElement('p'));
     return () => { cleaned += 1; };
   });
-  const t = boot({ views: { mapa: slow } });
+  // Hoy real tiene un botón con su listener (2.9-T3); aquí se usa uno mínimo para medir solo lo que deja la vista lenta.
+  const hoyMinimo = createView((ctx) => { ctx.root.appendChild(globalThis.document.createElement('h1')).textContent = 'Hoy'; });
+  const t = boot({ views: { mapa: slow, hoy: hoyMinimo } });
   const base = t.stats.live();
   const scrolls0 = t.win.scrollCalls.length;
   t.win.location.hash = '#/mapa';

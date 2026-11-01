@@ -1,3 +1,4 @@
+// @purpose: Reemplazo mínimo de node:assert/strict para el navegador, con solo lo que usa la suite de contrato.
 // Reemplazo mínimo de `node:assert/strict` para el navegador (subparte 0.7B). Solo las funciones que usa la suite de contrato.
 class AssertionError extends Error { constructor(m) { super(m); this.name = 'AssertionError'; } }
 const show = (v) => { try { return JSON.stringify(v); } catch { return String(v); } };

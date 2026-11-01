@@ -1,0 +1,926 @@
+{
+  "schema": 1,
+  "pack_id": "sample_pack_v1",
+  "version": 1,
+  "title_es": "Paquete de muestra (pruebas)",
+  "created": "2026-10-18",
+  "authors": "Claude",
+  "license_note": "Original",
+  "topics": [
+    "gram.present_perfect.for_since",
+    "gram.modals.no_to"
+  ],
+  "items": [
+    {
+      "id": "g.samp.0001",
+      "facet": null,
+      "prompt_en": "I'm living here since two years.",
+      "accept": [
+        "I've lived here for two years.",
+        "I have lived here for two years.",
+        "I've been living here for two years.",
+        "I have been living here for two years."
+      ],
+      "grammar_note_es": "En español dices «vivo aquí desde hace dos años»; en inglés el presente no sirve: se usa have lived o have been living.",
+      "nuance_es": null,
+      "situation": "Presentarse con un nuevo vecino",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "I live here since two years.",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Con 'for' + duración, y con algo que empezó antes y sigue, usamos present perfect (have + participio), no el presente.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "g.samp.0002",
+      "facet": null,
+      "prompt_en": "She works at the bank since 2019.",
+      "accept": [
+        "She has worked at the bank since 2019.",
+        "She's worked at the bank since 2019.",
+        "She has been working at the bank since 2019.",
+        "She's been working at the bank since 2019."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "She works at the bank since 2019.",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Con 'since' + punto de partida usamos present perfect: has worked o has been working.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "g.samp.0003",
+      "facet": null,
+      "prompt_en": "We know each other since last summer.",
+      "accept": [
+        "We've known each other since last summer.",
+        "We have known each other since last summer."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "We know each other since last summer.",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "'Know' es un verbo de estado: con since usamos have known (no se dice have been knowing).",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "g.samp.0004",
+      "facet": null,
+      "prompt_en": "They are waiting for two hours.",
+      "accept": [
+        "They've been waiting for two hours.",
+        "They have been waiting for two hours."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "They are waiting for two hours.",
+          "code": "TNS.SINCE_FOR"
+        }
+      ],
+      "explain_es": "Si la espera empezó hace dos horas y sigue, usamos present perfect continuous: have been waiting.",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "g.samp.0005",
+      "facet": null,
+      "prompt_en": "I ___ in this city since 2022.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Hablar de dónde vives",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "live",
+          "have lived",
+          "am living",
+          "lived"
+        ],
+        "correct": 1
+      },
+      "distractors": [
+        {
+          "text": "live",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "am living",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "lived",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Con 'since 2022' hace falta present perfect: I have lived. El pasado simple (lived) pone la acción terminada.",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "g.samp.0006",
+      "facet": null,
+      "prompt_en": "My brother has worked here ___ three years.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "since",
+          "for",
+          "during",
+          "from"
+        ],
+        "correct": 1
+      },
+      "distractors": [
+        {
+          "text": "since",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "during",
+          "code": "PREP.DEP"
+        },
+        {
+          "text": "from",
+          "code": "PREP.DEP"
+        }
+      ],
+      "explain_es": "'For' va con una duración (three years); 'since' va con un punto de partida (2023, Monday).",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "PREP.DEP"
+      ]
+    },
+    {
+      "id": "g.samp.0007",
+      "facet": null,
+      "prompt_en": "How long ___ English?",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "have you studied",
+          "did you study",
+          "are you studying",
+          "has you studied"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "did you study",
+          "code": "TNS.PP_PS"
+        },
+        {
+          "text": "are you studying",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "has you studied",
+          "code": "TNS.PERF_FORM"
+        }
+      ],
+      "explain_es": "How long + present perfect pregunta por una duración que llega hasta ahora.",
+      "error_codes": [
+        "TNS.PP_PS",
+        "TNS.SINCE_FOR",
+        "TNS.PERF_FORM"
+      ]
+    },
+    {
+      "id": "g.samp.0008",
+      "facet": null,
+      "prompt_en": "She ___ (live) in Cartagena for ten years.",
+      "accept": [
+        "has lived",
+        "has been living"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "lives",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "lived",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Con 'for ten years' y una situación que sigue, usamos has lived (o has been living).",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "g.samp.0009",
+      "facet": null,
+      "prompt_en": "We ___ (not / see) each other since June.",
+      "accept": [
+        "haven't seen",
+        "have not seen"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "didn't see",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Con 'since June' la negación es haven't seen: el pasado simple no se usa con since.",
+      "error_codes": [
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "g.samp.0010",
+      "facet": null,
+      "prompt_en": "I ___ (know) Marta since 2018.",
+      "accept": [
+        "have known"
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fill_verb",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Escribe el verbo en la forma correcta.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "know",
+          "code": "TNS.SINCE_FOR"
+        },
+        {
+          "text": "knew",
+          "code": "TNS.PP_PS"
+        }
+      ],
+      "explain_es": "Con since y un verbo de estado como know usamos have known.",
+      "error_codes": [
+        "TNS.SINCE_FOR",
+        "TNS.PP_PS"
+      ]
+    },
+    {
+      "id": "g.samp.0011",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "I've played the guitar since 2023.",
+        "I have played the guitar since 2023.",
+        "I've been playing the guitar since 2023.",
+        "I have been playing the guitar since 2023."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "transform",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Reescribe la oración con present perfect.",
+      "data": {
+        "source": "I started playing the guitar in 2023, and I still play it.",
+        "instruction_es": "Usa since.",
+        "keyword": null
+      },
+      "explain_es": "Una acción que empezó en 2023 y continúa se expresa con present perfect + since 2023.",
+      "error_codes": []
+    },
+    {
+      "id": "g.samp.0012",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "We've been friends since 2020.",
+        "We have been friends since 2020.",
+        "We've known each other since 2020.",
+        "We have known each other since 2020."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "transform",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Reescribe la oración con present perfect.",
+      "data": {
+        "source": "We met in 2020, and we are still friends.",
+        "instruction_es": "Usa since.",
+        "keyword": null
+      },
+      "explain_es": "Si seguimos siendo amigos, usamos present perfect: have been friends o have known each other.",
+      "error_codes": []
+    },
+    {
+      "id": "g.samp.0013",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "I've lived here for two years."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "I've",
+          "lived",
+          "here",
+          "for",
+          "two",
+          "years"
+        ]
+      },
+      "explain_es": "El orden es sujeto + have + participio + for + duración.",
+      "error_codes": []
+    },
+    {
+      "id": "g.samp.0014",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "match_pairs",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Une cada palabra con su uso.",
+      "data": {
+        "pairs": [
+          {
+            "left": "for",
+            "right": "una duración"
+          },
+          {
+            "left": "since",
+            "right": "un punto de partida"
+          }
+        ]
+      },
+      "explain_es": "For se usa con una cantidad de tiempo (two years); since con un momento (2023, Monday).",
+      "error_codes": []
+    },
+    {
+      "id": "g.samp.0015",
+      "facet": null,
+      "prompt_en": null,
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "cloze_bank",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Completa los huecos con las palabras del banco.",
+      "data": {
+        "text": "I have lived here ___ 2020, and my sister has lived here ___ six years.",
+        "answers": [
+          [
+            "since"
+          ],
+          [
+            "for"
+          ]
+        ],
+        "bank": [
+          "since",
+          "for",
+          "during"
+        ]
+      },
+      "explain_es": "Since + 2020 (punto de partida) y for + six years (duración).",
+      "error_codes": [
+        "TNS.SINCE_FOR"
+      ]
+    },
+    {
+      "id": "g.samp.0016",
+      "facet": null,
+      "prompt_en": "I didn't can to send it.",
+      "accept": [
+        "I couldn't send it.",
+        "I could not send it.",
+        "I wasn't able to send it.",
+        "I was not able to send it."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": "Escribirle a un profesor",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "I didn't can to send it.",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Después de can/could no va 'to' y no usamos did: el pasado de can es could.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "g.samp.0017",
+      "facet": null,
+      "prompt_en": "She can to swim very well.",
+      "accept": [
+        "She can swim very well."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "fix_error",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Corrige el error en la oración.",
+      "data": {},
+      "distractors": [
+        {
+          "text": "She can to swim very well.",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Can va seguido del verbo en forma base, sin 'to'.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "g.samp.0018",
+      "facet": null,
+      "prompt_en": "I ___ finish the report yesterday.",
+      "accept": null,
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "choose_correct",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "Elige la opción correcta.",
+      "data": {
+        "options": [
+          "couldn't",
+          "couldn't to",
+          "didn't can",
+          "can't to"
+        ],
+        "correct": 0
+      },
+      "distractors": [
+        {
+          "text": "couldn't to",
+          "code": "VRB.CAN_TO"
+        },
+        {
+          "text": "didn't can",
+          "code": "VRB.CAN_TO"
+        },
+        {
+          "text": "can't to",
+          "code": "VRB.CAN_TO"
+        }
+      ],
+      "explain_es": "Pasado de can en negativo: couldn't + verbo base.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "g.samp.0019",
+      "facet": null,
+      "prompt_en": "No, I ___ send it.",
+      "accept": [
+        "No, I couldn't send it.",
+        "No, I could not send it."
+      ],
+      "grammar_note_es": "Couldn't ya es pasado: no se agrega did ni to.",
+      "nuance_es": "En una respuesta corta y natural, la forma contraída (couldn't) es la más común.",
+      "situation": "Hablar con un compañero de trabajo",
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "phrase_cloze",
+      "topics": [
+        "gram.modals.no_to"
+      ],
+      "level": "A2",
+      "prompt_es": "—¿Pudiste enviar el correo? —No, no pude enviarlo.",
+      "data": {
+        "text": "No, I ___ send it.",
+        "answers": [
+          [
+            "couldn't",
+            "could not"
+          ]
+        ],
+        "key_es": "no pude",
+        "key_en": "couldn't",
+        "turns": [
+          {
+            "who": "A",
+            "es": "¿Pudiste enviar el correo?",
+            "en": "Did you send the email?"
+          },
+          {
+            "who": "B",
+            "es": "No, no pude enviarlo.",
+            "en": "No, I ___ send it."
+          }
+        ]
+      },
+      "explain_es": "Para decir «no pude» usamos couldn't + verbo base.",
+      "error_codes": [
+        "VRB.CAN_TO"
+      ]
+    },
+    {
+      "id": "g.samp.0020",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "Since 2019, she has worked here."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_blocks",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena las palabras para formar la oración.",
+      "data": {
+        "blocks": [
+          "She",
+          "has",
+          "worked",
+          "here",
+          "since",
+          "2019"
+        ],
+        "shuffle": true
+      },
+      "explain_es": "Presente perfecto con since: sujeto + has + participio + since + punto de partida.",
+      "error_codes": []
+    },
+    {
+      "id": "g.samp.0021",
+      "facet": null,
+      "prompt_en": null,
+      "accept": [
+        "Have you finished your homework yet? No, I have not. Then do it now."
+      ],
+      "grammar_note_es": null,
+      "nuance_es": null,
+      "situation": null,
+      "audio": null,
+      "image": null,
+      "needs_ai": false,
+      "source": "original",
+      "version": 1,
+      "type": "order_dialogue",
+      "topics": [
+        "gram.present_perfect.for_since"
+      ],
+      "level": "A2",
+      "prompt_es": "Ordena el diálogo.",
+      "data": {
+        "lines": [
+          {
+            "speaker": "Ana",
+            "text": "Have you finished your homework yet?"
+          },
+          {
+            "speaker": "Leo",
+            "text": "No, I haven't."
+          },
+          {
+            "speaker": "Ana",
+            "text": "Then do it now."
+          }
+        ],
+        "shuffle": true
+      },
+      "explain_es": "Pregunta con have you + participio + yet; la respuesta corta usa haven't.",
+      "error_codes": []
+    }
+  ],
+  "lexicon": [
+    {
+      "id": "vocab.time.deadline",
+      "lemma": "deadline",
+      "pos": "noun",
+      "family": "vocab.time",
+      "level": "B1",
+      "band": "2K",
+      "priority": 2,
+      "es": [
+        "fecha límite"
+      ],
+      "def_en": "the last day or time to finish something",
+      "examples": [
+        {
+          "en": "The deadline is on Friday.",
+          "es": "La fecha límite es el viernes."
+        }
+      ],
+      "collocations": [
+        "meet a deadline",
+        "miss a deadline"
+      ],
+      "derivation": [],
+      "false_friend_note_es": null,
+      "audio": null,
+      "image": null
+    }
+  ],
+  "stories": [
+    {
+      "id": "story.a1.0001",
+      "level": "A1",
+      "title_en": "A New Neighbor",
+      "title_es": "Un vecino nuevo",
+      "topic_tags": [
+        "daily_life"
+      ],
+      "grammar_targets": [
+        "gram.present_perfect.for_since"
+      ],
+      "vocab_targets": [
+        "vocab.time"
+      ],
+      "segments": [
+        {
+          "id": "s1",
+          "text": "Ben has lived on this street for two years.",
+          "translation_es": "Ben vive en esta calle desde hace dos años.",
+          "audio": null,
+          "new_words": [
+            "street"
+          ]
+        },
+        {
+          "id": "s2",
+          "text": "Today a new neighbor says hello to him.",
+          "translation_es": "Hoy un vecino nuevo lo saluda.",
+          "audio": null,
+          "new_words": []
+        }
+      ],
+      "questions": [
+        {
+          "id": "story.a1.0001.q1",
+          "facet": null,
+          "prompt_en": null,
+          "accept": null,
+          "grammar_note_es": null,
+          "nuance_es": null,
+          "situation": null,
+          "audio": null,
+          "image": null,
+          "needs_ai": false,
+          "source": "original",
+          "version": 1,
+          "type": "read_local_q",
+          "topics": [
+            "gram.present_perfect.for_since"
+          ],
+          "level": "A1",
+          "prompt_es": "¿Cuánto tiempo lleva Ben viviendo en la calle?",
+          "data": {
+            "segment": "s1",
+            "options": [
+              "Dos años",
+              "Dos meses",
+              "Dos días"
+            ],
+            "correct": 0
+          },
+          "explain_es": "La primera frase dice for two years: dos años.",
+          "error_codes": []
+        }
+      ],
+      "comprehensibility": {
+        "known_pct_estimate": null
+      },
+      "source": "original"
+    }
+  ]
+}

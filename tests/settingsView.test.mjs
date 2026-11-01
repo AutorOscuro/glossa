@@ -1,3 +1,4 @@
+// @purpose: Pruebas de la pantalla de Ajustes (ui/views/settings.js) con DOM falso, ajustes reales y base en memoria.
 // Pruebas de ui/views/settings.js (subparte 0.8, cuarto 2B) con DOM falso, ajustes reales y base en memoria.
 import { test, afterEach } from 'node:test';
 import assert from 'node:assert/strict';
@@ -38,7 +39,7 @@ test('muestra título, las 10 tarjetas y los valores actuales', async () => {
   assert.equal(t.root.querySelector('h1').textContent, 'Ajustes');
   const titles = t.q('h2').map((x) => x.textContent);
   assert.deepEqual(titles, ['Apariencia', 'Repaso', 'Sonido y vibración', 'Inteligencia artificial', 'Pronunciación (Azure)', 'Respaldo', 'Claves', 'Bienvenida', 'Acerca de', 'Zona de peligro']);
-  assert.equal(t.radio('Tema', 'Automático').getAttribute('aria-checked'), 'true');
+  assert.equal(t.radio('Tema', 'Aurora').getAttribute('aria-checked'), 'true');
   assert.equal(t.radio('Tamaño de texto', 'Normal').getAttribute('aria-checked'), 'true');
   assert.equal(t.sliderIn('Retención objetivo').value, '0.9');
   assert.match(t.root.textContent, /90 %/);
@@ -77,6 +78,18 @@ test('deslizadores: retención, topes y sanguijuela se guardan al soltar', async
   assert.match(t.q('.slider').find((s) => s.textContent.startsWith('Retención')).textContent, /85 %/);
 });
 
+test('motor de repaso: por defecto Normal; el interruptor Simple (emergencia) se guarda, persiste y se puede revertir', async () => {
+  const t = await mk();
+  assert.equal(t.radio('Motor de repaso', 'Normal').getAttribute('aria-checked'), 'true');
+  assert.match(t.root.textContent, /Déjalo en Normal/);
+  t.click(t.radio('Motor de repaso', 'Simple (emergencia)')); await tick(t);
+  assert.equal(t.settings.get('srsEngine'), 'simple');
+  const t2 = await mk({ disk: t.disk });
+  assert.equal(t2.radio('Motor de repaso', 'Simple (emergencia)').getAttribute('aria-checked'), 'true');
+  t2.click(t2.radio('Motor de repaso', 'Normal')); await tick(t2);
+  assert.equal(t2.settings.get('srsEngine'), 'fsrs');
+});
+
 test('interruptores y modo de IA', async () => {
   const t = await mk();
   t.click(t.toggleBtn('Tolerancia ortográfica')); await tick(t);
@@ -106,7 +119,7 @@ test('si guardar falla: el control vuelve al valor real y muestra el texto amabl
   t.settings.set = async () => { throw new DbError('QUOTA'); };
   const logs = []; const orig = console.error; console.error = (...a) => logs.push(a.join(' '));
   try { t.click(t.radio('Tema', 'Claro')); await tick(t); } finally { console.error = orig; }
-  assert.equal(t.radio('Tema', 'Automático').getAttribute('aria-checked'), 'true', 'vuelve a lo guardado');
+  assert.equal(t.radio('Tema', 'Aurora').getAttribute('aria-checked'), 'true', 'vuelve a lo guardado');
   assert.equal(t.radio('Tema', 'Claro').getAttribute('aria-checked'), 'false');
   const err = t.q('.field__error').map((e) => e.textContent).find(Boolean);
   assert.ok(err && err.length > 5, 'texto amable visible');
@@ -177,7 +190,7 @@ test('espera a settingsReady cuando services.settings aún no existe', async () 
   const settings = createSettings(); await settings.load();
   const view = settingsView();
   await view.mount(root, {}, { version: '1', storageReady: Promise.resolve({ db: null }), settingsReady: Promise.resolve({ settings }) });
-  assert.equal(root.querySelectorAll('.segmented').length, 3);
+  assert.equal(root.querySelectorAll('.segmented').length, 4);
   view.destroy();
 });
 
@@ -224,7 +237,7 @@ test('arranque directo en #/ajustes: el shell monta la vista ANTES de que main.j
   await env.flush();
   const main = env.doc.getElementById('view');
   assert.equal(main.querySelector('h1').textContent, 'Ajustes');
-  assert.equal(main.querySelectorAll('.segmented').length, 3, `se pintaron los controles; texto: ${main.textContent.slice(0, 80)}`);
+  assert.equal(main.querySelectorAll('.segmented').length, 4, `se pintaron los controles; texto: ${main.textContent.slice(0, 80)}`);
   assert.doesNotMatch(main.textContent, /No se pudieron cargar/);
 });
 

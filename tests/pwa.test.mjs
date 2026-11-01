@@ -1,3 +1,4 @@
+// @purpose: Pruebas del manifest, los iconos y la CSP de index.html para la instalación como app.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -16,7 +17,7 @@ function png(rel) {
 }
 
 test('manifest: campos obligatorios, rutas RELATIVAS y modo standalone', () => {
-  assert.equal(manifest.name, 'Sophia Inglés'); assert.ok(manifest.short_name.length <= 12);
+  assert.equal(manifest.name, 'Glossa'); assert.ok(manifest.short_name.length <= 12);
   assert.equal(manifest.display, 'standalone'); assert.equal(manifest.lang, 'es');
   for (const k of ['start_url', 'scope', 'id']) {
     assert.ok(!/^(\/|[a-z]+:)/i.test(manifest[k]), `${k} debe ser relativa (funciona en subcarpetas de GitHub Pages): ${manifest[k]}`);

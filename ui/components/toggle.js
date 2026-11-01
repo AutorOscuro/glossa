@@ -1,3 +1,4 @@
+// @purpose: Interruptor accesible (switch) con descripción y estado de carga.
 // Interruptor (subparte 0.5): <button role="switch" aria-checked>. Toda la fila es el objetivo táctil (≥ 44 px).
 //
 //   createToggle({ label, description?, checked = false, disabled = false, loading = false, error?,

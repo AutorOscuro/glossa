@@ -1,3 +1,4 @@
+// @purpose: Pruebas del sistema de diseño: tokens, temas, contraste AA, reglas de los CSS y galería.
 // Pruebas del sistema de diseño (subparte 0.3): tokens, temas, contraste AA, reglas de los CSS y galería.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -13,7 +14,7 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const stylesDir = path.join(root, 'ui', 'styles');
 const read = (name) => fs.readFileSync(path.join(stylesDir, name), 'utf8');
-const CSS_FILES = ['tokens.css', 'themes.css', 'base.css', 'components.css', 'widgets.css', 'demo.css'];
+const CSS_FILES = ['tokens.css', 'themes.css', 'base.css', 'components.css', 'widgets.css', 'actionbar.css', 'summary.css', 'demo.css'];
 const decls = (css) => parseCss(css).flatMap((r) => r.decls.map((d) => ({ ...d, selector: r.selector, at: r.at })));
 
 // ---------- css-lite ----------
@@ -84,7 +85,7 @@ test('temas: los tres definen exactamente las mismas variables', () => {
 });
 
 test('temas: cada color se puede interpretar (hex o rgba) y cada tema fija color-scheme', () => {
-  const skip = new Set(['bg-image', 'shadow-sm', 'shadow-md', 'shadow-lg']);
+  const skip = new Set(['bg-image', 'shadow-sm', 'shadow-md', 'shadow-lg', 'shadow-card', 'shadow-nav', 'shadow-glow', 'brand-gradient', 'card-bg']);
   for (const name of THEME_NAMES) {
     for (const [token, value] of Object.entries(themes[name])) {
       if (skip.has(token)) continue;
@@ -194,7 +195,7 @@ test('navegación inferior: cada pestaña mide al menos 44 px y usa fondo sólid
 });
 
 test('hover: todo :hover va dentro de @media (hover: hover) (en el móvil no se queda "pegado")', () => {
-  for (const file of ['components.css', 'widgets.css', 'base.css']) {
+  for (const file of ['components.css', 'widgets.css', 'actionbar.css', 'summary.css', 'base.css']) {
     for (const r of parseCss(read(file))) {
       if (r.selector.includes(':hover')) assert.match(r.at ?? '', /\(hover:\s*hover\)/, `${file}: ${r.selector}`);
     }
@@ -205,7 +206,7 @@ test('movimiento: los tiempos salen de --dur-* y reducir movimiento los pone en 
   const reduced = parseCss(read('base.css')).filter((r) => (r.at ?? '').includes('prefers-reduced-motion: reduce'));
   const zeroed = new Set(reduced.flatMap((r) => r.decls).filter((d) => d.value === '0ms').map((d) => d.prop));
   for (const k of ['--dur-fast', '--dur-base', '--dur-slow']) assert.ok(zeroed.has(k), `falta apagar ${k}`);
-  for (const file of ['components.css', 'widgets.css', 'demo.css', 'base.css']) {
+  for (const file of ['components.css', 'widgets.css', 'actionbar.css', 'summary.css', 'demo.css', 'base.css']) {
     for (const d of decls(read(file)).filter((x) => /^(transition|animation)(-duration)?$/.test(x.prop))) {
       const literal = d.value.replace(/\b0s\b/g, '').match(/\b\d*\.?\d+m?s\b/);
       assert.equal(literal, null, `${file}: ${d.selector} usa un tiempo fijo (${d.value})`);
@@ -228,7 +229,7 @@ test('todas las variables usadas existen (ningún var(--typo))', () => {
 });
 
 test('hoja inferior y aviso: z-index sale de los tokens, no de números sueltos', () => {
-  for (const file of ['components.css', 'widgets.css', 'demo.css']) {
+  for (const file of ['components.css', 'widgets.css', 'actionbar.css', 'summary.css', 'demo.css']) {
     for (const d of decls(read(file)).filter((x) => x.prop === 'z-index')) assert.match(d.value, /^var\(--z-/, `${file}: ${d.selector}`);
   }
 });
@@ -288,4 +289,58 @@ test('galería: los botones que solo tienen icono llevan aria-label', () => {
 test('galería: demo.js es JavaScript válido', () => {
   const r = spawnSync(process.execPath, ['--check', path.join(stylesDir, 'demo.js')], { encoding: 'utf8' });
   assert.equal(r.status, 0, r.stderr);
+});
+
+test('BUG 3 (hito M0): la zona de agarre de la hoja mide al menos --touch-min y no se solapa con el encabezado', () => {
+  const css = read('widgets.css');
+  const rule = /\.sheet__grab\s*\{([^}]*)\}/.exec(css);
+  assert.ok(rule, 'existe la regla .sheet__grab');
+  assert.match(rule[1], /min-height:\s*var\(--touch-min\)/, 'alto mínimo = --touch-min (44 px)');
+  assert.match(rule[1], /touch-action:\s*none/, 'el dedo no se lo lleva el scroll');
+  assert.doesNotMatch(rule[1], /margin:[^;]*\)\s+0\s+calc\(/, 'sin margen inferior negativo (taparía la X)');
+  assert.match(read('tokens.css'), /--touch-min:\s*44px/);
+});
+
+test('BUG 3 (hito M0): la hoja fija de la galería tiene asa con zona de agarre y su arrastre usa la misma decisión que el componente real', () => {
+  assert.match(demo, /<div class="sheet__grab"><div class="sheet__handle"><\/div><\/div>/);
+  const js = read('demo-components.js');
+  assert.match(js, /querySelector\('\.sheet__grab'\)/);
+  assert.match(js, /ui\.dragDecision\(result\)/);
+  for (const ev of ['pointerdown', 'pointermove', 'pointerup', 'pointercancel']) assert.match(js, new RegExp(`'${ev}'`), ev);
+});
+
+// ---------- Rediseño visual 0.9.3 ----------
+test('0.9.3: la marca es un degradado de tres paradas distintas en cada tema, y no existe el tema "auto"', () => {
+  for (const name of THEME_NAMES) {
+    const t = themes[name];
+    const stops = [t['brand-1'], t['brand-2'], t['brand-3']];
+    assert.equal(new Set(stops).size, 3, `${name}: las tres paradas deben ser distintas`);
+    assert.match(t['brand-gradient'], /linear-gradient\(.*var\(--brand-1\).*var\(--brand-2\).*var\(--brand-3\)/, name);
+  }
+  assert.equal(themes.neo['brand-1'], '#00e5ff'); // cian → violeta → rojo (referencia de William)
+  assert.equal(themes.neo['brand-2'], '#c740ff');
+  assert.ok(!('auto' in themes), 'no hay tema auto');
+  assert.doesNotMatch(themesCss, /data-theme="auto"/);
+});
+
+test('0.9.3: el botón principal, la selección y la pestaña activa usan el degradado de marca con texto --on-brand', () => {
+  const comp = parseCss(read('components.css'));
+  const wid = parseCss(read('widgets.css'));
+  const val = (rules, sel, prop) => rules.find((r) => r.selector === sel && !r.at)?.decls.find((d) => d.prop === prop)?.value;
+  assert.equal(val(comp, '.btn--primary', '--btn-bg'), 'var(--brand-gradient)');
+  assert.equal(val(comp, '.btn--primary', '--btn-fg'), 'var(--on-brand)');
+  assert.equal(val(comp, '.bottom-nav__item.is-active', 'background'), 'var(--brand-gradient)');
+  assert.equal(val(comp, '.bottom-nav__item.is-active', 'color'), 'var(--on-brand)');
+  assert.equal(val(wid, '.segmented__item[aria-checked="true"]', 'background'), 'var(--brand-gradient)');
+  assert.equal(val(wid, '.segmented__item[aria-checked="true"]', 'color'), 'var(--on-brand)');
+});
+
+test('0.9.3: los botones llevan borde inferior grueso que se hunde al pulsar, y la barra inferior flota como píldora', () => {
+  const comp = parseCss(read('components.css'));
+  const val = (sel, prop) => comp.find((r) => r.selector === sel && !r.at)?.decls.find((d) => d.prop === prop)?.value;
+  assert.match(val('.btn', 'box-shadow'), /^0 3px 0 var\(--btn-edge\)$/);
+  assert.equal(val('.btn:active', 'transform'), 'translateY(3px)');
+  assert.equal(val('.bottom-nav', 'border-radius'), 'var(--radius-xl)');
+  assert.match(val('.bottom-nav', 'bottom'), /var\(--nav-gap\)/);
+  assert.match(val('.app-main', 'padding'), /var\(--nav-gap\)/, 'el contenido deja sitio a la barra flotante');
 });

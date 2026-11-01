@@ -1,3 +1,4 @@
+// @purpose: Ayudantes compartidos por todas las pruebas (repos temporales, azar con semilla y otras utilidades); no es una prueba.
 // Ayudantes compartidos por TODAS las pruebas (subparte 0.2). No es una prueba: el nombre empieza con "_"
 // y no termina en ".test.mjs", así que `node --test` no lo ejecuta.
 //

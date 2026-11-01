@@ -1,3 +1,4 @@
+// @purpose: Arranque del almacenamiento: abre la base, avisa si queda en modo solo memoria y pide almacenamiento persistente.
 // Arranque del almacenamiento (subparte 0.7, B2b): abre la base, muestra el aviso de "solo memoria" y gestiona persist().
 //
 //   startStorage({ name, notice, win?, clock?, open?, persist? }) → Promesa de

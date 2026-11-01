@@ -1,3 +1,4 @@
+// @purpose: Pruebas de core/migrations.js, core/dbErrors.js y los ayudantes puros de core/db.js.
 // Pruebas de core/migrations.js, core/dbErrors.js y de los ayudantes puros de core/db.js (subparte 0.7).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

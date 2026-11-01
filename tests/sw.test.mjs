@@ -1,3 +1,4 @@
+// @purpose: Ejecuta el sw.js real en un entorno simulado de cachés, red y eventos, sin navegador.
 // Ejecuta el sw.js REAL en un entorno simulado (cachés, red y eventos falsos). Nada de esto toca un navegador.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -90,11 +91,11 @@ test('install FALLA (y no deja caché a medias) si falta el manifest, no coincid
   await assert.rejects(setup({ files: [] }).run('install'), /no es válido/);
 });
 
-test('activate: borra cachés viejas del shell, conserva la actual, packs y audio, y reclama clientes', async () => {
+test('activate: borra cachés viejas del shell y la antigua de paquetes, conserva la actual y el audio, y reclama clientes', async () => {
   const t = setup();
   for (const n of ['sophia-shell-0.4.0-aaaaaaaa', CV, 'sophia-packs-v1', 'sophia-audio-v1', 'otra-app-cache']) t.store.set(n, new Map());
   await t.run('activate');
-  assert.deepEqual([...t.store.keys()].sort(), [CV, 'otra-app-cache', 'sophia-audio-v1', 'sophia-packs-v1'].sort());
+  assert.deepEqual([...t.store.keys()].sort(), [CV, 'otra-app-cache', 'sophia-audio-v1'].sort());
   assert.equal(t.calls.claim, 1);
 });
 
@@ -142,6 +143,28 @@ test('navegación: sirve index.html de la caché SIN red; sin caché y sin red d
   assert.equal(await warm.text(await warm.run('fetch', { request: warm.request('', { mode: 'navigate' }) })), 'directo');
 });
 
+test('BUG 2 (hito M0): navegar a una página real que NO es la app (ui/styles/demo.html) muestra ESA página, no el index de la app', async () => {
+  const t = setup();
+  await t.run('install');
+  t.net.set(`${BASE}ui/styles/demo.html`, { status: 200, body: 'galería' });
+  t.net.set(`${BASE}ui/styles/demo.html?tema=neo`, { status: 200, body: 'galería' }); // la red falsa busca la URL exacta
+  t.net.set(`${BASE}docs/guia.pdf`, { status: 200, body: 'pdf' });
+  for (const [u, want] of [['ui/styles/demo.html', 'galería'], ['ui/styles/demo.html?tema=neo', 'galería'], ['docs/guia.pdf', 'pdf']]) {
+    assert.equal(await t.text(await t.run('fetch', { request: t.request(u, { mode: 'navigate' }) })), want, u);
+  }
+  // una página con extensión que no existe da el 404 real de la red, no el index de la app
+  const r = await t.run('fetch', { request: t.request('ui/styles/nada.html', { mode: 'navigate' }) });
+  assert.equal(r.value.status, 404);
+  // sin conexión y sin copia: mensaje legible, tampoco el index
+  t.state.online = false;
+  const off = await t.run('fetch', { request: t.request('ui/styles/demo.html', { mode: 'navigate' }) });
+  assert.equal(off.value.status, 503);
+  // lo que sí sigue siendo la app: la raíz, index.html (con o sin ?), y rutas sin extensión
+  for (const u of ['', 'index.html', 'index.html?utm=1', 'cualquier/ruta', 'cualquier/ruta/']) {
+    assert.equal(await t.text(await t.run('fetch', { request: t.request(u, { mode: 'navigate' }) })), 'net:index.html', u);
+  }
+});
+
 test('shell: primero caché (sin tocar la red), ignora ?v=, y lo que no está en el shell se pide pero NO se guarda', async () => {
   const t = setup();
   await t.run('install'); t.log.length = 0;
@@ -157,21 +180,19 @@ test('shell: primero caché (sin tocar la red), ignora ?v=, y lo que no está en
   assert.equal(await t.text(await t.run('fetch', { request: t.request('app/main.js') })), 'net:app/main.js', 'sigue funcionando offline');
 });
 
-test('packs: stale-while-revalidate (responde lo guardado y se actualiza), con y sin red', async () => {
-  const t = setup(); const u = `${BASE}content/packs/p1.json`;
-  t.net.set(u, { status: 200, body: 'v1' });
-  assert.equal(await t.text(await t.run('fetch', { request: t.request(u) })), 'v1', 'sin copia: usa la red');
-  t.net.set(u, { status: 200, body: 'v2' });
-  assert.equal(await t.text(await t.run('fetch', { request: t.request(u) })), 'v1', 'con copia: responde la guardada');
-  const saved = async () => t.store.get('sophia-packs-v1').get(u).clone().text();
-  assert.equal(await saved(), 'v2', '…y la actualizó en segundo plano');
+test('content/ (índice y paquetes) va por el shell: precacheado, primero caché, sin SWR ni caché aparte', async () => {
+  const files = [...FILES, 'content/index.json', 'content/packs/p1.json'];
+  const t = setup({ files });
+  await t.run('install'); t.log.length = 0;
+  t.net.set(`${BASE}content/packs/p1.json`, { status: 200, body: 'v2-en-la-red' }); // la red ya cambió; la app instalada no lo ve hasta «Actualizar»
+  assert.equal(await t.text(await t.run('fetch', { request: t.request('content/packs/p1.json') })), 'net:content/packs/p1.json');
+  assert.equal(await t.text(await t.run('fetch', { request: t.request('content/index.json') })), 'net:content/index.json');
+  assert.equal(t.log.length, 0, 'cero peticiones: salió de la caché del shell, sin revalidar en segundo plano');
+  assert.equal(t.store.has('sophia-packs-v1'), false, 'no se crea caché de paquetes');
   t.state.online = false;
-  assert.equal(await t.text(await t.run('fetch', { request: t.request(u) })), 'v2', 'offline: la guardada, sin error');
-  await assert.rejects(t.run('fetch', { request: t.request(`${BASE}content/packs/otro.json`) }), /Failed to fetch/);
-  t.state.online = true; t.net.set(u, { status: 500, body: 'roto' });
-  await t.run('fetch', { request: t.request(u) });
-  assert.equal(await saved(), 'v2', 'un 500 no pisa la copia buena');
-  assert.equal(t.store.has(CV), false, 'los packs no van a la caché del shell');
+  assert.equal(await t.text(await t.run('fetch', { request: t.request('content/packs/p1.json?v=2') })), 'net:content/packs/p1.json', 'sin conexión y con ?v=');
+  const nuevo = await t.run('fetch', { request: t.request('content/packs/otro.json') });
+  assert.equal(nuevo.value.status, 503, 'un paquete que no está en el manifest y sin red da 503 legible');
 });
 
 test('audio: caché primero, solo guarda 200, y descarta los más antiguos pasando el tope de 60', async () => {

@@ -1,3 +1,4 @@
+// @purpose: Pruebas del primer arranque (app/firstRun.js): la bienvenida aparece una sola vez.
 // Pruebas de app/firstRun.js (subparte 0.8, cuarto 4B): primer arranque → bienvenida una sola vez, sin quitar enlaces a propósito.
 import { test, afterEach, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
@@ -41,7 +42,7 @@ test('primer arranque en la puerta de entrada y sin bienvenida vista: va a #/bie
   await t.settle();
   assert.equal(t.env.win.location.hash, '#/bienvenida');
   assert.match(t.h1(), /Me alegra que estés aquí/);
-  assert.equal(t.env.doc.title, 'Bienvenida · Sophia Inglés');
+  assert.equal(t.env.doc.title, 'Bienvenida · Glossa');
   assert.equal(t.env.doc.querySelector('[aria-current]'), null, 'ninguna pestaña activa');
 });
 

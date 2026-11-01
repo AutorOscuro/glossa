@@ -1,0 +1,909 @@
+{
+  "schema": 1,
+  "codes": [
+    {
+      "id": "TNS.PP_PS",
+      "titulo_es": "Present perfect en lugar de pasado simple (o al revés)",
+      "descripcion_es": "Se mezclan el present perfect y el pasado simple. El pasado simple cuenta algo terminado en un momento concreto (yesterday, last year, in 2020); el present perfect conecta el pasado con el presente (experiencia, resultado, algo que sigue). En español el pretérito perfecto y el indefinido se reparten distinto, y de ahí la confusión.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.present_perfect.vs_past_simple",
+        "gram.present_perfect.form",
+        "gram.past_simple.time_expressions",
+        "gram.perfect.tense_choice"
+      ],
+      "ejemplo_malo": "I have seen her yesterday.",
+      "ejemplo_bueno": "I saw her yesterday.",
+      "pista_corta_es": "Con una fecha o momento terminado (yesterday, last week) va el pasado simple, no have + participio."
+    },
+    {
+      "id": "TNS.SINCE_FOR",
+      "titulo_es": "«since» y «for» con una duración",
+      "descripcion_es": "Se usa el presente simple o continuo con «since» o «for» para algo que empezó antes y sigue. En inglés esa idea pide un perfecto (have been living, have lived). Además, «for» va con la duración (two years) y «since» con el punto de inicio (2024, Monday). El español usa presente con «desde» y «hace».",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.present_perfect.for_since",
+        "gram.questions.how_long_perfect"
+      ],
+      "ejemplo_malo": "I'm living here since two years.",
+      "ejemplo_bueno": "I've been living here for two years.",
+      "pista_corta_es": "for + cuánto tiempo (two years); since + desde cuándo (2024). Y el verbo va en perfecto, no en presente."
+    },
+    {
+      "id": "TNS.PERF_FORM",
+      "titulo_es": "Forma del perfecto (have + participio)",
+      "descripcion_es": "La forma del perfecto queda incompleta o mal armada: falta el participio, se usa la forma base o del pasado, o se cambia el auxiliar (have, has, had). Un perfecto siempre es have/has/had + participio pasado.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.present_perfect.form",
+        "gram.past_perfect.form",
+        "verb.irregular.past_participle",
+        "gram.past_perfect_continuous.form"
+      ],
+      "ejemplo_malo": "She has study English for two years.",
+      "ejemplo_bueno": "She has studied English for two years.",
+      "pista_corta_es": "Perfecto = have/has/had + participio (la tercera forma del verbo)."
+    },
+    {
+      "id": "VRB.IRREG_REGULARIZE",
+      "titulo_es": "Verbo irregular tratado como regular (eated, leaved)",
+      "descripcion_es": "A un verbo irregular se le añade -ed como si fuera regular (eated, leaved, paseed). Es una sobregeneralización normal al aprender, pero hay que memorizar los irregulares más frecuentes, de uno en uno o por patrón (sing-sang-sung).",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "verb.irregular.past_simple",
+        "verb.irregular.past_participle"
+      ],
+      "ejemplo_malo": "Yesterday I eated rice and leaved early.",
+      "ejemplo_bueno": "Yesterday I ate rice and left early.",
+      "pista_corta_es": "Ese verbo es irregular: no lleva -ed. Revisa su forma de pasado en la lista."
+    },
+    {
+      "id": "VRB.DOUBLE_PAST",
+      "titulo_es": "Doble marca de pasado (didn't went)",
+      "descripcion_es": "El pasado se marca dos veces: en el auxiliar (did, didn't) y en el verbo (didn't went). Con did o didn't el pasado ya lo lleva el auxiliar y el verbo principal vuelve a la forma base.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.past_simple.did_support",
+        "verb.irregular.past_simple"
+      ],
+      "ejemplo_malo": "She didn't went to class.",
+      "ejemplo_bueno": "She didn't go to class.",
+      "pista_corta_es": "Con did/didn't el verbo va en base: didn't go, did you go?"
+    },
+    {
+      "id": "VRB.CAN_TO",
+      "titulo_es": "«can» o «could» seguido de «to»",
+      "descripcion_es": "Se pone «to» entre un modal (can, could, must, should, will) y el verbo. Los modales van seguidos del verbo en forma base, sin «to». Pasa porque «to send» se siente como «enviar», la forma de infinitivo que enseña el español.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.modals.no_to",
+        "gram.modals.can_ability",
+        "gram.modals.be_able_to",
+        "gram.modals.could_past_ability"
+      ],
+      "ejemplo_malo": "I didn't can to send it.",
+      "ejemplo_bueno": "I couldn't send it.",
+      "pista_corta_es": "can/could + verbo base, sin «to»: I can send, no I can to send."
+    },
+    {
+      "id": "VRB.THIRD_S_OMIT",
+      "titulo_es": "Falta la -s de la tercera persona",
+      "descripcion_es": "En presente simple se omite la -s con he, she, it o un sujeto singular. Como en español cada persona tiene su terminación, la -s inglesa se siente redundante y se olvida con facilidad, sobre todo al hablar y escribir rápido.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.present_simple.third_person_s"
+      ],
+      "ejemplo_malo": "The train leave at six.",
+      "ejemplo_bueno": "The train leaves at six.",
+      "pista_corta_es": "he/she/it (o un solo sujeto) + verbo con -s en presente simple."
+    },
+    {
+      "id": "VRB.THIRD_S_EXTRA",
+      "titulo_es": "-s de la tercera persona de sobra (he cans, doesn't works)",
+      "descripcion_es": "La -s se añade donde no va: después de un modal (she can swims) o de does/doesn't (he doesn't works). Con modales y con do/does el verbo principal va en forma base; la -s ya la lleva el auxiliar does.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.present_simple.third_person_s",
+        "gram.modals.no_to"
+      ],
+      "ejemplo_malo": "She can swims very well.",
+      "ejemplo_bueno": "She can swim very well.",
+      "pista_corta_es": "Tras can/must/does/doesn't el verbo va en base, sin -s."
+    },
+    {
+      "id": "Q.WORD_ORDER",
+      "titulo_es": "Orden de las palabras en una pregunta",
+      "descripcion_es": "La pregunta conserva el orden de la afirmación o copia el orden del español (verbo antes del sujeto sin auxiliar). El inglés pide: palabra interrogativa + auxiliar + sujeto + verbo base. Si la palabra interrogativa es el sujeto (who broke it), no hay auxiliar.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.questions.word_order",
+        "gram.questions.subject_object"
+      ],
+      "ejemplo_malo": "Where live she?",
+      "ejemplo_bueno": "Where does she live?",
+      "pista_corta_es": "Pregunta: palabra interrogativa + auxiliar (do/does/did) + sujeto + verbo base."
+    },
+    {
+      "id": "Q.AUX_OMIT",
+      "titulo_es": "Pregunta sin auxiliar",
+      "descripcion_es": "Falta el auxiliar do/does/did en una pregunta, o se mezclan dos auxiliares (how many time do you have been waiting). En español la pregunta no necesita auxiliar, pero en inglés casi toda pregunta lo exige, y solo uno que lleve el tiempo.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.questions.word_order",
+        "gram.questions.how_long_perfect",
+        "gram.questions.aux_do"
+      ],
+      "ejemplo_malo": "What time you finish class?",
+      "ejemplo_bueno": "What time do you finish class?",
+      "pista_corta_es": "Casi toda pregunta lleva un auxiliar: do/does/did, o have/is/will si ya hay uno en la frase."
+    },
+    {
+      "id": "Q.INDIRECT",
+      "titulo_es": "Preguntas indirectas",
+      "descripcion_es": "En una pregunta indirecta (después de can you tell me, I wonder, do you know) se mantiene el orden y el auxiliar de la pregunta directa. Dentro de una frase mayor el orden vuelve a sujeto + verbo, sin do/does/did ni inversión.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.questions.indirect"
+      ],
+      "ejemplo_malo": "Can you tell me where is the bank?",
+      "ejemplo_bueno": "Can you tell me where the bank is?",
+      "pista_corta_es": "Después de «Can you tell me…» el orden es el de una afirmación: where the bank is."
+    },
+    {
+      "id": "GER.INF_AFTER_PREP",
+      "titulo_es": "Infinitivo tras preposición (en vez de gerundio)",
+      "descripcion_es": "Tras una preposición se usa el infinitivo (for visit, before to go) en vez del gerundio. En español la preposición va con infinitivo (para visitar, antes de ir), pero en inglés el verbo que sigue a una preposición va en -ing.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "prep.patterns.gerund_after_prepositions",
+        "gram.gerund_infinitive.purpose_to"
+      ],
+      "ejemplo_malo": "I use this app for learn new words.",
+      "ejemplo_bueno": "I use this app for learning new words.",
+      "pista_corta_es": "Preposición + verbo en -ing: for learning, before going, interested in studying."
+    },
+    {
+      "id": "GER.AVOID_TO",
+      "titulo_es": "«avoid» o «suggest» con «to» + verbo (en vez de -ing)",
+      "descripcion_es": "Verbos como avoid, suggest, enjoy, finish, keep o mind llevan un gerundio (-ing), no «to» + verbo. El español usa infinitivo después de esos verbos (evitar hablar, sugerir ir), y de ahí el error.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "prep.patterns.gerund_after_verbs"
+      ],
+      "ejemplo_malo": "She avoided to speak to him.",
+      "ejemplo_bueno": "She avoided speaking to him.",
+      "pista_corta_es": "avoid, suggest, enjoy, finish + verbo en -ing, no «to» + verbo."
+    },
+    {
+      "id": "GER.STOP_REMEMBER",
+      "titulo_es": "«stop» o «remember» con gerundio o infinitivo equivocado",
+      "descripcion_es": "Con stop, remember y forget el gerundio y el infinitivo cambian el significado. Stop doing = dejar de hacerlo; stop to do = detenerse para hacer algo. Remember doing = recordar algo que ya hiciste; remember to do = acordarte de hacerlo. Es un hueco confirmado: no se había enseñado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.gerund_infinitive.stop_remember"
+      ],
+      "ejemplo_malo": "I stopped to eat meat three years ago.",
+      "ejemplo_bueno": "I stopped eating meat three years ago.",
+      "pista_corta_es": "stop + -ing = dejar de hacerlo; stop + to = detenerse para hacerlo."
+    },
+    {
+      "id": "PREP.DEP",
+      "titulo_es": "Preposición dependiente equivocada",
+      "descripcion_es": "Un adjetivo, verbo o sustantivo lleva una preposición fija en inglés, y se elige la del español o una al azar (interested about, good in, afraid to, arrived to). Esas combinaciones se aprenden como bloque: interested in, good at, afraid of, arrive at/in.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "prep.dependent.adjective_prep",
+        "prep.dependent.verb_prep",
+        "prep.dependent.arrive_get_to",
+        "prep.dependent.noun_prep"
+      ],
+      "ejemplo_malo": "I'm interested about history.",
+      "ejemplo_bueno": "I'm interested in history.",
+      "pista_corta_es": "Aprende la preposición con la palabra: interested in, good at, afraid of."
+    },
+    {
+      "id": "NEG.DOUBLE",
+      "titulo_es": "Doble negación",
+      "descripcion_es": "Se usan dos negaciones en la misma frase (don't know nothing). En español es normal («no sé nada»), pero en inglés estándar una oración lleva una sola negación: don't know anything, o know nothing.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.negation.double_negative"
+      ],
+      "ejemplo_malo": "I don't know nothing.",
+      "ejemplo_bueno": "I don't know anything.",
+      "pista_corta_es": "Una sola negación por frase: not + anything, o nothing sin not."
+    },
+    {
+      "id": "SUBJ.OMIT",
+      "titulo_es": "Sujeto omitido",
+      "descripcion_es": "Se omite el sujeto, sobre todo en frases impersonales (is very important, rains a lot, there is). El español puede dejar el sujeto sin decir, pero en inglés toda oración lleva uno: aunque no signifique nada, se pone it o there.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "high",
+      "temas_relacionados": [
+        "gram.subject.dummy_it",
+        "gram.subject.dummy_there"
+      ],
+      "ejemplo_malo": "Is very important to study.",
+      "ejemplo_bueno": "It is very important to study.",
+      "pista_corta_es": "En inglés toda frase lleva sujeto. Si no hay uno, usa it o there."
+    },
+    {
+      "id": "CONN.CONTRAST_BECAUSE",
+      "titulo_es": "Conector de contraste confundido con uno de causa",
+      "descripcion_es": "Se usa un conector de causa (because, so) donde la relación es de contraste, o se confunden however, although, but y despite. Antes de escribir, decide si la idea que sigue explica, o se opone a lo anterior.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.connectors.contrast"
+      ],
+      "ejemplo_malo": "He passed the exam because he didn't study.",
+      "ejemplo_bueno": "He passed the exam although he didn't study.",
+      "pista_corta_es": "¿La segunda idea se opone a la primera? Usa although, even though, but o however, no because."
+    },
+    {
+      "id": "CONN.DESPITE_OF",
+      "titulo_es": "«despite of» en vez de «despite» o «in spite of»",
+      "descripcion_es": "Se escribe «despite of» mezclando despite con in spite of. Son dos formas: despite + sustantivo o -ing, e in spite of + sustantivo o -ing. El español «a pesar de» tiene «de», y de ahí el error.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.connectors.despite_in_spite_of"
+      ],
+      "ejemplo_malo": "Despite of the rain, we played.",
+      "ejemplo_bueno": "Despite the rain, we played.",
+      "pista_corta_es": "despite (sin «of») o in spite of: Despite the rain / In spite of the rain."
+    },
+    {
+      "id": "FUT.WILL_PLAN",
+      "titulo_es": "«will» donde va un plan (be going to)",
+      "descripcion_es": "Se usa «will» para un plan ya decidido o una decisión tomada antes de hablar. Para planes e intenciones previas el inglés prefiere be going to o el presente continuo; will es para decisiones del momento, predicciones y promesas.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.future.will_vs_going_to"
+      ],
+      "ejemplo_malo": "I already bought the tickets, so I will travel on Friday.",
+      "ejemplo_bueno": "I already bought the tickets, so I'm going to travel on Friday.",
+      "pista_corta_es": "Si el plan ya estaba decidido, usa be going to o el presente continuo. Will, para decisiones al instante."
+    },
+    {
+      "id": "FUT.WILL_PAST",
+      "titulo_es": "«will» en un contexto de pasado",
+      "descripcion_es": "Se pone «will» en una frase que habla del pasado (I thought I will, will graduated). Dentro de un contexto de pasado el futuro se expresa con would o was going to, y el verbo que sigue a will va en base.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.future.form",
+        "gram.future.in_the_past"
+      ],
+      "ejemplo_malo": "When I was a child, I thought I will be a doctor.",
+      "ejemplo_bueno": "When I was a child, I thought I would be a doctor.",
+      "pista_corta_es": "Contexto de pasado: would o was going to, no will."
+    },
+    {
+      "id": "FUT.AUX_MIX",
+      "titulo_es": "Auxiliares de futuro mezclados",
+      "descripcion_es": "Se mezclan auxiliares de futuro y de perfecto (I've will sit, will to go, I will going). El futuro se arma con un solo auxiliar: will + base, be going to + base, o el presente continuo.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.future.form"
+      ],
+      "ejemplo_malo": "I've will finish before you arrive.",
+      "ejemplo_bueno": "I will finish before you arrive.",
+      "pista_corta_es": "Un solo auxiliar de futuro: will + base, o am/is/are going to + base."
+    },
+    {
+      "id": "ADJ.SUPERLATIVE",
+      "titulo_es": "Superlativo mal formado",
+      "descripcion_es": "El superlativo se arma con «most» + adjetivo corto (the most tall), como el español «el más alto». Los adjetivos cortos usan -est (the tallest); los largos, the most + adjetivo (the most expensive).",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.adjectives.comparatives_superlatives"
+      ],
+      "ejemplo_malo": "She is the most tall girl in my class.",
+      "ejemplo_bueno": "She is the tallest girl in my class.",
+      "pista_corta_es": "Adjetivo corto: the + -est (tallest). Largo: the most + adjetivo (the most beautiful)."
+    },
+    {
+      "id": "ADJ.ADV_CONFUSION",
+      "titulo_es": "Adjetivo confundido con adverbio",
+      "descripcion_es": "Se usa un adjetivo donde va un adverbio (sings beautiful, speaks slow). El adverbio modifica al verbo y normalmente termina en -ly (beautifully); good tiene adverbio irregular: well.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.adjectives.adjective_vs_adverb"
+      ],
+      "ejemplo_malo": "She sings beautiful.",
+      "ejemplo_bueno": "She sings beautifully.",
+      "pista_corta_es": "Si describe cómo se hace la acción, usa el adverbio (-ly): beautifully, slowly; good → well."
+    },
+    {
+      "id": "ADJ.BORED_BORING",
+      "titulo_es": "Confusión entre -ed y -ing (bored, boring)",
+      "descripcion_es": "Se confunden los adjetivos en -ed y en -ing. El -ing describe lo que causa la emoción (the class is boring); el -ed describe cómo se siente la persona (I am bored). El español usa una sola palabra (aburrido) para las dos ideas.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.adjectives.ed_ing"
+      ],
+      "ejemplo_malo": "The class was very bored.",
+      "ejemplo_bueno": "The class was very boring.",
+      "pista_corta_es": "-ing = lo que causa la emoción; -ed = quien la siente."
+    },
+    {
+      "id": "ADJ.ORDER",
+      "titulo_es": "Orden de los adjetivos",
+      "descripcion_es": "Varios adjetivos antes del sustantivo van en desorden. El orden habitual es opinión, tamaño, edad, forma, color, origen, material y sustantivo. En español los adjetivos van después del sustantivo, así que esta regla no tiene equivalente.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.adjectives.order"
+      ],
+      "ejemplo_malo": "I bought a leather black new bag.",
+      "ejemplo_bueno": "I bought a new black leather bag.",
+      "pista_corta_es": "Orden: opinión, tamaño, edad, color, material + sustantivo: a new black leather bag."
+    },
+    {
+      "id": "ADJ.PLURAL",
+      "titulo_es": "Adjetivo en plural como en español",
+      "descripcion_es": "El adjetivo recibe una -s al acompañar un sustantivo plural (awesomes players). En español el adjetivo concuerda con el sustantivo, pero en inglés el adjetivo nunca cambia: solo el sustantivo se pluraliza.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.adjectives.no_plural"
+      ],
+      "ejemplo_malo": "They are awesomes players.",
+      "ejemplo_bueno": "They are awesome players.",
+      "pista_corta_es": "En inglés los adjetivos no tienen plural: awesome players, no awesomes players."
+    },
+    {
+      "id": "NOUN.COUNT_UNCOUNT",
+      "titulo_es": "Contable e incontable",
+      "descripcion_es": "Un sustantivo incontable se usa como contable (many luggages, an advice, a news) o se mezclan much/many y few/little. Palabras como advice, luggage, news, information, furniture o police no tienen plural ni llevan a/an, aunque en español algunas sí cuenten (consejos, equipajes, noticias).",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.nouns.countable_uncountable",
+        "gram.nouns.partitives"
+      ],
+      "ejemplo_malo": "He gave me many advices about the trip.",
+      "ejemplo_bueno": "He gave me a lot of advice about the trip.",
+      "pista_corta_es": "advice, luggage, news, information: sin plural ni a/an. Usa a piece of, much o a lot of."
+    },
+    {
+      "id": "NOUN.PLURAL_IRREG",
+      "titulo_es": "Plural irregular",
+      "descripcion_es": "A un sustantivo de plural irregular se le añade -s como si fuera regular (childs, mans, foots). Los plurales irregulares más comunes se memorizan: children, men, women, feet, teeth, people.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.nouns.plural_irregular"
+      ],
+      "ejemplo_malo": "Three childs and two mans were waiting.",
+      "ejemplo_bueno": "Three children and two men were waiting.",
+      "pista_corta_es": "Plural irregular: child → children, man → men, foot → feet."
+    },
+    {
+      "id": "CAUS.MAKE_ME_WORKS",
+      "titulo_es": "Causativo con verbo conjugado (make me works)",
+      "descripcion_es": "Después de make, let o have con complemento (make me, let her) el verbo se conjuga o lleva «to». Estos causativos van seguidos de verbo base sin to: my boss makes me work. El español usa «hacer que + subjuntivo», que empuja a conjugar.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.causative.make_let_have"
+      ],
+      "ejemplo_malo": "My boss makes me works on Saturdays.",
+      "ejemplo_bueno": "My boss makes me work on Saturdays.",
+      "pista_corta_es": "make/let/have + persona + verbo base: makes me work, lets her go."
+    },
+    {
+      "id": "LEX.FALSE_FRIEND",
+      "titulo_es": "Falso amigo",
+      "descripcion_es": "Una palabra se parece a una del español pero significa otra cosa. Por ejemplo, actually es «en realidad» (no «actualmente», que es currently); approve es «aprobar» una idea o ley (el examen se pasa: pass); sensible es «sensato». Hay que aprenderlos como pares de trampa.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "vocab.false_friends"
+      ],
+      "ejemplo_malo": "I approved the exam yesterday.",
+      "ejemplo_bueno": "I passed the exam yesterday.",
+      "pista_corta_es": "Parece español pero significa otra cosa. Comprueba el significado real antes de usarla."
+    },
+    {
+      "id": "LEX.CALQUE",
+      "titulo_es": "Calco del español",
+      "descripcion_es": "Se traduce una expresión del español palabra por palabra y el resultado no existe en inglés (I get fun, give you an apologize). Cada lengua tiene sus bloques: «me divertí mucho» es I had a lot of fun, y «pedir disculpas» es apologize.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "vocab.calques"
+      ],
+      "ejemplo_malo": "I got a lot of fun at the party.",
+      "ejemplo_bueno": "I had a lot of fun at the party.",
+      "pista_corta_es": "No se dice así en inglés. Busca la expresión equivalente, no la traducción palabra por palabra."
+    },
+    {
+      "id": "SPELL.GENERAL",
+      "titulo_es": "Error de ortografía",
+      "descripcion_es": "Una palabra se escribe mal: letras cambiadas o de menos (firts, finaly, yesterdey, wether, cluidy) o un plural en -y mal hecho (oportunitys en vez de opportunities). Son descuidos o dudas con la ortografía irregular del inglés.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "spell.common_misspellings"
+      ],
+      "ejemplo_malo": "I finaly passed the firts exam.",
+      "ejemplo_bueno": "I finally passed the first exam.",
+      "pista_corta_es": "Revisa la ortografía letra por letra. Si dudas, búscala."
+    },
+    {
+      "id": "MECH.CAP_I",
+      "titulo_es": "«I» escrita en minúscula",
+      "descripcion_es": "El pronombre «I» se escribe en minúscula. En inglés «I» siempre va en mayúscula, esté donde esté en la frase. En español «yo» no se capitaliza, y de ahí el hábito.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "spell.capitalization"
+      ],
+      "ejemplo_malo": "Yesterday i went to the library.",
+      "ejemplo_bueno": "Yesterday I went to the library.",
+      "pista_corta_es": "«I» siempre en mayúscula."
+    },
+    {
+      "id": "MECH.EVERYDAY",
+      "titulo_es": "«everyday» y «every day»",
+      "descripcion_es": "Se confunden everyday (una palabra, adjetivo: «de todos los días») y every day (dos palabras: «todos los días»). Si puedes sustituirlo por «cada día», va separado.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "spell.everyday_every_day"
+      ],
+      "ejemplo_malo": "I study English everyday after class.",
+      "ejemplo_bueno": "I study English every day after class.",
+      "pista_corta_es": "every day (separado) = todos los días; everyday (junto) = cotidiano."
+    },
+    {
+      "id": "ART.GEO",
+      "titulo_es": "Artículo con nombres geográficos",
+      "descripcion_es": "Se pone o se quita el artículo con nombres geográficos. La mayoría de países, ciudades y continentes no llevan the (Colombia, Paris); sí lo llevan los plurales y las uniones (the United States, the Netherlands) y los ríos, océanos y cordilleras (the Pacific, the Andes).",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.articles.geographic_names"
+      ],
+      "ejemplo_malo": "My cousin lives in the Colombia.",
+      "ejemplo_bueno": "My cousin lives in Colombia.",
+      "pista_corta_es": "Países y ciudades normalmente sin the; plurales, ríos y océanos, con the."
+    },
+    {
+      "id": "PRON.-ED",
+      "titulo_es": "Pronunciación de la terminación -ed",
+      "descripcion_es": "La terminación -ed se pronuncia siempre como una sílaba extra (/ɪd/) o se omite. Tiene tres sonidos: /t/ (worked), /d/ (played) y /ɪd/ solo tras t o d (wanted). Se pronuncia según el sonido que precede, no según la letra.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.ed_endings"
+      ],
+      "ejemplo_malo": "«worked» dicho con dos sílabas: work-ed.",
+      "ejemplo_bueno": "«worked» dicho con una sola sílaba: /wɜrkt/.",
+      "pista_corta_es": "Solo suena /ɪd/ tras t o d. En el resto, -ed es /t/ o /d/, sin sílaba extra."
+    },
+    {
+      "id": "PRON.-S",
+      "titulo_es": "Pronunciación de la terminación -s",
+      "descripcion_es": "La terminación -s o -es se pronuncia siempre /s/, o se omite. Tiene tres sonidos: /s/ tras sonidos sordos (cats), /z/ tras sonoros (dogs) y /ɪz/ tras s, z, sh, ch, j (watches).",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.s_endings"
+      ],
+      "ejemplo_malo": "«dogs» terminado en /s/: /dɔgs/.",
+      "ejemplo_bueno": "«dogs» terminado en /z/: /dɔgz/.",
+      "pista_corta_es": "Tras sonido sonoro, la -s suena /z/ (dogs); tras s, sh, ch, suena /ɪz/ (watches)."
+    },
+    {
+      "id": "PRON.CLUSTER",
+      "titulo_es": "Grupos de consonantes",
+      "descripcion_es": "Los grupos de consonantes finales se simplifican o se pierde la última (asked → ask, friends → frien). El español casi no termina palabras en grupos de consonantes, así que hay que practicar cada letra del final sin añadir vocales.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.consonant_clusters"
+      ],
+      "ejemplo_malo": "«asked» dicho como «ask»: /æsk/.",
+      "ejemplo_bueno": "«asked» con el grupo completo: /æskt/.",
+      "pista_corta_es": "Pronuncia la consonante final completa, aunque cueste: asked es /æskt/."
+    },
+    {
+      "id": "PRON.S_CLUSTER",
+      "titulo_es": "«s» + consonante al inicio de palabra",
+      "descripcion_es": "Se añade una «e» antes de /s/ + consonante al inicio de palabra (school → «eschool», student → «estudent»). En español ese grupo no puede empezar una palabra, y hay que decir la s directamente seguida de la consonante.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.s_cluster"
+      ],
+      "ejemplo_malo": "«school» dicho como «eschool»: /eskuːl/.",
+      "ejemplo_bueno": "«school» sin vocal inicial: /skuːl/.",
+      "pista_corta_es": "Empieza con /s/ y pasa directo a la consonante: school, no eschool."
+    },
+    {
+      "id": "PRON.VOWEL",
+      "titulo_es": "Vocales (ship y sheep)",
+      "descripcion_es": "Se pronuncian igual las vocales cortas y largas del inglés (ship y sheep, full y fool, cut y cart). El español tiene solo cinco vocales y el inglés tiene muchas más; la duración y la posición de la lengua cambian el significado.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.vowels_short_long"
+      ],
+      "ejemplo_malo": "«ship» dicho como «sheep»: /ʃiːp/.",
+      "ejemplo_bueno": "«ship» con la vocal corta: /ʃɪp/.",
+      "pista_corta_es": "Vocal corta y relajada /ɪ/ en ship; larga y tensa /iː/ en sheep."
+    },
+    {
+      "id": "PRON.V_B",
+      "titulo_es": "Sonidos «v» y «b»",
+      "descripcion_es": "La «v» se pronuncia como «b» (very → berry). En español v y b suenan igual; en inglés /v/ se hace con los dientes de arriba sobre el labio de abajo, y /b/ con los dos labios.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.v_b"
+      ],
+      "ejemplo_malo": "«very» dicho con los dos labios, como «berry».",
+      "ejemplo_bueno": "«very» con dientes sobre el labio inferior: /ˈvɛri/.",
+      "pista_corta_es": "Para /v/, dientes de arriba sobre el labio de abajo y deja pasar el aire."
+    },
+    {
+      "id": "PRON.TH",
+      "titulo_es": "Sonido «th»",
+      "descripcion_es": "Se sustituye «th» por /s/, /t/, /f/ o /d/ (think → sink, this → dis). Se pronuncia con la punta de la lengua entre los dientes: /θ/ sin voz (think) y /ð/ con voz (this).",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.th_sounds"
+      ],
+      "ejemplo_malo": "«think» dicho como «sink».",
+      "ejemplo_bueno": "«think» con la lengua entre los dientes: /θɪŋk/.",
+      "pista_corta_es": "Pon la punta de la lengua entre los dientes y deja pasar el aire."
+    },
+    {
+      "id": "PRON.FINAL_VOICING",
+      "titulo_es": "Consonantes finales sordas y sonoras",
+      "descripcion_es": "La consonante final sonora se pronuncia sorda (bed → bet, dog → dock, love → luff). En inglés la diferencia entre /d/ y /t/ al final cambia el significado, y se nota en la duración de la vocal anterior, que se alarga antes de un sonido sonoro.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.final_voicing"
+      ],
+      "ejemplo_malo": "«bed» dicho como «bet».",
+      "ejemplo_bueno": "«bed» con /d/ final: /bɛd/.",
+      "pista_corta_es": "Alarga la vocal antes de /d/, /b/, /g/, /v/ finales y mantén la voz."
+    },
+    {
+      "id": "PRON.R",
+      "titulo_es": "La «r» inglesa",
+      "descripcion_es": "La «r» se pronuncia vibrante o con un golpe de lengua, como en español (red → «rred»). La r americana es una aproximante: la lengua se curva hacia atrás sin tocar el paladar y los labios se redondean un poco.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "pron.american_r"
+      ],
+      "ejemplo_malo": "«red» con r vibrante del español.",
+      "ejemplo_bueno": "«red» con r americana: /rɛd/.",
+      "pista_corta_es": "No hagas vibrar la lengua: cúrvala hacia atrás sin tocar el paladar."
+    },
+    {
+      "id": "PASS.FORM",
+      "titulo_es": "Voz pasiva mal formada (be + participio)",
+      "descripcion_es": "La voz pasiva se arma mal: falta el participio o se omite be (was write, was broke, the report written by). La pasiva es be + participio pasado, con el tiempo en be. Es un hueco confirmado: no se había enseñado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.passive.form"
+      ],
+      "ejemplo_malo": "The report was write by my team.",
+      "ejemplo_bueno": "The report was written by my team.",
+      "pista_corta_es": "Pasiva = be (en el tiempo que toque) + participio."
+    },
+    {
+      "id": "REL.WHO_WHOM_WHOSE",
+      "titulo_es": "«who», «whom» y «whose» confundidos",
+      "descripcion_es": "Se confunden who, whom y whose. Who es el sujeto (la persona que hace); whom es el complemento (la persona a quien); whose indica posesión (cuyo). Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.relative_clauses.who_whom_whose"
+      ],
+      "ejemplo_malo": "The girl who bag was stolen is my friend.",
+      "ejemplo_bueno": "The girl whose bag was stolen is my friend.",
+      "pista_corta_es": "whose = cuyo (posesión); who = la persona que hace la acción."
+    },
+    {
+      "id": "Q.TAG_FORM",
+      "titulo_es": "Tag question mal formada",
+      "descripcion_es": "La tag question (la coletilla del final) no usa el auxiliar de la frase ni el polo contrario. Después de una frase afirmativa va una negativa corta, y al revés, repitiendo el auxiliar (is → isn't). Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.questions.tag_questions"
+      ],
+      "ejemplo_malo": "You are tired, don't you?",
+      "ejemplo_bueno": "You are tired, aren't you?",
+      "pista_corta_es": "Repite el auxiliar de la frase con polo contrario: are → aren't."
+    },
+    {
+      "id": "COND.UNLESS",
+      "titulo_es": "«unless» seguido de negación",
+      "descripcion_es": "Se pone una negación después de «unless». «Unless» ya significa «si no» (if not), así que el verbo que sigue va en afirmativo. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.conditionals.unless"
+      ],
+      "ejemplo_malo": "We'll cancel the picnic unless the weather doesn't improve.",
+      "ejemplo_bueno": "We'll cancel the picnic unless the weather improves.",
+      "pista_corta_es": "unless = if not: el verbo que sigue va en afirmativo."
+    },
+    {
+      "id": "COND.TYPE3_MIXED",
+      "titulo_es": "Condicional 3 o mixto mal formado",
+      "descripcion_es": "Los condicionales 3 y mixtos se arman con «would» en la parte if o con el tiempo equivocado. El tercero es if + past perfect, would have + participio. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.conditionals.third_and_mixed"
+      ],
+      "ejemplo_malo": "If I would have studied more, I would pass.",
+      "ejemplo_bueno": "If I had studied more, I would have passed.",
+      "pista_corta_es": "if + had + participio; would have + participio. Nunca would después de if."
+    },
+    {
+      "id": "WISH.FORM",
+      "titulo_es": "«wish» o «would rather» con el tiempo equivocado",
+      "descripcion_es": "Después de wish o would rather se usa el tiempo del presente real, o would rather lleva «to». Wish sobre el presente usa pasado (I wish I could); would rather va seguido de verbo base. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.wish.wish_would_rather",
+        "gram.wish.wish_past_perfect",
+        "gram.wish.wish_would",
+        "gram.wish.if_only"
+      ],
+      "ejemplo_malo": "I wish I can speak English better.",
+      "ejemplo_bueno": "I wish I could speak English better.",
+      "pista_corta_es": "wish + pasado (could, were, had); would rather + verbo base, sin to."
+    },
+    {
+      "id": "MOD.DEDUCTION_PERFECT",
+      "titulo_es": "Modal perfecto o de deducción mal formado (must have)",
+      "descripcion_es": "Los modales de deducción o perfectos (must have, should have, might have) se arman sin have o con el participio equivocado. Se forman con modal + have + participio. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.modals.deduction_perfect",
+        "gram.modals.deduction_present",
+        "gram.modals.past_possibility"
+      ],
+      "ejemplo_malo": "He must has forgotten his keys.",
+      "ejemplo_bueno": "He must have forgotten his keys.",
+      "pista_corta_es": "modal + have + participio: must have forgotten, should have gone."
+    },
+    {
+      "id": "REP.REPORTED_SPEECH",
+      "titulo_es": "Estilo indirecto mal formado (said me, tiempos, órdenes)",
+      "descripcion_es": "El estilo indirecto se arma mal: «said me» en vez de «told me», tiempos sin retroceder o las órdenes sin «to». Say se usa sin objeto; tell lleva objeto (told me). Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.reported_speech.statements_and_orders",
+        "gram.reported_speech.say_tell_ask",
+        "gram.reported_speech.backshift"
+      ],
+      "ejemplo_malo": "She said me that she was tired.",
+      "ejemplo_bueno": "She told me that she was tired.",
+      "pista_corta_es": "tell + persona (told me); say sin persona (said that…)."
+    },
+    {
+      "id": "CAUS.HAVE_DONE",
+      "titulo_es": "«have something done» mal formado",
+      "descripcion_es": "La causativa «have something done» (que otro lo haga por ti) usa el verbo base o conjugado en vez del participio. Estructura: have + objeto + participio. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.causative.have_something_done"
+      ],
+      "ejemplo_malo": "I had my car fix yesterday.",
+      "ejemplo_bueno": "I had my car fixed yesterday.",
+      "pista_corta_es": "have + objeto + participio: had my car fixed."
+    },
+    {
+      "id": "INV.NEG_ADV",
+      "titulo_es": "Inversión tras un adverbio negativo (hardly had I…)",
+      "descripcion_es": "Tras un adverbio negativo o restrictivo al inicio (hardly, never, not until, rarely) no se invierte el auxiliar y el sujeto. En ese caso el orden es adverbio + auxiliar + sujeto + verbo. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.inversion.negative_adverbs"
+      ],
+      "ejemplo_malo": "Hardly I had arrived when it started to rain.",
+      "ejemplo_bueno": "Hardly had I arrived when it started to rain.",
+      "pista_corta_es": "Adverbio negativo al inicio + auxiliar + sujeto: Hardly had I arrived."
+    },
+    {
+      "id": "SUBJV.SUGGEST_BE",
+      "titulo_es": "Subjuntivo mal formado (I suggest that he go)",
+      "descripcion_es": "Después de suggest, demand, insist o recommend + that se conjuga el verbo con -s o con will, y en el inglés formal americano va en base (I suggest that he go). Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.subjunctive.suggest_demand"
+      ],
+      "ejemplo_malo": "I suggest that he goes to the doctor.",
+      "ejemplo_bueno": "I suggest that he go to the doctor.",
+      "pista_corta_es": "suggest/insist/demand + that + sujeto + verbo en base, sin -s (registro formal)."
+    },
+    {
+      "id": "CONN.AS_IF",
+      "titulo_es": "«as if» o «as though» con el tiempo equivocado",
+      "descripcion_es": "Después de as if o as though se usa el presente cuando la comparación es irreal o del pasado. Para algo irreal o anterior se usa pasado o past perfect (as if she had seen a ghost). Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.as_if.tenses"
+      ],
+      "ejemplo_malo": "She looks as if she sees a ghost.",
+      "ejemplo_bueno": "She looks as if she had seen a ghost.",
+      "pista_corta_es": "as if + pasado o had + participio para algo irreal o anterior."
+    },
+    {
+      "id": "DEG.SO_SUCH",
+      "titulo_es": "«so» y «such» confundidos",
+      "descripcion_es": "Se confunden so y such. So va con un adjetivo o adverbio (so good); such va con un sustantivo (such a good movie). Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.degree.so_such"
+      ],
+      "ejemplo_malo": "It was so a good movie.",
+      "ejemplo_bueno": "It was such a good movie.",
+      "pista_corta_es": "so + adjetivo (so good); such (a) + sustantivo (such a good movie)."
+    },
+    {
+      "id": "FUT.PERF_CONT",
+      "titulo_es": "Futuro perfecto o continuo mal formado",
+      "descripcion_es": "El futuro perfecto o continuo se arma sin have + participio o sin be + -ing. Future perfect = will have + participio; future continuous = will be + -ing. Es un hueco confirmado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.future.perfect_continuous"
+      ],
+      "ejemplo_malo": "By 2030 I will have graduate.",
+      "ejemplo_bueno": "By 2030 I will have graduated.",
+      "pista_corta_es": "will have + participio (future perfect); will be + -ing (future continuous)."
+    },
+    {
+      "id": "SUBJ.PRONOUN_CASE",
+      "titulo_es": "«I» y «me» en sujetos compuestos",
+      "descripcion_es": "Se confunden I y me en sujetos compuestos o tras preposición. Como sujeto va I (he and I); como complemento o tras preposición va me (between you and me). Se vio una vez y no está consolidado.",
+      "origen_tipico": "unknown_pure",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "gram.pronouns.subject_object_compound"
+      ],
+      "ejemplo_malo": "Him and me studied together.",
+      "ejemplo_bueno": "He and I studied together.",
+      "pista_corta_es": "Sujeto: I, he, she. Complemento o tras preposición: me, him, her."
+    },
+    {
+      "id": "ADJ.COMPARATIVE_DOUBLE",
+      "titulo_es": "Comparativo mal formado (more better, the more… the better)",
+      "descripcion_es": "El comparativo se arma mal: more + comparativo (more better), o se pierde «the… the…» en «the more you practice, the better you speak». Un comparativo corto lleva -er; uno irregular (good → better) no lleva more.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.adjectives.comparatives_superlatives",
+        "gram.adjectives.double_comparative"
+      ],
+      "ejemplo_malo": "My English is more better than before.",
+      "ejemplo_bueno": "My English is better than before.",
+      "pista_corta_es": "No uses more con un comparativo que ya lo es: better, no more better."
+    },
+    {
+      "id": "NOUN.QUANT_FEW",
+      "titulo_es": "«few», «a few», «little», «much» y «many» confundidos",
+      "descripcion_es": "Se confunden few, a few, little, a little, much y many. Few y many van con contables (few friends, many books); little y much con incontables (little time, much money). A few y a little son positivos (algunos); few y little casi niegan.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "mid",
+      "temas_relacionados": [
+        "gram.nouns.quantifiers",
+        "gram.determiners.much_many"
+      ],
+      "ejemplo_malo": "I have few time, so I can't talk.",
+      "ejemplo_bueno": "I have little time, so I can't talk.",
+      "pista_corta_es": "Contable: few/many. Incontable: little/much. «Time» es incontable."
+    },
+    {
+      "id": "PHR.SEPARABLE_PRONOUN",
+      "titulo_es": "Pronombre mal colocado en un phrasal verb separable",
+      "descripcion_es": "Un pronombre (it, them, her) se coloca detrás de la partícula de un phrasal verb separable. Con pronombre, el pronombre va entre el verbo y la partícula: pick it up, no pick up it.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "phr.separable.pronoun_position",
+        "phr.types.separable_inseparable"
+      ],
+      "ejemplo_malo": "I picked up it at the station.",
+      "ejemplo_bueno": "I picked it up at the station.",
+      "pista_corta_es": "Con un pronombre en medio: pick it up, turn it off."
+    },
+    {
+      "id": "LEX.COLLOCATION",
+      "titulo_es": "Colocación equivocada (do o make, say o tell)",
+      "descripcion_es": "Se elige el verbo equivocado en una colocación fija (do a decision, make homework, say a lie). Cada nombre elige su verbo: make a decision, do homework, tell a lie. El español usa un solo verbo («hacer» para todo) y empuja a elegir mal.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "vocab.collocations.do_make_say_tell"
+      ],
+      "ejemplo_malo": "She did a decision quickly.",
+      "ejemplo_bueno": "She made a decision quickly.",
+      "pista_corta_es": "La colocación se aprende en bloque: make a decision, do homework, tell a lie."
+    },
+    {
+      "id": "LEX.WORD_FORMATION",
+      "titulo_es": "Palabra de la misma familia equivocada (success y successful)",
+      "descripcion_es": "Se usa la forma equivocada de la familia de palabras (success en vez de successful, happy en vez de happiness). Un sufijo cambia la categoría gramatical: -ful o -ness, -ly, -tion, -er. Hay que fijarse en si la frase pide sustantivo, adjetivo, adverbio o verbo.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "vocab.word_formation.suffixes"
+      ],
+      "ejemplo_malo": "I want to be success in my career.",
+      "ejemplo_bueno": "I want to be successful in my career.",
+      "pista_corta_es": "Después de be va un adjetivo: successful. Success es el sustantivo."
+    },
+    {
+      "id": "SPELL.HOMOPHONE",
+      "titulo_es": "Palabras que suenan igual (brake y break)",
+      "descripcion_es": "Se escribe una palabra que suena igual a la que corresponde (brake en vez de break, wether en vez de whether, their y there). El contexto indica cuál lleva cada significado.",
+      "origen_tipico": "developmental",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "spell.homophones"
+      ],
+      "ejemplo_malo": "Don't forget to brake the eggs.",
+      "ejemplo_bueno": "Don't forget to break the eggs.",
+      "pista_corta_es": "Suenan igual pero se escriben distinto. Piensa en el significado."
+    },
+    {
+      "id": "SPELL.ES_INTERFERENCE",
+      "titulo_es": "Ortografía contagiada del español (semestre, carrer)",
+      "descripcion_es": "Se escribe una palabra con la ortografía del español (semestre, carrer, oportunity, boos). Muchas palabras son casi iguales pero cambian una letra o una doble: semester, career, opportunity, boss.",
+      "origen_tipico": "transfer_es",
+      "impacto_defecto": "low",
+      "temas_relacionados": [
+        "spell.spanish_interference"
+      ],
+      "ejemplo_malo": "This semestre I want a better carrer.",
+      "ejemplo_bueno": "This semester I want a better career.",
+      "pista_corta_es": "Parece español, pero cambia una letra. Comprueba cómo se escribe en inglés."
+    }
+  ]
+}

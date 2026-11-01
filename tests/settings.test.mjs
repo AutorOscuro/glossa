@@ -1,3 +1,4 @@
+// @purpose: Pruebas de core/settings.js: valores por defecto, rangos, persistencia, secretos y atomicidad.
 // Pruebas de core/settings.js (subparte 0.8, cuarto 1): defaults, rangos, persistencia, secretos, vivo y atomicidad.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -72,7 +73,7 @@ test('vivo: onChange avisa solo cuando cambia ese ajuste; onAnyChange da las cla
   const off = s.onChange('theme', (v, pv) => seen.push([v, pv]));
   s.onAnyChange((keys, snap) => any.push([keys, snap]));
   await s.set('sounds', false); assert.deepEqual(seen, []);
-  await s.set('theme', 'claro'); assert.deepEqual(seen, [['claro', 'auto']]);
+  await s.set('theme', 'claro'); assert.deepEqual(seen, [['claro', 'aurora']]);
   await s.set('aiKey', SECRET);
   assert.deepEqual(any.at(-1)[0], ['aiKey']); assert.equal(any.at(-1)[1].aiKey, SECRET_MASK);
   off(); await s.set('theme', 'neo'); assert.equal(seen.length, 1);
@@ -90,7 +91,7 @@ test('un suscriptor que falla no impide el guardado ni a los demás', async () =
 test('setMany es atómico (todo o nada): un valor inválido no cambia ninguno, y un fallo de guardado tampoco', async () => {
   const { s, db } = await mk();
   await assert.rejects(s.setMany({ theme: 'neo', leechThreshold: 99 }), (e) => e.code === 'BAD_SETTING' && /entre 3 y 20/.test(e.message));
-  assert.equal(s.get('theme'), 'auto'); assert.equal(await db.get('settings', 'theme'), null);
+  assert.equal(s.get('theme'), 'aurora'); assert.equal(await db.get('settings', 'theme'), null);
   assert.deepEqual(await s.setMany({ theme: 'neo', sounds: false }), ['theme', 'sounds']);
   db.setWriteHook(() => { throw Object.assign(new Error('The quota has been exceeded.'), { name: 'QuotaExceededError' }); });
   await assert.rejects(s.setMany({ theme: 'claro', vibration: false }), (e) => e instanceof DbError && e.code === 'QUOTA');
@@ -121,7 +122,7 @@ test('clearSecrets borra TODAS las claves (memoria y disco) y no toca lo demás;
   assert.equal(s.get('aiKey'), SECRET);
   assert.deepEqual(await s.clearSecrets(), ['aiKey', 'azureKey']);
   assert.equal(await db.get('settings', 'aiKey'), null); assert.equal(await db.get('settings', 'azureKey'), null);
-  assert.equal(s.get('aiKey'), ''); assert.equal(s.get('theme'), 'auto');
+  assert.equal(s.get('aiKey'), ''); assert.equal(s.get('theme'), 'aurora');
   assert.deepEqual(await s.clearSecrets(), []);
   await s.set('retention', 0.82); assert.equal(await s.reset('retention'), true); assert.equal(s.get('retention'), 0.9);
 });
@@ -161,7 +162,8 @@ test('describe y keys: lista completa y sin dejar mutar las definiciones', () =>
   assert.equal(s.describe('retention').min, 0.8);
   assert.throws(() => { DEFS.theme.default = 'x'; }, TypeError);
   assert.throws(() => { DEFS.theme.choices.push('x'); }, TypeError);
-  assert.equal(DEFS.theme.default, 'auto');
+  assert.equal(DEFS.theme.default, 'aurora');
+  assert.deepEqual([...DEFS.theme.choices], ['aurora', 'neo', 'claro'], "ya no existe el tema 'auto'");
 });
 
 test('clearSecrets también borra del disco una clave inválida que en memoria ya vale vacío', async () => {

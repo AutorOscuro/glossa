@@ -1,9 +1,10 @@
+// @purpose: Pruebas del esquema de eventos (core/eventSchema.js): validación, valores por defecto, día local e ids.
 // Pruebas de core/eventSchema.js (subparte 1.1, cuarto 1): validación, valores por defecto, día local e IDs.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   validateEvent, buildEvent, createIdGenerator, makeEventId, EventError,
-  EVENT_TYPES, EVENT_FIELDS, REQUIRED_BY_TYPE, LIMITS,
+  EVENT_TYPES, EVENT_FIELDS, REQUIRED_BY_TYPE, LIMITS, OPTIONAL_FLAGS,
 } from '../core/eventSchema.js';
 import { createRng } from '../core/rng.js';
 import { makeEvent, makeClock } from './_helpers.mjs';
@@ -397,4 +398,42 @@ test('el motivo del error de type distingue "no es texto" de "tipo desconocido" 
   assert.equal(msg(undefined), 'es obligatorio'); assert.equal(msg(null), 'es obligatorio');
   assert.equal(msg('respuesta'), 'tipo desconocido "respuesta"');
   assert.equal(msg('x'.repeat(500)), `tipo desconocido "${'x'.repeat(30)}"`);
+});
+
+// ---- 2.1-T2: marca opcional `early` (repaso adelantado) ----
+test('early: un answer sin el campo conserva EXACTAMENTE la forma de siempre; con early:true lo guarda al final; con false no lo guarda', () => {
+  assert.deepEqual(OPTIONAL_FLAGS, ['early']);
+  assert.equal(EVENT_FIELDS.includes('early'), false, 'no forma parte de los 18 campos del contrato 8.6');
+  const plain = validateEvent(input());
+  assert.equal('early' in plain.value, false);
+  assert.equal('early' in validateEvent(input({ early: false })).value, false, 'false equivale a ausente');
+  const on = validateEvent(input({ early: true }));
+  assert.equal(on.ok, true);
+  assert.equal(on.value.early, true);
+  assert.deepEqual(Object.keys(on.value), [...EVENT_FIELDS.filter((k) => k !== 'id' && k !== 'day'), 'early']);
+});
+
+test('early: solo vale como verdadero o falso y solo en eventos answer', () => {
+  for (const bad of ['si', 1, 0, null, [], {}]) {
+    const r = validateEvent(input({ early: bad }));
+    assert.equal(r.ok, false, `early=${JSON.stringify(bad)}`);
+    assert.ok(paths(r).includes('early'), `early=${JSON.stringify(bad)}`);
+  }
+  const note = { type: 'note', responseRaw: 'x', early: true };
+  const r = validateEvent(note);
+  assert.equal(r.ok, false);
+  assert.deepEqual(paths(r), ['early']);
+  assert.equal(validateEvent({ type: 'note', responseRaw: 'x', early: false }).ok, true, 'early:false en una nota no estorba');
+});
+
+test('early: buildEvent lo conserva en el evento completo, y un evento guardado (respaldo) con early también es válido', () => {
+  const idGen = createIdGenerator({ rng: createRng(1) });
+  const clock = makeClock('2026-10-26T15:00:00.000Z');
+  const ev = buildEvent(input({ early: true }), { now: clock.now(), idGen });
+  assert.equal(ev.early, true);
+  assert.equal('early' in buildEvent(input(), { now: clock.now(), idGen }), false);
+  const again = validateEvent(ev, { stored: true });
+  assert.equal(again.ok, true);
+  assert.equal(again.value.early, true);
+  assert.deepEqual(validateEvent(again.value, { stored: true }).value, again.value, 'idempotente');
 });

@@ -1,3 +1,4 @@
+// @purpose: Ejecuta la suite de contrato de almacenamiento contra cada motor de base disponible en Node.
 // Ejecuta la suite de contrato (tests/_dbContract.mjs) contra cada motor de almacenamiento (subparte 0.7).
 import { test } from 'node:test';
 import { runDbContract } from './_dbContract.mjs';

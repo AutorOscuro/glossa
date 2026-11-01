@@ -1,14 +1,18 @@
-/* themes.css — colores por tema (subparte 0.3).
-   Se elige con <html data-theme="aurora|neo|claro">. Sin atributo = Aurora (tema por defecto).
+/* @purpose: Colores de los temas Aurora, Neo y Claro mediante variables CSS. */
+/* themes.css — colores por tema (subparte 0.3; rediseño visual en 0.9.3).
+   Se elige con <html data-theme="aurora|neo|claro">. Sin atributo = Aurora (tema por defecto). No existe tema "automático".
    Los tres temas definen EXACTAMENTE los mismos nombres de variable (lo verifica tests/design.test.mjs).
-   prefers-color-scheme NO cambia el tema por sí solo: solo sugiere el valor inicial (ver docs/DESIGN.md).
 
    Convenciones de nombre:
      --X          relleno (botón, barra, insignia)
      --on-X       texto o icono que va SOBRE el relleno --X
      --X-text     el color X usado como TEXTO sobre fondo o tarjeta
-   Los valores con transparencia (--surface…, --track) se comprueban compuestos sobre el fondo
-   y sobre los resplandores (--bg-glow-*): tools/contrast.mjs. Todo texto cumple WCAG AA (4,5:1). */
+     --X-edge     borde inferior "grueso" de los botones (efecto de tecla, como en las apps de idiomas)
+   Marca (0.9.3): --brand-1/2/3 son las tres paradas del degradado de marca; --brand-gradient lo une; --on-brand es el texto que va
+   encima (se comprueba contra las tres paradas). --card-bg, --card-border y --shadow-card visten las tarjetas; --shadow-nav la barra
+   inferior flotante; --shadow-glow el resplandor del elemento activo; --shine el brillo superior de las barras.
+   Los valores con transparencia (--surface…, --track) se comprueban compuestos sobre el fondo y sobre los resplandores
+   (--bg-glow-*): tools/contrast.mjs. Todo texto cumple WCAG AA (4,5:1). */
 
 /* ---------- Aurora (por defecto; oscuro, ámbar y morado) ---------- */
 :root,
@@ -67,30 +71,49 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  /* Marca y tarjetas (0.9.3) */
+  --brand-1: #ffc107;
+  --brand-2: #ff7a59;
+  --brand-3: #a78bfa;
+  --on-brand: #1b1400;
+  --brand-gradient: linear-gradient(120deg, var(--brand-1) 0%, var(--brand-2) 55%, var(--brand-3) 100%);
+  --brand-edge: #b8620f;
+  --accent-edge: #b88700;
+  --danger-edge: #b32140;
+  --success-edge: #08785a;
+  --edge: rgba(0, 0, 0, 0.5);
+  --shine: rgba(255, 255, 255, 0.35);
+  --card-bg: linear-gradient(150deg, var(--surface-strong) 0%, var(--surface) 100%);
+  --card-border: rgba(255, 255, 255, 0.16);
+  --shadow-card: 0 14px 40px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --shadow-nav: 0 18px 44px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 8px 26px rgba(255, 122, 89, 0.45);
 }
 
-/* ---------- Neo (oscuro, cian y magenta) ---------- */
+/* ---------- Neo (oscuro, neón: cian → violeta → rojo) ---------- */
 [data-theme="neo"] {
   color-scheme: dark;
 
   --bg: #05050a;
-  --bg-glow-1: #1a0a33;
-  --bg-glow-2: #04262c;
+  --bg-glow-1: #260f38;
+  --bg-glow-2: #052f38;
   --bg-image:
-    radial-gradient(120% 70% at 100% 0%, var(--bg-glow-1) 0%, transparent 60%),
-    radial-gradient(110% 60% at 0% 100%, var(--bg-glow-2) 0%, transparent 65%);
+    radial-gradient(90% 50% at 0% 0%, rgba(0, 229, 255, 0.16) 0%, transparent 62%),
+    radial-gradient(90% 50% at 100% 8%, rgba(199, 64, 255, 0.16) 0%, transparent 62%),
+    radial-gradient(110% 55% at 50% 112%, rgba(255, 77, 109, 0.1) 0%, transparent 65%);
 
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-strong: rgba(255, 255, 255, 0.11);
-  --surface-solid: #0f0f1a;
+  --surface: rgba(120, 190, 255, 0.07);
+  --surface-strong: rgba(150, 175, 255, 0.13);
+  --surface-solid: #090912;
   --track: rgba(255, 255, 255, 0.14);
 
-  --border: rgba(255, 255, 255, 0.14);
-  --border-strong: rgba(255, 255, 255, 0.3);
-  --border-input: #7a7fa3;
+  --border: rgba(160, 190, 255, 0.16);
+  --border-strong: rgba(160, 190, 255, 0.32);
+  --border-input: #7a82ad;
 
   --text: #f4f6ff;
-  --text-muted: #a8aed0;
+  --text-muted: #aab1d8;
 
   --accent: #00e5ff;
   --on-accent: #00141a;
@@ -110,45 +133,64 @@
 
   --danger: #ff4d6d;
   --on-danger: #1c0409;
-  --danger-text: #ff7a90;
+  --danger-text: #ff8599;
 
   --callout-bg: #ffe066;
   --callout-text: #1f1a00;
   --callout-border: #d9b92e;
 
-  --disabled-bg: #23233a;
+  --disabled-bg: #1e1e33;
   --disabled-text: #8c91b8;
 
   --focus: #7df9ff;
-  --overlay: rgba(2, 2, 8, 0.66);
+  --overlay: rgba(2, 2, 8, 0.7);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+
+  /* Marca y tarjetas (0.9.3) */
+  --brand-1: #00e5ff;
+  --brand-2: #c740ff;
+  --brand-3: #ff4d6d;
+  --on-brand: #05050a;
+  --brand-gradient: linear-gradient(120deg, var(--brand-1) 0%, var(--brand-2) 55%, var(--brand-3) 100%);
+  --brand-edge: #7d1fa8;
+  --accent-edge: #0090a6;
+  --danger-edge: #a81f3d;
+  --success-edge: #00a86a;
+  --edge: rgba(0, 0, 0, 0.6);
+  --shine: rgba(255, 255, 255, 0.4);
+  --card-bg: linear-gradient(145deg, rgba(0, 229, 255, 0.1) 0%, rgba(199, 64, 255, 0.07) 100%);
+  --card-border: rgba(0, 229, 255, 0.24);
+  --shadow-card: 0 14px 44px rgba(0, 229, 255, 0.12), 0 2px 18px rgba(199, 64, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --shadow-nav: 0 18px 50px rgba(0, 0, 0, 0.75), 0 0 28px rgba(0, 229, 255, 0.1);
+  --shadow-glow: 0 8px 28px rgba(199, 64, 255, 0.55);
 }
 
-/* ---------- Claro (fondo claro, índigo) ---------- */
+/* ---------- Claro (fondo claro, índigo → violeta → rosa) ---------- */
 [data-theme="claro"] {
   color-scheme: light;
 
   --bg: #f4f5fa;
-  --bg-glow-1: #e4e1ff;
-  --bg-glow-2: #d9eafb;
+  --bg-glow-1: #e9e6ff;
+  --bg-glow-2: #e2f4ec;
   --bg-image:
-    radial-gradient(120% 70% at 0% 0%, var(--bg-glow-1) 0%, transparent 60%),
-    radial-gradient(110% 60% at 100% 100%, var(--bg-glow-2) 0%, transparent 65%);
+    radial-gradient(90% 45% at 0% 0%, var(--bg-glow-1) 0%, transparent 65%),
+    radial-gradient(90% 45% at 100% 100%, var(--bg-glow-2) 0%, transparent 65%),
+    linear-gradient(150deg, #eef0ff 0%, #f8f0ff 38%, #f2fbf7 72%, #fff4f0 100%);
 
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-strong: rgba(255, 255, 255, 0.9);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
   --surface-solid: #ffffff;
-  --track: rgba(20, 24, 51, 0.12);
+  --track: rgba(40, 40, 120, 0.12);
 
-  --border: rgba(20, 24, 51, 0.12);
-  --border-strong: rgba(20, 24, 51, 0.24);
+  --border: rgba(79, 70, 229, 0.13);
+  --border-strong: rgba(79, 70, 229, 0.26);
   --border-input: #70769a;
 
-  --text: #141833;
-  --text-muted: #4a5073;
+  --text: #0f1230;
+  --text-muted: #484f74;
 
   --accent: #4f46e5;
   --on-accent: #ffffff;
@@ -174,13 +216,31 @@
   --callout-text: #3b2f00;
   --callout-border: #e6c24d;
 
-  --disabled-bg: #e3e5ef;
-  --disabled-text: #6b7194;
+  --disabled-bg: #e6e7f2;
+  --disabled-text: #666c90;
 
   --focus: #1d4ed8;
   --overlay: rgba(20, 24, 51, 0.45);
 
-  --shadow-sm: 0 1px 2px rgba(20, 24, 51, 0.12);
-  --shadow-md: 0 8px 24px rgba(20, 24, 51, 0.12);
-  --shadow-lg: 0 16px 40px rgba(20, 24, 51, 0.18);
+  --shadow-sm: 0 1px 2px rgba(40, 40, 120, 0.12);
+  --shadow-md: 0 8px 24px rgba(79, 70, 229, 0.12);
+  --shadow-lg: 0 16px 40px rgba(79, 70, 229, 0.2);
+
+  /* Marca y tarjetas (0.9.3) */
+  --brand-1: #4f46e5;
+  --brand-2: #7c3aed;
+  --brand-3: #d41f6a;
+  --on-brand: #ffffff;
+  --brand-gradient: linear-gradient(120deg, var(--brand-1) 0%, var(--brand-2) 55%, var(--brand-3) 100%);
+  --brand-edge: #3730a3;
+  --accent-edge: #3730a3;
+  --danger-edge: #7f0d2b;
+  --success-edge: #064e3b;
+  --edge: rgba(40, 40, 120, 0.2);
+  --shine: rgba(255, 255, 255, 0.45);
+  --card-bg: linear-gradient(150deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.8) 100%);
+  --card-border: rgba(79, 70, 229, 0.16);
+  --shadow-card: 0 14px 40px rgba(79, 70, 229, 0.13), 0 2px 6px rgba(40, 40, 120, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-nav: 0 16px 44px rgba(79, 70, 229, 0.24), 0 2px 8px rgba(40, 40, 120, 0.1);
+  --shadow-glow: 0 8px 24px rgba(124, 58, 237, 0.4);
 }

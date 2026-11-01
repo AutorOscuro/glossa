@@ -1,3 +1,4 @@
+// @purpose: Modal de confirmación de acciones peligrosas, con frase de confirmación opcional (p. ej. «Borrar todo»).
 // Confirmación de acción peligrosa (subparte 0.5): un modal "danger" que, opcionalmente, exige escribir una frase.
 // La 0.8 lo usa para "Borrar todo" (doble confirmación: escribe "BORRAR").
 //

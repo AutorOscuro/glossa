@@ -1,3 +1,4 @@
+// @purpose: Pruebas del arranque del almacenamiento (app/storage.js) con base, aviso y navegador falsos.
 // Pruebas de app/storage.js (subparte 0.7, B2b) con base, aviso y navegador falsos + una prueba de integración con el shell.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

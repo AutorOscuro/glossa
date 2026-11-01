@@ -1,8 +1,12 @@
+// @purpose: Pruebas de la biblioteca de componentes UI con DOM falso.
 // Pruebas de la biblioteca de componentes UI (subparte 0.5) con DOM falso.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeEnv, makeTimers } from './_fakeDom.mjs';
 import * as ui from '../ui/components/index.js';
+import fs from 'node:fs';
+import { wordDiff } from '../core/wordDiff.js';
+import { compare } from '../core/compare.js';
 
 const ev = (type, extra = {}) => ({ type, preventDefault() { this.prevented = true; }, ...extra });
 const fire = (el, type, extra) => el.dispatchEvent(ev(type, extra));
@@ -430,21 +434,80 @@ test('wordChip: estados, texto para lector de pantalla y marca de conocimiento',
   w.destroy(); assert.equal(env.stats.live(), 0);
 });
 
-test('wordDiff: verde/ámbar/rojo/falta, alias, texto accesible y errores claros', () => {
+test('wordDiff: verde/ámbar/rojo/falta/sobra, alias, texto accesible y errores claros', () => {
   const { base } = setup();
-  assert.deepEqual(ui.normalizeDiffWords(['a', { text: 'b', status: 'AMBER' }, { text: 'c', status: 'bad' }, { text: 'd', status: 'gap' }, { text: 'e' }]).map((x) => x.status),
-    ['correct', 'almost', 'wrong', 'missing', 'correct']);
+  assert.deepEqual(ui.normalizeDiffWords(['a', { text: 'b', status: 'AMBER' }, { text: 'c', status: 'bad' }, { text: 'd', status: 'gap' }, { text: 'e' }, { text: 'f', status: 'extra' }, { text: 'g', status: 'Surplus' }]).map((x) => x.status),
+    ['correct', 'almost', 'wrong', 'missing', 'correct', 'extra', 'extra']);
   assert.throws(() => ui.normalizeDiffWords('hola'), /arreglo/);
-  assert.throws(() => ui.normalizeDiffWords([{ text: 'a', status: 'azul' }]), /no es válido/);
   assert.throws(() => ui.normalizeDiffWords(['']), /vacía/);
-  assert.throws(() => ui.normalizeDiffWords([{ status: 'ok' }]), /falta "words\[0\].text"/);
+  assert.throws(() => ui.normalizeDiffWords([{ status: 'ok' }]), /falta \"words\[0\].text\"/);
   assert.throws(() => ui.normalizeDiffWords(new Array(501).fill('a')), /demasiadas/);
-  const d = ui.createWordDiff({ ...base, showLegend: true, words: ['I', { text: 'leaved', status: 'wrong' }, { text: 'home', status: 'almost' }, { text: 'early', status: 'missing' }] });
-  assert.deepEqual(d.counts(), { correct: 1, almost: 1, wrong: 1, missing: 1 });
+  const d = ui.createWordDiff({ ...base, showLegend: true, words: ['I', { text: 'leaved', status: 'wrong' }, { text: 'home', status: 'almost' }, { text: 'early', status: 'missing' }, { text: 'very', status: 'extra' }] });
+  assert.deepEqual(d.counts(), { correct: 1, almost: 1, wrong: 1, missing: 1, extra: 1 });
   assert.equal(d.el.querySelectorAll('.word-diff__word--wrong').length, 2, 'una en la frase y una en la leyenda');
-  assert.match(d.el.textContent, /leaved \(incorrecta\)/);
-  d.setWords([]); assert.deepEqual(d.counts(), { correct: 0, almost: 0, wrong: 0, missing: 0 });
+  assert.equal(d.el.querySelectorAll('.word-diff__word--extra').length, 2, 'una en la frase y una en la leyenda');
+  assert.match(d.el.textContent, /leaved \(no coincide\)/);
+  assert.match(d.el.textContent, /very \(sobra\)/);
+  d.setWords([]); assert.deepEqual(d.counts(), { correct: 0, almost: 0, wrong: 0, missing: 0, extra: 0 });
   d.destroy();
+});
+
+test('wordDiff: un estado desconocido se ve como «no coincide», sin lanzar (decisión del Administrador)', () => {
+  const { base } = setup();
+  for (const status of ['azul', '', 'EXTRA!', 7, {}, true, 'constructor', '__proto__', 'toString']) {
+    assert.equal(ui.normalizeDiffWords([{ text: 'x', status }])[0].status, 'wrong', JSON.stringify(status));
+  }
+  const d = ui.createWordDiff({ ...base, words: [{ text: 'x', status: 'azul' }] });
+  assert.deepEqual(d.counts(), { correct: 0, almost: 0, wrong: 1, missing: 0, extra: 0 });
+  assert.equal(d.el.querySelectorAll('.word-diff__word--wrong').length, 1);
+  d.destroy();
+});
+
+test('wordDiff: entiende el formato de core/wordDiff.js SIN adaptador (ok, close, wrong, extra, missing)', () => {
+  const { base } = setup();
+  const diff = wordDiff('I leaved at the home yesterday', 'I left at home yesterdy', {});
+  const d = ui.createWordDiff({ ...base, words: diff });
+  const statuses = ui.normalizeDiffWords(diff).map((t) => t.status);
+  assert.ok(statuses.includes('wrong') && statuses.includes('extra'), statuses.join());
+  assert.equal(statuses.length, diff.length);
+  assert.equal(d.el.querySelectorAll('.word-diff__word').length, diff.length);
+  d.destroy();
+  const all = ui.createWordDiff({ ...base, words: [{ text: 'a', status: 'ok' }, { text: 'recieve', status: 'close', expected: 'receive' }, { text: 'went', status: 'wrong', expected: 'go' }, { text: 'to', status: 'extra' }, { text: 'dog', status: 'missing' }] });
+  assert.deepEqual(all.counts(), { correct: 1, almost: 1, wrong: 1, missing: 1, extra: 1 });
+  all.destroy();
+});
+
+test('wordDiff: `expected` solo se lee por lector de pantalla y el texto de la persona nunca se interpreta como HTML', () => {
+  const { base } = setup();
+  const evil = '<img src=x onerror=alert(1)>';
+  const d = ui.createWordDiff({ ...base, words: [{ text: 'went', status: 'wrong', expected: 'go' }, { text: evil, status: 'extra' }, { text: 'recieve', status: 'close', expected: evil }] });
+  assert.match(d.el.textContent, /went \(no coincide; se esperaba: go\)/);
+  assert.match(d.el.textContent, /recieve \(casi: error de ortografía; se esperaba: <img src=x onerror=alert\(1\)>\)/);
+  assert.equal(d.el.querySelectorAll('img').length, 0);
+  assert.throws(() => ui.normalizeDiffWords([{ text: 'a', status: 'wrong', expected: {} }]), /debe ser texto/);
+  assert.equal(ui.normalizeDiffWords([{ text: 'a', status: 'ok', expected: 'b' }])[0].expected, undefined, 'solo wrong y close guardan expected');
+  assert.equal(Object.hasOwn(ui.normalizeDiffWords([{ text: 'a', status: 'wrong', expected: '' }])[0], 'expected'), false, 'un expected vacío no se guarda');
+  d.destroy();
+});
+
+test('wordDiff: un diff completo de compare (250 + 250 palabras) cabe en el límite de 500 elementos', () => {
+  const { base } = setup();
+  const a = Array.from({ length: 250 }, (_, i) => `u${i}`).join(' ');
+  const b = Array.from({ length: 250 }, (_, i) => `r${i}`).join(' ');
+  const r = compare(a, [b], {});
+  assert.ok(r.diff.length <= 500);
+  const d = ui.createWordDiff({ ...base, words: r.diff });
+  assert.equal(d.counts().wrong, 250);
+  d.destroy();
+});
+
+test('wordDiff: la hoja de estilos distingue "sobra" de "incorrecta" sin depender del color', () => {
+  const css = fs.readFileSync(new URL('../ui/styles/widgets.css', import.meta.url), 'utf8');
+  const rule = (name) => new RegExp(`\\.word-diff__word--${name}\\s*\\{([^}]*)\\}`).exec(css)?.[1] ?? '';
+  assert.match(rule('extra'), /line-through/);
+  assert.match(rule('extra'), /var\(--danger\)/);
+  assert.match(rule('wrong'), /wavy/);
+  assert.doesNotMatch(rule('wrong'), /line-through/);
 });
 
 // ---------- sin fugas: todo junto ----------

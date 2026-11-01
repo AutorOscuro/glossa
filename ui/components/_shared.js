@@ -1,3 +1,4 @@
+// @purpose: Utilidades internas de los componentes: contexto, validación de opciones y limpieza; no es API pública.
 // Utilidades internas de los componentes (subparte 0.5). No es API pública de la app: solo la usan los componentes.
 //
 //   makeCtx(nombre, opciones) → contexto con doc, win, h, hs, now, timers, listen(), later(), dispose()

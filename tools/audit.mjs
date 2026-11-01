@@ -1,3 +1,4 @@
+// @purpose: Auditoría estática del repo: patrones prohibidos, archivos demasiado largos e imports rotos; sale con 1 si hay hallazgos.
 // Auditoría estática del repo (roadmap 4.3 pasada 1 y subparte 0.2).
 // Uso:  node tools/audit.mjs [raíz]     → código de salida 1 si hay hallazgos.
 // Como módulo: import { audit } from './audit.mjs';  audit(root) → { findings, filesScanned }
@@ -10,13 +11,16 @@
 //  - claves con forma real (gsk_, sk-, AIza, AKIA) en TODOS los archivos de texto (incluida docs/);
 //  - archivos de código con más de MAX_LINES líneas;
 //  - imports relativos que no resuelven a un archivo, o que piden un nombre que el destino no exporta;
-//  - JSON inválido e IDs duplicados en content/.
+//  - JSON inválido e IDs duplicados en content/;
+//  - convención de la 0.9: todo .js .mjs .cjs .css y .html (salvo vendor/ y los `generados` de tools/repo-map.config.json)
+//    lleva un comentario `@purpose: <para qué sirve>` en sus primeras 12 líneas (regla PURPOSE_FALTA, la misma que usa el mapa).
 // Excepciones: `docs/` (documentación que cita los patrones como texto) y `vendor/` (terceros) no pasan
 // por los patrones de código ni por el límite de líneas; sí por claves y por JSON.
 // Nota: las expresiones se arman con join() para que este archivo no se marque a sí mismo.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { extractPurpose, requiresPurpose } from './repoMapParse.mjs';
 
 export const MAX_LINES = 800;
 // Rutas relativas (con "/") que pueden usar almacenamiento local del navegador (solo banderas triviales de UI).
@@ -64,6 +68,16 @@ function walk(root) {
     }
   })(root);
   return out;
+}
+
+// Archivos generados (sin @purpose) según tools/repo-map.config.json. Sin configuración legible no hay ninguno.
+function generatedOf(root) {
+  try {
+    const list = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'repo-map.config.json'), 'utf8'))?.generados;
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
 }
 
 function lineOf(text, index) {
@@ -174,6 +188,7 @@ export function audit(root) {
     return { findings: [{ file: String(root), line: 0, rule: 'RAIZ', message: 'La carpeta raíz no existe.' }], filesScanned: 0 };
   }
   const ids = new Map();
+  const purposeCfg = { generados: generatedOf(root) };
   let filesScanned = 0;
   for (const rel of walk(root)) {
     const ext = path.extname(rel).toLowerCase();
@@ -199,6 +214,9 @@ export function audit(root) {
       } catch (e) {
         findings.push({ file: rel, line: 0, rule: 'JSON_INVALIDO', message: `JSON inválido: ${e.message}` });
       }
+    }
+    if (requiresPurpose(rel, purposeCfg) && extractPurpose(text) === null) {
+      findings.push({ file: rel, line: 0, rule: 'PURPOSE_FALTA', message: 'Falta el comentario @purpose: <para qué sirve> en las primeras 12 líneas (convención de la 0.9).' });
     }
     if (isDocs || isVendor) continue;
     if (SIZE_EXT.has(ext)) {

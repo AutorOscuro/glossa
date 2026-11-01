@@ -1,3 +1,4 @@
+// @purpose: Pruebas de la bienvenida (ui/views/onboarding.js) con DOM falso, ajustes reales y base en memoria.
 // Pruebas de ui/views/onboarding.js (subparte 0.8, cuarto 4A) con DOM falso, ajustes reales y base en memoria.
 import { test, afterEach } from 'node:test';
 import assert from 'node:assert/strict';

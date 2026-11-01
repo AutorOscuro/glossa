@@ -1,3 +1,4 @@
+// @purpose: Genera asset-manifest.json y escribe la versión de caché en sw.js (npm run build).
 // Genera asset-manifest.json y escribe la versión de caché en sw.js (subparte 0.6).
 //
 //   node tools/build-manifest.mjs           → escribe asset-manifest.json y actualiza la línea CACHE_VERSION de sw.js
@@ -7,8 +8,9 @@
 // DETERMINISTA: misma entrada → misma salida (sin fechas, orden fijo, solo hashes del contenido). Cualquier cambio en
 // un archivo precacheado (o en core/version.js) cambia `cacheVersion`; el navegador ve un sw.js distinto, instala la
 // caché nueva y la app ofrece "Actualizar". Si olvidas ejecutarlo, el test "asset-manifest al día" falla.
-// Se precachea el shell: index.html, manifest, app/, core/, ui/, vendor/, icons/ y content/taxonomy/.
-// NO se precachean (van por su propia estrategia en sw.js): content/packs/ y audio/. Tampoco tests, tools, docs ni la galería.
+// Se precachea el shell: index.html, manifest, app/, core/, ui/, vendor/, icons/ y content/ (índice, taxonomía y paquetes).
+// Un paquete nuevo o cambiado cambia `cacheVersion` (decisión del Administrador, 2.9-T3 punto 2; sustituye al SWR de paquetes mientras content/ pese < 15 MB).
+// NO se precachea (va por su propia estrategia en sw.js): audio/. Tampoco tests, tools, docs, content/drafts ni la galería.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -16,8 +18,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { cacheVersionName, parseVersion } from '../app/versionCompare.js';
 
 export const SCHEMA = 1;
-export const INCLUDE_DIRS = ['app', 'core', 'ui', 'vendor', 'icons', 'content/taxonomy'];
-export const INCLUDE_FILES = ['index.html', 'manifest.webmanifest'];
+export const INCLUDE_DIRS = ['app', 'core', 'ui', 'vendor', 'icons', 'content/taxonomy', 'content/packs'];
+export const INCLUDE_FILES = ['index.html', 'manifest.webmanifest', 'content/index.json'];
 export const MANIFEST_FILE = 'asset-manifest.json';
 export const SW_FILE = 'sw.js';
 const SW_LINE = /^const CACHE_VERSION = '[^']*'; \/\/ build-manifest:cache-version$/m;

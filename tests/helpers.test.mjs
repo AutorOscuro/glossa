@@ -1,3 +1,4 @@
+// @purpose: Pruebas de los ayudantes de tests/_helpers.mjs.
 // Pruebas de tests/_helpers.mjs (los ayudantes también necesitan ser fiables).
 import test from 'node:test';
 import assert from 'node:assert/strict';

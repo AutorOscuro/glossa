@@ -1,3 +1,4 @@
+// @purpose: Motor común de superposiciones (hoja inferior y modal): foco atrapado, Esc, bloqueo de scroll y cierre.
 // Motor común de superposiciones (subparte 0.5): hoja inferior y modal.
 //
 //   createOverlay(ctx, { panel, backdrop, dismissible, ignoreBackdropMs, initialFocus, onOpen, onClose })

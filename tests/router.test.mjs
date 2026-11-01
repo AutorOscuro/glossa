@@ -1,3 +1,4 @@
+// @purpose: Pruebas del router (app/router.js): resolución de rutas y parámetros, 404 y redirección.
 // Pruebas de app/router.js (subparte 0.4): resolución de rutas y parámetros, 404, redirección, router con window falso.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

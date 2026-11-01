@@ -1,3 +1,4 @@
+// @purpose: Pruebas del reloj inyectable (core/clock.js) y del azar con semilla (core/rng.js).
 // Pruebas de core/clock.js y core/rng.js (subparte 0.7).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

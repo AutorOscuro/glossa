@@ -1,3 +1,4 @@
+// @purpose: Campo de texto con etiqueta, ayuda y error (una línea o varias).
 // Campo de texto con etiqueta, ayuda y error (subparte 0.5). Usa .input de components.css.
 //
 //   createTextInput({ label? | ariaLabel?, value = '', placeholder?, hint?, error?, mode = 'text', multiline = false,

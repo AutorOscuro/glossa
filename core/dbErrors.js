@@ -1,3 +1,4 @@
+// @purpose: Errores de la capa de almacenamiento: DbError, códigos, mensajes amables y clasificación de fallos.
 // Errores de la capa de almacenamiento (subparte 0.7). Los dos adaptadores (memoria e IndexedDB) lanzan SIEMPRE DbError,
 // con el mismo `code`, para que la UI y las pruebas no dependan de cuál esté detrás.
 // `message` es técnico-claro (para el registro); `friendly` es el texto amable en español para mostrar a la persona.

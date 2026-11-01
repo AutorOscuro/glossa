@@ -1,3 +1,4 @@
+// @purpose: Store en memoria con suscripciones: estado único, sin disco ni DOM.
 // Estado en memoria con suscripciones (subparte 0.7). Un único store por tema, con funciones explícitas (roadmap 4.2.2).
 // No guarda nada en disco: lo persistente vive en core/db.js. Sin DOM, sin temporizadores.
 //

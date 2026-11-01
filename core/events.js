@@ -1,6 +1,7 @@
+// @purpose: Registro de eventos de estudio en la base, con consultas por tarjeta, ítem, tema, día y errores recientes.
 // Registro de eventos (subparte 1.1, cuartos 2, 3 y 4). Roadmap 1.1 y 8.6.
 //
-//   createEvents({ db, clock?, rng?, idGen? }) → { log, byCard, byItem, byTopic, since, countByDay, recentErrorsByCode, clearAll }
+//   createEvents({ db, clock?, rng?, idGen? }) → { log, prepare, insertIn, byCard, byItem, byTopic, since, countByDay, recentErrorsByCode, clearAll }
 //     db     cualquier motor de core/db.js (memoria o IndexedDB). Obligatorio.
 //     clock  reloj inyectable (core/clock.js); su now() da el `ts` cuando el evento no trae uno.
 //     idGen  generador de IDs (core/eventSchema.js); por defecto uno nuevo con `rng`.
@@ -9,6 +10,10 @@
 //     Rechaza con DbError si la base falla (QUOTA, ABORTED, CLOSED…): en ese caso no se guardó nada.
 //     Escribe dentro de UNA transacción que antes comprueba que el id no exista: un evento nunca pisa a otro
 //     (son inmutables). Si el id ya existe (otra pestaña, otra instancia con el mismo azar) pide otro, hasta MAX_ID_TRIES veces.
+//
+// Para escribir junto con otros almacenes en UNA transacción (2.1-T2, core/answerCommit.js):
+//   prepare(input) → evento completo (id, ts y day ya puestos); lanza EventError si no vale y no toca la base.
+//   insertIn(t, evento) → Promise<evento>   guarda un evento preparado dentro de la transacción `t` que abrió quien llama (db.tx con 'events'); mismo manejo de ids que log.
 //
 // Consultas (solo leen; cada una usa UN índice de `events` y devuelve copias; nunca modifican nada):
 //   byCard(cardId, opts?) · byItem(itemId, opts?) · byTopic(topicId, opts?) → Promise<evento[]>
@@ -46,21 +51,27 @@ export function createEvents({ db, clock = systemClock, rng = systemRng, idGen }
   if (!clock || typeof clock.now !== 'function') throw new Error('createEvents: reloj no válido');
   const ids = idGen ?? createIdGenerator({ rng });
 
+  // Valida y completa el evento SIN tocar la base (lanza EventError si no vale).
+  const prepare = (input) => buildEvent(input, { now: clock.now(), idGen: ids });
+
+  // Inserta un evento ya preparado dentro de una transacción YA abierta (`t` de db.tx con 'events' entre sus almacenes). No abre ni cierra nada.
+  async function insertIn(t, built) {
+    let candidate = built;
+    for (let attempt = 1; attempt <= MAX_ID_TRIES; attempt += 1) {
+      if (!(await t.get('events', candidate.id))) {
+        await t.put('events', candidate);
+        return candidate; // ya es una copia normalizada (validateEvent) y db.put guarda otra: nada se comparte con quien llama
+      }
+      if (attempt < MAX_ID_TRIES) candidate = { ...built, id: ids.next(built.ts) };
+    }
+    throw new DbError('ABORTED', `No se pudo asignar un id libre al evento tras ${MAX_ID_TRIES} intentos`, { store: 'events', retryable: true });
+  }
+
   async function log(input) {
     // Valida y completa ANTES de abrir la transacción: un evento malo no toca la base. Si lanza, la promesa rechaza con EventError.
-    const built = buildEvent(input, { now: clock.now(), idGen: ids });
+    const built = prepare(input);
     try {
-      return await db.tx(['events'], async (t) => {
-        let candidate = built;
-        for (let attempt = 1; attempt <= MAX_ID_TRIES; attempt += 1) {
-          if (!(await t.get('events', candidate.id))) {
-            await t.put('events', candidate);
-            return candidate; // ya es una copia normalizada (validateEvent) y db.put guarda otra: nada se comparte con quien llama
-          }
-          if (attempt < MAX_ID_TRIES) candidate = { ...built, id: ids.next(built.ts) };
-        }
-        throw new DbError('ABORTED', `No se pudo asignar un id libre al evento tras ${MAX_ID_TRIES} intentos`, { store: 'events', retryable: true });
-      });
+      return await db.tx(['events'], (t) => insertIn(t, built));
     } catch (e) {
       throw classifyError(e, { store: 'events' });
     }
@@ -150,15 +161,11 @@ export function createEvents({ db, clock = systemClock, rng = systemRng, idGen }
   // El único borrado que existe: todo o nada, en una transacción. No hay versión "de uno en uno".
   async function clearAll() {
     try {
-      return await db.tx(['events'], async (t) => {
-        const rows = await t.query('events');
-        for (const row of rows) await t.delete('events', row.id);
-        return rows.length;
-      });
+      return await db.tx(['events'], (t) => t.clear('events'));
     } catch (e) {
       throw classifyError(e, { store: 'events' });
     }
   }
 
-  return Object.freeze({ log, byCard: byIndex('cardId', 'cardId'), byItem: byIndex('itemId', 'itemId'), byTopic: byIndex('topics', 'topicId'), since, countByDay, recentErrorsByCode, clearAll });
+  return Object.freeze({ log, prepare, insertIn, byCard: byIndex('cardId', 'cardId'), byItem: byIndex('itemId', 'itemId'), byTopic: byIndex('topics', 'topicId'), since, countByDay, recentErrorsByCode, clearAll });
 }

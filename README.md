@@ -1,4 +1,4 @@
-# Sophia Inglés (nombre de trabajo)
+# Glossa (antes "Sophia Inglés", nombre de trabajo)
 
 App personal para aprender inglés: PWA en JavaScript vainilla (módulos ES), sin bundler, que se publica como archivos estáticos en GitHub Pages. Repaso espaciado (FSRS), sesiones de práctica, mapa de temas, errores y estadísticas. **Sin rachas obligatorias y sin culpa.**
 

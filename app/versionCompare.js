@@ -1,3 +1,4 @@
+// @purpose: Compara versiones x.y.z y arma o interpreta nombres de caché (lógica pura que usan el build y el aviso de actualización).
 // Comparación de versiones y nombres de caché (subparte 0.6). Lógica PURA, sin DOM ni red.
 // La usan tools/build-manifest.mjs (escribe el nombre de la caché) y, en la segunda mitad de la 0.6, el aviso de
 // actualización de la app. Formato de versión: "MAYOR.MENOR.PARCHE" (solo números), igual que core/version.js.

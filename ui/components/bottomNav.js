@@ -1,3 +1,4 @@
+// @purpose: Navegación inferior de 5 pestañas: Hoy, Mapa, Practicar, Errores y Más.
 // Navegación inferior de 5 pestañas (subparte 0.4): Hoy · Mapa · Practicar · Errores · Más.
 //
 //   createBottomNav({ doc? }) → { el, setActive(tab|null), destroy() }

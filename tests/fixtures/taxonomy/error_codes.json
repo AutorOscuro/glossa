@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "codes": [
+    {
+      "id": "TNS.PP_PS",
+      "titulo_es": "Present perfect en lugar de pasado simple (o al revés)"
+    },
+    {
+      "id": "TNS.SINCE_FOR",
+      "titulo_es": "Confusión entre for y since, o tiempo verbal equivocado con ellos"
+    },
+    {
+      "id": "TNS.PERF_FORM",
+      "titulo_es": "Forma inestable de have + participio"
+    },
+    {
+      "id": "VRB.IRREG_REGULARIZE",
+      "titulo_es": "Regulariza un verbo irregular"
+    },
+    {
+      "id": "VRB.CAN_TO",
+      "titulo_es": "can/could + to + verbo"
+    },
+    {
+      "id": "PREP.DEP",
+      "titulo_es": "Preposición dependiente equivocada"
+    },
+    {
+      "id": "LEX.FALSE_FRIEND",
+      "titulo_es": "Falso amigo"
+    },
+    {
+      "id": "SPELL.GENERAL",
+      "titulo_es": "Error general de ortografía"
+    },
+    {
+      "id": "MECH.CAP_I",
+      "titulo_es": "La palabra I escrita en minúscula"
+    }
+  ]
+}

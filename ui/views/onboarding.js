@@ -1,3 +1,4 @@
+// @purpose: Bienvenida de 3 pantallas, saltable y repetible (nombre y chequeo de energía).
 // Bienvenida (subparte 0.8, cuarto 4A). Vista independiente: la conecta al primer arranque y a Ajustes la mitad B.
 //   · 3 pantallas, SALTABLE en cualquiera ("Saltar por ahora") y repetible: si ya hay nombre guardado, lo muestra.
 //       1) bienvenida + nombre (opcional)  2) chequeo de energía (opcional)  3) "Sin rachas, sin culpa" + Empezar.
@@ -122,7 +123,7 @@ export default createView(async (ctx) => {
         onSubmit: next,
       }));
       content = [
-        h('p', {}, 'Sophia Inglés te acompaña a aprender inglés a tu ritmo, con repasos cortos y sin presión.'),
+        h('p', {}, 'Glossa te acompaña a aprender inglés a tu ritmo, con repasos cortos y sin presión.'),
         nameField.el,
       ];
     } else if (step === 2) {

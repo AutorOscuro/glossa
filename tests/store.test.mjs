@@ -1,3 +1,4 @@
+// @purpose: Pruebas del store en memoria con suscripciones (core/store.js).
 // Pruebas de core/store.js (subparte 0.7).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

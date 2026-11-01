@@ -1,152 +1,762 @@
 {
   "schema": 1,
-  "version": "0.9.0",
-  "cacheVersion": "sophia-shell-0.9.0-fddcb403",
+  "version": "0.29.0",
+  "cacheVersion": "sophia-shell-0.29.0-143699e5",
   "files": [
     {
+      "path": "app/aiHelpSource.js",
+      "hash": "198522ed16bbb27e",
+      "size": 3158
+    },
+    {
       "path": "app/appearance.js",
-      "hash": "6d0402d36a67b95e",
-      "size": 3141
+      "hash": "380c2b46b4bab0d7",
+      "size": 2513
     },
     {
       "path": "app/boot-check.js",
-      "hash": "f24d41f5cc5ec5bf",
-      "size": 874
+      "hash": "e84f000a6a89556a",
+      "size": 1022
+    },
+    {
+      "path": "app/cardActions.js",
+      "hash": "22c11e4906a6c4eb",
+      "size": 4392
+    },
+    {
+      "path": "app/chatCopy.js",
+      "hash": "5656e139b7f0c530",
+      "size": 926
     },
     {
       "path": "app/config.js",
-      "hash": "40fc5e5f26502f29",
-      "size": 602
+      "hash": "4b129e21b731dcf7",
+      "size": 898
+    },
+    {
+      "path": "app/contentStartup.js",
+      "hash": "1e6bfbc51119b2a4",
+      "size": 2797
+    },
+    {
+      "path": "app/correctionsSource.js",
+      "hash": "15bf5327ecb39dff",
+      "size": 2889
     },
     {
       "path": "app/dataTools.js",
-      "hash": "6f91466e29bfce00",
-      "size": 1782
+      "hash": "f16d06ee76622316",
+      "size": 2270
+    },
+    {
+      "path": "app/dictionarySource.js",
+      "hash": "b6a195434b98d0b6",
+      "size": 5344
+    },
+    {
+      "path": "app/examplesSource.js",
+      "hash": "6662a750d45a7882",
+      "size": 2046
+    },
+    {
+      "path": "app/exerciseTypes.js",
+      "hash": "094a25814a4bdbe1",
+      "size": 2390
     },
     {
       "path": "app/fileIO.js",
-      "hash": "729e650e5b5090cd",
-      "size": 2738
+      "hash": "83a378c2ccf5e7e4",
+      "size": 2856
     },
     {
       "path": "app/firstRun.js",
-      "hash": "bfe5d519f934ece5",
-      "size": 2233
+      "hash": "9ea1b11c08986c66",
+      "size": 2333
+    },
+    {
+      "path": "app/helpServices.js",
+      "hash": "c1c7c95d20c5c4c4",
+      "size": 7036
+    },
+    {
+      "path": "app/itemReportLazy.js",
+      "hash": "6b76e837707765ca",
+      "size": 804
+    },
+    {
+      "path": "app/itemResolver.js",
+      "hash": "0a615468bbc3acf3",
+      "size": 3779
+    },
+    {
+      "path": "app/lemmaLexicon.js",
+      "hash": "4ea1f0fa2829eb39",
+      "size": 2391
     },
     {
       "path": "app/main.js",
-      "hash": "d67c0334d06b7168",
-      "size": 2745
+      "hash": "f8935a80d153cda2",
+      "size": 6132
     },
     {
       "path": "app/router.js",
-      "hash": "577756610cd33150",
-      "size": 5928
+      "hash": "02643d34c856ba06",
+      "size": 6044
+    },
+    {
+      "path": "app/services.js",
+      "hash": "7ada79419af8f51a",
+      "size": 9261
     },
     {
       "path": "app/settingsBoot.js",
-      "hash": "aefc4fbe102538ef",
-      "size": 1397
+      "hash": "45ad0804a3f125b0",
+      "size": 1514
     },
     {
       "path": "app/shell.js",
-      "hash": "4cf58e8d69e0a59e",
-      "size": 6446
+      "hash": "d841e2ef6f3a1820",
+      "size": 6588
+    },
+    {
+      "path": "app/soundEngine.js",
+      "hash": "34fa2cecb58f37a4",
+      "size": 2830
     },
     {
       "path": "app/storage.js",
-      "hash": "9ac104c2c0957c79",
-      "size": 2926
+      "hash": "793d5d0856f3949b",
+      "size": 3053
+    },
+    {
+      "path": "app/summarySource.js",
+      "hash": "cb0349c0d778a222",
+      "size": 4527
     },
     {
       "path": "app/swRegister.js",
-      "hash": "a3cbb35b2dd849f0",
-      "size": 8983
+      "hash": "a4a4449b6fd045fc",
+      "size": 9097
     },
     {
       "path": "app/theme.js",
-      "hash": "bdc0b01112cd5b25",
-      "size": 1563
+      "hash": "f5ba21a10a9b0049",
+      "size": 1264
     },
     {
       "path": "app/versionCompare.js",
-      "hash": "1c337e0a4b2d1496",
-      "size": 2793
+      "hash": "7c05a7d18ad8ed64",
+      "size": 2931
+    },
+    {
+      "path": "app/vibration.js",
+      "hash": "a8dba1d549561054",
+      "size": 852
+    },
+    {
+      "path": "app/visibility.js",
+      "hash": "97c1bd74ccd93639",
+      "size": 1092
+    },
+    {
+      "path": "app/whyNoteLazy.js",
+      "hash": "36268386b555f45e",
+      "size": 815
+    },
+    {
+      "path": "content/index.json",
+      "hash": "04344b92301884a7",
+      "size": 415
+    },
+    {
+      "path": "content/packs/pack_seed_v1.json",
+      "hash": "0cca0e2d1553a624",
+      "size": 60298
+    },
+    {
+      "path": "content/taxonomy/confusables.json",
+      "hash": "4c31f70b98b51edf",
+      "size": 4523
+    },
+    {
+      "path": "content/taxonomy/error_codes.json",
+      "hash": "dda1691242886a69",
+      "size": 49105
+    },
+    {
+      "path": "content/taxonomy/lemmas.json",
+      "hash": "3efaf235b227fe0f",
+      "size": 267138
+    },
+    {
+      "path": "content/taxonomy/topics.json",
+      "hash": "9315c994b6ec8b11",
+      "size": 108761
+    },
+    {
+      "path": "core/ai/cache.js",
+      "hash": "bb3a2b04053ce70f",
+      "size": 5436
+    },
+    {
+      "path": "core/ai/escape.js",
+      "hash": "273b2451d3d73631",
+      "size": 1870
+    },
+    {
+      "path": "core/ai/index.js",
+      "hash": "8ae9040d17df58b1",
+      "size": 15461
+    },
+    {
+      "path": "core/ai/messages.js",
+      "hash": "0c2329ef1f690e4a",
+      "size": 1718
+    },
+    {
+      "path": "core/ai/prompts/system.base.js",
+      "hash": "3273d9cc7feac86a",
+      "size": 1538
+    },
+    {
+      "path": "core/ai/providers/groq.js",
+      "hash": "d60f4fe4eebbc0ba",
+      "size": 5897
+    },
+    {
+      "path": "core/ai/providers/none.js",
+      "hash": "be5b53f333ce164a",
+      "size": 413
+    },
+    {
+      "path": "core/ai/queue.js",
+      "hash": "711ec4e576e9cf7c",
+      "size": 6899
+    },
+    {
+      "path": "core/ai/schema.js",
+      "hash": "32fc032a6308f3ab",
+      "size": 5416
+    },
+    {
+      "path": "core/aiAsk.js",
+      "hash": "ba70318eccabffd0",
+      "size": 3531
+    },
+    {
+      "path": "core/answerCommit.js",
+      "hash": "34bbc723b1b3b35f",
+      "size": 5607
+    },
+    {
+      "path": "core/answerTimer.js",
+      "hash": "ac1779aea05624a3",
+      "size": 4893
+    },
+    {
+      "path": "core/buildPieces.js",
+      "hash": "53ab2a9d7ae20987",
+      "size": 7299
+    },
+    {
+      "path": "core/cardBadges.js",
+      "hash": "f25c37fe785e7b6c",
+      "size": 2106
+    },
+    {
+      "path": "core/choice.js",
+      "hash": "29eecf59b8294ae8",
+      "size": 5950
+    },
+    {
+      "path": "core/choiceFeedback.js",
+      "hash": "f4a94ad4f55360c4",
+      "size": 4579
     },
     {
       "path": "core/clock.js",
-      "hash": "8f112719b3133bbd",
-      "size": 1970
+      "hash": "e2e67ce8da898279",
+      "size": 2084
+    },
+    {
+      "path": "core/clozeBank.js",
+      "hash": "a1f26b4981b97936",
+      "size": 11360
+    },
+    {
+      "path": "core/compare.js",
+      "hash": "82f4a46984a228e6",
+      "size": 6609
+    },
+    {
+      "path": "core/confusables.js",
+      "hash": "f70652ff9743e197",
+      "size": 2888
+    },
+    {
+      "path": "core/content.js",
+      "hash": "8c33165f0a3c866c",
+      "size": 9722
+    },
+    {
+      "path": "core/contentCodes.js",
+      "hash": "093dda2831909fd1",
+      "size": 2984
+    },
+    {
+      "path": "core/contentCommon.js",
+      "hash": "3751ecbc83948faa",
+      "size": 2697
+    },
+    {
+      "path": "core/contentData.js",
+      "hash": "24e88b64db455c23",
+      "size": 22199
+    },
+    {
+      "path": "core/contentImport.js",
+      "hash": "bdaa6e395b49d9ca",
+      "size": 7737
+    },
+    {
+      "path": "core/contentInstalled.js",
+      "hash": "fd222a63399ca9dd",
+      "size": 5172
+    },
+    {
+      "path": "core/contentItem.js",
+      "hash": "0026ba4a66d0d982",
+      "size": 9593
+    },
+    {
+      "path": "core/contentLex.js",
+      "hash": "c6c25bf471a9a29b",
+      "size": 3035
+    },
+    {
+      "path": "core/contentPack.js",
+      "hash": "c57051096cd9aecb",
+      "size": 9010
+    },
+    {
+      "path": "core/contentRules.js",
+      "hash": "692c0e8f8d13f6b2",
+      "size": 9573
+    },
+    {
+      "path": "core/contentStory.js",
+      "hash": "8c1691698bb194b4",
+      "size": 3683
+    },
+    {
+      "path": "core/contentTaxonomy.js",
+      "hash": "768fb8bf927e1b1c",
+      "size": 5565
+    },
+    {
+      "path": "core/contentTopic.js",
+      "hash": "4c4e16b8c87a7f5d",
+      "size": 4099
+    },
+    {
+      "path": "core/contentTypes.js",
+      "hash": "bba13d61f351ecf0",
+      "size": 5414
+    },
+    {
+      "path": "core/dailyUsage.js",
+      "hash": "7a10949171bbadfe",
+      "size": 3149
     },
     {
       "path": "core/db.idb.js",
-      "hash": "edbd2b46af347565",
-      "size": 15930
+      "hash": "b57e6702116bb8a3",
+      "size": 16390
     },
     {
       "path": "core/db.js",
-      "hash": "7f05135a56884e7d",
-      "size": 14502
+      "hash": "1820670a00b67db8",
+      "size": 15291
     },
     {
       "path": "core/db.memory.js",
-      "hash": "3b0d827af398b0cd",
-      "size": 10277
+      "hash": "3d3ad67cfc56c72e",
+      "size": 10726
     },
     {
       "path": "core/dbErrors.js",
-      "hash": "61b1736a4b8f2e4e",
-      "size": 4323
+      "hash": "ba9f3c70c97d81b1",
+      "size": 4438
     },
     {
       "path": "core/dbOpen.js",
-      "hash": "c3adedce388831de",
-      "size": 1687
+      "hash": "96105c247f1a06a8",
+      "size": 1793
+    },
+    {
+      "path": "core/earlyReview.js",
+      "hash": "f38e24a390c3bb0c",
+      "size": 4052
+    },
+    {
+      "path": "core/errorCatalog.js",
+      "hash": "d9df02be33d27ee2",
+      "size": 3874
+    },
+    {
+      "path": "core/errorDetect.js",
+      "hash": "548c6ff0fd260644",
+      "size": 25881
+    },
+    {
+      "path": "core/errorHook.js",
+      "hash": "5a85191c7d75b5c7",
+      "size": 11178
+    },
+    {
+      "path": "core/errors.js",
+      "hash": "7a09a33fe0104959",
+      "size": 26471
     },
     {
       "path": "core/eventSchema.js",
-      "hash": "227e32549471be19",
-      "size": 12166
+      "hash": "a826e5c9861a6163",
+      "size": 12814
     },
     {
       "path": "core/events.js",
-      "hash": "52a49507c74b0eb6",
-      "size": 10712
+      "hash": "baf54100ffbd0e33",
+      "size": 11409
+    },
+    {
+      "path": "core/feedbackCues.js",
+      "hash": "4e03b6a1b701dcc4",
+      "size": 2337
+    },
+    {
+      "path": "core/fixError.js",
+      "hash": "5a3bfa0321a400bd",
+      "size": 4197
+    },
+    {
+      "path": "core/gradeAnswer.js",
+      "hash": "1a6fc0017f772c5e",
+      "size": 9311
+    },
+    {
+      "path": "core/grading.config.js",
+      "hash": "c965a3669aed6d1c",
+      "size": 1825
+    },
+    {
+      "path": "core/grading.js",
+      "hash": "5c5a6e2c519a3688",
+      "size": 6092
+    },
+    {
+      "path": "core/gradingBaseline.js",
+      "hash": "941b6a157fe335bb",
+      "size": 4471
+    },
+    {
+      "path": "core/itemReport.js",
+      "hash": "dd488b61b92d20a9",
+      "size": 5581
+    },
+    {
+      "path": "core/lemmas.js",
+      "hash": "6fdb89ab8bc95d10",
+      "size": 7092
+    },
+    {
+      "path": "core/lexSearch.js",
+      "hash": "e3d3889f705c6c66",
+      "size": 3752
+    },
+    {
+      "path": "core/mastery.config.js",
+      "hash": "5564ebb64c15eecc",
+      "size": 5030
+    },
+    {
+      "path": "core/mastery.js",
+      "hash": "31d10df67c88bd84",
+      "size": 10297
+    },
+    {
+      "path": "core/masteryAgg.js",
+      "hash": "ed8f18eacf7e461d",
+      "size": 6306
+    },
+    {
+      "path": "core/masteryBoard.js",
+      "hash": "b22f3531416ab326",
+      "size": 6020
+    },
+    {
+      "path": "core/masteryExplain.js",
+      "hash": "575f9fe7061b4081",
+      "size": 7980
+    },
+    {
+      "path": "core/masterySignals.js",
+      "hash": "871a49c92e2afcfe",
+      "size": 5111
+    },
+    {
+      "path": "core/masterySnapshot.js",
+      "hash": "4bdc682bcc2f8f91",
+      "size": 6554
+    },
+    {
+      "path": "core/matchPairs.js",
+      "hash": "459c8172ae1b722c",
+      "size": 10876
     },
     {
       "path": "core/migrations.js",
-      "hash": "c4dadd66dc2ce8aa",
-      "size": 3890
+      "hash": "3ec7983545bbc095",
+      "size": 3999
+    },
+    {
+      "path": "core/normalize.js",
+      "hash": "940f914ee54416af",
+      "size": 7432
+    },
+    {
+      "path": "core/orderBlocks.js",
+      "hash": "eb6cad059237a56d",
+      "size": 11609
+    },
+    {
+      "path": "core/otherExamples.js",
+      "hash": "8ec79e8c727ab322",
+      "size": 6072
+    },
+    {
+      "path": "core/pausableVisibility.js",
+      "hash": "18f52beb4f70e577",
+      "size": 2043
     },
     {
       "path": "core/persist.js",
-      "hash": "ad9f3159b551b5a4",
-      "size": 1688
+      "hash": "1bcbd203c20937b7",
+      "size": 1790
+    },
+    {
+      "path": "core/phraseCloze.js",
+      "hash": "bb728fc52a079ed7",
+      "size": 3845
+    },
+    {
+      "path": "core/responseText.js",
+      "hash": "fabcd2eb91717e6b",
+      "size": 1120
     },
     {
       "path": "core/rng.js",
-      "hash": "9531500745972584",
-      "size": 1496
+      "hash": "9ca9ffc4cb1a6a90",
+      "size": 1599
+    },
+    {
+      "path": "core/session.config.js",
+      "hash": "0a02c8dcf9d1fed5",
+      "size": 3970
+    },
+    {
+      "path": "core/session.js",
+      "hash": "1c1749f95e45335d",
+      "size": 22769
+    },
+    {
+      "path": "core/sessionDriver.js",
+      "hash": "16e5ca4fa6cef5f1",
+      "size": 11743
+    },
+    {
+      "path": "core/sessionFocus.js",
+      "hash": "d4fd87de3b4433ca",
+      "size": 1771
+    },
+    {
+      "path": "core/sessionInterleave.js",
+      "hash": "1d0eb3bb5493ad1f",
+      "size": 5642
+    },
+    {
+      "path": "core/sessionProgression.js",
+      "hash": "4918521761c01b21",
+      "size": 2919
+    },
+    {
+      "path": "core/sessionRunner.js",
+      "hash": "5039da6581144f6f",
+      "size": 7993
+    },
+    {
+      "path": "core/sessionStore.js",
+      "hash": "4fd17d832f20e7b0",
+      "size": 6661
+    },
+    {
+      "path": "core/sessionSummary.js",
+      "hash": "67da04168b7dea2c",
+      "size": 16201
     },
     {
       "path": "core/settings.js",
-      "hash": "73a03dd2de503c6d",
-      "size": 9870
+      "hash": "1dc15d82939e1603",
+      "size": 10245
+    },
+    {
+      "path": "core/spellCard.js",
+      "hash": "458ab8720101c407",
+      "size": 2228
+    },
+    {
+      "path": "core/srs.js",
+      "hash": "cd0a1c0efa98da57",
+      "size": 7524
+    },
+    {
+      "path": "core/srs.simple.js",
+      "hash": "2cc6a475c7de2587",
+      "size": 3875
+    },
+    {
+      "path": "core/srsEngine.js",
+      "hash": "a2cfac645cf8940f",
+      "size": 2227
+    },
+    {
+      "path": "core/srsLeech.js",
+      "hash": "4b85cc130bc3ef2f",
+      "size": 1994
+    },
+    {
+      "path": "core/srsRescue.js",
+      "hash": "a8ae2a59d4b3fda3",
+      "size": 3158
+    },
+    {
+      "path": "core/srsValid.js",
+      "hash": "56ca8274ad6c919b",
+      "size": 1632
+    },
+    {
+      "path": "core/stats.config.js",
+      "hash": "554bb75f865e6f77",
+      "size": 1727
+    },
+    {
+      "path": "core/stats.js",
+      "hash": "a5b70cdb46b3da08",
+      "size": 20992
     },
     {
       "path": "core/store.js",
-      "hash": "3f480583c5cc8cc3",
-      "size": 3364
+      "hash": "d7805c2c73c65714",
+      "size": 3446
+    },
+    {
+      "path": "core/summaryChat.js",
+      "hash": "00fa6e1e3524c3e0",
+      "size": 4651
+    },
+    {
+      "path": "core/summaryText.js",
+      "hash": "5148622785eea94a",
+      "size": 11003
     },
     {
       "path": "core/sync.js",
-      "hash": "667228db9bae9ff4",
-      "size": 2397
+      "hash": "bb709ff2cf097a7d",
+      "size": 10864
+    },
+    {
+      "path": "core/syncChat.js",
+      "hash": "22e6346877668427",
+      "size": 18413
+    },
+    {
+      "path": "core/syncImport.js",
+      "hash": "23e3addda696430c",
+      "size": 13109
+    },
+    {
+      "path": "core/syncLog.js",
+      "hash": "a871b609a67ad696",
+      "size": 6725
+    },
+    {
+      "path": "core/textAnswer.js",
+      "hash": "c9ff8a3ed07d65f6",
+      "size": 5094
+    },
+    {
+      "path": "core/textErrors.js",
+      "hash": "1d8710f2bfd32560",
+      "size": 6888
+    },
+    {
+      "path": "core/textTypes.js",
+      "hash": "5bd10b44e4dc4322",
+      "size": 5191
+    },
+    {
+      "path": "core/threeForms.js",
+      "hash": "91316481a13942bb",
+      "size": 4091
+    },
+    {
+      "path": "core/tokenize.js",
+      "hash": "a8da6ffbb0f69f16",
+      "size": 7450
+    },
+    {
+      "path": "core/transformTypes.js",
+      "hash": "843951e231a44724",
+      "size": 8100
+    },
+    {
+      "path": "core/translateTypes.js",
+      "hash": "32db1d47f32b9543",
+      "size": 4131
+    },
+    {
+      "path": "core/typo.js",
+      "hash": "8f8f76cedf812da1",
+      "size": 3521
     },
     {
       "path": "core/version.js",
-      "hash": "a7b5f67016bffff1",
-      "size": 32
+      "hash": "24fa3cb3dad5caef",
+      "size": 125
+    },
+    {
+      "path": "core/whitelist.config.js",
+      "hash": "f354206fc0a79003",
+      "size": 3157
+    },
+    {
+      "path": "core/whitelist.js",
+      "hash": "8fbcae0a28277c6d",
+      "size": 8887
+    },
+    {
+      "path": "core/whitelistKnown.js",
+      "hash": "b08972ad25882239",
+      "size": 5325
+    },
+    {
+      "path": "core/whyNote.js",
+      "hash": "3a8b641c3ccee912",
+      "size": 3199
+    },
+    {
+      "path": "core/wordDiff.js",
+      "hash": "6151e9d73c09388d",
+      "size": 3920
     },
     {
       "path": "icons/icon-192.png",
@@ -175,243 +785,413 @@
     },
     {
       "path": "index.html",
-      "hash": "4fb802e9297dc1e6",
-      "size": 1253
+      "hash": "d585da69c9bc03b0",
+      "size": 1475
     },
     {
       "path": "manifest.webmanifest",
-      "hash": "181ea04cb9802a4a",
-      "size": 721
+      "hash": "090cfe055676596c",
+      "size": 713
+    },
+    {
+      "path": "ui/actionBar.js",
+      "hash": "cc4e6940b0614339",
+      "size": 3726
+    },
+    {
+      "path": "ui/aiSheet.js",
+      "hash": "d54a6b37c024a41f",
+      "size": 6191
     },
     {
       "path": "ui/components/_overlay.js",
-      "hash": "26f90e54a6b221e5",
-      "size": 3842
+      "hash": "13eafa2eab3a01c4",
+      "size": 3960
     },
     {
       "path": "ui/components/_shared.js",
-      "hash": "2f788955b541055d",
-      "size": 7740
+      "hash": "1afecbe0a291482c",
+      "size": 7859
     },
     {
       "path": "ui/components/_text.js",
-      "hash": "6a615301b1d7c992",
-      "size": 1583
+      "hash": "5b2292d09ca64b9b",
+      "size": 1993
     },
     {
       "path": "ui/components/badge.js",
-      "hash": "b6ea9e8271dc7a25",
-      "size": 2744
+      "hash": "604d24bdac9571bf",
+      "size": 2818
     },
     {
       "path": "ui/components/bottomNav.js",
-      "hash": "6abc84406fbb8b8b",
-      "size": 2277
+      "hash": "affaddd0eb2648f4",
+      "size": 2365
     },
     {
       "path": "ui/components/button.js",
-      "hash": "4e76d222c37a8676",
-      "size": 4363
+      "hash": "34a42321583e96fd",
+      "size": 4452
     },
     {
       "path": "ui/components/card.js",
-      "hash": "b616cf5e959e25bd",
-      "size": 4775
+      "hash": "121b20c2a6d34ce4",
+      "size": 4843
     },
     {
       "path": "ui/components/chip.js",
-      "hash": "faeea7cc68262a52",
-      "size": 2626
+      "hash": "54d3cd0a78f77d8c",
+      "size": 2691
     },
     {
       "path": "ui/components/confirmDanger.js",
-      "hash": "c0ed7ea684feda70",
-      "size": 2676
+      "hash": "6e288e18003c682d",
+      "size": 2798
     },
     {
       "path": "ui/components/emptyState.js",
-      "hash": "fe0dbb8495c8b952",
-      "size": 1792
+      "hash": "8ca9e31af060a8cd",
+      "size": 1882
     },
     {
       "path": "ui/components/errorBoundary.js",
-      "hash": "60e18ece9bde7898",
-      "size": 3290
+      "hash": "82b8a4da2a96c7ce",
+      "size": 3371
     },
     {
       "path": "ui/components/index.js",
-      "hash": "0ebaa8f7fa43a76e",
-      "size": 1668
+      "hash": "8530088924bcb381",
+      "size": 1836
     },
     {
       "path": "ui/components/keyField.js",
-      "hash": "66da93c750dc0f89",
-      "size": 6002
+      "hash": "dd39d12d484b4828",
+      "size": 6086
     },
     {
       "path": "ui/components/mascot.js",
-      "hash": "8ffe2e96f503b4bb",
-      "size": 4071
+      "hash": "909e864f8de443aa",
+      "size": 4152
     },
     {
       "path": "ui/components/modal.js",
-      "hash": "3fb32f546295c134",
-      "size": 4373
+      "hash": "c2d6207371862b4e",
+      "size": 4455
     },
     {
       "path": "ui/components/progressBar.js",
-      "hash": "55370afb177cde83",
-      "size": 5416
+      "hash": "83a1b0dfe705e351",
+      "size": 5475
+    },
+    {
+      "path": "ui/components/ratingButtons.js",
+      "hash": "a68bf32437f9dc1e",
+      "size": 6063
     },
     {
       "path": "ui/components/segmented.js",
-      "hash": "bdf72bcb607d4117",
-      "size": 4397
+      "hash": "58190d70eedaf183",
+      "size": 4479
     },
     {
       "path": "ui/components/sheet.js",
-      "hash": "2d2ad756e9a6bd19",
-      "size": 4840
+      "hash": "df4c654a37ca7b92",
+      "size": 4916
     },
     {
       "path": "ui/components/skeleton.js",
-      "hash": "ba13d074ce00c12d",
-      "size": 1827
+      "hash": "1bb78b0de228511a",
+      "size": 1903
     },
     {
       "path": "ui/components/slider.js",
-      "hash": "96aaa3bafb603241",
-      "size": 6598
+      "hash": "9235b062f2595185",
+      "size": 6686
     },
     {
       "path": "ui/components/tabs.js",
-      "hash": "d0b5cfba7124e421",
-      "size": 3808
+      "hash": "5ceed7a8007c6d53",
+      "size": 3882
     },
     {
       "path": "ui/components/textInput.js",
-      "hash": "2aadae7520a0d7b1",
-      "size": 6338
+      "hash": "ac9fce89fcc3a4e5",
+      "size": 6417
     },
     {
       "path": "ui/components/toast.js",
-      "hash": "48d92a0444c43036",
-      "size": 2152
+      "hash": "1152f965e0ff5cc2",
+      "size": 2202
     },
     {
       "path": "ui/components/toggle.js",
-      "hash": "284a9ea344e4ab36",
-      "size": 3303
+      "hash": "5d3583c343710b7a",
+      "size": 3383
     },
     {
       "path": "ui/components/updateNotice.js",
-      "hash": "636a46dde8cfc20a",
-      "size": 2352
+      "hash": "da08f4a36df86d14",
+      "size": 2412
     },
     {
       "path": "ui/components/wordChip.js",
-      "hash": "a5ac4a1b6c363a72",
-      "size": 3519
+      "hash": "80a2afe55447e8ac",
+      "size": 3608
     },
     {
       "path": "ui/components/wordDiff.js",
-      "hash": "24f5eefa4b107c5d",
-      "size": 3970
+      "hash": "c6a4c26bd801e916",
+      "size": 4835
+    },
+    {
+      "path": "ui/correctionsSheet.js",
+      "hash": "6e9659cb00c1e392",
+      "size": 3892
+    },
+    {
+      "path": "ui/dictionarySheet.js",
+      "hash": "aeac61a9928f3bb9",
+      "size": 9411
     },
     {
       "path": "ui/dom.js",
-      "hash": "4acaaa6043203395",
-      "size": 5184
+      "hash": "8efb7700c6fa581e",
+      "size": 5318
+    },
+    {
+      "path": "ui/examplesSheet.js",
+      "hash": "1a13e784bac45a80",
+      "size": 3833
+    },
+    {
+      "path": "ui/exercises/buildPieces.js",
+      "hash": "aa1078e5e4e2232e",
+      "size": 13873
+    },
+    {
+      "path": "ui/exercises/buildTypes.js",
+      "hash": "1e5a8fef4880c44f",
+      "size": 1771
+    },
+    {
+      "path": "ui/exercises/cardBar.js",
+      "hash": "c8f9d767b6892b68",
+      "size": 6043
+    },
+    {
+      "path": "ui/exercises/choice.js",
+      "hash": "36b7a6bca9b0e23a",
+      "size": 16116
+    },
+    {
+      "path": "ui/exercises/choiceTypes.js",
+      "hash": "993f6cc6bd026ff2",
+      "size": 2288
+    },
+    {
+      "path": "ui/exercises/clozeBank.js",
+      "hash": "96b3f68f3b3e6b23",
+      "size": 13235
+    },
+    {
+      "path": "ui/exercises/detectSource.js",
+      "hash": "7c6f0ab427ce623b",
+      "size": 2023
+    },
+    {
+      "path": "ui/exercises/fixError.js",
+      "hash": "49efd06e3986cd11",
+      "size": 4648
+    },
+    {
+      "path": "ui/exercises/index.js",
+      "hash": "1f7f2860a48ec01e",
+      "size": 7614
+    },
+    {
+      "path": "ui/exercises/matchPairs.js",
+      "hash": "ae57eab01109b37d",
+      "size": 12298
+    },
+    {
+      "path": "ui/exercises/orderBlocks.js",
+      "hash": "9db4c808615049a2",
+      "size": 13929
+    },
+    {
+      "path": "ui/exercises/orderTypes.js",
+      "hash": "e86841b10d253109",
+      "size": 1805
+    },
+    {
+      "path": "ui/exercises/phraseCloze.js",
+      "hash": "ff3e35b1308594b5",
+      "size": 16137
+    },
+    {
+      "path": "ui/exercises/textAnswer.js",
+      "hash": "49d9a183d991caf3",
+      "size": 14457
+    },
+    {
+      "path": "ui/exercises/textTypes.js",
+      "hash": "58d52bcb08052583",
+      "size": 3751
+    },
+    {
+      "path": "ui/exercises/threeForms.js",
+      "hash": "c83922c9895f00b2",
+      "size": 12973
+    },
+    {
+      "path": "ui/exercises/transformTypes.js",
+      "hash": "f985d726cb80ba4e",
+      "size": 6228
+    },
+    {
+      "path": "ui/exercises/translateTypes.js",
+      "hash": "a4451d86f79b2c8d",
+      "size": 4946
+    },
+    {
+      "path": "ui/feedbackPanel.js",
+      "hash": "2ad48c08bb4f3bd9",
+      "size": 4850
+    },
+    {
+      "path": "ui/reportMenu.js",
+      "hash": "2eaac2b658249e97",
+      "size": 6228
+    },
+    {
+      "path": "ui/styles/actionbar.css",
+      "hash": "db1e80fcba6ff31e",
+      "size": 4163
     },
     {
       "path": "ui/styles/base.css",
-      "hash": "66527f62d782fef5",
-      "size": 4627
+      "hash": "65572c67388c32a6",
+      "size": 5189
     },
     {
       "path": "ui/styles/components.css",
-      "hash": "aeecec17ddae5645",
-      "size": 13384
+      "hash": "1ccc29382acf0711",
+      "size": 31936
+    },
+    {
+      "path": "ui/styles/summary.css",
+      "hash": "d32ebc7137826799",
+      "size": 2734
     },
     {
       "path": "ui/styles/themes.css",
-      "hash": "264c3db145a72ce7",
-      "size": 4853
+      "hash": "bb7d92d6bac7ee94",
+      "size": 7930
     },
     {
       "path": "ui/styles/tokens.css",
-      "hash": "b87dd9dd36a759de",
-      "size": 2491
+      "hash": "f427da8ee96d3757",
+      "size": 2959
     },
     {
       "path": "ui/styles/widgets.css",
-      "hash": "cee7b10507678f09",
-      "size": 18729
+      "hash": "24095462452c5110",
+      "size": 35659
+    },
+    {
+      "path": "ui/summaryPanel.js",
+      "hash": "bb9241e71a6b133b",
+      "size": 9288
     },
     {
       "path": "ui/views/_placeholder.js",
-      "hash": "83e32ba37357113c",
-      "size": 771
+      "hash": "a7f495ae42fdc1a9",
+      "size": 889
     },
     {
       "path": "ui/views/_viewBase.js",
-      "hash": "efcd9f8eea8c24d6",
-      "size": 4022
+      "hash": "905317ac4796531b",
+      "size": 4139
     },
     {
       "path": "ui/views/errores.js",
-      "hash": "4f801a7e9815d1eb",
-      "size": 210
+      "hash": "f0d1df5b2e114577",
+      "size": 296
     },
     {
       "path": "ui/views/hoy.js",
-      "hash": "f29e78444b89c890",
-      "size": 194
+      "hash": "efb36942823b72ac",
+      "size": 2250
+    },
+    {
+      "path": "ui/views/importPreview.js",
+      "hash": "109a83fc86a3e4af",
+      "size": 1892
     },
     {
       "path": "ui/views/mapa.js",
-      "hash": "2755728f4b78694d",
-      "size": 207
+      "hash": "1a2df34efeb2c506",
+      "size": 290
     },
     {
       "path": "ui/views/mas.js",
-      "hash": "858363515f8c1351",
-      "size": 1509
+      "hash": "ec2b4e970bdc0132",
+      "size": 1615
     },
     {
       "path": "ui/views/notFound.js",
-      "hash": "13c5639f4d3a2b8b",
-      "size": 693
+      "hash": "75e4bead4875ea4b",
+      "size": 774
     },
     {
       "path": "ui/views/onboarding.js",
-      "hash": "9876fcbf2336f0ad",
-      "size": 7715
+      "hash": "04c214e49b85f9b4",
+      "size": 7800
     },
     {
       "path": "ui/views/practicar.js",
-      "hash": "9cad028b5c7316a6",
-      "size": 218
+      "hash": "6ddb0f652a82b681",
+      "size": 306
     },
     {
       "path": "ui/views/sesion.js",
-      "hash": "c2da6fc8b555f45c",
-      "size": 563
+      "hash": "140b22ac4f3d789a",
+      "size": 23674
     },
     {
       "path": "ui/views/settings.js",
-      "hash": "b20ae331f849b12c",
-      "size": 8805
+      "hash": "26d27cd93e27dc3a",
+      "size": 9238
     },
     {
       "path": "ui/views/settingsData.js",
-      "hash": "16925de2220d16bf",
-      "size": 6374
+      "hash": "d5fa6beb400c2ad8",
+      "size": 7185
     },
     {
       "path": "ui/views/tema.js",
-      "hash": "daf28c62e87b65c8",
-      "size": 561
+      "hash": "2eef2607b310196f",
+      "size": 659
+    },
+    {
+      "path": "ui/whyNote.js",
+      "hash": "f876c3c84b73968d",
+      "size": 4763
+    },
+    {
+      "path": "vendor/ts-fsrs/LICENSE",
+      "hash": "8b83a73dd2894ff5",
+      "size": 1079
+    },
+    {
+      "path": "vendor/ts-fsrs/VERSION.txt",
+      "hash": "9117bf5737d8a871",
+      "size": 664
+    },
+    {
+      "path": "vendor/ts-fsrs/index.mjs",
+      "hash": "837fea3f2553cb08",
+      "size": 60657
     }
   ]
 }

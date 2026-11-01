@@ -1,3 +1,4 @@
+// @purpose: Componente de estado vacío: mensaje y acción para pantallas sin contenido.
 // Estado vacío (subparte 0.5): una pantalla sin contenido es una invitación a actuar, no un error.
 //
 //   createEmptyState({ title, message?, icon?, actionLabel?, onAction?, headingLevel = 2, doc?, … })

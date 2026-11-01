@@ -1,3 +1,4 @@
+// @purpose: Vista provisional de la pestaña Mapa (la sustituye la subparte 3.1).
 import { placeholderView } from './_placeholder.js';
 
 export default placeholderView({

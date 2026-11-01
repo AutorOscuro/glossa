@@ -1,3 +1,4 @@
+// @purpose: Pantalla de Ajustes (#/ajustes): compone controles sobre services.settings, con guardado inmediato.
 // Pantalla de Ajustes (subparte 0.8, cuarto 2B). Ruta #/ajustes. Solo compone controles de la 0.5 sobre `services.settings` (core/settings.js).
 //   · Cada control guarda al instante con settings.set; tema y tamaño de texto se ven en vivo porque app/appearance.js escucha a settings.
 //   · Si guardar falla, el control vuelve al valor que de verdad tiene el ajuste y muestra el texto amable del error.
@@ -93,7 +94,7 @@ export default createView(async (ctx) => {
   const data = buildDataCards({
     ctx, settings, db, track, refreshers, toast: ctx.services.toast,
     sync: ctx.services.sync ?? createSync({ db }),
-    tools: ctx.services.dataTools ?? createDataTools({ db, settings }),
+    tools: ctx.services.dataTools ?? createDataTools({ db, settings, afterChange: () => ctx.services.reimportContent?.() }),
     io: ctx.services.fileIO ?? createFileIO(),
   });
 
@@ -106,8 +107,7 @@ export default createView(async (ctx) => {
 
   const cards = [
     card('Apariencia',
-      segmented('theme', 'Tema', [{ value: 'auto', label: 'Automático' }, { value: 'aurora', label: 'Aurora' }, { value: 'neo', label: 'Neo' }, { value: 'claro', label: 'Claro' }]),
-      note('Automático sigue el modo claro u oscuro de tu teléfono.'),
+      segmented('theme', 'Tema', [{ value: 'aurora', label: 'Aurora' }, { value: 'neo', label: 'Neo' }, { value: 'claro', label: 'Claro' }]),
       segmented('textSize', 'Tamaño de texto', [{ value: 'small', label: 'Pequeño' }, { value: 'normal', label: 'Normal' }, { value: 'large', label: 'Grande' }, { value: 'xlarge', label: 'Muy grande' }]),
     ),
     card('Repaso',
@@ -117,12 +117,14 @@ export default createView(async (ctx) => {
       }),
       slider('dailyReviewCap', 'Tope de repasos por día', { min: 10, max: 500, step: 10, hint: 'Máximo de tarjetas por repasar en un día. Lo que no quepa pasa al día siguiente, sin culpa.' }),
       slider('dailyNewCap', 'Tarjetas nuevas por día', { min: 0, max: 50, step: 1, hint: '0 = no añadir tarjetas nuevas.' }),
-      slider('leechThreshold', 'Umbral de sanguijuela', { min: 3, max: 20, step: 1, hint: 'Una tarjeta que fallas tantas veces se marca como sanguijuela para tratarla distinto.' }),
+      slider('leechThreshold', 'Umbral de sanguijuela', { min: 3, max: 20, step: 1, hint: 'Una tarjeta que se te resiste tantas veces se marca como sanguijuela para tratarla distinto.' }),
       toggle('spellingTolerance', 'Tolerancia ortográfica', 'Una errata pequeña cuenta como "casi" y no como error.'),
+      segmented('srsEngine', 'Motor de repaso', [{ value: 'fsrs', label: 'Normal' }, { value: 'simple', label: 'Simple (emergencia)' }]),
+      note('Déjalo en Normal. El motor Simple es un respaldo por si algo falla en el repaso: usa intervalos fijos y no pierde tus tarjetas. Puedes volver a Normal cuando quieras.'),
     ),
     card('Sonido y vibración',
-      toggle('sounds', 'Sonidos', 'Efectos al acertar o fallar.'),
-      toggle('vibration', 'Vibración', 'Una vibración corta como respuesta.'),
+      toggle('sounds', 'Sonidos', 'Un tono suave al acertar y otro al terminar la sesión.'),
+      toggle('vibration', 'Vibración', 'Una vibración muy corta al acertar (solo si tu teléfono lo permite).'),
     ),
     card('Inteligencia artificial',
       segmented('aiMode', 'Modo de IA', [{ value: 'auto', label: 'Automático' }, { value: 'mechanical', label: 'Siempre mecánico' }]),
@@ -143,7 +145,7 @@ export default createView(async (ctx) => {
       note('Vuelve a ver la bienvenida: puedes cambiar tu nombre o cómo está tu energía. No borra nada de tu progreso.'),
       welcomeBtn.el,
     ),
-    card('Acerca de', note(`Sophia Inglés · versión ${version ?? '—'}`)),
+    card('Acerca de', note(`Glossa · versión ${version ?? '—'}`)),
     data.danger,
   ];
   for (const el of cards) body.appendChild(el);

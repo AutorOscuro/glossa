@@ -1,3 +1,4 @@
+// @purpose: Aviso persistente de actualización de la app.
 // Aviso persistente de actualización (subparte 0.6, mitad B). Usa las clases .toast de components.css (0.3).
 //
 //   createUpdateNotice({ doc?, container }) → { show({ message, actionLabel, dismissLabel?, onAction, onDismiss? }), hide(), isVisible(), destroy() }

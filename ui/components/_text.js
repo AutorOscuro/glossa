@@ -1,3 +1,4 @@
+// @purpose: Textos por defecto en español de la biblioteca de componentes, reunidos en un solo lugar.
 // Textos por defecto de la biblioteca de componentes (subparte 0.5), en un solo lugar.
 // Cada componente acepta su propio texto por opciones; esto solo da valores de respaldo en español.
 // La 9.5 moverá estas cadenas a app/strings.es.js sin tocar los componentes.
@@ -14,15 +15,19 @@ export const TEXT = Object.freeze({
   wordStatus: Object.freeze({
     correct: 'correcta',
     almost: 'casi: error de ortografía',
-    wrong: 'incorrecta',
+    wrong: 'no coincide',
     missing: 'falta',
+    extra: 'sobra',
   }),
+  wordExpected: 'se esperaba',
   wordKnowledge: Object.freeze({
     unknown: 'desconocida',
     learning: 'aprendiendo',
     known: 'conocida',
   }),
-  wordState: Object.freeze({ selected: 'seleccionada', used: 'ya usada', correct: 'correcta', wrong: 'incorrecta' }),
+  wordState: Object.freeze({ selected: 'seleccionada', used: 'ya usada', correct: 'correcta', wrong: 'no encaja' }),
+  // Los 4 botones de recuerdo libre (1.5). Palabras neutras: «Otra vez» no es un castigo, es una fecha de repaso más cercana.
+  rating: Object.freeze({ group: '¿Cómo te salió?', again: 'Otra vez', hard: 'Difícil', good: 'Bien', easy: 'Fácil' }),
   mascotLabel: 'Mascota',
   keyField: Object.freeze({
     show: 'Mostrar',

@@ -1,13 +1,15 @@
+// @purpose: Tarjetas de datos de Ajustes: respaldo, claves y zona de peligro.
 // Tarjetas de datos de Ajustes (subparte 0.8, cuarto 3B): Respaldo, Claves y Zona de peligro. Las usa ui/views/settings.js.
 //
 //   buildDataCards({ ctx, settings, db, sync, tools, io, toast, track, refreshers }) → { backup, keys, danger }   (tres elementos)
 //   · Exportar: baja el respaldo; las claves NO van en el archivo salvo que se marque la casilla (apagada al abrir).
-//   · Importar: abre el selector, pide confirmación y REEMPLAZA los datos; las claves de este dispositivo se conservan.
+//   · Importar: abre el selector, muestra una VISTA PREVIA (qué se añade, se actualiza o se pierde) y deja elegir «Fusionar» (por defecto, no quita nada) o «Reemplazar»; las claves de este dispositivo se conservan.
 //   · Borrar claves: confirmación simple. Borrar todo: confirmación fuerte (escribir BORRAR).
 //   · Un solo trabajo a la vez (los botones se deshabilitan mientras corre). Si algo falla: aviso con el texto amable y nada queda a medias.
 //   · Sin base (db null) Exportar e Importar quedan deshabilitados con un aviso. Nada de esto escribe la clave en la consola.
 import { h } from '../dom.js';
-import { createCard, createButton, createToggle, createModal, createConfirmDanger } from '../components/index.js';
+import { createCard, createButton, createToggle, createModal, createConfirmDanger, createSegmented } from '../components/index.js';
+import { IMPORT_MODES, importSummary } from './importPreview.js';
 import { BACKUP_ACCEPT } from '../../app/fileIO.js';
 
 const GENERIC = 'Algo falló. No se cambió nada; inténtalo de nuevo.';
@@ -66,13 +68,20 @@ export function buildDataCards({ ctx, settings, db, sync, tools, io, toast, trac
     const file = await io.pickFile({ accept: BACKUP_ACCEPT });
     if (!file || !ctx.alive()) return;
     await job('importar el respaldo', async () => {
-      const ok = await confirm({
-        title: '¿Reemplazar tu progreso?',
-        message: `Se cambiará lo que tienes ahora por lo del archivo${file.name ? ` «${file.name}»` : ''}. Tus claves de este dispositivo se conservan. Si dudas, exporta un respaldo antes.`,
-        confirmLabel: 'Reemplazar',
-      });
+      const previews = { merge: await sync.previewBackup(file.text, { mode: 'merge' }), replace: await sync.previewBackup(file.text, { mode: 'replace' }) };
+      let mode = 'merge';
+      const summary = h('p', { class: 'text-sm', role: 'status' }, importSummary(previews.merge));
+      const picker = createSegmented({ label: 'Cómo importar', options: IMPORT_MODES.map((m) => ({ ...m })), value: mode, onChange: (v) => { mode = v; summary.textContent = importSummary(previews[v]); } });
+      let ok = false;
+      try {
+        ok = await confirm({
+          title: 'Importar respaldo',
+          message: `Archivo${file.name ? ` «${file.name}»` : ''}. Elige qué hacer con lo que ya tienes; si dudas, exporta un respaldo antes.`,
+          children: [picker.el, summary], confirmLabel: 'Importar',
+        });
+      } finally { picker.destroy(); }
       if (!ok) return;
-      const res = await sync.importBackup(file.text);
+      const res = await sync.importBackup(file.text, { mode });
       await tools.afterRestore();
       notify('success', `Respaldo restaurado (${res.total} datos).`);
     });
@@ -84,7 +93,7 @@ export function buildDataCards({ ctx, settings, db, sync, tools, io, toast, trac
   }));
 
   const backup = cardEl('Respaldo',
-    note('Un respaldo guarda tu progreso y tus ajustes en un archivo, para que puedas pasarlo a otro dispositivo o recuperarlo si algo sale mal.'),
+    note('Un respaldo guarda tu progreso y tus ajustes en un archivo, para que puedas pasarlo a otro dispositivo o recuperarlo si algo se pierde.'),
     keysToggle.el, exportBtn, importBtn,
     ...(db === null ? [note('Este navegador no deja guardar datos, así que ahora mismo no hay nada que respaldar.')] : []),
   );

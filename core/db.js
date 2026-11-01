@@ -1,3 +1,4 @@
+// @purpose: Contrato de la capa de almacenamiento: esquema de almacenes, validación de registros, reglas de consulta y exportar/importar.
 // Contrato de la capa de almacenamiento (subparte 0.7). Aquí vive todo lo que no depende del motor:
 // esquema (roadmap 8.13), validación de registros, reglas de consulta, exportar/importar. Es puro y se prueba con Node.
 // Los motores (core/db.memory.js y core/db.idb.js) solo guardan y leen; usan estas funciones para que la semántica sea idéntica.
@@ -8,9 +9,11 @@
 //   get(store, key) → registro | null
 //   put(store, registro) → key                                        sobrescribe; clave = campo keyPath del almacén
 //   delete(store, key) → boolean                                      true si existía
+//   clear(store) → número                                             vacía el almacén de una vez y devuelve cuántos registros había (1.12-T1);
+//                                                                     las claves reservadas (meta.schemaVersion) se conservan y no cuentan
 //   query(store, { index?, value?, range?, direction?, limit? }) → registro[]
 //   count(store, { index?, value?, range? }) → número
-//   tx(stores[], async (t) => …) → lo que devuelva fn                 t = { get, put, delete, query, count } solo de esos almacenes;
+//   tx(stores[], async (t) => …) → lo que devuelva fn                 t = { get, put, delete, clear, query, count } solo de esos almacenes;
 //                                                                     si fn lanza, NADA de lo escrito dentro queda guardado
 //   exportAll({ includeSecrets? }) → { format, schemaVersion, exportedAt, stores }
 //   importAll(data, { mode: 'replace'|'merge', keepSecrets? }) → { stores: {nombre: n}, migratedFrom|null }
@@ -21,7 +24,10 @@ import { MIGRATIONS, runMigrations } from './migrations.js';
 export { DbError, classifyError, friendlyMessage, DB_CODES };
 
 export const SCHEMA_VERSION = 1;
-export const EXPORT_FORMAT = 'sophia-ingles-db';
+// Desde 0.9.3 la app se llama Glossa y los respaldos nuevos llevan 'glossa-db'. Los respaldos hechos con la app llamada Sophia Inglés
+// ('sophia-ingles-db') se SIGUEN aceptando al importar: nadie pierde un respaldo por el cambio de nombre.
+export const EXPORT_FORMAT = 'glossa-db';
+export const LEGACY_EXPORT_FORMATS = Object.freeze(['sophia-ingles-db']);
 export const MAX_PROBLEMS = 20;
 
 // Roadmap 8.13. Un índice = { path: campo, multi?: true (el campo es un arreglo: se indexa cada elemento) }.
@@ -191,7 +197,7 @@ const bad = (problems, extra = '') => new DbError(
 // Valida un respaldo y lo lleva a la versión actual. NO toca ninguna base. Lanza BAD_IMPORT / NEWER_VERSION / MIGRATION.
 export function prepareImport(data, { schema, schemaVersion, migrations = MIGRATIONS }) {
   if (!isPlain(data)) throw bad(['no es un objeto']);
-  if (data.format !== EXPORT_FORMAT) throw bad([`no es un respaldo de Sophia Inglés (formato "${String(data.format)}")`]);
+  if (data.format !== EXPORT_FORMAT && !LEGACY_EXPORT_FORMATS.includes(data.format)) throw bad([`no es un respaldo de Glossa (formato "${String(data.format)}")`]);
   const v = data.schemaVersion;
   if (!Number.isInteger(v) || v < 1) throw bad([`versión no válida: ${String(v)}`]);
   if (v > schemaVersion) throw new DbError('NEWER_VERSION', `El respaldo es de la v${v} y esta app llega a la v${schemaVersion}`);

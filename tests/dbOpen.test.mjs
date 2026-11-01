@@ -1,3 +1,4 @@
+// @purpose: Pruebas de la elección del motor de almacenamiento (core/dbOpen.js) y de la petición de almacenamiento persistente (core/persist.js).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { openDatabase } from '../core/dbOpen.js';

@@ -1,3 +1,4 @@
+// @purpose: Corre la suite de contrato de almacenamiento contra IndexedDB real en un navegador (lo abre tools/idb-check.py); deja los resultados en window.__sophia.
 // Corre la suite de contrato (tests/_dbContract.mjs) contra core/db.idb.js en un navegador real (subparte 0.7B).
 // Lo abre tools/idb-check.py; deja los resultados en window.__sophia. No forma parte de `npm run check` (Node no trae IndexedDB).
 globalThis.process = { stdout: { write: (s) => { (globalThis.__sophia.log ??= []).push(String(s).trim()); } } };

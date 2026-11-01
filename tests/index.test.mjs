@@ -1,3 +1,4 @@
+// @purpose: Pruebas estáticas de index.html: CSP, sin código en línea, boot-check, tema y registro de vistas.
 // Pruebas estáticas de index.html (CSP de 8.16, sin código en línea), boot-check, tema y registro de vistas (subparte 0.4).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -7,7 +8,7 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { ROUTES } from '../app/router.js';
 import { VIEWS } from '../app/shell.js';
-import { THEMES, isTheme, suggestedTheme, initialTheme, applyTheme } from '../app/theme.js';
+import { THEMES, isTheme, initialTheme, applyTheme } from '../app/theme.js';
 import { makeEnv, makeTimers } from './_fakeDom.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -59,9 +60,9 @@ test('index.html: sin <style>, style="", on*= ni scripts en línea; main.js es m
   assert.ok(scripts.some((a) => !/type=/.test(a) && /defer/.test(a) && /src="app\/boot-check\.js"/.test(a)));
 });
 
-test('index.html: los 5 estilos van en el orden tokens → themes → base → components → widgets y todos los archivos existen', () => {
+test('index.html: los 7 estilos van en el orden tokens → themes → base → components → widgets → actionbar → summary y todos los archivos existen', () => {
   const hrefs = [...html.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map((m) => m[1]);
-  assert.deepEqual(hrefs, ['ui/styles/tokens.css', 'ui/styles/themes.css', 'ui/styles/base.css', 'ui/styles/components.css', 'ui/styles/widgets.css']);
+  assert.deepEqual(hrefs, ['ui/styles/tokens.css', 'ui/styles/themes.css', 'ui/styles/base.css', 'ui/styles/components.css', 'ui/styles/widgets.css', 'ui/styles/actionbar.css', 'ui/styles/summary.css']);
   for (const f of [...hrefs, 'app/main.js', 'app/boot-check.js']) assert.ok(fs.existsSync(path.join(root, f)), f);
   assert.doesNotMatch(html, /https?:\/\//i);
 });
@@ -102,24 +103,14 @@ test('boot-check: si la app no arrancó a los 5 s, muestra un botón Recargar; s
 });
 
 // ---------- tema ----------
-test('tema: THEMES, isTheme y suggestedTheme (claro/aurora, matchMedia ausente o que lanza)', () => {
+test('tema: THEMES e isTheme (solo aurora, neo y claro; no existe \'auto\')', () => {
   assert.deepEqual(THEMES, ['aurora', 'neo', 'claro']);
-  assert.ok(isTheme('neo') && !isTheme('rojo') && !isTheme(null) && !isTheme(5));
-  assert.equal(suggestedTheme((q) => ({ matches: q.includes('light') })), 'claro');
-  assert.equal(suggestedTheme(() => ({ matches: false })), 'aurora');
-  assert.equal(suggestedTheme(null), 'aurora');
-  const logged = [];
-  const orig = console.error;
-  console.error = (...a) => logged.push(a);
-  try {
-    assert.equal(suggestedTheme(() => { throw new Error('sin soporte'); }), 'aurora');
-  } finally { console.error = orig; }
-  assert.equal(logged.length, 1);
+  assert.ok(isTheme('neo') && !isTheme('rojo') && !isTheme('auto') && !isTheme(null) && !isTheme(5));
 });
 
 test('tema: initialTheme prefiere ?tema= válido; applyTheme escribe data-theme y theme-color; tema desconocido lanza', () => {
   assert.equal(initialTheme(makeEnv({ search: '?tema=claro' }).win), 'claro');
-  assert.equal(initialTheme(makeEnv({ search: '?tema=zzz', light: true }).win), 'claro');
+  assert.equal(initialTheme(makeEnv({ search: '?tema=zzz', light: true }).win), 'aurora', 'el sistema claro ya no sugiere nada');
   assert.equal(initialTheme({ location: {}, matchMedia: undefined }), 'aurora');
   const env = makeEnv();
   applyTheme(env.doc, env.win, 'neo');

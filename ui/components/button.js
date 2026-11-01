@@ -1,3 +1,4 @@
+// @purpose: Componente botón (siempre un button real) con variantes, tamaños e icono.
 // Botón (subparte 0.5). Usa .btn de components.css (0.3). Siempre es un <button> real.
 //
 //   createButton({ label?, ariaLabel?, icon?, variant = 'secondary', size = 'md', block = false, type = 'button',

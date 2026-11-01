@@ -1,3 +1,4 @@
+// @purpose: Campo de clave secreta: escribir, mostrar u ocultar, guardar y borrar.
 // Campo de clave secreta (subparte 0.8, cuarto 2): escribir, mostrar/ocultar lo escrito, guardar y borrar.
 //
 //   createKeyField({ label, saved = false, hint?, placeholder?, disabled = false, onSave(valor) → Promesa, onClear() → Promesa,

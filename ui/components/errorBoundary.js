@@ -1,3 +1,4 @@
+// @purpose: Pantalla de error amable y texto de detalle copiable para reportes.
 // Pantalla de error amable (subparte 0.4). Se usa cuando una vista falla o hay un error no capturado.
 //
 //   formatErrorDetail(error, { version, route, now }) → texto para pegar en un reporte (acepta Error, texto, null, objetos).

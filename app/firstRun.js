@@ -1,3 +1,4 @@
+// @purpose: Primer arranque: lleva a la bienvenida una sola vez si la persona aún no la ha visto.
 // Primer arranque (subparte 0.8, cuarto 4B): lleva a la bienvenida UNA sola vez al abrir la app si aún no se ha visto.
 //
 //   startFirstRun({ settingsReady, router, initialHash, log? }) → Promesa de un motivo (texto). NUNCA rechaza.

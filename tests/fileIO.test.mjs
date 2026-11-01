@@ -1,3 +1,4 @@
+// @purpose: Pruebas de app/fileIO.js con un documento y una ventana mínimos.
 // Pruebas de app/fileIO.js (subparte 0.8, cuarto 3B) con un documento y una ventana mínimos.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

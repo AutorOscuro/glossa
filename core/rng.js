@@ -1,3 +1,4 @@
+// @purpose: Azar inyectable: generador determinista con semilla para pruebas y generador del sistema.
 // Azar inyectable (subparte 0.7). Misma API que tests/_helpers.mjs `makeRng`:
 //   next() ∈ [0,1) · int(min,max) inclusivo · pick(arr) · shuffle(arr) → copia (no muta)
 // `createRng(seed)` es determinista (mulberry32); `systemRng` usa Math.random (solo para producción).

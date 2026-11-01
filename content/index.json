@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "packs": [
+    {
+      "pack_id": "pack_seed_v1",
+      "version": 2,
+      "path": "content/packs/pack_seed_v1.json",
+      "topics": [
+        "gram.present_perfect.for_since",
+        "verb.irregular.past_simple",
+        "gram.modals.no_to",
+        "prep.patterns.gerund_after_verbs",
+        "prep.dependent.adjective_prep"
+      ],
+      "items_count": 60,
+      "size_kb": 59
+    }
+  ]
+}

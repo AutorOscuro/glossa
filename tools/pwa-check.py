@@ -23,6 +23,8 @@ import time
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORT = 8765
 failures = []
+# Desde la 0.8 la primera visita lleva a la bienvenida; después, a "Hoy". Las dos son la pantalla de inicio de la app.
+HOME_H1 = ('Hoy', '¡Hola! Me alegra que estés aquí')
 
 
 def check(ok, text):
@@ -115,7 +117,7 @@ def app_flow(p):
     ctx.set_offline(True)
     page.reload()
     page.wait_for_selector('h1')
-    check(page.inner_text('h1') == 'Hoy', 'SIN CONEXIÓN con la versión nueva: recarga y muestra "Hoy"')
+    check(page.inner_text('h1') in HOME_H1, 'SIN CONEXIÓN con la versión nueva: recarga y muestra "Hoy"')
     ctx.set_offline(False)
 
     page.goto(base + '?sw=off')
@@ -164,13 +166,20 @@ def main():
         ctx.set_offline(True)
         page.reload()
         page.wait_for_selector('h1')
-        check(page.inner_text('h1') == 'Hoy', 'SIN CONEXIÓN: la app recarga y muestra "Hoy"')
+        check(page.inner_text('h1') in HOME_H1, 'SIN CONEXIÓN: la app recarga y muestra "Hoy"')
         page.goto(url + '#/mapa')
         page.wait_for_selector('h1')
         check(page.inner_text('h1') == 'Mapa', 'SIN CONEXIÓN: ruta profunda #/mapa')
         check(page.evaluate("fetch('ui/dom.js').then(r=>r.status)") == 200, 'SIN CONEXIÓN: archivos del shell salen de la caché')
         check(page.evaluate("fetch('https://api.example.com/x').then(()=>false).catch(()=>true)"), 'SIN CONEXIÓN: una API externa NO se intercepta (falla como la red)')
         ctx.set_offline(False)
+        # BUG 2 del hito M0: con el SW activo, una página real que no es la app (la galería) debe verse, no el index de la app.
+        page.goto(f'http://127.0.0.1:{PORT}/sophia/ui/styles/demo.html')
+        page.wait_for_selector('h1', timeout=8000)
+        check(page.inner_text('h1').strip() == 'Galería de componentes', f"con el SW activo, ui/styles/demo.html abre la galería (h1: {page.inner_text('h1').strip()!r})")
+        page.goto(url)
+        page.wait_for_selector('h1')
+        check(page.inner_text('h1') in HOME_H1, 'y la app sigue abriendo normal en la raíz')
 
         with open(os.path.join(work, 'ui', 'dom.js'), 'a', encoding='utf-8') as f:
             f.write('\n// cambio de prueba\n')

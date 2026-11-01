@@ -1,3 +1,4 @@
+// @purpose: Punto único de importación de la biblioteca de componentes UI.
 // Biblioteca de componentes UI (subparte 0.5). Un solo punto de importación:
 //   import { createButton, createSheet, … } from '../components/index.js';
 // Cada componente también se puede importar por separado (ui/components/<nombre>.js).
@@ -14,6 +15,7 @@ export { createProgressBar } from './progressBar.js';
 export { createMascot, MASCOT_STATES } from './mascot.js';
 export { createTabs } from './tabs.js';
 export { createSegmented } from './segmented.js';
+export { createRatingButtons, normalizePreviews, RATING_KEYS } from './ratingButtons.js';
 export { createToggle } from './toggle.js';
 export { createSlider, clampValue, snapValue } from './slider.js';
 export { createTextInput } from './textInput.js';

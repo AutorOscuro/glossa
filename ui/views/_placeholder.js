@@ -1,3 +1,4 @@
+// @purpose: Vista provisional con el estilo del sistema de diseño para las pestañas que aún no se han construido.
 // Vista provisional con el estilo del sistema de diseño. Cada pestaña la usa hasta que llegue su subparte real.
 import { h } from '../dom.js';
 import { createView } from './_viewBase.js';

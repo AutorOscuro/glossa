@@ -1,3 +1,4 @@
+// @purpose: Componente insignia informativa, con nivel y ayuda opcional.
 // Insignia (subparte 0.5). Usa .badge de components.css. Solo informa; no es un botón (salvo el "?" opcional del nivel).
 //
 //   createBadge({ kind = 'info', text?, level?, onHelp?, helpLabel?, doc?, … }) → { el, setText(t), setLevel(n), destroy() }

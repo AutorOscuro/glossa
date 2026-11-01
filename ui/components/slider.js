@@ -1,3 +1,4 @@
+// @purpose: Deslizador accesible (range nativo) con etiqueta, valor visible y relleno.
 // Deslizador (subparte 0.5): <input type="range"> nativo (teclado y lector de pantalla gratis) con etiqueta,
 // valor visible y relleno de color. Sirve para tiempo disponible, retención objetivo, tope diario, etc.
 //

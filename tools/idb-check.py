@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Corre la suite de contrato de almacenamiento contra IndexedDB REAL en Chromium (subparte 0.7B). NO forma parte de `npm run check`.
 Sirve el repo por http, abre tests/browser/idb-contract.html y muestra cada prueba. Sale con código 1 si algo falla.
-Requiere Python 3 + Playwright con Chromium.   Uso:  python3 tools/idb-check.py [events]
-(sin argumento: suite de contrato de almacenamiento; con `events`: contrato de events.log, subparte 1.1)
+Requiere Python 3 + Playwright con Chromium.   Uso:  python3 tools/idb-check.py [events|errors|clear|sync|study]
+(sin argumento: suite de contrato de almacenamiento; con `sync`: el puente con el chat y el respaldo, subparte 1.12; con `events`: contrato de events.log, subparte 1.1; con `errors`: registro de errores y detector, subparte 1.6; con `study`: guardado atómico, sesión, foto diaria y repasos adelantados, subparte 2.1-T2; con `clear`: banco de medidas del borrado de almacenes, subparte 1.12-T1; el segundo argumento opcional es la consulta de la página, p. ej. `clear only=wipe&runs=3`)
 """
 import functools
 import http.server
@@ -16,10 +16,14 @@ PORT = 8766
 
 
 def main():
-    page_name = 'events-idb.html' if len(sys.argv) > 1 and sys.argv[1] == 'events' else 'idb-contract.html'
+    pages = {'events': 'events-idb.html', 'errors': 'errors-idb.html', 'clear': 'clear-idb.html', 'sync': 'sync-idb.html', 'study': 'study-idb.html'}
+    page_name = pages.get(sys.argv[1], 'idb-contract.html') if len(sys.argv) > 1 else 'idb-contract.html'
     from playwright.sync_api import sync_playwright
-    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT)
-    handler.log_message = lambda *a, **k: None
+    class Quiet(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, *args, **kwargs):
+            return None
+
+    handler = functools.partial(Quiet, directory=ROOT)
     srv = http.server.ThreadingHTTPServer(('127.0.0.1', PORT), handler)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     page_errors = []
@@ -28,8 +32,9 @@ def main():
         page = browser.new_page()
         page.on('pageerror', lambda e: page_errors.append(str(e)))
         page.on('console', lambda m: print('  consola:', m.text) if m.type in ('error', 'warning') else None)
-        page.goto(f'http://127.0.0.1:{PORT}/tests/browser/{page_name}')
-        end = time.time() + 300
+        query = f'?{sys.argv[2]}' if len(sys.argv) > 2 else ''
+        page.goto(f'http://127.0.0.1:{PORT}/tests/browser/{page_name}{query}')
+        end = time.time() + (900 if page_name == 'clear-idb.html' else 300)
         while time.time() < end and not page.evaluate('globalThis.__sophia && globalThis.__sophia.done'):
             time.sleep(0.2)
         data = page.evaluate('globalThis.__sophia')

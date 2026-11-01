@@ -1,3 +1,4 @@
+// @purpose: Control segmentado (radiogroup) para elegir una opción entre pocas.
 // Control segmentado (subparte 0.5): elegir UNA opción entre pocas. Patrón ARIA radiogroup.
 //
 //   createSegmented({ label, options: [{ value, label, disabled? }], value?, disabled = false, error?,

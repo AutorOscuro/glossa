@@ -1,3 +1,4 @@
+// @purpose: Reemplazo mínimo de node:test para correr la suite de contrato en el navegador.
 // Reemplazo mínimo de `node:test` para correr la suite de contrato en el navegador (subparte 0.7B). Solo el navegador lo usa.
 export const registered = [];
 export function test(name, a, b) {

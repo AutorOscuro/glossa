@@ -1,3 +1,4 @@
+// @purpose: Avisos temporales apilados (toasts).
 // Avisos temporales (subparte 0.4). Usa las clases .toast-stack / .toast de components.css (0.3).
 //
 //   createToaster({ doc?, container, max = 3, duration = 4000, timers? }) → { show, dismissAll, destroy }

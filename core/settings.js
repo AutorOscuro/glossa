@@ -1,3 +1,4 @@
+// @purpose: Ajustes de la persona: valores por defecto, validación y persistencia (sin DOM).
 // Ajustes de la persona (subparte 0.8, cuarto 1): valores por defecto, validación y persistencia. Sin DOM; se prueba con Node.
 //
 //   createSettings({ db?, onError? }) → {
@@ -18,24 +19,26 @@ import { createStore } from './store.js';
 
 export const SECRET_MASK = '••••••';
 
-const THEME_CHOICES = ['auto', 'aurora', 'neo', 'claro'];
+// 'auto' se retiró en 0.9.3 (pulido visual): un 'auto' ya guardado deja de ser válido y toma el valor por defecto (aurora).
+const THEME_CHOICES = ['aurora', 'neo', 'claro'];
 const SIZE_CHOICES = ['small', 'normal', 'large', 'xlarge'];
 
 // type: enum | bool | int | number | text. `label` es el nombre en español para los mensajes.
 const deepFreeze = (o) => { for (const v of Object.values(o)) if (v && typeof v === 'object') deepFreeze(v); return Object.freeze(o); };
 export const DEFS = deepFreeze({
-  theme: { type: 'enum', choices: THEME_CHOICES, default: 'auto', label: 'Tema' },
+  theme: { type: 'enum', choices: THEME_CHOICES, default: 'aurora', label: 'Tema' },
   textSize: { type: 'enum', choices: SIZE_CHOICES, default: 'normal', label: 'Tamaño de texto' },
   retention: { type: 'number', min: 0.8, max: 0.95, decimals: 2, default: 0.9, label: 'Retención objetivo' },
   dailyReviewCap: { type: 'int', min: 10, max: 500, default: 100, label: 'Tope diario de repasos' },
   dailyNewCap: { type: 'int', min: 0, max: 50, default: 10, label: 'Tope diario de tarjetas nuevas' },
+  srsEngine: { type: 'enum', choices: ['fsrs', 'simple'], default: 'fsrs', label: 'Motor de repaso' }, // 'simple' = respaldo de emergencia (1.4)
   leechThreshold: { type: 'int', min: 3, max: 20, default: 8, label: 'Umbral de sanguijuela' },
   spellingTolerance: { type: 'bool', default: true, label: 'Tolerancia ortográfica' },
   sounds: { type: 'bool', default: true, label: 'Sonidos' },
   vibration: { type: 'bool', default: true, label: 'Vibración' },
   aiMode: { type: 'enum', choices: ['auto', 'mechanical'], default: 'auto', label: 'Modo de IA' },
   aiProvider: { type: 'enum', choices: ['groq'], default: 'groq', label: 'Proveedor de IA' },
-  aiModel: { type: 'text', max: 100, default: '', label: 'Modelo de IA' }, // vacío = el que fije 1.10/5.1 tras verificar la documentación vigente
+  aiModel: { type: 'text', max: 100, default: '', label: 'Modelo de IA' }, // vacío = el modelo por defecto de core/ai/providers/groq.js (verificado en 1.10-T4)
   aiKey: { type: 'text', max: 400, default: '', secret: true, label: 'Clave de IA' },
   azureRegion: { type: 'text', max: 40, default: '', label: 'Región de Azure' }, // se activa en la Fase 8
   azureKey: { type: 'text', max: 400, default: '', secret: true, label: 'Clave de Azure' }, // se activa en la Fase 8

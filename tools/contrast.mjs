@@ -1,3 +1,4 @@
+// @purpose: Calcula las razones de contraste WCAG de los temas a partir de ui/styles/themes.css.
 // Contraste WCAG de los temas (subparte 0.3). Lee ui/styles/themes.css y calcula razones de contraste
 // con la fórmula oficial de WCAG 2.x. Los colores con transparencia se componen sobre el fondo real.
 //
@@ -105,6 +106,7 @@ export const CHECKS = [
   ...[
     ['on-accent', 'accent'], ['on-accent-2', 'accent-2'], ['on-info', 'info'],
     ['on-success', 'success'], ['on-danger', 'danger'], ['callout-text', 'callout-bg'],
+    ['on-brand', 'brand-1'], ['on-brand', 'brand-2'], ['on-brand', 'brand-3'],
   ].map(([fg, fill]) => ({ id: `${fg} sobre ${fill}`, label: `Texto --${fg} sobre relleno`, min: 4.5, fg, on: `=${fill}` })),
   { id: 'disabled-text sobre disabled-bg', label: 'Texto deshabilitado (legible, no exigido por AA)', min: 3, fg: 'disabled-text', on: '=disabled-bg' },
   ...['bg', 'glow1', 'glow2', 'solid'].map((on) => ({ id: `border-input sobre ${on}`, label: 'Borde de campo (no texto)', min: 3, fg: 'border-input', on })),

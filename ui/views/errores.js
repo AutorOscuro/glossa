@@ -1,3 +1,4 @@
+// @purpose: Vista provisional de la pestaña Errores (la sustituye la subparte 3.7).
 import { placeholderView } from './_placeholder.js';
 
 export default placeholderView({

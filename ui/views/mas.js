@@ -1,3 +1,4 @@
+// @purpose: Pestaña Más: acceso a Ajustes, datos de la versión y zona de pruebas de avisos y errores.
 import { h } from '../dom.js';
 import { buildHref } from '../../app/router.js';
 import { createView } from './_viewBase.js';

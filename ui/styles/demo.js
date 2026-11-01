@@ -1,3 +1,4 @@
+// @purpose: Comportamiento de la galería demo.html (script clásico, solo para inspección visual).
 /* demo.js — comportamiento de la galería (demo.html). Solo para inspección visual; no es parte de la app.
    Script clásico (no módulo) para que también abra desde archivo local. Sin innerHTML ni estilos en línea:
    funciona bajo la CSP del roadmap (8.16). */
@@ -11,19 +12,10 @@
   function qsa(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
 
   // ---------- Tema ----------
-  // prefers-color-scheme solo SUGIERE el tema inicial; después manda lo que elija la persona.
-  function suggestedTheme() {
-    try {
-      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'claro' : 'aurora';
-    } catch (e) {
-      console.error('No se pudo leer prefers-color-scheme', e);
-      return 'aurora';
-    }
-  }
-
+  // Desde 0.9.3 no hay tema automático: Aurora, o ?tema=<nombre> si es válido.
   function initialTheme() {
     var wanted = new URLSearchParams(window.location.search).get('tema');
-    return THEMES.indexOf(wanted) !== -1 ? wanted : suggestedTheme();
+    return THEMES.indexOf(wanted) !== -1 ? wanted : 'aurora';
   }
 
   function setTheme(name) {

@@ -1,3 +1,4 @@
+// @purpose: Router por hash: tabla de rutas, resolución de #/ruta, construcción de enlaces y escucha de cambios.
 // Router por hash (subparte 0.4). Rutas: #/hoy #/mapa #/practicar #/errores #/mas #/sesion/:id #/tema/:id #/ajustes #/bienvenida #/404
 //
 //   ROUTES                         tabla de rutas { name, path, tab, title }

@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "topics": [
+    {
+      "id": "gram.present_perfect.form",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect: forma",
+      "title_en": "Present perfect: form",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "status": "draft"
+    },
+    {
+      "id": "gram.present_perfect.for_since",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "Present perfect con for y since",
+      "title_en": "Present perfect with for / since",
+      "prereq": [
+        "gram.present_perfect.form"
+      ],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "status": "active",
+      "theory": {
+        "rule_es": "Para algo que empezó en el pasado y sigue ahora usamos have/has + participio, con for (duración) o since (punto de partida).",
+        "form": "have/has + participio",
+        "use_es": "Situaciones que empezaron antes y continúan hasta ahora.",
+        "examples": [
+          {
+            "en": "I've lived here for two years.",
+            "es": "Vivo aquí desde hace dos años."
+          }
+        ],
+        "typical_errors": [
+          {
+            "wrong": "I'm living here since two years.",
+            "right": "I've lived here for two years.",
+            "why_es": "En inglés el presente no se combina con for/since para esto.",
+            "code": "TNS.SINCE_FOR"
+          }
+        ],
+        "es_contrast_es": "El español usa el presente («vivo aquí desde hace dos años»); el inglés usa el present perfect."
+      }
+    },
+    {
+      "id": "gram.modals.no_to",
+      "area": "gram",
+      "level": "A2",
+      "title_es": "can/could sin to",
+      "title_en": "can/could without to",
+      "prereq": [],
+      "priority": 1,
+      "diagnosed_gap": true,
+      "min_items": 12,
+      "status": "draft"
+    }
+  ]
+}

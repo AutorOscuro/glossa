@@ -1,3 +1,4 @@
+// @purpose: Pruebas de bottomNav, toast y errorBoundary con DOM falso.
 // Pruebas de bottomNav, toast y errorBoundary (subparte 0.4) con DOM falso.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

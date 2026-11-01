@@ -1,3 +1,4 @@
+// @purpose: Pruebas de ui/dom.js (h, hs, esc, on, qs) con DOM falso, incluido el escape contra XSS.
 // Pruebas de ui/dom.js (subparte 0.4): h(), hs(), esc(), on(), qs() con DOM falso. Incluye XSS.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

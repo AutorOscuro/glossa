@@ -1,3 +1,4 @@
+// @purpose: Elige el motor de almacenamiento: IndexedDB si está disponible y abre bien; si no, memoria.
 // Elige el motor de almacenamiento (subparte 0.7, B2a). Puro y probable con Node: todo lo del entorno se inyecta.
 //   · Hay IndexedDB y abre bien → motor real, mode 'indexeddb', persistent true.
 //   · No hay IndexedDB (o el navegador la bloquea: UNAVAILABLE) → motor en memoria, mode 'memory', persistent false

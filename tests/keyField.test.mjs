@@ -1,3 +1,4 @@
+// @purpose: Pruebas del campo de clave secreta (ui/components/keyField.js) con DOM falso.
 // Pruebas de ui/components/keyField.js (subparte 0.8, cuarto 2) con DOM falso.
 import { test, afterEach } from 'node:test';
 import assert from 'node:assert/strict';

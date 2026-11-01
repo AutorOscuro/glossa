@@ -1,3 +1,4 @@
+// @purpose: Motor de almacenamiento sobre IndexedDB real; cumple el mismo contrato que el motor en memoria.
 // Motor de almacenamiento sobre IndexedDB REAL (subparte 0.7, mitad B1). Cumple el MISMO contrato y lanza los MISMOS errores
 // que core/db.memory.js (la suite tests/_dbContract.mjs corre idéntica contra ambos; este se prueba en Chromium real porque Node no trae IndexedDB).
 //
@@ -233,6 +234,22 @@ export function createIdbDb({ name = 'sophia-ingles', schema = STORES, schemaVer
         if (existed) await req(os.delete(key));
         return existed;
       },
+      async clear(n) {
+        check(n);
+        const os = idbTx.objectStore(n);
+        if ((RESERVED[n] ?? []).length === 0) {
+          const count = await req(os.count());
+          await req(os.clear());
+          return count;
+        }
+        let removed = 0;
+        for (const k of await req(os.getAllKeys())) {
+          if (isReserved(n, k)) continue;
+          await req(os.delete(k));
+          removed += 1;
+        }
+        return removed;
+      },
       async query(n, opts) {
         const def = check(n);
         const plan = compileQuery(n, def, opts);
@@ -284,6 +301,7 @@ export function createIdbDb({ name = 'sophia-ingles', schema = STORES, schemaVer
     get: (n, key) => readOnly(n, (o) => o.get(n, key)),
     put: (n, rec) => direct(n, (o) => o.put(n, rec)),
     delete: (n, key) => direct(n, (o) => o.delete(n, key)),
+    clear: (n) => direct(n, (o) => o.clear(n)),
     query: (n, opts) => readOnly(n, (o) => o.query(n, opts)),
     count: (n, opts) => readOnly(n, (o) => o.count(n, opts)),
 
@@ -328,11 +346,8 @@ export function createIdbDb({ name = 'sophia-ingles', schema = STORES, schemaVer
         await run(names, 'readwrite', async (idbTx) => {
           const currentSettings = unwrapAll(await req(idbTx.objectStore('settings').getAll()));
           const plan = planImport(prepared, { mode, keepSecrets, currentSettings });
-          for (const n of plan.clear) {
-            const os = idbTx.objectStore(n);
-            if ((RESERVED[n] ?? []).length === 0) { os.clear(); continue; }
-            for (const k of await req(os.getAllKeys())) if (!isReserved(n, k)) os.delete(k);
-          }
+          const ops = makeOps(idbTx, null);
+          for (const n of plan.clear) await ops.clear(n);
           for (const [n, rec] of plan.records) {
             const def = schema[n];
             idbTx.objectStore(n).put(wrap(def, structuredClone(rec)));

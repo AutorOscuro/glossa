@@ -1,3 +1,4 @@
+// @purpose: Mascota «Chispa» dibujada en SVG, con estados y colores del tema.
 // Mascota "Chispa" (subparte 0.5): una criatura redonda con antena, dibujada en SVG ORIGINAL (sin imágenes externas).
 // Los colores salen de variables del tema (--accent, --on-accent, --accent-2), así cambia con Aurora/Neo/Claro.
 //

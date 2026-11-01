@@ -1,8 +1,8 @@
-# Cómo publicar Sophia Inglés (guía para William)
+# Cómo publicar Glossa (guía para William)
 
 Esta guía no necesita conocimientos previos. Tiempo: unos 30 minutos la primera vez. Después, actualizar tarda 5 minutos.
 
-**Qué vas a lograr:** que la app tenga una dirección web (`https://TU-USUARIO.github.io/sophia-ingles/`), que la abras en el Chrome de tu Android y la instales como una app más, y que funcione sin conexión.
+**Qué vas a lograr:** que la app tenga una dirección web (`https://TU-USUARIO.github.io/glossa/`; la de William es `https://autoroscuro.github.io/glossa/`), que la abras en el Chrome de tu Android y la instales como una app más, y que funcione sin conexión.
 
 > Todo lo que subes es gratis. Tus respuestas y tu progreso **NO** se suben a ningún sitio: se guardan solo en tu teléfono.
 
@@ -13,12 +13,12 @@ Esta guía no necesita conocimientos previos. Tiempo: unos 30 minutos la primera
 ### 1. Crea tu cuenta y el repositorio
 1. Entra a <https://github.com> y crea una cuenta (si ya tienes, inicia sesión).
 2. Arriba a la derecha toca **+** → **New repository**.
-3. En **Repository name** escribe `sophia-ingles` (en minúsculas, sin espacios).
+3. En **Repository name** escribe `glossa` (en minúsculas, sin espacios).
 4. Deja marcado **Public** (GitHub Pages gratis lo necesita).
 5. **No** marques "Add a README". Toca **Create repository**.
 
 ### 2. Prepara los archivos en tu PC
-1. Descomprime el zip que te dio el chat (por ejemplo `sophia-ingles_0.6_….zip`). Te queda una carpeta `sophia-ingles`.
+1. Descomprime el zip que te dio el chat (por ejemplo `sophia-ingles_0.6_….zip`). Te queda una carpeta `sophia-ingles` (es el nombre de trabajo del proyecto, solo por dentro del zip; la app se llama Glossa y tu repositorio se llama `glossa`).
 2. **Importante:** sube el **contenido** de esa carpeta (`index.html`, `sw.js`, `app/`, `ui/`…), no el zip ni una carpeta extra por fuera. `index.html` debe quedar en la raíz del repositorio.
 3. Si usas Windows y no ves el archivo `.nojekyll`, activa en el Explorador **Ver → Mostrar → Elementos ocultos**. Ese archivo es obligatorio (más abajo, "Si algo falla").
 
@@ -26,7 +26,7 @@ Esta guía no necesita conocimientos previos. Tiempo: unos 30 minutos la primera
 
 **Forma A — GitHub Desktop (recomendada, sin límite de archivos):**
 1. Instala GitHub Desktop desde <https://desktop.github.com> e inicia sesión.
-2. **File → Clone repository** → elige `sophia-ingles` → elige una carpeta de tu PC.
+2. **File → Clone repository** → elige `glossa` → elige una carpeta de tu PC.
 3. Copia dentro de esa carpeta **todo el contenido** de la carpeta descomprimida (incluidos los archivos ocultos como `.nojekyll`).
 4. En GitHub Desktop verás la lista de cambios. Abajo escribe `Primera publicación` y toca **Commit to main**.
 5. Toca **Push origin**.
@@ -48,7 +48,7 @@ Esta guía no necesita conocimientos previos. Tiempo: unos 30 minutos la primera
 1. En el Chrome del teléfono abre tu dirección. La primera vez debes tener internet.
 2. Debes ver "Cargando…" y enseguida la pantalla **Hoy** con las 5 pestañas de abajo. Unos segundos después puede salir el aviso **"Lista para usar sin conexión."**
 3. Toca los tres puntos de Chrome (⋮) → **Instalar app** (o **Añadir a pantalla de inicio**). Confirma.
-4. Busca el icono de Sophia (la mascota Chispa) en tu pantalla de inicio y ábrelo desde ahí: se abre a pantalla completa, como una app.
+4. Busca el icono de Glossa (la mascota Chispa) en tu pantalla de inicio y ábrelo desde ahí: se abre a pantalla completa, como una app.
 
 ### 6. Prueba el modo sin conexión
 1. Con la app ya abierta una vez, activa el **modo avión**.
